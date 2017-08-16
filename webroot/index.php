@@ -31,3 +31,30 @@ define('APP_PATH', './Application/');
 require './vendor/topthink/thinkphp/ThinkPHP/ThinkPHP.php';
 
 // 亲^_^ 后面不需要任何代码了 就是如此简单
+
+$msg = PHP_EOL . 'index.php:'
+    . PHP_EOL . '路径常量:'
+    . PHP_EOL . '  THINK_VERSION = ' . THINK_VERSION
+    . PHP_EOL . '  THINK_PATH = ' . THINK_PATH
+    . PHP_EOL . '  LIB_PATH = ' . LIB_PATH
+    . PHP_EOL . '  CORE_PATH = ' . CORE_PATH
+    . PHP_EOL . '  APP_PATH = ' . APP_PATH
+    . PHP_EOL . '  LOG_PATH = ' . LOG_PATH
+    . PHP_EOL . '  DATA_PATH = ' . DATA_PATH
+    . PHP_EOL . '  APP_DEBUG = ' . APP_DEBUG
+    . PHP_EOL . '系统常量:'
+    . PHP_EOL . '  __APP__ = ' . __APP__
+    . PHP_EOL . '  __MODULE__ = ' . __MODULE__
+    . PHP_EOL . '  __CONTROLLER__ = ' . __CONTROLLER__
+    . PHP_EOL . '  __ACTION__ = ' . __ACTION__
+    . PHP_EOL . '  __SELF__ = ' . __SELF__
+    . PHP_EOL . '  __INFO__ = ' . __INFO__
+    . PHP_EOL . '  MODULE_NAME = ' . MODULE_NAME
+    . PHP_EOL . '  CONTROLLER_NAME = ' . CONTROLLER_NAME
+    . PHP_EOL . '  ACTION_NAME = ' . ACTION_NAME
+    . PHP_EOL . '  REQUEST_METHOD = ' . REQUEST_METHOD
+    . PHP_EOL . '  IS_AJAX = ' . IS_AJAX
+    . PHP_EOL . '配置:'
+    . PHP_EOL . '  C(URL_MODEL) = ' . C('URL_MODEL')
+    . PHP_EOL . str_repeat('-', 80);
+Think\Log::write($msg, 'INFO');

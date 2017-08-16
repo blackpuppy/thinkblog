@@ -1,0 +1,32 @@
+# ThinkPHP
+Application/Runtime
+
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+
+# NPM packages
+/node_modules
+
+# Vagrant
+.vagrant
+_vagrant/puphpet/files/dot/ssh
+
+# composer vendor dir
+vendor

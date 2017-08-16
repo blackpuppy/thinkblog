@@ -1,0 +1,16 @@
+{
+    "name": "blackpuppy/thinkblog",
+    "description": "Blog based on the ThinkPHP Framework",
+    "type": "application",
+    "keywords": ["blog","thinkphp"],
+    "authors": [
+        {
+            "name": "Zhu Ming",
+            "email": "mingzhu.z@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "topthink/thinkphp": "^3.2"
+    }
+}

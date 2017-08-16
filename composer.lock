@@ -1,0 +1,57 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "778541c8247073a5bc33fc95a2e1b51c",
+    "packages": [
+        {
+            "name": "topthink/thinkphp",
+            "version": "3.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liu21st/thinkphp.git",
+                "reference": "94d5c5ef980be6a3f31d6938e5cbf997f6cdb4a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/liu21st/thinkphp/94d5c5ef980be6a3f31d6938e5cbf997f6cdb4a2.zip",
+                "reference": "94d5c5ef980be6a3f31d6938e5cbf997f6cdb4a2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "framework",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "liu21st",
+                    "email": "liu21st@gmail.com"
+                }
+            ],
+            "description": "the ThinkPHP Framework",
+            "homepage": "http://thinkphp.cn/",
+            "keywords": [
+                "framework",
+                "orm",
+                "thinkphp"
+            ],
+            "time": "2015-10-08T06:19:21+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.3.0"
+    },
+    "platform-dev": []
+}

@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "topthink/thinkphp": "^3.2"
+        "topthink/thinkphp": "^3.2",
+        "snowair/think-dotenv": "dev-master"
     }
 }

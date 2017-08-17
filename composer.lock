@@ -4,8 +4,132 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "778541c8247073a5bc33fc95a2e1b51c",
+    "content-hash": "7d2893e61ee5f8b8ad83ad1998039e58",
     "packages": [
+        {
+            "name": "josegonzalez/dotenv",
+            "version": "1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/josegonzalez/php-dotenv.git",
+                "reference": "38a38273b7bdbe38ce0106aea373eae7a4f3125e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/josegonzalez/php-dotenv/zipball/38a38273b7bdbe38ce0106aea373eae7a4f3125e",
+                "reference": "38a38273b7bdbe38ce0106aea373eae7a4f3125e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "1.*",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "josegonzalez\\Dotenv": [
+                        "src",
+                        "tests"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jose Diaz-Gonzalez",
+                    "email": "dotenv@josegonzalez.com",
+                    "homepage": "http://josediazgonzalez.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "dotenv file parsing for PHP",
+            "homepage": "https://github.com/josegonzalez/php-dotenv",
+            "keywords": [
+                "configuration",
+                "dotenv",
+                "php"
+            ],
+            "time": "2016-01-07T07:13:27+00:00"
+        },
+        {
+            "name": "snowair/think-dotenv",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/snowair/think-dotenv.git",
+                "reference": "6be232aa57d0ebd36d8feec0da62f12c2221ef1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/snowair/think-dotenv/zipball/6be232aa57d0ebd36d8feec0da62f12c2221ef1c",
+                "reference": "6be232aa57d0ebd36d8feec0da62f12c2221ef1c",
+                "shasum": ""
+            },
+            "require": {
+                "josegonzalez/dotenv": "^1.0",
+                "snowair/think-hookagent": ">=0.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Snowair\\Dotenv\\": "."
+                },
+                "files": [
+                    "DotEnv.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "apache"
+            ],
+            "authors": [
+                {
+                    "name": "朱亚杰",
+                    "email": "xcoolcc@gmail.com"
+                }
+            ],
+            "description": "ThinkPHP3.2集成php-dotenv",
+            "time": "2015-12-28 10:27:07"
+        },
+        {
+            "name": "snowair/think-hookagent",
+            "version": "v0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/snowair/think-hookagent.git",
+                "reference": "238b8838b8dcdfedee4bad0b9d5b4e15ab934d1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/snowair/think-hookagent/zipball/238b8838b8dcdfedee4bad0b9d5b4e15ab934d1e",
+                "reference": "238b8838b8dcdfedee4bad0b9d5b4e15ab934d1e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Snowair\\Think\\Behavior\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "朱亚杰",
+                    "email": "xcoolcc@gmail.com"
+                }
+            ],
+            "description": "ThinkPHP3.2 composer扩展包开发工具",
+            "time": "2015-09-12T13:26:13+00:00"
+        },
         {
             "name": "topthink/thinkphp",
             "version": "3.2.3",
@@ -16,7 +140,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/liu21st/thinkphp/94d5c5ef980be6a3f31d6938e5cbf997f6cdb4a2.zip",
+                "url": "https://api.github.com/repos/liu21st/thinkphp/zipball/94d5c5ef980be6a3f31d6938e5cbf997f6cdb4a2",
                 "reference": "94d5c5ef980be6a3f31d6938e5cbf997f6cdb4a2",
                 "shasum": ""
             },
@@ -47,7 +171,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "snowair/think-dotenv": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

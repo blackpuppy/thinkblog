@@ -21,13 +21,13 @@
 $ docker run --rm --interactive --tty --volume $PWD:/app composer install
 ```
 
-从 .env.example 拷贝创建 .env，并根据你的当前环境进行设置。在 Mac 或者 Linux 下可用如下命令：
+从 .env.example 拷贝创建 .env，并根据你的当前环境进行设置。在 Mac 或者 Linux 下可用如下命令：
 
 ```
 $ cp .env.example .env
 ```
 
-运行如下命令构件 Docker 映像，并在后台启动容器：
+运行如下命令构建 Docker 映像，并在后台启动容器：
 
 ```
 $ docker-compose up -d

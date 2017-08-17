@@ -26,7 +26,7 @@ services:
     database:
         image: mysql:latest
         environment:
-            - "MYSQL_ROOT_PASSWORD=secret"
-            - "MYSQL_DATABASE=biztrack"
+            - "MYSQL_ROOT_PASSWORD=P@55w0rd"
+            - "MYSQL_DATABASE=thinkblog"
         ports:
             - "33061:3306"

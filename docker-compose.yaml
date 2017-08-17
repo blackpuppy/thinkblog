@@ -30,3 +30,5 @@ services:
             - "MYSQL_DATABASE=thinkblog"
         ports:
             - "33061:3306"
+        volumes:
+            - ./_docker/mysql-conf.d:/etc/mysql/conf.d

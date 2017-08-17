@@ -1,0 +1,32 @@
+version: '2'
+services:
+    web:
+        build:
+            context: ./
+            dockerfile: _docker/web.docker
+        volumes:
+            - ./:/var/www/html
+        ports:
+            - "8082:80"
+        links:
+            - app
+    app:
+        build:
+            context: ./
+            dockerfile: _docker/app.docker
+        volumes:
+            - ./:/var/www/html
+        links:
+            - database
+        environment:
+            - "DB_PORT=3306"
+            - "DB_HOST=database"
+            - "REDIS_PORT=6379"
+            - "REDIS_HOST=cache"
+    database:
+        image: mysql:latest
+        environment:
+            - "MYSQL_ROOT_PASSWORD=secret"
+            - "MYSQL_DATABASE=biztrack"
+        ports:
+            - "33061:3306"

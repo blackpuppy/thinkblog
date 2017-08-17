@@ -30,3 +30,8 @@ _vagrant/puphpet/files/dot/ssh
 
 # composer vendor dir
 vendor
+
+# .env
+.env
+.env.*
+!.env.example

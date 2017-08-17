@@ -37,6 +37,7 @@ class CreatePostTable extends AbstractMigration
             'comment' => '内容',
         ])->addColumn('created_at', 'datetime', [
             'null' => false,
+            'default' => 'CURRENT_TIMESTAMP',
             'comment' => '创建时间',
         ])->addColumn('updated_at', 'datetime', [
             'null' => true,

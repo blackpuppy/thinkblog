@@ -7,7 +7,7 @@ services:
         volumes:
             - ./:/var/www/html
         ports:
-            - "8082:80"
+            - "8084:80"
         links:
             - app
     app:
@@ -29,6 +29,6 @@ services:
             - "MYSQL_ROOT_PASSWORD=P@55w0rd"
             - "MYSQL_DATABASE=thinkblog"
         ports:
-            - "33061:3306"
+            - "33064:3306"
         volumes:
             - ./_docker/mysql-conf.d:/etc/mysql/conf.d

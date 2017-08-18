@@ -1,4 +1,8 @@
-<h1>Home Page</h1>
+<h1>Posts</h1>
+
+<volist name="posts" id="post" empty="暂时没有数据">
+    {$post.title}:{$post.content}
+</volist>
 
 <ul>
     <li><a href="{:U('Post/index')}">列表</a></li>

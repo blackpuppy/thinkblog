@@ -2,10 +2,11 @@
 
 用 ThinkPHP 3.2 开发的演示程序，说明如何实现以下基本的功能。
 
-- [ ] 去掉地址里面的入口文件index.php
-- [x] 用Docker配置本地开发环境
+- [/] 去掉地址里面的入口文件 index.php
+- [x] 用 Docker 配置本地开发环境
 - [x] 配置放入环境
-- [ ] 基本的 CRUD
+- [/] 基本的 CRUD
+- [ ] 用 Laravel Mix 构建前端资源
 - [ ] 用户验证与授权
 - [ ] i18n/l10n
 - [ ] Web API

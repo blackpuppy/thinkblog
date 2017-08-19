@@ -9,6 +9,9 @@
             "email": "mingzhu.z@gmail.com"
         }
     ],
+    "autoload": {
+        "files": ["mix.php"]
+    },
     "require": {
         "php": ">=5.3.0",
         "robmorgan/phinx": "^0.8.1",

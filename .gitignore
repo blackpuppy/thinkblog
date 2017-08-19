@@ -22,7 +22,7 @@ Thumbs.db
 phpunit.phar
 
 # NPM packages
-/node_modules
+node_modules
 
 # Vagrant
 .vagrant
@@ -35,3 +35,8 @@ vendor
 .env
 .env.*
 !.env.example
+
+# Laravel Mix manifest
+/mix-manifest.json
+webroot/Public/css/*.css
+webroot/Public/js/*.js

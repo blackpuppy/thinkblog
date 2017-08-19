@@ -66,5 +66,6 @@ $msg = PHP_EOL . 'index.php:'
     // . PHP_EOL . '  IS_AJAX = ' . IS_AJAX
     . PHP_EOL . '配置:'
     . PHP_EOL . '  C(URL_MODEL) = ' . C('URL_MODEL')
+    . PHP_EOL . '  C(URL_HTML_SUFFIX) = ' . C('URL_HTML_SUFFIX')
     . PHP_EOL . str_repeat('-', 80);
 Think\Log::write($msg, 'INFO');

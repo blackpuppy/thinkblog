@@ -1,18 +1,24 @@
 <div class="container">
     <h1>修改文章</h1>
 
-    <form action="{:U('/posts/update/' . $post['id'])}" method="post">
-        <div>
-            <label for="title">标题：</label>
-            <input type="text" id="title" name="title" value="{$post['title']}"/>
+    <form action="{:U('/posts/update/' . $post['id'])}" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label for="title" class="control-label col-sm-2">标题：</label>
+            <div class="col-md-8">
+                <input type="text" id="title" name="title" value="{$post['title']}" required autofocus>
+            </div>
         </div>
-        <div>
-            <label for="content">内容：</label>
-            <textarea id="content" name="content">{$post['content']}</textarea>
+        <div class="form-group">
+            <label for="content" class="control-label col-sm-2">内容：</label>
+            <div class="col-md-8">
+                <textarea id="content" name="content" cols="60" rows="5" required>{$post['content']}</textarea>
+            </div>
         </div>
-        <div>
-            <input type="submit" value="保存">
-            <a href="{:U('/posts')}">取消</a>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="保存" class="btn btn-success">
+                <a href="{:U('/posts')}" class="btn btn-default">取消</a>
+            </div>
         </div>
     </form>
 </div>

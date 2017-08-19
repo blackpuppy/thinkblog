@@ -1,11 +1,33 @@
-<h1>Posts</h1>
+<h2>文章列表</h2>
 
-<volist name="posts" id="post" empty="暂时没有数据">
-    {$post.title}:{$post.content}
-</volist>
+<section>
+    <a href="{:U('/posts/add')}">添加文章</a>
+</section>
 
-<ul>
-    <li><a href="{:U('Post/index')}">列表</a></li>
-    <li><a href="{:U('Post/add')}">添加</a></li>
-    <li><a href="{:U('Post/update')}">更新</a></li>
-</ul>
+<section>
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>标题</th>
+                <th>内容</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <volist name="posts" id="post" key="no" empty="暂时没有数据">
+            <tr>
+                <td>{$no}</td>
+                <td>{$post.title}</td>
+                <td>{$post.content}</td>
+                <td>
+                    <a href="{:U('/posts/update/' . $post['id'])}">修改</a>
+                    <a href="{:U('/posts/delete/' . $post['id'])}">删除</a>
+                    <!-- <a href="{:U('Post/update', ['id' => $post['id']])}">修改</a>
+                    <a href="{:U('Post/delete', ['id' => $post['id']])}">删除</a> -->
+                </td>
+            </tr>
+        </volist>
+        </tbody>
+    </table>
+</section>

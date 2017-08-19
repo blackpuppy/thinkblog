@@ -6,12 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 <body>
-    <div>
+	<head>
+		<include file="Layout/header" />
+	</head>
+	<aside>
+		<include file="Layout/menu" />
+	</aside>
+
+	<hr>
+
+    <section>
         {__CONTENT__}
-    </div>
+    </section>
+
+	<hr>
 
     <footer>
-    	欢迎使用 <b>ThinkPHP</b>！版本 V{$Think.version}
+		<include file="Layout/footer" />
     </footer>
 </body>
 

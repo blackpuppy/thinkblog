@@ -7,7 +7,6 @@ class IndexController extends Controller
 {
     public function index()
     {
-        // layout(true);
         $this->display();
     }
 }

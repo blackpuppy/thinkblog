@@ -62,10 +62,12 @@ $msg = PHP_EOL . 'index.php:'
     . PHP_EOL . '  MODULE_NAME = ' . MODULE_NAME
     . PHP_EOL . '  CONTROLLER_NAME = ' . CONTROLLER_NAME
     . PHP_EOL . '  ACTION_NAME = ' . ACTION_NAME
-    // . PHP_EOL . '  REQUEST_METHOD = ' . REQUEST_METHOD
+    . PHP_EOL . '  REQUEST_METHOD = ' . REQUEST_METHOD
+    . PHP_EOL . '  IS_GET = ' . IS_GET
+    . PHP_EOL . '  IS_POST = ' . IS_POST
     // . PHP_EOL . '  IS_AJAX = ' . IS_AJAX
-    . PHP_EOL . '配置:'
-    . PHP_EOL . '  C(URL_MODEL) = ' . C('URL_MODEL')
-    . PHP_EOL . '  C(URL_HTML_SUFFIX) = ' . C('URL_HTML_SUFFIX')
+    // . PHP_EOL . '配置:'
+    // . PHP_EOL . '  C(URL_MODEL) = ' . C('URL_MODEL')
+    // . PHP_EOL . '  C(URL_HTML_SUFFIX) = ' . C('URL_HTML_SUFFIX')
     . PHP_EOL . str_repeat('-', 80);
-Think\Log::write($msg, 'INFO');
+// Think\Log::write($msg, 'INFO');

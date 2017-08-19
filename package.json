@@ -1,0 +1,14 @@
+{
+  "name": "thinkblog",
+  "version": "1.0.0",
+  "description": "ThinkPHP Blog",
+  "main": "index.js",
+  "repository": "git@github.com:blackpuppy/thinkblog.git",
+  "author": "Zhu Ming <mingzhu.z+github@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^5.0.5",
+    "laravel-mix": "^1.4.2",
+    "node-sass": "^4.5.3"
+  }
+}

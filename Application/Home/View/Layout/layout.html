@@ -1,6 +1,6 @@
 <?php
-  	// require_once '../vendor/autoload.php';
-  	require_once '../mix.php';
+    // require_once '../vendor/autoload.php';
+    require_once '../mix.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,23 +13,21 @@
     <link rel="stylesheet" href="<?php echo mix('css/app.css'); ?>" />
 </head>
 <body>
-	<head>
-		<include file="Layout/header" />
-	</head>
-	<aside>
-		<include file="Layout/menu" />
-	</aside>
+    <header class="container">
+        <!-- <include file="Layout/header" /> -->
+    </header>
 
-	<hr>
+    <include file="Layout/menu" />
 
-    <section>
+    <!-- <aside>
+    </aside> -->
+
+    <section class="container">
         {__CONTENT__}
     </section>
 
-	<hr>
-
-    <footer>
-		<include file="Layout/footer" />
+    <footer class="footer">
+        <include file="Layout/footer" />
     </footer>
 
     <script src="<?php echo mix('js/app.js'); ?>"></script>

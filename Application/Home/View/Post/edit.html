@@ -1,16 +1,18 @@
-<h1>修改文章</h1>
+<div class="container">
+    <h1>修改文章</h1>
 
-<form action="{:U('/posts/update/' . $post['id'])}" method="post">
-    <div>
-        <label for="title">标题：</label>
-        <input type="text" id="title" name="title" value="{$post['title']}"/>
-    </div>
-    <div>
-        <label for="content">内容：</label>
-        <textarea id="content" name="content">{$post['content']}</textarea>
-    </div>
-    <div>
-        <input type="submit" value="保存">
-        <a href="{:U('/posts')}">取消</a>
-    </div>
-</form>
+    <form action="{:U('/posts/update/' . $post['id'])}" method="post">
+        <div>
+            <label for="title">标题：</label>
+            <input type="text" id="title" name="title" value="{$post['title']}"/>
+        </div>
+        <div>
+            <label for="content">内容：</label>
+            <textarea id="content" name="content">{$post['content']}</textarea>
+        </div>
+        <div>
+            <input type="submit" value="保存">
+            <a href="{:U('/posts')}">取消</a>
+        </div>
+    </form>
+</div>

@@ -22,14 +22,14 @@ Thumbs.db
 phpunit.phar
 
 # NPM packages
-node_modules
+/node_modules
 
 # Vagrant
 .vagrant
 _vagrant/puphpet/files/dot/ssh
 
 # composer vendor dir
-vendor
+/vendor
 
 # .env
 .env
@@ -40,3 +40,4 @@ vendor
 /mix-manifest.json
 webroot/Public/css/*.css
 webroot/Public/js/*.js
+webroot/Public/fonts/

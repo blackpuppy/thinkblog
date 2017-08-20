@@ -4,3 +4,6 @@ require('bootstrap-sass');
 
 // Bootstrap Confirmation
 require('bootstrap-confirmation2/bootstrap-confirmation.min');
+
+// Application JavaScript.
+require('./thinkblog');

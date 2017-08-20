@@ -31,8 +31,17 @@
                         <td>
                             <a href="{:U('/posts/edit/' . $post['id'])}" class="btn btn-primary">修改</a>
                             <a href="{:U('/posts/delete/' . $post['id'])}" class="btn btn-danger">删除</a>
-                            <!-- <a href="{:U('Post/edit', ['id' => $post['id']])}">修改</a>
-                            <a href="{:U('Post/delete', ['id' => $post['id']])}">删除</a> -->
+                            <form class="form-inline inline" action="{:U('/posts/delete/' . $post['id'])}" method="POST">
+                                <button type="submit" class="btn btn-danger"
+                                        data-toggle="confirmation" data-popout="true"
+                                        data-singleton="true" data-html="true"
+                                        data-btn-ok-class="btn-success"
+                                        data-btn-cancel-class="btn-danger"
+                                        data-title="<h5 class='text-center'><strong>Confirmation</strong></h5>"
+                                        data-content='您确认要删除这篇文章吗？'>
+                                    删除
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 </volist>

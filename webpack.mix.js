@@ -13,7 +13,7 @@ mix.webpackConfig({
                 loader: 'file-loader',
                 options: {
                     name: '[path][name].[ext]?[hash]',
-                    outputPath: 'fonts/',
+                    outputPath: '/fonts/',
                     context: 'public',
                     emitFile: true
                 }
@@ -23,7 +23,8 @@ mix.webpackConfig({
 });
 
 mix.js('resources/js/app.js', 'js')
-   .sass('resources/sass/app.scss', 'css');
+    .sass('resources/sass/app.scss', 'css')
+    .setPublicPath('webroot/Public');
 
 if (mix.inProduction()) {
     mix.version();

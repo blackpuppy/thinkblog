@@ -37,7 +37,7 @@ _vagrant/puphpet/files/dot/ssh
 !.env.example
 
 # Laravel Mix manifest
-/mix-manifest.json
+mix-manifest.json
 webroot/Public/css/*.css
 webroot/Public/js/*.js
 webroot/Public/fonts/

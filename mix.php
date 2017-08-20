@@ -25,6 +25,13 @@ if (! function_exists('mix')) {
         if ($manifestDirectory && ! starts_with($manifestDirectory, '/')) {
             $manifestDirectory = "/{$manifestDirectory}";
         }
+
+        // $msg = PHP_EOL . '$rootPath = ' . $rootPath
+        //     . PHP_EOL . '$publicFolder = ' . $publicFolder
+        //     . PHP_EOL . '$publicPath = ' . $publicPath
+        //     . PHP_EOL . '$manifestDirectory = ' . $manifestDirectory
+        //     . PHP_EOL . '$manifest = ' . print_r($manifest, true);
+
         if (! $manifest) {
             if (! file_exists($manifestPath = ($rootPath . $manifestDirectory.'/mix-manifest.json') )) {
                 throw new Exception('The Mix manifest does not exist.');
@@ -34,9 +41,9 @@ if (! function_exists('mix')) {
         if (! starts_with($path, '/')) {
             $path = "/{$path}";
         }
-        $path = $publicFolder . $path;
+        // $path = $publicFolder . $path;
 
-        // $msg = PHP_EOL . '$path = ' . $path
+        // $msg .= PHP_EOL . '$path = ' . $path
         //     . PHP_EOL . '$manifest = ' . print_r($manifest, true);
         // \Think\Log::write($msg, 'INFO');
 

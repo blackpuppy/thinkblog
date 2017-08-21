@@ -1,9 +1,9 @@
 <?php
 
-return array(
-    // 'app_begin' => array('Behavior\CheckLangBehavior'),
+return [
+    'app_begin' => ['Behavior\CheckLangBehavior'],
 
-    'app_init' => array(
+    'app_init' => [
         'Snowair\Think\Behavior\HookAgent',
-    ),
-);
+    ],
+];

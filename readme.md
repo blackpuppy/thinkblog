@@ -8,7 +8,7 @@
 - [x] 基本的 CRUD
 - [x] 用 Laravel Mix 构建前端资源
 - [ ] 用户验证与授权
-- [ ] i18n/l10n
+- [x] 多语言支持
 - [ ] Web API
 - [ ] AngularJS 1 客户端
 

@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             <a href="/" class="navbar-brand">
-                ThinkPHP Blog
+                {$Think.lang.APPLICATION_NAME}
             </a>
         </div>
 
@@ -23,7 +23,7 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{:U('/posts')}">文章</a></li>
+                <li><a href="{:U('/posts')}">{$Think.lang.MENU_POSTS}</a></li>
                 <!-- <li role="separator" class="divider"></li>
                 <li><a href="{:U('/users')}">用户</a></li> -->
 
@@ -41,6 +41,17 @@
                         <li><a href="{:U('/users/login')}">退出</a></li>
                     </ul>
                 </li> -->
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {$Think.lang.SWITCH_LANGUAGE}<span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="?l=zh-cn">{$Think.lang.CHINESE}</a></li>
+                        <li><a href="?l=en-us">{$Think.lang.ENGLISH}</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

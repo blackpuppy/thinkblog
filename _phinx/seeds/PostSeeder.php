@@ -17,14 +17,32 @@ class PostSeeder extends AbstractSeed
 
         $posts = [
             [
-                'title'   => 'First post',
-                'content' => 'This is first post.',
+                'title'   => 'ThinkPHP 3.2',
+                'content' => '国内流行的框架，简单易用，功能还不够全面，有些特性还不够完善。',
             ], [
-                'title'   => 'Second post',
-                'content' => 'This is second post.',
+                'title'   => 'CakePHP 2.x',
+                'content' => '老牌的框架，文档详细，有中文翻译。',
             ], [
-                'title'   => 'Third post',
-                'content' => 'This is third post.',
+                'title'   => 'CakePHP 3.x',
+                'content' => '改进了ORM，更加现代化。',
+            ], [
+                'title'   => 'Laravel',
+                'content' => '最流行的PHP框架，完备的生态系统，极大地提高了生产力。',
+            ], [
+                'title'   => 'Yii',
+                'content' => '中国人开发的框架，在Laravel出现前一度很流行。',
+            ], [
+                'title'   => 'Zend Framework',
+                'content' => '老牌的框架，没用过，不了解。',
+            ], [
+                'title'   => 'Symfony',
+                'content' => '老牌的框架，没用过，不了解。',
+            ], [
+                'title'   => 'CodeIgniter',
+                'content' => '老牌的框架，没用过，不了解。',
+            ], [
+                'title'   => 'Phalcon',
+                'content' => 'C写的框架，以PHP扩展的形式发布，速度快。没用过，不了解。',
             ]
         ];
 

@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>文章列表</h1>
+            <h1>{$Think.lang.POST_LISTING}</h1>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <a href="{:U('/posts/create')}" class="btn btn-primary">添加文章</a>
+            <a href="{:U('/posts/create')}" class="btn btn-primary">{$Think.lang.CREATE_POST}</a>
         </div>
     </div>
 
@@ -16,30 +16,30 @@
             <table class="table table-striped table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th class="text-center">序号</th>
-                        <th class="text-center">标题</th>
-                        <th class="text-center">内容</th>
-                        <th class="text-center">操作</th>
+                        <th class="text-center">{$Think.lang.SERIAL_NO}</th>
+                        <th class="text-center">{$Think.lang.TITLE}</th>
+                        <th class="text-center">{$Think.lang.CONTENT}</th>
+                        <th class="text-center">{$Think.lang.ACTION}</th>
                     </tr>
                 </thead>
                 <tbody>
-                <volist name="posts" id="post" key="no" empty="暂时没有数据">
+                <volist name="posts" id="post" key="no" empty="{:$Think.lang.NO_DATA_FOUND}">
                     <tr>
                         <td>{$no}</td>
                         <td>{$post.title}</td>
                         <td>{$post.content}</td>
                         <td>
-                            <a href="{:U('/posts/edit/' . $post['id'])}" class="btn btn-primary">修改</a>
+                            <a href="{:U('/posts/edit/' . $post['id'])}" class="btn btn-primary">{$Think.lang.CHANGE}</a>
                             <!-- <a href="{:U('/posts/delete/' . $post['id'])}" class="btn btn-danger">删除</a> -->
                             <button type="button" class="btn btn-danger"
                                     data-toggle="confirmation" data-popout="true"
                                     data-singleton="true" data-html="true"
                                     data-btn-ok-class="btn-success"
                                     data-btn-cancel-class="btn-danger"
-                                    data-title="<h5 class='text-center'><strong>Confirmation</strong></h5>"
-                                    data-content='您确认要删除这篇文章吗？'
+                                    data-title="<h5 class='text-center'><strong>{$Think.lang.CONFIRM_TITLE}</strong></h5>"
+                                    data-content="{:L('CONFIRM_TO_DELETE', ['model' => strtolower(L('POST'))])}"
                                     data-delete-url="{:U('/posts/delete/' . $post['id'])}">
-                                删除
+                                {$Think.lang.DELETE}
                             </button>
                         </td>
                     </tr>

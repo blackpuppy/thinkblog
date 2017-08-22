@@ -1,5 +1,19 @@
 <?php
 return [
+    // 公用
+    'EXCLAMATION_MARK'          => '！',
+    'COLON'                     => '：',
+    'VERION'                    => '版本',
+    'NO_DATA_FOUND'             => '暂时没有数据',
+    'SERIAL_NO'                 => '序号',
+    'ACTION'                    => '操作',
+    'CHANGE'                    => '修改',
+    'DELETE'                    => '删除',
+    'CONFIRM_TITLE'             => '请确认',
+    'CONFIRM_TO_DELETE'         => '您确认要删除这篇{$model}吗？',
+    'SAVE'                      => '保存',
+    'CANCEL'                    => '取消',
+
     // 应用程序
     'APPLICATION_NAME'          => 'ThinkPHP 博客',
     'APPLICATION_SHORT_DESC'    => '用 ThinkPHP 进行开发的演示程序',
@@ -24,4 +38,16 @@ return [
 
     // 页脚
     'WELCOME_TO_USE'    => '欢迎使用',
+
+    // 文章
+    'POST'              => '文章',
+    'POST_LISTING'      => '文章列表',
+    'CREATE_POST'       => '添加文章',
+    'CHANGE_POST'       => '修改文章',
+    'TITLE'             => '标题',
+    'CONTENT'           => '内容',
+
+    // 数据验证 - Post
+    'TITLE_REQUIRED'    => '必须填写标题！',
+    'CONTENT_REQUIRED'  => '必须填写内容！',
 ];

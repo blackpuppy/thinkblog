@@ -1,5 +1,19 @@
 <?php
 return [
+    // common
+    'EXCLAMATION_MARK'          => '!',
+    'COLON'                     => ':',
+    'VERION'                    => 'Version',
+    'NO_DATA_FOUND'             => 'No data found',
+    'SERIAL_NO'                 => 'S/N',
+    'ACTION'                    => 'Action',
+    'CHANGE'                    => 'Change',
+    'DELETE'                    => 'Delete',
+    'CONFIRM_TITLE'             => 'Confirmation',
+    'CONFIRM_TO_DELETE'         => 'Are you sure you wan to delete this {$model}?',
+    'SAVE'                      => 'Save',
+    'CANCEL'                    => 'Cancel',
+
     // application
     'APPLICATION_NAME'          => 'ThinkPHP Blog',
     'APPLICATION_SHORT_DESC'    => 'ThinkPHP Development Demo Application',
@@ -24,4 +38,16 @@ return [
 
     // footer
     'WELCOME_TO_USE'    => 'Welcome to developing with',
+
+    // post
+    'POST'              => 'Post',
+    'POST_LISTING'      => 'Posts',
+    'CREATE_POST'       => 'New Post',
+    'CHANGE_POST'       => 'Cange Post',
+    'TITLE'             => 'Title',
+    'CONTENT'           => 'Content',
+
+    // validation - Post
+    'TITLE_REQUIRED'    => 'Title is required!',
+    'CONTENT_REQUIRED'  => 'Content is required!',
 ];

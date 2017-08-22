@@ -10,8 +10,14 @@ return [
     'VAR_LANGUAGE'      => getenv('VAR_LANGUAGE'),      // 默认语言切换变量
 
     // URL设置
-    'URL_ROUTER_ON'   => true,  //开启路由
-    'URL_ROUTE_RULES' => [ //定义路由规则
+    'URL_MODEL'         => getenv('URL_MODEL'),         // URL访问模式,可选参数0、1、2、3,代表以下四种模式：
+                                                        // 0 (普通模式);
+                                                        // 1 (PATHINFO 模式);
+                                                        // 2 (REWRITE  模式);
+                                                        // 3 (兼容模式)  默认为PATHINFO 模式
+    'URL_HTML_SUFFIX'   => getenv('URL_HTML_SUFFIX'),   // URL伪静态后缀设置
+    'URL_ROUTER_ON'     => true,  //开启路由
+    'URL_ROUTE_RULES'   => [ //定义路由规则
         // '/'             => 'Index/index',
 
         // '/^posts$/'                 => 'Post/index',

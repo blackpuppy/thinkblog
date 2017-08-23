@@ -38,9 +38,14 @@ class PostController extends Controller
      */
     public function create()
     {
+        if (!IS_GET && !IS_POST) {
+            $this->redirect(U('/posts'));
+            return;
+        }
+
         if (IS_GET) {
             $this->display();
-        } else {
+        } elseif (IS_POST) {
             $this->addCore();
         }
     }
@@ -59,7 +64,7 @@ class PostController extends Controller
         try {
             $Post = D('Post');
 
-            $newPost = $Post->create($_POST, Model::MODEL_INSERT);
+            $newPost = $Post->create();
 
             $msg .= PHP_EOL . '  $newPost = ' . print_r($newPost, true);
 
@@ -137,44 +142,64 @@ class PostController extends Controller
 
     public function update($id)
     {
-        if (!IS_POST) {
+        if (!IS_GET && !IS_POST) {
+            $this->redirect(U('/posts'));
             return;
         }
 
         $msg = PHP_EOL . 'Home\Controller\PostController::update():'
-            . PHP_EOL . '  $id = ' . $id;
+            . PHP_EOL . '  $id = ' . $id
+            . PHP_EOL . '  REQUEST_METHOD = ' . REQUEST_METHOD;
 
         try {
             $Post = D('Post');
-            $post = $Post->find($id);
+            $oldPost = $Post->find($id);
 
-            $msg .= PHP_EOL . '  $post = ' . print_r($post, true);
+            $msg .= PHP_EOL . '  $oldPost = ' . print_r($oldPost, true);
 
-            if (!$post) {
+            if (!$oldPost) {
                 $msg .= PHP_EOL . '  文章不存在！';
 
                 $this->error('文章不存在！', U('/posts'), 5);
             }
 
-            // if ($post['id'] !== $id) {
-            //     $msg .= PHP_EOL . '  非法数据！';
-            //     $msg .= PHP_EOL . str_repeat('-', 80);
-            //     \Think\Log::write($msg, 'INFO');
+            if (IS_GET) {
+                $this->assign('post', $oldPost);
+                $this->display();
+            } elseif (IS_POST) {
+                // $Post->title = I('title');
+                // $Post->content = I('content');
+                // $Post->updated_at = date('Y-m-d H:i:s.u');
 
-            //     $this->error('非法数据！', U('/posts'), 5);
-            // }
+                $updatedPost = $Post->create();
 
-            $Post->title = I('title');
-            $Post->content = I('content');
-            $Post->updated_at = date('Y-m-d H:i:s.u');
-            $result = $Post->save();
+                $msg .= PHP_EOL . '  $updatedPost = ' . print_r($updatedPost, true);
 
-            $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+                if (!$updatedPost) {
+                    $msg .= PHP_EOL . '  validation error: ' . $Post->getError();
 
-            if ($result !== false) {
-                $this->success('文章保存成功！', U('/posts'), 3);
-            } else {
-                $this->error('文章保存失败！', U('/posts'), 5);
+                    $data = [
+                        'post' => I('post.'),
+                        'validationError' => $Post->getError(),
+                    ];
+                    $this->assign($data);
+
+                    $this->display();
+                } else {
+                    $msg .= PHP_EOL . '  validation passed';
+
+                    $result = $Post->save();
+
+                    $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+                    $msg .= PHP_EOL . str_repeat('-', 80);
+                    \Think\Log::write($msg, 'INFO');
+
+                    if ($result !== false) {
+                        $this->success('文章保存成功！', U('/posts'), 3);
+                    } else {
+                        $this->error('文章保存失败！', U('/posts'), 5);
+                    }
+                }
             }
         } catch (Exception $e) {
             $msg .= PHP_EOL . 'error: ' . $e->getMessage();

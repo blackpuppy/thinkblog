@@ -29,7 +29,7 @@
                         <td>{$post.title}</td>
                         <td>{$post.content}</td>
                         <td>
-                            <a href="{:U('/posts/edit/' . $post['id'])}" class="btn btn-primary">{$Think.lang.CHANGE}</a>
+                            <a href="{:U('/posts/update/' . $post['id'])}" class="btn btn-primary">{$Think.lang.CHANGE}</a>
                             <!-- <a href="{:U('/posts/delete/' . $post['id'])}" class="btn btn-danger">删除</a> -->
                             <button type="button" class="btn btn-danger"
                                     data-toggle="confirmation" data-popout="true"

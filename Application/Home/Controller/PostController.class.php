@@ -43,100 +43,46 @@ class PostController extends Controller
             return;
         }
 
+        $msg = PHP_EOL . 'Home\Controller\PostController::create():';
+
         if (IS_GET) {
             $this->display();
         } elseif (IS_POST) {
-            $this->addCore();
-        }
-    }
+            try {
+                $Post = D('Post');
 
-    public function add()
-    {
-        if (IS_POST) {
-            $this->addCore();
-        }
-    }
+                $newPost = $Post->create();
 
-    public function addCore()
-    {
-        $msg = PHP_EOL . 'Home\Controller\PostController::addCore():';
+                $msg .= PHP_EOL . '  $newPost = ' . print_r($newPost, true);
 
-        try {
-            $Post = D('Post');
+                if (!$newPost) {
+                    $msg .= PHP_EOL . '  validation error: ' . $Post->getError();
 
-            $newPost = $Post->create();
+                    $data = [
+                        'post' => I('post.'),
+                        'validationError' => $Post->getError(),
+                    ];
+                    $this->assign($data);
 
-            $msg .= PHP_EOL . '  $newPost = ' . print_r($newPost, true);
-
-            if (!$newPost) {
-                $msg .= PHP_EOL . '  validation error: ' . $Post->getError();
-
-                $data = [
-                    'post' => I('post.'),
-                    'validationError' => $Post->getError(),
-                ];
-                $this->assign($data);
-
-                // $msg .= PHP_EOL . '  $data = ' . print_r($data, true)
-                //     . PHP_EOL . str_repeat('-', 80);
-                // \Think\Log::write($msg, 'DEBUG');
-
-                $this->display();
-            } else {
-                // $msg .= PHP_EOL . '  created $Post:'
-                //     . PHP_EOL . '  $Post->title = ' . $Post->title
-                //     . PHP_EOL . '  $Post->content = ' . $Post->content;
-
-                // $Post->created_at = date('Y-m-d H:i:s.u');
-                $result = $Post->add();
-
-                $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
-
-                if ($result !== false) {
-                    $this->success('文章保存成功！', U('/posts'), 3);
+                    $this->display();
                 } else {
-                    $this->error('文章保存失败！', U('/posts'), 5);
+                    $result = $Post->add();
+
+                    $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+
+                    if ($result !== false) {
+                        $this->success('文章保存成功！', U('/posts'), 3);
+                    } else {
+                        $this->error('文章保存失败！', U('/posts'), 5);
+                    }
                 }
+            } catch (Exception $e) {
+                $msg .= PHP_EOL . '  error: ' . $e->getMessage();
+                throw $e;
+            } finally {
+                $msg .= PHP_EOL . str_repeat('-', 80);
+                \Think\Log::write($msg, 'DEBUG');
             }
-        } catch (Exception $e) {
-            $msg .= PHP_EOL . '  error: ' . $e->getMessage();
-            throw $e;
-        } finally {
-            $msg .= PHP_EOL . str_repeat('-', 80);
-            \Think\Log::write($msg, 'DEBUG');
-        }
-    }
-
-    public function edit($id)
-    {
-        if (!IS_GET) {
-            return;
-        }
-
-        $msg = PHP_EOL . 'Home\Controller\PostController::edit():'
-            . PHP_EOL . '  $id = ' . $id;
-
-        try {
-            $Post = D('Post');
-            $post = $Post->find($id);
-
-            $msg .= PHP_EOL . '  $post = ' . print_r($post, true);
-
-            if (!$post) {
-                $msg .= PHP_EOL . '  文章不存在！';
-
-                $this->error('文章不存在！', U('/posts'), 5);
-            }
-
-            $this->assign('post', $post);
-
-            $this->display();
-        } catch (Exception $e) {
-            $msg .= PHP_EOL . 'error: ' . $e->getMessage();
-            throw $e;
-        } finally {
-            $msg .= PHP_EOL . str_repeat('-', 80);
-            \Think\Log::write($msg, 'INFO');
         }
     }
 
@@ -167,10 +113,6 @@ class PostController extends Controller
                 $this->assign('post', $oldPost);
                 $this->display();
             } elseif (IS_POST) {
-                // $Post->title = I('title');
-                // $Post->content = I('content');
-                // $Post->updated_at = date('Y-m-d H:i:s.u');
-
                 $updatedPost = $Post->create();
 
                 $msg .= PHP_EOL . '  $updatedPost = ' . print_r($updatedPost, true);

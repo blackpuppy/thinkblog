@@ -17,5 +17,8 @@
         "robmorgan/phinx": "^0.8.1",
         "snowair/think-dotenv": "dev-master",
         "topthink/thinkphp": "^3.2"
+    },
+    "require-dev": {
+        "odan/phinx-migrations-generator": "^2.1"
     }
 }

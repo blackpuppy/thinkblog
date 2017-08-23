@@ -26,7 +26,8 @@ return [
         // '/^posts\/delete\/(\d+)$/'  => 'Post/delete/id/:1',
 
         'posts/create'          => 'Post/create',
-        'posts/add'             => 'Post/add',
+        // 'posts/add'             => 'Post/add',
+
         'posts/edit/:id\d'      => 'Post/edit',
         'posts/update/:id\d'    => 'Post/update',
         'posts/delete/:id\d'    => 'Post/delete',

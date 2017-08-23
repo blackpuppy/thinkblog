@@ -2,6 +2,7 @@
 namespace Home\Controller;
 
 use Think\Controller;
+use Think\Model;
 
 class PostController extends Controller
 {
@@ -37,38 +38,67 @@ class PostController extends Controller
      */
     public function create()
     {
-        $this->display();
+        if (IS_GET) {
+            $this->display();
+        } else {
+            $this->addCore();
+        }
     }
 
     public function add()
     {
-        if (!IS_POST) {
-            return;
+        if (IS_POST) {
+            $this->addCore();
         }
+    }
 
-        $msg = PHP_EOL . 'Home\Controller\PostController::add():';
+    public function addCore()
+    {
+        $msg = PHP_EOL . 'Home\Controller\PostController::addCore():';
 
         try {
             $Post = D('Post');
-            $Post->create();
-            $Post->title = I('title');
-            $Post->content = I('content');
-            $Post->created_at = date('Y-m-d H:i:s.u');
-            $result = $Post->add();
 
-            $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+            $newPost = $Post->create($_POST, Model::MODEL_INSERT);
 
-            if ($result !== false) {
-                $this->success('文章保存成功！', U('/posts'), 3);
+            $msg .= PHP_EOL . '  $newPost = ' . print_r($newPost, true);
+
+            if (!$newPost) {
+                $msg .= PHP_EOL . '  validation error: ' . $Post->getError();
+
+                $data = [
+                    'post' => I('post.'),
+                    'validationError' => $Post->getError(),
+                ];
+                $this->assign($data);
+
+                // $msg .= PHP_EOL . '  $data = ' . print_r($data, true)
+                //     . PHP_EOL . str_repeat('-', 80);
+                // \Think\Log::write($msg, 'DEBUG');
+
+                $this->display();
             } else {
-                $this->error('文章保存失败！', U('/posts'), 5);
+                // $msg .= PHP_EOL . '  created $Post:'
+                //     . PHP_EOL . '  $Post->title = ' . $Post->title
+                //     . PHP_EOL . '  $Post->content = ' . $Post->content;
+
+                // $Post->created_at = date('Y-m-d H:i:s.u');
+                $result = $Post->add();
+
+                $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+
+                if ($result !== false) {
+                    $this->success('文章保存成功！', U('/posts'), 3);
+                } else {
+                    $this->error('文章保存失败！', U('/posts'), 5);
+                }
             }
         } catch (Exception $e) {
-            $msg .= PHP_EOL . 'error: ' . $e->getMessage();
+            $msg .= PHP_EOL . '  error: ' . $e->getMessage();
             throw $e;
         } finally {
             $msg .= PHP_EOL . str_repeat('-', 80);
-            \Think\Log::write($msg, 'INFO');
+            \Think\Log::write($msg, 'DEBUG');
         }
     }
 

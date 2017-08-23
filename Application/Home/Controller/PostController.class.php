@@ -20,7 +20,9 @@ class PostController extends Controller
 
             $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
 
-            $this->assign('posts', $posts);
+            $title = L('POST_LISTING');
+
+            $this->assign(compact('title', 'posts'));
 
             $this->display();
         } catch (Exception $e) {
@@ -44,6 +46,8 @@ class PostController extends Controller
         }
 
         $msg = PHP_EOL . 'Home\Controller\PostController::create():';
+
+        $this->assign('title', L('CREATE_POST'));
 
         if (IS_GET) {
             $this->display();
@@ -96,6 +100,8 @@ class PostController extends Controller
         $msg = PHP_EOL . 'Home\Controller\PostController::update():'
             . PHP_EOL . '  $id = ' . $id
             . PHP_EOL . '  REQUEST_METHOD = ' . REQUEST_METHOD;
+
+        $this->assign('title', L('CHANGE_POST'));
 
         try {
             $Post = D('Post');

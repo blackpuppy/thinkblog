@@ -15,7 +15,7 @@
 
 ## 本地开发环境
 
-我们用 Docker 建立本地开发环境。按照 [Install Docker Engine](https://docs.docker.com/engine/installation/) 在你的开发电脑上安装 Docker。
+我们用 Docker 建立本地开发环境。按照 [安装 Docker](https://yeasy.gitbooks.io/docker_practice/content/install/) 在你的开发电脑上安装 Docker。如果你的操作系统是 Windows，请按照 [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/) 进行安装。
 
 安装了 Docker 之后，用 Composer 安装 PHP 包：
 

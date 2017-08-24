@@ -47,6 +47,12 @@ class UserController extends Controller
                     $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
 
                     if ($result !== false) {
+                        $newUser['id'] = $result;
+
+                        // set authenticated
+                        session('authentication.authenticated', true);
+                        session('authentication.user', $newUser);
+
                         $this->success(L('SIGNUP_USER_SUCCESS'), U('/'), 3);
                     } else {
                         $this->error(L('SIGNUP_USER_FAILURE'), U('/users/signup'), 5);

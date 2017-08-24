@@ -11,12 +11,22 @@ return [
     'DELETE'                    => '删除',
     'CONFIRM_TITLE'             => '请确认',
     'CONFIRM_TO_DELETE'         => '您确认要删除这篇{$model}吗？',
+    'SUBMIT'                    => '提交',
     'SAVE'                      => '保存',
     'CANCEL'                    => '取消',
 
     // 应用程序
     'APPLICATION_NAME'          => 'ThinkPHP 博客',
     'APPLICATION_SHORT_DESC'    => '用 ThinkPHP 进行开发的演示程序',
+
+    // 菜单
+    'MENU_POSTS'        => '文章',
+    'SWITCH_LANGUAGE'   => '语言',
+    'CHINESE'           => '中文',
+    'ENGLISH'           => '英文',
+
+    // 页脚
+    'WELCOME_TO_USE'    => '欢迎使用',
 
     // 主页
     'HOMEPAGE_DESC'             => '演示以下技术：',
@@ -30,14 +40,15 @@ return [
     'WEB_API'                   => 'Web API',
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 客户端',
 
-    // 菜单
-    'MENU_POSTS'        => '文章',
-    'SWITCH_LANGUAGE'   => '语言',
-    'CHINESE'           => '中文',
-    'ENGLISH'           => '英文',
-
-    // 页脚
-    'WELCOME_TO_USE'    => '欢迎使用',
+    // login
+    'SIGN_UP'           => '注册新用户',
+    'LOGIN'             => '登录',
+    'LOGOUT'            => '注销',
+    'USER_NAME'         => '用户名',
+    'PASSWORD'          => '密码',
+    'RECAPTCHA'         => '验证码',
+    'REMEMBER_ME'       => '记住我',
+    'FORGET_PASSWORD'   => '忘记密码',
 
     // 文章
     'POST'              => '文章',

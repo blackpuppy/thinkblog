@@ -18,6 +18,15 @@ return [
     'APPLICATION_NAME'          => 'ThinkPHP Blog',
     'APPLICATION_SHORT_DESC'    => 'ThinkPHP Development Demo Application',
 
+    // menu
+    'MENU_POSTS'        => 'Posts',
+    'SWITCH_LANGUAGE'   => 'Language',
+    'CHINESE'           => 'Chinese',
+    'ENGLISH'           => 'English',
+
+    // footer
+    'WELCOME_TO_USE'    => 'Welcome to developing with',
+
     // home page
     'HOMEPAGE_DESC'             => 'Demonstrates the following techniques:',
     'REMOVE_ENTRY_IN_URL'       => 'Remove entry file {$entry_file} from URL',
@@ -30,14 +39,15 @@ return [
     'WEB_API'                   => 'Web API',
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 Client',
 
-    // menu
-    'MENU_POSTS'        => 'Posts',
-    'SWITCH_LANGUAGE'   => 'Language',
-    'CHINESE'           => 'Chinese',
-    'ENGLISH'           => 'English',
-
-    // footer
-    'WELCOME_TO_USE'    => 'Welcome to developing with',
+    // login
+    'SIGN_UP'           => 'Sign Up',
+    'LOGIN'             => 'Log In',
+    'LOGOUT'            => 'Log Out',
+    'USER_NAME'         => 'User Name',
+    'PASSWORD'          => 'Password',
+    'RECAPTCHA'         => 'reCAPTCHA',
+    'REMEMBER_ME'       => 'Remember Me',
+    'FORGET_PASSWORD'   => 'Forget Password',
 
     // post
     'POST'              => 'Post',

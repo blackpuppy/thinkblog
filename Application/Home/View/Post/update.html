@@ -11,18 +11,21 @@
 
     <form action="{:U('/posts/update/' . $post['id'])}" method="post" class="form-horizontal">
         <input type="hidden" name="id" value="{$post['id']}">
+
         <div class="form-group">
             <label for="title" class="control-label col-sm-2">{$Think.lang.TITLE}{$Think.lang.COLON}</label>
             <div class="col-md-8">
                 <input type="text" id="title" name="title" value="{$post['title']}" autofocus>
             </div>
         </div>
+
         <div class="form-group">
             <label for="content" class="control-label col-sm-2">{$Think.lang.CONTENT}{$Think.lang.COLON}</label>
             <div class="col-md-8">
                 <textarea id="content" name="content" cols="60" rows="5">{$post['content']}</textarea>
             </div>
         </div>
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <input type="submit" value="{$Think.lang.SAVE}" class="btn btn-success">

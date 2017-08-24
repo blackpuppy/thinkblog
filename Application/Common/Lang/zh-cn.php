@@ -83,7 +83,7 @@ return [
     'PASSWORD_REQUIRED'         => '密码必须填写！',
     'PASSWORD_LENGTH'           => '密码至少6个字符，最多72个字符！',
     'CONFIRM_PASSWORD_DISMATCH' => '确认密码比匹配！',
-    'FIRST_NAME_LENGTH'         => '名至少3个字符，最多255个字符！',
+    'FIRST_NAME_LENGTH'         => '名至少1个字符，最多255个字符！',
     'EMAIL_INVALID'             => '不合法的电子邮箱地址！',
     'EMAIL_DUPLICATE'           => '该电子邮箱地址已被占用！请选择其他的电子邮箱。',
 

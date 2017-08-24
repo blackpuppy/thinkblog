@@ -22,6 +22,7 @@ return [
 
         'users/signup'          => 'User/signup',
         'users/login'           => 'User/login',
+        'users/logout'          => 'User/logout',
 
         // '/^posts$/'                 => 'Post/index',
         // '/^posts\/add$/'            => 'Post/add',

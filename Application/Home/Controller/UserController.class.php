@@ -114,7 +114,7 @@ class UserController extends Controller
                     } else {
                         $msg .= PHP_EOL . '  login failed';
 
-                        // set authenticated
+                        // clear authenticated
                         session('authentication.authenticated', false);
                         session('authentication.user', null);
 
@@ -143,6 +143,10 @@ class UserController extends Controller
      */
     public function logout()
     {
-        $this->display();
+        // clear authenticated
+        session('authentication.authenticated', false);
+        session('authentication.user', null);
+
+        $this->redirect(U('/'));
     }
 }

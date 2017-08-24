@@ -21,7 +21,7 @@ class UserModel extends BaseModel
 
         // 用户登录时的验证规则
         ['name',     'require', '{%NAME_REQUIRED}',     self::MUST_VALIDATE, '', self::USER_LOGIN],
-        // ['password', 'require', '{%PASSWORD_REQUIRED}', self::MUST_VALIDATE, '', self::USER_LOGIN],
+        ['password', 'require', '{%PASSWORD_REQUIRED}', self::MUST_VALIDATE, '', self::USER_LOGIN],
     ];
 
     protected $_filter = [
@@ -30,6 +30,26 @@ class UserModel extends BaseModel
 
     public function login($username, $password)
     {
-        return false;
+        $msg = PHP_EOL . 'Home\Model\UserModel::login():'
+            . PHP_EOL . '  $username = ' . $username
+            . PHP_EOL . '  $password = ' . $password;
+
+        $authenticated = false;
+
+        $user = $this->where(['name' => $username])->find();
+
+        $msg .= PHP_EOL . '  $user = ' . print_r($user, true);
+
+        if ($user &&
+            password_verify($password, $user['password'])
+        ) {
+            $authenticated = $user;
+        }
+
+        $msg .= PHP_EOL . '  $authenticated = ' . print_r($authenticated, true);
+        $msg .= PHP_EOL . str_repeat('-', 80);
+        // \Think\Log::write($msg, 'DEBUG');
+
+        return $authenticated;
     }
 }

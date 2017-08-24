@@ -34,6 +34,11 @@ return [
         'posts'                 => 'Post/index',
     ],
 
+    'SESSION_OPTIONS' => [
+        'name'      => getenv('SESSION_OPTIONS_NAME'),          // session_name 值
+        'expire'    => getenv('SESSION_OPTIONS_EXPIRE'),        // session.gc_maxlifetime 设置值
+    ],
+
     'AUTH_CONFIG' => [
         'AUTH_ON' => getenv('AUTH_ON'),                         // 认证开关
         'AUTH_TYPE' => getenv('AUTH_TYPE'),                     // 认证方式，1为实时认证；2为登录认证。

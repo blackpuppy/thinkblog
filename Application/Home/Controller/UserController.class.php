@@ -80,41 +80,59 @@ class UserController extends Controller
         if (IS_GET) {
             $this->display();
         } elseif (IS_POST) {
-            // $username = I('name');
-            // $password = I('password');
+            try {
+                // $username = I('name');
+                // $password = I('password');
 
-            $User = D('User');
-            $user = $User->create(I('post.'), UserModel::USER_LOGIN);
+                $User = D('User');
+                $user = $User->create(I('post.'), UserModel::USER_LOGIN);
 
-            $msg .= PHP_EOL . '  $user = ' . print_r($user, true);
+                $msg .= PHP_EOL . '  post data = ' . print_r(I('post.'), true)
+                    . PHP_EOL . '  $user = ' . print_r($user, true);
 
-            if (!$user) {
-                $msg .= PHP_EOL . '  validation error: ' . $User->getError();
-
-                $data = [
-                    'user' => I('post.'),
-                    'validationError' => $User->getError(),
-                ];
-                $this->assign($data);
-
-                $this->display();
-            } else {
-                $user = $User->login($User->name, $user->password);
-                if ($user !== false) {
-                    // set authenticated
-                    // redirect to intended page
-                    $this->redirect(U('/'));
-                } else {
-                    $msg .= PHP_EOL . '  login failed';
+                if (!$user) {
+                    $msg .= PHP_EOL . '  validation error: ' . $User->getError();
 
                     $data = [
                         'user' => I('post.'),
-                        'validationError' => L('LOGIN_USER_FAILURE'),
+                        'validationError' => $User->getError(),
                     ];
                     $this->assign($data);
 
                     $this->display();
+                } else {
+                    $user = $User->login($User->name, $User->password);
+                    if ($user !== false) {
+                        $msg .= PHP_EOL . '  login succeeded!';
+
+                        // set authenticated
+                        session('authentication.authenticated', true);
+                        session('authentication.user', $user);
+
+                        // redirect to intended page
+                        $this->redirect(U('/'));
+                    } else {
+                        $msg .= PHP_EOL . '  login failed';
+
+                        // set authenticated
+                        session('authentication.authenticated', false);
+                        session('authentication.user', null);
+
+                        $data = [
+                            'user' => I('post.'),
+                            'validationError' => L('LOGIN_USER_FAILURE'),
+                        ];
+                        $this->assign($data);
+
+                        $this->display();
+                    }
                 }
+            } catch (Exception $e) {
+                $msg .= PHP_EOL . '  error: ' . $e->getMessage();
+                throw $e;
+            } finally {
+                $msg .= PHP_EOL . str_repeat('-', 80);
+                \Think\Log::write($msg, 'DEBUG');
             }
         }
     }

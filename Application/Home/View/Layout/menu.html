@@ -23,27 +23,25 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{:U('/posts')}">{$Think.lang.MENU_POSTS}</a></li>
-                <!-- <li role="separator" class="divider"></li>
-                <li><a href="{:U('/users')}">用户</a></li> -->
+                <if condition="!session('?authentication.authenticated') || !session('authentication.authenticated')">
+                    <li><a href="{:U('/users/login')}">{$Think.lang.LOGIN}</a></li>
+                    <li><a href="{:U('/users/signup')}">{$Think.lang.SIGNUP}</a></li>
+                <else />
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {:session('authentication.user')['first_name']} {:session('authentication.user')['last_name']}<span class="caret"></span>
+                        </a>
 
-                <!-- <li><a href="{:U('/users/login')}">登录</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        User Full Name <span class="caret"></span>
-                    </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{:U('/posts')}">{$Think.lang.MENU_POSTS}</a></li>
+                            <!-- <li role="separator" class="divider"></li>
+                            <li><a href="{:U('/users')}">用户</a></li> -->
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{:U('/users/logout')}">{$Think.lang.LOGOUT}</a></li>
+                        </ul>
+                    </li>
+                </if>
 
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="{:U('/posts')}">文章</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{:U('/users')}">用户</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{:U('/users/login')}">退出</a></li>
-                    </ul>
-                </li> -->
-
-                <li><a href="{:U('/users/login')}">{$Think.lang.LOGIN}</a></li>
-                <li><a href="{:U('/users/signup')}">{$Think.lang.SIGNUP}</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         {$Think.lang.SWITCH_LANGUAGE}<span class="caret"></span>

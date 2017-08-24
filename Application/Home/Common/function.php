@@ -10,7 +10,7 @@ function encryptPassword($password)
 
     $msg = "encryptPassword(): $password --> $hasedPassword"
     	. PHP_EOL . str_repeat('-', 80);
-    \Think\Log::write($msg, 'DEBUG');
+    // \Think\Log::write($msg, 'DEBUG');
 
     return $hasedPassword;
 }

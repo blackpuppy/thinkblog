@@ -67,6 +67,12 @@ class CreateUserTable extends AbstractMigration
         ])->addColumn('updated_at', 'datetime', [
             'null' => true,
             'comment' => '更新时间',
+        ])->addIndex(['name'], [
+            'name' => 'name',
+            'unique' => true
+        ])->addIndex(['email'], [
+            'name' => 'email',
+            'unique' => true
         ])->create();
     }
 }

@@ -42,10 +42,16 @@ return [
 
     // login
     'SIGN_UP'           => '注册新用户',
+    'SIGNUP'            => '注册',
     'LOGIN'             => '登录',
     'LOGOUT'            => '注销',
     'USER_NAME'         => '用户名',
     'PASSWORD'          => '密码',
+    'CONFIRM_PASSWORD'  => '确认密码',
+    'EMAIL'             => '电子邮箱',
+    'FULL_NAME'         => '姓名',
+    'FIRST_NAME'        => '名',
+    'LAST_NAME'         => '姓',
     'RECAPTCHA'         => '验证码',
     'REMEMBER_ME'       => '记住我',
     'FORGET_PASSWORD'   => '忘记密码',

@@ -20,6 +20,7 @@ return [
     'URL_ROUTE_RULES'   => [ //定义路由规则
         // '/'             => 'Index/index',
 
+        'users/signup'          => 'User/signup',
         'users/login'           => 'User/login',
 
         // '/^posts$/'                 => 'Post/index',

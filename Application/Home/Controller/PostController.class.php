@@ -35,7 +35,7 @@ class PostController extends Controller
     }
 
     /**
-     * 文章列表。
+     * 添加文章。
      * @return void
      */
     public function create()
@@ -90,6 +90,10 @@ class PostController extends Controller
         }
     }
 
+    /**
+     * 修改文章。
+     * @return void
+     */
     public function update($id)
     {
         if (!IS_GET && !IS_POST) {
@@ -158,6 +162,10 @@ class PostController extends Controller
         }
     }
 
+    /**
+     * 删除文章。
+     * @return void
+     */
     public function delete($id)
     {
         if (!IS_POST) {

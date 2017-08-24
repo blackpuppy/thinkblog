@@ -41,10 +41,16 @@ return [
 
     // login
     'SIGN_UP'           => 'Sign Up',
+    'SIGNUP'            => 'Sign Up',
     'LOGIN'             => 'Log In',
     'LOGOUT'            => 'Log Out',
     'USER_NAME'         => 'User Name',
     'PASSWORD'          => 'Password',
+    'CONFIRM_PASSWORD'  => 'Confirm Password',
+    'EMAIL'             => 'Email',
+    'FULL_NAME'         => 'Full Name',
+    'FIRST_NAME'        => 'First Name',
+    'LAST_NAME'         => 'Last Name',
     'RECAPTCHA'         => 'reCAPTCHA',
     'REMEMBER_ME'       => 'Remember Me',
     'FORGET_PASSWORD'   => 'Forget Password',

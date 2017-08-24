@@ -20,7 +20,7 @@
         <div class="form-group">
             <label for="content" class="control-label col-sm-2">{$Think.lang.PASSWORD}{$Think.lang.COLON}</label>
             <div class="col-md-6">
-                <input type="password" name="passwordd" placeholder="{$Think.lang.PASSWORD}">
+                <input type="password" name="password" placeholder="{$Think.lang.PASSWORD}">
             </div>
         </div>
 
@@ -40,7 +40,8 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-4">
-                <input type="submit" value="{$Think.lang.LOGIN}">
+                <input type="submit" value="{$Think.lang.LOGIN}" class="btn btn-success">
+                <a href="{:U('/users/signup')}" class="btn btn-default">{$Think.lang.SIGN_UP}</a>
             </div>
         </div>
     </form>

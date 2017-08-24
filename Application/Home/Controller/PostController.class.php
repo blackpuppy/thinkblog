@@ -75,9 +75,9 @@ class PostController extends Controller
                     $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
 
                     if ($result !== false) {
-                        $this->success('文章保存成功！', U('/posts'), 3);
+                        $this->success(L('SAVE_POST_SUCCESS'), U('/posts'), 3);
                     } else {
-                        $this->error('文章保存失败！', U('/posts'), 5);
+                        $this->error(L('SAVE_POST_FAILURE'), U('/posts'), 5);
                     }
                 }
             } catch (Exception $e) {
@@ -114,9 +114,9 @@ class PostController extends Controller
             $msg .= PHP_EOL . '  $oldPost = ' . print_r($oldPost, true);
 
             if (!$oldPost) {
-                $msg .= PHP_EOL . '  文章不存在！';
+                $msg .= PHP_EOL . '  ' . L('POST_NOT_FOUND');
 
-                $this->error('文章不存在！', U('/posts'), 5);
+                $this->error(L('POST_NOT_FOUND'), U('/posts'), 5);
             }
 
             if (IS_GET) {
@@ -147,9 +147,9 @@ class PostController extends Controller
                     \Think\Log::write($msg, 'INFO');
 
                     if ($result !== false) {
-                        $this->success('文章保存成功！', U('/posts'), 3);
+                        $this->success(L('SAVE_POST_SUCCESS'), U('/posts'), 3);
                     } else {
-                        $this->error('文章保存失败！', U('/posts'), 5);
+                        $this->error(L('SAVE_POST_FAILURE'), U('/posts'), 5);
                     }
                 }
             }
@@ -182,9 +182,9 @@ class PostController extends Controller
             $msg .= PHP_EOL . '  $post = ' . print_r($post, true);
 
             if (!$post) {
-                $msg .= PHP_EOL . '  文章不存在！';
+                $msg .= PHP_EOL . '  ' . L('POST_NOT_FOUND');
 
-                $this->error('文章不存在！', U('/posts'), 5);
+                $this->error(L('POST_NOT_FOUND'), U('/posts'), 5);
             }
 
             $result = $Post->delete();
@@ -192,9 +192,9 @@ class PostController extends Controller
             $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
 
             if ($result !== false) {
-                $this->success('文章删除成功！', U('/posts'), 3);
+                $this->success(L('DELETE_POST_SUCCESS'), U('/posts'), 3);
             } else {
-                $this->error('文章删除失败！', U('/posts'), 5);
+                $this->error(L('DELETE_POST_FAILURE'), U('/posts'), 5);
             }
         } catch (Exception $e) {
             $msg .= PHP_EOL . 'error: ' . $e->getMessage();

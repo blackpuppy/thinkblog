@@ -1,5 +1,8 @@
 <?php
 return [
+    //--------------------------------------------------------------------------
+    // 界面
+
     // 公用
     'EXCLAMATION_MARK'          => '！',
     'COLON'                     => '：',
@@ -64,7 +67,40 @@ return [
     'TITLE'             => '标题',
     'CONTENT'           => '内容',
 
-    // 数据验证 - Post
-    'TITLE_REQUIRED'    => '必须填写标题！',
-    'CONTENT_REQUIRED'  => '必须填写内容！',
+    //--------------------------------------------------------------------------
+    // 数据验证
+
+    // 验证规则
+    // 'REQUIRED'                  => '{$field}必须填写！',
+
+    // 数据验证 - 文章
+    'TITLE_REQUIRED'            => '标题必须填写！',
+    'CONTENT_REQUIRED'          => '内容必须填写！',
+
+    // 数据验证 - 用户
+    'NAME_REQUIRED'             => '用户名必须填写！',
+    'NAME_DUPLICATE'            => '该用户名已被占用！请选择其他的用户名。',
+    'PASSWORD_REQUIRED'         => '密码必须填写！',
+    'PASSWORD_LENGTH'           => '密码至少6个字符，最多72个字符！',
+    'CONFIRM_PASSWORD_DISMATCH' => '确认密码比匹配！',
+    'FIRST_NAME_LENGTH'         => '名至少3个字符，最多255个字符！',
+    'EMAIL_INVALID'             => '不合法的电子邮箱地址！',
+    'EMAIL_DUPLICATE'           => '该电子邮箱地址已被占用！请选择其他的电子邮箱。',
+
+    //--------------------------------------------------------------------------
+    // 控制器
+
+    // 文章
+    'SAVE_POST_SUCCESS'     => '文章保存成功！',
+    'SAVE_POST_FAILURE'     => '文章保存失败！',
+    'POST_NOT_FOUND'        => '文章不存在！',
+    'DELETE_POST_SUCCESS'   => '文章删除成功！',
+    'DELETE_POST_FAILURE'   => '文章删除失败！',
+
+    // 文章
+    'SAVE_USER_SUCCESS'     => '用户注册成功！',
+    'SAVE_USER_FAILURE'     => '用户注册失败！',
+    'USER_NOT_FOUND'        => '用户不存在！',
+    'DELETE_USER_SUCCESS'   => '用户删除成功！',
+    'DELETE_USER_FAILURE'   => '用户删除失败！',
 ];

@@ -1,5 +1,8 @@
 <?php
 return [
+    //--------------------------------------------------------------------------
+    // UI
+
     // common
     'EXCLAMATION_MARK'          => '!',
     'COLON'                     => ':',
@@ -11,6 +14,7 @@ return [
     'DELETE'                    => 'Delete',
     'CONFIRM_TITLE'             => 'Confirmation',
     'CONFIRM_TO_DELETE'         => 'Are you sure you wan to delete this {$model}?',
+    'SUBMIT'                    => 'Submit',
     'SAVE'                      => 'Save',
     'CANCEL'                    => 'Cancel',
 
@@ -63,7 +67,39 @@ return [
     'TITLE'             => 'Title',
     'CONTENT'           => 'Content',
 
+    //--------------------------------------------------------------------------
+    // Validation
+
+    // Validation Rules
+    // 'REQUIRED'                  => '{$field}必须填写！',
+
     // validation - Post
-    'TITLE_REQUIRED'    => 'Title is required!',
-    'CONTENT_REQUIRED'  => 'Content is required!',
+    'TITLE_REQUIRED'            => 'Title is required!',
+    'CONTENT_REQUIRED'          => 'Content is required!',
+
+    // validation - User
+    'NAME_REQUIRED'             => 'User name is required!',
+    'NAME_DUPLICATE'            => 'The user name is already used!  Please change the user name.',
+    'PASSWORD_REQUIRED'         => 'Password is required!',
+    'CONFIRM_PASSWORD_DISMATCH' => 'Confirm password does not match!',
+    'FIRST_NAME_LENGTH'         => 'First name must be 3-255 characters long!',
+    'EMAIL_INVALID'             => 'Invalid email!',
+    'EMAIL_DUPLICATE'           => 'The email is already used!  Please change the email.',
+
+    //--------------------------------------------------------------------------
+    // Controller
+
+    // Post
+    'SAVE_POST_SUCCESS'     => 'Post saved successfully!',
+    'SAVE_POST_FAILURE'     => 'Post failed to save!',
+    'POST_NOT_FOUND'        => 'Post not found!',
+    'DELETE_POST_SUCCESS'   => 'Post deleted successfully!',
+    'DELETE_POST_FAILURE'   => 'Post failed to delete!',
+
+    // 文章
+    'SAVE_USER_SUCCESS'     => 'User saved successfully!',
+    'SAVE_USER_FAILURE'     => 'User failed to save!',
+    'USER_NOT_FOUND'        => 'User not found!',
+    'DELETE_USER_SUCCESS'   => 'User deleted successfully!',
+    'DELETE_USER_FAILURE'   => 'User failed to delete!',
 ];

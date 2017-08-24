@@ -3,7 +3,7 @@ return [
     //--------------------------------------------------------------------------
     // UI
 
-    // common
+    // Common
     'EXCLAMATION_MARK'          => '!',
     'COLON'                     => ':',
     'VERION'                    => 'Version',
@@ -18,20 +18,20 @@ return [
     'SAVE'                      => 'Save',
     'CANCEL'                    => 'Cancel',
 
-    // application
+    // Application
     'APPLICATION_NAME'          => 'ThinkPHP Blog',
     'APPLICATION_SHORT_DESC'    => 'ThinkPHP Development Demo Application',
 
-    // menu
+    // Menu
     'MENU_POSTS'        => 'Posts',
     'SWITCH_LANGUAGE'   => 'Language',
     'CHINESE'           => 'Chinese',
     'ENGLISH'           => 'English',
 
-    // footer
+    // Footer
     'WELCOME_TO_USE'    => 'Welcome to developing with',
 
-    // home page
+    // Home page
     'HOMEPAGE_DESC'             => 'Demonstrates the following techniques:',
     'REMOVE_ENTRY_IN_URL'       => 'Remove entry file {$entry_file} from URL',
     'DEV_USING_DOCKER'          => 'Dockerize local development environment',
@@ -43,7 +43,7 @@ return [
     'WEB_API'                   => 'Web API',
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 Client',
 
-    // login
+    // User
     'SIGN_UP'           => 'Sign Up',
     'SIGNUP'            => 'Sign Up',
     'LOGIN'             => 'Log In',
@@ -59,7 +59,7 @@ return [
     'REMEMBER_ME'       => 'Remember Me',
     'FORGET_PASSWORD'   => 'Forget Password',
 
-    // post
+    // Post
     'POST'              => 'Post',
     'POST_LISTING'      => 'Posts',
     'CREATE_POST'       => 'New Post',
@@ -73,7 +73,7 @@ return [
     // Validation Rules
     // 'REQUIRED'                  => '{$field}必须填写！',
 
-    // validation - Post
+    // Validation - Post
     'TITLE_REQUIRED'            => 'Title is required!',
     'CONTENT_REQUIRED'          => 'Content is required!',
 
@@ -96,9 +96,11 @@ return [
     'DELETE_POST_SUCCESS'   => 'Post deleted successfully!',
     'DELETE_POST_FAILURE'   => 'Post failed to delete!',
 
-    // 文章
-    'SAVE_USER_SUCCESS'     => 'User saved successfully!',
-    'SAVE_USER_FAILURE'     => 'User failed to save!',
+    // User
+    'SIGNUP_USER_SUCCESS'   => 'User saved successfully!',
+    'SIGNUP_USER_FAILURE'   => 'User failed to save!',
+    'LOGIN_USER_SUCCESS'    => 'User logged in successfully!',
+    'LOGIN_USER_FAILURE'    => 'Incorrect user name or password!',
     'USER_NOT_FOUND'        => 'User not found!',
     'DELETE_USER_SUCCESS'   => 'User deleted successfully!',
     'DELETE_USER_FAILURE'   => 'User failed to delete!',

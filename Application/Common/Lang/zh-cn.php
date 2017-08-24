@@ -97,9 +97,11 @@ return [
     'DELETE_POST_SUCCESS'   => '文章删除成功！',
     'DELETE_POST_FAILURE'   => '文章删除失败！',
 
-    // 文章
-    'SAVE_USER_SUCCESS'     => '用户注册成功！',
-    'SAVE_USER_FAILURE'     => '用户注册失败！',
+    // 用户
+    'SIGNUP_USER_SUCCESS'   => '用户注册成功！',
+    'SIGNUP_USER_FAILURE'   => '用户注册失败！',
+    'LOGIN_USER_SUCCESS'    => '用户登录成功！',
+    'LOGIN_USER_FAILURE'    => '登录失败！用户名或者密码不正确。',
     'USER_NOT_FOUND'        => '用户不存在！',
     'DELETE_USER_SUCCESS'   => '用户删除成功！',
     'DELETE_USER_FAILURE'   => '用户删除失败！',

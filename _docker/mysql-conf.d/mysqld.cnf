@@ -1,4 +1,4 @@
 [mysqld]
-character_set_server = utf8
-collation_server = utf8_general_ci
+character_set_server=utf8mb4
+collation_server=utf8mb4_unicode_ci
 default-time-zone='+08:00'

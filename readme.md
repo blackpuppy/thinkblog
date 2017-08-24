@@ -41,4 +41,4 @@ $ docker exec -ti thinkblog_app_1 vendor/bin/phinx migrate -c _phinx/phinx.php
 $ docker exec -ti thinkblog_app_1 vendor/bin/phinx seed:run -c _phinx/phinx.php
 ```
 
-然后你就可以在浏览器中查看网站 http://localhost:8082/。
+然后你就可以在浏览器中查看网站 http://localhost:8084/。

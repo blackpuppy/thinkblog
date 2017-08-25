@@ -42,4 +42,16 @@ $ docker exec -ti thinkblog_app_1 vendor/bin/phinx migrate -c _phinx/phinx.php
 $ docker exec -ti thinkblog_app_1 vendor/bin/phinx seed:run -c _phinx/phinx.php
 ```
 
+安装 Node.js 依赖：
+
+```
+$ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/app -w /usr/src/app node yarn
+```
+
+构建前端资源：
+
+```
+$ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/app -w /usr/src/app node yarn dev
+```
+
 然后你就可以在浏览器中查看网站 http://localhost:8084/。

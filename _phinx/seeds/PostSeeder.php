@@ -3,6 +3,9 @@
 use Phinx\Seed\AbstractSeed;
 use Phinx\Db\Adapter\TablePrefixAdapter;
 
+/**
+ * 预置文章。
+ */
 class PostSeeder extends AbstractSeed
 {
     /**

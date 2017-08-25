@@ -104,4 +104,8 @@ return [
     'USER_NOT_FOUND'        => 'User not found!',
     'DELETE_USER_SUCCESS'   => 'User deleted successfully!',
     'DELETE_USER_FAILURE'   => 'User failed to delete!',
+
+    //--------------------------------------------------------------------------
+    // Authentication & Authorization
+    'UNAUTHORIZED'  => 'Unauthorized!',
 ];

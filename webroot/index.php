@@ -18,7 +18,7 @@ if (version_compare(PHP_VERSION, '5.3.0', '<')) {
     die('require PHP > 5.3.0 !');
 }
 
-// 引入composer
+// 引入composer自动加载的包
 require(dirname(__DIR__) . '/vendor/autoload.php');
 
 // 载入环境配置，供getenv()使用

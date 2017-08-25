@@ -27,25 +27,25 @@ class AuthSeeder extends AbstractSeed
         $rules = [
             [
             // 可以公开访问的页面
-            //     'name'      => 'User/signup',
+            //     'name'      => 'Home/User/signup',
             //     'title'     => '注册新用户',
             //     'type'      => 1,
             //     'status'    => 1,
             //     'condition' => '',
             // ], [
-            //     'name'      => 'User/login',
+            //     'name'      => 'Home/User/login',
             //     'title'     => '用户登录',
             //     'type'      => 1,
             //     'status'    => 1,
             //     'condition' => '',
             // ], [
-            //     'name'      => 'Post/index',
+            //     'name'      => 'Home/Post/index',
             //     'title'     => '文章列表',
             //     'type'      => 1,
             //     'status'    => 1,
             //     'condition' => '',
             // ], [
-            //     'name'      => 'Post/view',
+            //     'name'      => 'Home/Post/view',
             //     'title'     => '阅读文章',
             //     'type'      => 1,
             //     'status'    => 1,
@@ -53,25 +53,25 @@ class AuthSeeder extends AbstractSeed
             // ], [
 
             // 需要通过用户验证的页面
-                'name'      => 'User/logout',
+                'name'      => 'Home/User/logout',
                 'title'     => '注销用户',
                 'type'      => 1,
                 'status'    => 1,
                 'condition' => '',
             ], [
-                'name'      => 'Post/create',
+                'name'      => 'Home/Post/create',
                 'title'     => '添加文章',
                 'type'      => 1,
                 'status'    => 1,
                 'condition' => '',
             ], [
-                'name'      => 'Post/update',
+                'name'      => 'Home/Post/update',
                 'title'     => '修改文章',
                 'type'      => 1,
                 'status'    => 1,
                 'condition' => '',
             ], [
-                'name'      => 'Post/delete',
+                'name'      => 'Home/Post/delete',
                 'title'     => '删除文章',
                 'type'      => 1,
                 'status'    => 1,
@@ -117,19 +117,19 @@ class AuthSeeder extends AbstractSeed
                 'title'     => '管理员',
                 'status'    => 1,
                 'rules'     => [
-                    'User/logout',
-                    'Post/create',
-                    'Post/update',
-                    'Post/delete',
+                    'Home/User/logout',
+                    'Home/Post/create',
+                    'Home/Post/update',
+                    'Home/Post/delete',
                 ],
             ], [
                 'title'     => '作者',
                 'status'    => 1,
                 'rules'     => [
-                    'User/logout',
-                    'Post/create',
-                    'Post/update',
-                    'Post/delete',
+                    'Home/User/logout',
+                    'Home/Post/create',
+                    'Home/Post/update',
+                    'Home/Post/delete',
                 ],
             // 以后增加
             // ], [

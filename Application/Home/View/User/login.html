@@ -13,7 +13,7 @@
         <div class="form-group">
             <label for="title" class="control-label col-sm-2">{$Think.lang.USER_NAME}{$Think.lang.COLON}</label>
             <div class="col-md-6">
-                <input type="text" name="name" placeholder="{$Think.lang.USER_NAME}" value="{$user['name']}" autofocus="true">
+                <input type="text" name="name" placeholder="{$Think.lang.USER_NAME}" value="{:isset($user['name']) ? $user['name'] : ''}" autofocus="true">
             </div>
         </div>
 

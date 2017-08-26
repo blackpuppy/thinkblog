@@ -81,6 +81,7 @@ return [
     'NAME_REQUIRED'             => 'User name is required!',
     'NAME_DUPLICATE'            => 'The user name is already used!  Please change the user name.',
     'PASSWORD_REQUIRED'         => 'Password is required!',
+    'PASSWORD_LENGTH'           => 'First name must be 5-72 characters long!',
     'CONFIRM_PASSWORD_DISMATCH' => 'Confirm password does not match!',
     'FIRST_NAME_LENGTH'         => 'First name must be 1-255 characters long!',
     'EMAIL_INVALID'             => 'Invalid email!',

@@ -75,6 +75,6 @@ class AuthBehavior extends Behavior {
 
         $msg .= PHP_EOL . '  $return = ' . $return;
         $msg .= PHP_EOL . str_repeat('-', 80);
-        // \Think\Log::write($msg, 'DEBUG');
+        \Think\Log::write($msg, 'DEBUG');
     }
 }

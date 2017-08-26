@@ -11,7 +11,7 @@ class UserModel extends BaseModel
         ['name', 'require', '{%NAME_REQUIRED}'],
         ['name', '', '{%NAME_DUPLICATE}', self::EXISTS_VALIDATE, 'unique', self::MODEL_BOTH],
         ['password', 'require', '{%PASSWORD_REQUIRED}'],
-        ['password', '6,72', '{%PASSWORD_LENGTH}', self::EXISTS_VALIDATE, 'length'],
+        ['password', '5,72', '{%PASSWORD_LENGTH}', self::EXISTS_VALIDATE, 'length'],
         ['confirm_password', 'password', '{%CONFIRM_PASSWORD_DISMATCH}', self::EXISTS_VALIDATE, 'confirm'],
         ['first_name', '1,255', '{%FIRST_NAME_LENGTH}', self::EXISTS_VALIDATE, 'length'],
         ['email',

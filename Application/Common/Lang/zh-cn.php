@@ -81,7 +81,7 @@ return [
     'NAME_REQUIRED'             => '用户名必须填写！',
     'NAME_DUPLICATE'            => '该用户名已被占用！请选择其他的用户名。',
     'PASSWORD_REQUIRED'         => '密码必须填写！',
-    'PASSWORD_LENGTH'           => '密码至少6个字符，最多72个字符！',
+    'PASSWORD_LENGTH'           => '密码至少5个字符，最多72个字符！',
     'CONFIRM_PASSWORD_DISMATCH' => '确认密码比匹配！',
     'FIRST_NAME_LENGTH'         => '名至少1个字符，最多255个字符！',
     'EMAIL_INVALID'             => '不合法的电子邮箱地址！',

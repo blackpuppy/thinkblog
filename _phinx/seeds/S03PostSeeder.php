@@ -6,7 +6,7 @@ use Phinx\Db\Adapter\TablePrefixAdapter;
 /**
  * 预置文章。
  */
-class PostSeeder extends AbstractSeed
+class S03PostSeeder extends AbstractSeed
 {
     /**
      * Run Method.
@@ -57,9 +57,8 @@ class PostSeeder extends AbstractSeed
             $row = $this->fetchRow($sql);
             if (empty($row)) {
                 // $post['created_at'] = date('Y-m-d H:i:s.u');
-                $data = [$post];
                 $this->table('post')
-                    ->insert($data)
+                    ->insert($post)
                     ->saveData();
             }
         }

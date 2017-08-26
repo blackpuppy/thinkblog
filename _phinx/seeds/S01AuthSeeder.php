@@ -6,7 +6,7 @@ use Phinx\Db\Adapter\TablePrefixAdapter;
 /**
  * 预置用户授权规则。
  */
-class AuthSeeder extends AbstractSeed
+class S01AuthSeeder extends AbstractSeed
 {
     /**
      * Run Method.
@@ -83,9 +83,8 @@ class AuthSeeder extends AbstractSeed
             $sql = str_replace('{{name}}', $rule['name'], $sqlTmpl);
             $row = $this->fetchRow($sql);
             if (empty($row)) {
-                $data = [$rule];
                 $this->table('auth_rule')
-                    ->insert($data)
+                    ->insert($rule)
                     ->saveData();
             }
         }
@@ -96,17 +95,13 @@ class AuthSeeder extends AbstractSeed
         $tableAdapter = new TablePrefixAdapter($this->getAdapter());
 
         $prefixedTableName = $tableAdapter->getAdapterTableName('auth_rule');
-        $sql = "SELECT * FROM `$prefixedTableName` WHERE `status` = 1;";
+        $sql = "SELECT `id`, `name` FROM `$prefixedTableName` WHERE `status` = 1;";
         $allRules = $this->fetchAll($sql);
         $ruleMap = [];
-        array_walk(
-            $allRules,
-            function ($rule, $ndx) use (&$ruleMap)
-            {
-               $ruleMap[$rule['name']] = $rule['id'];
-            },
-            $ruleMap
-        );
+        array_walk($allRules, function ($rule, $ndx) use (&$ruleMap)
+        {
+           $ruleMap[$rule['name']] = $rule['id'];
+        });
 
         $prefixedTableName = $tableAdapter->getAdapterTableName('group');
         $sqlTmpl = "SELECT * FROM `$prefixedTableName` WHERE `title` = '{{title}}';";
@@ -159,9 +154,8 @@ class AuthSeeder extends AbstractSeed
             $row = $this->fetchRow($sql);
 
             if (empty($row)) {
-                $data = [$group];
                 $this->table('group')
-                    ->insert($data)
+                    ->insert($group)
                     ->saveData();
             } else {
                 $group['updated_at'] = date('Y-m-d H:i:s.u');

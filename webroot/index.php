@@ -76,4 +76,4 @@ $msg = PHP_EOL . 'index.php:'
     // . PHP_EOL . '  C(LANG_LIST) = ' . C('LANG_LIST')
     // . PHP_EOL . '  C(VAR_LANGUAGE) = ' . C('VAR_LANGUAGE')
     . PHP_EOL . str_repeat('-', 80);
-Think\Log::write($msg, 'INFO');
+// Think\Log::write($msg, 'INFO');

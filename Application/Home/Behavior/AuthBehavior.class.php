@@ -13,21 +13,21 @@ class AuthBehavior extends Behavior {
         $return = true;
 
         $msg = PHP_EOL . 'Home\Behavior\AuthBehavior::run():'
-            . PHP_EOL . '系统常量:'
-            . PHP_EOL . '  __APP__ = ' . (defined('__APP__') ? __APP__ : '')
-            . PHP_EOL . '  __MODULE__ = ' . (defined('__MODULE__') ? __MODULE__ : '')
-            . PHP_EOL . '  __CONTROLLER__ = ' . (defined('__CONTROLLER__') ? __CONTROLLER__ : '')
-            . PHP_EOL . '  __ACTION__ = ' . (defined('__ACTION__') ? __ACTION__ : '')
-            . PHP_EOL . '  __SELF__ = ' . (defined('__SELF__') ? __SELF__ : '')
-            . PHP_EOL . '  __INFO__ = ' . __INFO__
-            . PHP_EOL . '  MODULE_NAME = ' . MODULE_NAME
-            . PHP_EOL . '  CONTROLLER_NAME = ' . (defined('CONTROLLER_NAME') ? CONTROLLER_NAME : '')
-            . PHP_EOL . '  ACTION_NAME = ' . (defined('ACTION_NAME') ? ACTION_NAME : '')
-            . PHP_EOL . '  REQUEST_METHOD = ' . (defined('REQUEST_METHOD') ? REQUEST_METHOD : '')
-            . PHP_EOL . '配置:'
-            . PHP_EOL . '  C(AUTH_CONFIG.AUTH_ON) = ' . C('AUTH_CONFIG.AUTH_ON');
+            . PHP_EOL . '  系统常量:'
+            // . PHP_EOL . '    __APP__ = ' . (defined('__APP__') ? __APP__ : '')
+            // . PHP_EOL . '    __MODULE__ = ' . (defined('__MODULE__') ? __MODULE__ : '')
+            // . PHP_EOL . '    __CONTROLLER__ = ' . (defined('__CONTROLLER__') ? __CONTROLLER__ : '')
+            // . PHP_EOL . '    __ACTION__ = ' . (defined('__ACTION__') ? __ACTION__ : '')
+            // . PHP_EOL . '    __SELF__ = ' . (defined('__SELF__') ? __SELF__ : '')
+            // . PHP_EOL . '    __INFO__ = ' . __INFO__
+            . PHP_EOL . '    MODULE_NAME = ' . MODULE_NAME
+            . PHP_EOL . '    CONTROLLER_NAME = ' . (defined('CONTROLLER_NAME') ? CONTROLLER_NAME : '')
+            . PHP_EOL . '    ACTION_NAME = ' . (defined('ACTION_NAME') ? ACTION_NAME : '')
+            . PHP_EOL . '    REQUEST_METHOD = ' . (defined('REQUEST_METHOD') ? REQUEST_METHOD : '')
+            . PHP_EOL . '  配置:'
+            . PHP_EOL . '    C(AUTH_CONFIG.AUTH_ON) = ' . C('AUTH_CONFIG.AUTH_ON', null, false);
 
-        $msg .= PHP_EOL . '  session() = ' . print_r(session(), true);
+        // $msg .= PHP_EOL . '  session() = ' . print_r(session(), true);
 
         $isAuthenticated = session('?authentication.authenticated')
                         && session('authentication.authenticated');
@@ -47,7 +47,7 @@ class AuthBehavior extends Behavior {
             if ($isAuthenticated) {
                 $msg .= PHP_EOL . '  member:';
 
-                if (C('AUTH_CONFIG.AUTH_ON')) {
+                if (C('AUTH_CONFIG.AUTH_ON', null, false)) {
                     $userId = session('authentication.user')['id'];
 
                     $Auth = new Auth();
@@ -60,8 +60,10 @@ class AuthBehavior extends Behavior {
                         $return = false;
 
                         $msg .= PHP_EOL . '  $return = ' . $return;
+                        $msg .= PHP_EOL . '  redirect to ' . $loginRedirectUrl;
                         $msg .= PHP_EOL . str_repeat('-', 80);
-                        \Think\Log::write($msg, 'DEBUG');
+                        // \Think\Log::write($msg, 'DEBUG');
+                        // trace($msg, '调试', 'DEBUG', true);
 
                         // send_http_status(401);
 
@@ -71,7 +73,7 @@ class AuthBehavior extends Behavior {
                     }
                 }
 
-                // $return = !C('AUTH_CONFIG.AUTH_ON') || $isAuthorized;
+                // $return = !C('AUTH_CONFIG.AUTH_ON', null, false) || $isAuthorized;
             } else {
                 $msg .= PHP_EOL . '  public user:';
 
@@ -79,8 +81,10 @@ class AuthBehavior extends Behavior {
                     $return = false;
 
                     $msg .= PHP_EOL . '  $return = ' . $return;
+                    $msg .= PHP_EOL . '  redirect to ' . $loginUrl;
                     $msg .= PHP_EOL . str_repeat('-', 80);
-                    \Think\Log::write($msg, 'DEBUG');
+                    // \Think\Log::write($msg, 'DEBUG');
+                    // trace($msg, '调试', 'DEBUG', true);
 
                     // send_http_status(401);
 
@@ -95,7 +99,7 @@ class AuthBehavior extends Behavior {
 
         $msg .= PHP_EOL . '  $return = ' . $return;
         $msg .= PHP_EOL . str_repeat('-', 80);
-        \Think\Log::write($msg, 'DEBUG');
+        // \Think\Log::write($msg, 'DEBUG');
         // trace($msg, '调试', 'DEBUG', true);
     }
 

@@ -4,6 +4,7 @@ return [
 
     // 有些配置必须如此，只写在.env中无效
     'DEFAULT_LANG'      => getenv('DEFAULT_LANG'),      // 默认语言
+    'DEFAULT_TIMEZONE'  => getenv('DEFAULT_TIMEZONE'),  // 默认时区
     'LANG_SWITCH_ON'    => getenv('LANG_SWITCH_ON'),    // 开启语言包功能
     'LANG_AUTO_DETECT'  => getenv('LANG_AUTO_DETECT'),  // 自动侦测语言 开启多语言功能后有效
     'LANG_LIST'         => getenv('LANG_LIST'),         // 允许切换的语言列表 用逗号分隔
@@ -44,6 +45,11 @@ return [
         'posts/delete/:id\d'    => 'Home/Post/delete',
         'posts'                 => 'Home/Post/index',
     ],
+
+    // 日志
+    'LOG_EXCEPTION_RECORD'  => getenv('LOG_EXCEPTION_RECORD'),  // 是否记录异常信息日志
+    'SHOW_PAGE_TRACE'       => getenv('SHOW_PAGE_TRACE'),       // 是否显示页面Trace信息
+    'PAGE_TRACE_SAVE'       => getenv('PAGE_TRACE_SAVE'),       // 是否保存页面Trace信息到日志目录中
 
     'SESSION_OPTIONS' => [
         'name'      => getenv('SESSION_OPTIONS_NAME'),          // session_name 值

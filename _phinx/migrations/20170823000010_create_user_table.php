@@ -41,19 +41,19 @@ class CreateUserTable extends AbstractMigration
             'limit' => 255,
             'collation' => 'utf8mb4_unicode_ci',
             'encoding' => 'utf8mb4',
-            'comment' => '姓名',
+            'comment' => '名',
         ])->addColumn('last_name', 'string', [
             'null' => true,
             'limit' => 255,
             'collation' => 'utf8mb4_unicode_ci',
             'encoding' => 'utf8mb4',
-            'comment' => '姓名',
+            'comment' => '姓',
         ])->addColumn('email', 'string', [
             'null' => true,
             'limit' => 255,
             'collation' => 'utf8mb4_unicode_ci',
             'encoding' => 'utf8mb4',
-            'comment' => '电子邮箱',
+            'comment' => '电子邮箱地址',
         ])->addColumn('phone', 'string', [
             'null' => true,
             'limit' => 127,

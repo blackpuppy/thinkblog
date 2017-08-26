@@ -26,15 +26,6 @@ class CreateUserGroupTables extends AbstractMigration
             'precision' => 10,
             'signed' => false,
             'comment' => '用户组id',
-        ])->addIndex(['uid', 'group_id'], [
-            'name' => 'uid_group_id',
-            'unique' => true
-        ])->addIndex(['uid'], [
-            'name' => 'uid',
-            'unique' => false
-        ])->addIndex(['group_id'], [
-            'name' => 'group_id',
-            'unique' => false
         ])->addColumn('created_at', 'datetime', [
             'null' => false,
             'default' => 'CURRENT_TIMESTAMP',
@@ -42,6 +33,21 @@ class CreateUserGroupTables extends AbstractMigration
         ])->addColumn('updated_at', 'datetime', [
             'null' => true,
             'comment' => '更新时间',
+        ])->addIndex(['uid', 'group_id'], [
+            'name' => 'uid_group_id',
+            'unique' => true
+        ])->addIndex(['uid'], [
+            'name' => 'uid',
+            'unique' => false
+        ])->addForeignKey('uid', 'user', 'id', [
+            'delete'=> 'RESTRICT',
+            'update'=> 'CASCADE',
+        ])->addIndex(['group_id'], [
+            'name' => 'group_id',
+            'unique' => false,
+        ])->addForeignKey('group_id', 'auth_group', 'id', [
+            'delete'=> 'RESTRICT',
+            'update'=> 'CASCADE',
         ])->create();
     }
 }

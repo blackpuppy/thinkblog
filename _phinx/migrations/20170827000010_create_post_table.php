@@ -35,6 +35,12 @@ class CreatePostTable extends AbstractMigration
             'collation' => 'utf8mb4_unicode_ci',
             'encoding' => 'utf8mb4',
             'comment' => '内容',
+        ])->addColumn('author_user_id', 'integer', [
+            'null' => false,
+            'limit' => MysqlAdapter::INT_REGULAR,
+            'precision' => 10,
+            'signed' => false,
+            'comment' => '作者用户id'
         ])->addColumn('created_at', 'datetime', [
             'null' => false,
             'default' => 'CURRENT_TIMESTAMP',
@@ -42,6 +48,12 @@ class CreatePostTable extends AbstractMigration
         ])->addColumn('updated_at', 'datetime', [
             'null' => true,
             'comment' => '更新时间',
+        ])->addIndex(['author_user_id'], [
+            'name' => 'author',
+            'unique' => false,
+        ])->addForeignKey('author_user_id', 'user', 'id', [
+            'delete'=> 'RESTRICT',
+            'update'=> 'CASCADE',
         ])->create();
     }
 }

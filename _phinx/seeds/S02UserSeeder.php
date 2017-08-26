@@ -39,11 +39,39 @@ class S02UserSeeder extends AbstractSeed
                 'email'         => 'admin@example.com',
                 'groups'        => ['管理员'],
             ], [
-                'name'          => 'twain.mark',
+                'name'          => 'tayler.otwell',
+                'password'      => 'P@55w0rd',
+                'first_name'    => 'Tayler',
+                'last_name'     => 'Otwell',
+                'email'         => 'tayler.otwell@example.com',
+                'groups'        => ['作者'],
+            ], [
+                'name'          => 'mark.story',
                 'password'      => 'P@55w0rd',
                 'first_name'    => 'Mark',
-                'last_name'     => 'Twain',
-                'email'         => 'twain.mark@example.com',
+                'last_name'     => 'Story',
+                'email'         => 'mark.story@example.com',
+                'groups'        => ['作者'],
+            ], [
+                'name'          => 'qiang.xue',
+                'password'      => 'P@55w0rd',
+                'first_name'    => '强',
+                'last_name'     => '薛',
+                'email'         => 'qiang.xue@example.com',
+                'groups'        => ['作者'],
+            ], [
+                'name'          => 'chen.liu',
+                'password'      => 'P@55w0rd',
+                'first_name'    => '晨',
+                'last_name'     => '刘',
+                'email'         => 'chen.liu@example.com',
+                'groups'        => ['作者'],
+            ], [
+                'name'          => 'john.doe',
+                'password'      => 'P@55w0rd',
+                'first_name'    => 'John',
+                'last_name'     => 'Doe',
+                'email'         => 'john.doe@example.com',
                 'groups'        => ['作者'],
             ]
         ];
@@ -52,6 +80,8 @@ class S02UserSeeder extends AbstractSeed
             $user['password'] = password_hash($user['password'], PASSWORD_BCRYPT);
 
             $groups = $user['groups'];
+            unset($user['groups']);
+
             if (count($groupMap) > 0) {
                 array_walk(
                     $groups,
@@ -62,7 +92,6 @@ class S02UserSeeder extends AbstractSeed
                     $groupMap
                 );
             }
-            unset($user['groups']);
 
             $sql = str_replace('{{name}}', $user['name'], $selectUserTmpl);
             $userRow = $this->fetchRow($sql);

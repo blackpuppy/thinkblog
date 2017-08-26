@@ -53,16 +53,16 @@ $msg = PHP_EOL . 'index.php:'
     // . PHP_EOL . '  DATA_PATH = ' . DATA_PATH
     // . PHP_EOL . '  APP_DEBUG = ' . APP_DEBUG
     . PHP_EOL . '系统常量:'
-    // . PHP_EOL . '  __APP__ = ' . __APP__
-    // . PHP_EOL . '  __MODULE__ = ' . __MODULE__
-    // . PHP_EOL . '  __CONTROLLER__ = ' . __CONTROLLER__
-    // . PHP_EOL . '  __ACTION__ = ' . __ACTION__
+    . PHP_EOL . '  __APP__ = ' . __APP__
+    . PHP_EOL . '  __MODULE__ = ' . __MODULE__
+    . PHP_EOL . '  __CONTROLLER__ = ' . __CONTROLLER__
+    . PHP_EOL . '  __ACTION__ = ' . __ACTION__
     . PHP_EOL . '  __SELF__ = ' . __SELF__
-    // . PHP_EOL . '  __INFO__ = ' . __INFO__
-    // . PHP_EOL . '  MODULE_NAME = ' . MODULE_NAME
-    // . PHP_EOL . '  CONTROLLER_NAME = ' . CONTROLLER_NAME
-    // . PHP_EOL . '  ACTION_NAME = ' . ACTION_NAME
-    // . PHP_EOL . '  REQUEST_METHOD = ' . REQUEST_METHOD
+    . PHP_EOL . '  __INFO__ = ' . __INFO__
+    . PHP_EOL . '  MODULE_NAME = ' . MODULE_NAME
+    . PHP_EOL . '  CONTROLLER_NAME = ' . CONTROLLER_NAME
+    . PHP_EOL . '  ACTION_NAME = ' . ACTION_NAME
+    . PHP_EOL . '  REQUEST_METHOD = ' . REQUEST_METHOD
     // . PHP_EOL . '  IS_GET = ' . IS_GET
     // . PHP_EOL . '  IS_POST = ' . IS_POST
     // . PHP_EOL . '  IS_AJAX = ' . IS_AJAX
@@ -76,4 +76,4 @@ $msg = PHP_EOL . 'index.php:'
     // . PHP_EOL . '  C(LANG_LIST) = ' . C('LANG_LIST')
     // . PHP_EOL . '  C(VAR_LANGUAGE) = ' . C('VAR_LANGUAGE')
     . PHP_EOL . str_repeat('-', 80);
-// Think\Log::write($msg, 'INFO');
+Think\Log::write($msg, 'INFO');

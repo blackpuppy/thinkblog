@@ -14,7 +14,7 @@ class S01AuthSeeder extends AbstractSeed
     public function run()
     {
         $this->SeedAuthRule();
-        $this->SeedGroup();
+        $this->SeedAuthGroup();
     }
 
     protected function SeedAuthRule()
@@ -90,7 +90,7 @@ class S01AuthSeeder extends AbstractSeed
         }
     }
 
-    protected function SeedGroup()
+    protected function SeedAuthGroup()
     {
         $tableAdapter = new TablePrefixAdapter($this->getAdapter());
 
@@ -103,7 +103,7 @@ class S01AuthSeeder extends AbstractSeed
            $ruleMap[$rule['name']] = $rule['id'];
         });
 
-        $prefixedTableName = $tableAdapter->getAdapterTableName('group');
+        $prefixedTableName = $tableAdapter->getAdapterTableName('auth_group');
         $sqlTmpl = "SELECT * FROM `$prefixedTableName` WHERE `title` = '{{title}}';";
         $updateTmpl = "UPDATE `$prefixedTableName` SET `rules` = '{{rules}}', `updated_at` = '{{updated_at}}' WHERE `title` = '{{title}}';";
 
@@ -154,7 +154,7 @@ class S01AuthSeeder extends AbstractSeed
             $row = $this->fetchRow($sql);
 
             if (empty($row)) {
-                $this->table('group')
+                $this->table('auth_group')
                     ->insert($group)
                     ->saveData();
             } else {

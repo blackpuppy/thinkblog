@@ -15,7 +15,7 @@ class S02UserSeeder extends AbstractSeed
     {
         $tableAdapter = new TablePrefixAdapter($this->getAdapter());
 
-        $prefixedTableName = $tableAdapter->getAdapterTableName('group');
+        $prefixedTableName = $tableAdapter->getAdapterTableName('auth_group');
         $sql = "SELECT `id`, `title` FROM `$prefixedTableName` WHERE `status` = 1;";
         $allGroups = $this->fetchAll($sql);
         $groupMap = [];

@@ -3,11 +3,11 @@
 use Phinx\Migration\AbstractMigration;
 use Phinx\Db\Adapter\MysqlAdapter;
 
-class CreateGroupTables extends AbstractMigration
+class CreateAuthGroupTables extends AbstractMigration
 {
     public function change()
     {
-        $this->table('group', [
+        $this->table('auth_group', [
             'id' => false,
             'primary_key' => ['id'],
             'engine' => 'InnoDB',

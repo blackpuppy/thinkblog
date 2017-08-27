@@ -14,6 +14,8 @@
 - [ ] Web API
 - [ ] AngularJS 1 客户端
 
+将来可以考虑将用户认证与授权做成独立的扩展/插件/模块，单独发布。
+
 ## 本地开发环境
 
 我们用 Docker 建立本地开发环境。按照 [安装 Docker](https://yeasy.gitbooks.io/docker_practice/content/install/) 在你的开发电脑上安装 Docker。如果你的操作系统是 Windows，请按照 [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/) 进行安装。

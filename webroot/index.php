@@ -22,9 +22,12 @@ if (version_compare(PHP_VERSION, '5.3.0', '<')) {
 require(dirname(__DIR__) . '/vendor/autoload.php');
 
 // 载入环境配置，供getenv()使用
-$config = (new josegonzalez\Dotenv\Loader(dirname(__DIR__) . '/.env'))
-              ->parse();
-$config->putenv(true);
+$envFilePath = dirname(__DIR__) . '/.env';
+if (file_exists($envFilePath)) {
+    $Loader = (new josegonzalez\Dotenv\Loader($envFilePath))
+                  ->parse()
+                  ->putenv(true);
+}
 
 // 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false
 define('APP_DEBUG', getenv('APP_DEBUG'));

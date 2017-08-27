@@ -14,8 +14,8 @@ class CreatePostTable extends AbstractMigration
             'id' => false,
             'primary_key' => ['id'],
             'engine' => 'InnoDB',
-            'encoding' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'comment' => '文章'
         ])->addColumn('id', 'integer', [
             'null' => false,
@@ -27,13 +27,13 @@ class CreatePostTable extends AbstractMigration
         ])->addColumn('title', 'string', [
             'null' => false,
             'limit' => 255,
-            'collation' => 'utf8mb4_unicode_ci',
-            'encoding' => 'utf8mb4',
+            'collation' => 'utf8_unicode_ci',
+            'encoding' => 'utf8',
             'comment' => '标题',
         ])->addColumn('content', 'text', [
             'null' => false,
-            'collation' => 'utf8mb4_unicode_ci',
-            'encoding' => 'utf8mb4',
+            'collation' => 'utf8_unicode_ci',
+            'encoding' => 'utf8',
             'comment' => '内容',
         ])->addColumn('author_user_id', 'integer', [
             'null' => false,

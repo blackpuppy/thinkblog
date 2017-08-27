@@ -2,7 +2,7 @@
 return [
     //'配置项'=>'配置值'
 
-    // 有些配置必须如此，只写在.env中无效
+    // 有些配置必须这样引入配置文件，只写在.env中无效
     'DEFAULT_LANG'      => getenv('DEFAULT_LANG'),      // 默认语言
     'DEFAULT_TIMEZONE'  => getenv('DEFAULT_TIMEZONE'),  // 默认时区
     'LANG_SWITCH_ON'    => getenv('LANG_SWITCH_ON'),    // 开启语言包功能
@@ -19,6 +19,7 @@ return [
     'DB_PREFIX'     => getenv('DB_PREFIX'),     // 数据库表前缀
     'DB_CHARSET'    => getenv('DB_CHARSET'),    // 字符集
     'DB_DEBUG'      => getenv('DB_DEBUG'),      // 数据库调试模式 开启后可以记录SQL日志
+    'DB_ID_QUOTE'   => getenv('DB_ID_QUOTE'),   // 数据库标识符引号，MySQL为`，PostgreSQL为"
 
     // URL设置
     'URL_MODEL'         => getenv('URL_MODEL'),         // URL访问模式,可选参数0、1、2、3,代表以下四种模式：

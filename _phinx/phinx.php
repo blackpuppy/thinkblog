@@ -1,9 +1,12 @@
 <?php
 
 // 载入环境配置，供getenv()使用
-$Loader = (new josegonzalez\Dotenv\Loader(dirname(__DIR__) . '/.env'))
-              ->parse()
-              ->putenv(true);
+$envFilePath = dirname(__DIR__) . '/.env';
+if (file_exists($envFilePath)) {
+    $Loader = (new josegonzalez\Dotenv\Loader($envFilePath))
+                  ->parse()
+                  ->putenv(true);
+}
 
 date_default_timezone_set(getenv('DEFAULT_TIMEZONE'));
 

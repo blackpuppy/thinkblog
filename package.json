@@ -2,6 +2,9 @@
   "name": "thinkblog",
   "version": "1.0.0",
   "description": "ThinkPHP Blog",
+  "engines": {
+    "node": "^8.4.0"
+  },
   "main": "index.js",
   "repository": "git@github.com:blackpuppy/thinkblog.git",
   "author": "Zhu Ming <mingzhu.z+github@gmail.com>",

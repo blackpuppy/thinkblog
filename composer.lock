@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8cb51d12750272a4274bc1365c20fd90",
+    "content-hash": "762e32e764c38092a250f37ba2ae1ddd",
     "packages": [
         {
             "name": "josegonzalez/dotenv",
@@ -208,7 +208,7 @@
                 }
             ],
             "description": "ThinkPHP3.2集成php-dotenv",
-            "time": "2015-12-28 10:27:07"
+            "time": "2015-12-28T10:27:07+00:00"
         },
         {
             "name": "snowair/think-hookagent",
@@ -633,26 +633,70 @@
     ],
     "packages-dev": [
         {
-            "name": "odan/phinx-migrations-generator",
-            "version": "2.1.4",
+            "name": "heroku/heroku-buildpack-php",
+            "version": "v122",
             "source": {
                 "type": "git",
-                "url": "https://github.com/odan/phinx-migrations-generator.git",
-                "reference": "9d5de8e4516cf1bc83c3137dcbf917f1ac18eff0"
+                "url": "https://github.com/heroku/heroku-buildpack-php.git",
+                "reference": "82b6fbf8d6a9693ec2f01ccf993202bfc1bc528a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/odan/phinx-migrations-generator/zipball/9d5de8e4516cf1bc83c3137dcbf917f1ac18eff0",
-                "reference": "9d5de8e4516cf1bc83c3137dcbf917f1ac18eff0",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/82b6fbf8d6a9693ec2f01ccf993202bfc1bc528a",
+                "reference": "82b6fbf8d6a9693ec2f01ccf993202bfc1bc528a",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/heroku-hhvm-apache2",
+                "bin/heroku-hhvm-nginx",
+                "bin/heroku-php-apache2",
+                "bin/heroku-php-nginx"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Zuelke",
+                    "email": "dz@heroku.com"
+                }
+            ],
+            "description": "Toolkit for starting a PHP application locally, with or without foreman, using the same config for PHP/HHVM and Apache2/Nginx as on Heroku",
+            "homepage": "https://github.com/heroku/heroku-buildpack-php",
+            "keywords": [
+                "apache",
+                "apache2",
+                "foreman",
+                "heroku",
+                "hhvm",
+                "nginx",
+                "php"
+            ],
+            "time": "2017-08-03T22:13:11+00:00"
+        },
+        {
+            "name": "odan/phinx-migrations-generator",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/odan/phinx-migrations-generator.git",
+                "reference": "47f0e7e9927422c889eee67f1787355ef6e6f8bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/odan/phinx-migrations-generator/zipball/47f0e7e9927422c889eee67f1787355ef6e6f8bc",
+                "reference": "47f0e7e9927422c889eee67f1787355ef6e6f8bc",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0",
+                "php": "^5.6 || ^7.0",
                 "robmorgan/phinx": "^0.8",
                 "symfony/console": "~2.8|~3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^5.7.0"
             },
             "bin": [
                 "./bin/phinx-migrations"
@@ -675,7 +719,7 @@
                 "migration",
                 "phinx"
             ],
-            "time": "2017-06-20T20:05:33+00:00"
+            "time": "2017-06-03T13:16:54+00:00"
         }
     ],
     "aliases": [],
@@ -686,7 +730,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": "^5.6.0",
+        "ext-gd": "*",
+        "ext-intl": "*",
+        "ext-mbstring": "*"
     },
     "platform-dev": []
 }

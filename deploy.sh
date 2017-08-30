@@ -121,6 +121,7 @@ if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
 fi
 
 # 2.1 Install composer
+echo "checking $DEPLOYMENT_TARGET/composer.phar"
 if [ -e "$DEPLOYMENT_TARGET/composer.phar" ]; then
   echo "**** Installing composer ****"
   pushd "$DEPLOYMENT_TARGET"

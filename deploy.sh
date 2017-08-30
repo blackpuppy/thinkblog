@@ -121,10 +121,12 @@ if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
 fi
 
 # 2.1 Install composer
-echo "checking $DEPLOYMENT_TARGET/composer.phar"
-if [ -e "$DEPLOYMENT_TARGET/composer.phar" ]; then
+# echo "checking $DEPLOYMENT_TARGET/composer.phar"
+echo "checking /d/home/site/deployments/tools/composer.phar"
+if [ -e "/d/home/site/deployments/tools/composer.phar" ]; then
   echo "**** Installing composer ****"
-  pushd "$DEPLOYMENT_TARGET"
+  pushd "D:\home\site\deployments\tools"
+  # pushd "$DEPLOYMENT_TARGET"
   pwd
 
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -137,14 +139,15 @@ if [ -e "$DEPLOYMENT_TARGET/composer.phar" ]; then
 fi
 
 # 2.2 Verify composer installed
-cd "$DEPLOYMENT_TARGET"
+# cd "$DEPLOYMENT_TARGET"
 # pushd "$DEPLOYMENT_TARGET"
-pwd
-composer -V
-hash composer #2>/dev/null
+# pushd "D:\home\site\deployments\tools"
+# pwd
+/d/home/site/deployments/tools/composer -V
+hash /d/home/site/deployments/tools/composer 2>/dev/null
 exitWithMessageOnError "Missing composer executable"
 # popd
-cd - > /dev/null
+# cd - > /dev/null
 
 # 2.3 Initialize Composer Config
 initializeDeploymentConfig
@@ -156,7 +159,7 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   # pushd "$DEPLOYMENT_TARGET"
   pwd
-  composer install $COMPOSER_ARGS
+  /d/home/site/deployments/tools/composer install $COMPOSER_ARGS
   exitWithMessageOnError "Composer install failed"
   # popd
   cd - > /dev/null

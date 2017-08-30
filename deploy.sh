@@ -137,8 +137,9 @@ fi
 # 2.2 Verify composer installed
 cd "$DEPLOYMENT_TARGET"
 # pushd "$DEPLOYMENT_TARGET"
-cd
-hash composer 2>/dev/null
+echo %cd%
+composer -V
+hash composer #2>/dev/null
 exitWithMessageOnError "Missing composer executable"
 # popd
 cd - > /dev/null
@@ -152,7 +153,7 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
   echo "Found composer.json"
   cd "$DEPLOYMENT_TARGET"
   # pushd "$DEPLOYMENT_TARGET"
-  cd
+  echo %cd%
   composer install $COMPOSER_ARGS
   exitWithMessageOnError "Composer install failed"
   # popd

@@ -135,8 +135,10 @@ if [ -e "$DEPLOYMENT_TARGET/composer.phar" ]; then
 fi
 
 # 2.2 Verify composer installed
+pushd "$DEPLOYMENT_TARGET"
 hash composer 2>/dev/null
 exitWithMessageOnError "Missing composer executable"
+popd
 
 # 2.3 Initialize Composer Config
 initializeDeploymentConfig

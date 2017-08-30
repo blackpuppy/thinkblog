@@ -50,7 +50,7 @@ selectNodeVersion () {
 # Post Deployment
 # ---------------
 
-echo "This is post deployment"
+echo "**** This is post deployment ****"
 
 # 2.4 Run Database Migrations/Seeding
 # vendor/bin/phinx migrate -c _phinx/phinx.php

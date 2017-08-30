@@ -112,7 +112,7 @@ selectNodeVersion () {
 # ----------
 
 echo PHP deployment
-echo "This is custom deployment"
+echo "**** This is custom deployment ****"
 
 # 1. KuduSync
 if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then

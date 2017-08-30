@@ -120,14 +120,28 @@ if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
   exitWithMessageOnError "Kudu Sync failed"
 fi
 
-# 2.1 Verify composer installed
+# 2.1 Install composer
+if [ -e "$DEPLOYMENT_TARGET/composer.phar" ]; then
+  echo "**** Installing composer ****"
+  pushd "$DEPLOYMENT_TARGET"
+
+  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+  php composer-setup.php
+  php -r "unlink('composer-setup.php');"
+  echo @php "%~dp0composer.phar" %*>composer.bat
+
+  popd
+fi
+
+# 2.2 Verify composer installed
 hash composer 2>/dev/null
 exitWithMessageOnError "Missing composer executable"
 
-# 2.2 Initialize Composer Config
+# 2.3 Initialize Composer Config
 initializeDeploymentConfig
 
-# 2.3 Use composer
+# 2.4 Use composer
 echo "$DEPLOYMENT_TARGET"
 if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
   echo "Found composer.json"
@@ -137,7 +151,7 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
   popd
 fi
 
-# 2.4 Run Database Migrations/Seeding
+# 2.5 Run Database Migrations/Seeding
 # vendor/bin/phinx migrate -c _phinx/phinx.php
 # vendor/bin/phinx seed:run -c _phinx/phinx.php
 

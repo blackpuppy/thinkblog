@@ -135,10 +135,10 @@ if [ ! -e "D:\home\site\deployments\tools/composer.phar" ]; then
 fi
 
 # 2.2 Verify composer installed
-pushd "D:\home\site\deployments\tools"
-hash composer 2>/dev/null
+# pushd "D:\home\site\deployments\tools"
+hash /d/home/site/deployments/tools/composer 2>/dev/null
 exitWithMessageOnError "Missing composer executable"
-popd
+# popd
 
 # 2.3 Initialize Composer Config
 initializeDeploymentConfig
@@ -147,12 +147,12 @@ initializeDeploymentConfig
 echo "$DEPLOYMENT_TARGET"
 if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
   echo "Found composer.json"
-  cd "$DEPLOYMENT_TARGET"
-  # pushd "$DEPLOYMENT_TARGET"
-  composer install $COMPOSER_ARGS
+  # cd "$DEPLOYMENT_TARGET"
+  pushd "$DEPLOYMENT_TARGET"
+  /d/home/site/deployments/tools/composer install $COMPOSER_ARGS
   exitWithMessageOnError "Composer install failed"
-  # popd
-  cd - > /dev/null
+  popd
+  # cd - > /dev/null
 fi
 
 # 2.5 Run Database Migrations/Seeding

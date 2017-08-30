@@ -144,19 +144,34 @@ fi
 selectNodeVersion
 
 # 3.2 Install npm packages
-if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
-  cd "$DEPLOYMENT_TARGET"
-  eval $NPM_CMD install --production
-  exitWithMessageOnError "npm failed"
-  cd - > /dev/null
-fi
+# if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
+#   cd "$DEPLOYMENT_TARGET"
+#   eval $NPM_CMD install --production
+#   exitWithMessageOnError "npm failed"
+#   cd - > /dev/null
+# fi
 
 # 3.3 Install Yarn
 echo "Verifying Yarn Install."
 eval $NPM_CMD install install yarn -g
 
-# 3.4 Build Assets
-yarn dev
+# 3.4 Install Yarn packages
+echo "Installing Yarn Packages."
+if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  yarn install
+  exitWithMessageOnError "Yarn failed"
+  cd - > /dev/null
+fi
+
+# 3.5 Build Assets
+echo "Building Frontend Assets."
+if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  yarn dev
+  exitWithMessageOnError "Yarn failed"
+  cd - > /dev/null
+fi
 
 ##################################################################################################################################echo "Finished successfully."
 echo "Finished successfully."

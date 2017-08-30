@@ -136,7 +136,7 @@ fi
 
 # 2.2 Verify composer installed
 # pushd "D:\home\site\deployments\tools"
-hash /d/home/site/deployments/tools/composer 2>/dev/null
+hash /d/home/site/deployments/tools/composer.bat 2>/dev/null
 exitWithMessageOnError "Missing composer executable"
 # popd
 
@@ -149,7 +149,7 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
   echo "Found composer.json"
   # cd "$DEPLOYMENT_TARGET"
   pushd "$DEPLOYMENT_TARGET"
-  /d/home/site/deployments/tools/composer install $COMPOSER_ARGS
+  /d/home/site/deployments/tools/composer.bat install $COMPOSER_ARGS
   exitWithMessageOnError "Composer install failed"
   popd
   # cd - > /dev/null

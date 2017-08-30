@@ -122,8 +122,8 @@ fi
 
 # 2.1 Install composer
 # echo "checking $DEPLOYMENT_TARGET/composer.phar"
-echo "checking /d/home/site/deployments/tools/composer.phar"
-if [ -e "/d/home/site/deployments/tools/composer.phar" ]; then
+echo "checking D:\home\site\deployments\tools\composer.phar"
+if [ ! -e "D:\home\site\deployments\tools\composer.phar" ]; then
   echo "**** Installing composer ****"
   pushd "D:\home\site\deployments\tools"
   # pushd "$DEPLOYMENT_TARGET"

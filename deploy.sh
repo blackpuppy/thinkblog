@@ -130,7 +130,7 @@ if [ ! -e "D:\home\site\deployments\tools/composer.phar" ]; then
   php composer-setup.php
   php -r "unlink('composer-setup.php');"
   # mv composer.phar composer
-  echo @php "%~dp0composer" %*>composer.bat
+  echo @php "%~dp0composer.phar" %*>composer.bat
 
   popd
 fi

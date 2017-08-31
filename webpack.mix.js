@@ -23,9 +23,10 @@ mix.webpackConfig({
     }
 });
 
-mix.js('resources/js/app.js', 'js')
-    .sass('resources/sass/app.scss', 'css');
-    // .setPublicPath('webroot/Public');
+mix.setPublicPath('webroot/Public')
+    // .setResourceRoot('webroot/Public')
+    .sass('resources/sass/app.scss', 'css')
+    .js('resources/js/app.js', 'js');
 
 if (mix.inProduction()) {
     mix.version();

@@ -20,23 +20,26 @@ if (! function_exists('mix')) {
     {
         static $manifest;
         $publicFolder = '/Public';
-        // $rootPath = $_SERVER['DOCUMENT_ROOT'];
-        $rootPath = __DIR__;
+        $rootPath = $_SERVER['DOCUMENT_ROOT'];
+        // $rootPath = __DIR__;
         $publicPath = $rootPath . $publicFolder;
         if ($manifestDirectory && ! starts_with($manifestDirectory, '/')) {
             $manifestDirectory = "/{$manifestDirectory}";
+        } else {
+            $manifestDirectory = $publicFolder;
         }
 
         $msg = PHP_EOL . '$rootPath = ' . $rootPath
             . PHP_EOL . '$publicFolder = ' . $publicFolder
             . PHP_EOL . '$publicPath = ' . $publicPath
-            . PHP_EOL . '$manifestDirectory = ' . $manifestDirectory
-            . PHP_EOL . 'manifest file path = ' . ($rootPath . $manifestDirectory.'/mix-manifest.json');
+            . PHP_EOL . '$manifestDirectory = ' . $manifestDirectory;
             // . PHP_EOL . '$manifest = ' . print_r($manifest, true);
         // \Think\Log::write($msg, 'INFO');
 
         if (! $manifest) {
-            if (! file_exists($manifestPath = ($rootPath . $manifestDirectory.'/mix-manifest.json') )) {
+            $manifestPath = "$rootPath$manifestDirectory/mix-manifest.json";
+            $msg .= PHP_EOL . '$manifestPath = ' . $manifestPath;
+            if (! file_exists($manifestPath)) {
                 throw new Exception('The Mix manifest does not exist.');
             }
             $manifest = json_decode(file_get_contents($manifestPath), true);
@@ -58,6 +61,6 @@ if (! function_exists('mix')) {
         }
         return file_exists($publicPath . ($manifestDirectory.'/hot'))
                     ? "http://localhost:8084{$manifest[$path]}"
-                    : $manifestDirectory.$publicFolder.$manifest[$path];
+                    : $manifestDirectory.$manifest[$path];
     }
 }

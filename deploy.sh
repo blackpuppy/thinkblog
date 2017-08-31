@@ -157,9 +157,9 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
 fi
 
 # 2.5 Run Database Migrations/Seeding
-# echo "**** Running Database Migrations/Seeding ****"
-# vendor/bin/phinx migrate -c _phinx/phinx.php
-# vendor/bin/phinx seed:run -c _phinx/phinx.php
+echo "**** Running Database Migrations/Seeding ****"
+vendor/bin/phinx migrate -c _phinx/phinx.php
+vendor/bin/phinx seed:run -c _phinx/phinx.php
 
 # 3.1 Select node version
 selectNodeVersion
@@ -187,14 +187,14 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
 fi
 
 # 3.5 Build Assets
-# echo "**** Building Frontend Assets ****"
-# if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
-#   cd "$DEPLOYMENT_TARGET"
-#   # yarn dev
-#   eval $NPM_CMD run dev
-#   exitWithMessageOnError "Yarn failed"
-#   cd - > /dev/null
-# fi
+echo "**** Building Frontend Assets ****"
+if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  # yarn dev
+  eval $NPM_CMD run dev
+  exitWithMessageOnError "Yarn failed"
+  cd - > /dev/null
+fi
 
 ##################################################################################################################################echo "Finished successfully."
 echo "Finished successfully."

@@ -23,10 +23,10 @@ mix.webpackConfig({
     }
 });
 
-mix.setPublicPath('webroot/Public')
-    // .setResourceRoot('webroot/Public')
-    .sass('resources/sass/app.scss', 'css')
-    .js('resources/js/app.js', 'js');
+mix.sass('resources/sass/app.scss', 'css')
+    .js('resources/js/app.js', 'js')
+    .setPublicPath('webroot/Public')
+    .setResourceRoot('webroot/Public');
 
 if (mix.inProduction()) {
     mix.version();

@@ -145,7 +145,7 @@ exitWithMessageOnError "Missing composer executable"
 initializeDeploymentConfig
 
 # 2.4 Use composer
-echo "$DEPLOYMENT_TARGET"
+echo "**** Installing composer packages ****"
 if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
   echo "Found composer.json"
   # cd "$DEPLOYMENT_TARGET"
@@ -164,26 +164,26 @@ fi
 selectNodeVersion
 
 # 3.2 Install npm packages
-echo "Installing npm packages."
-if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
-  cd "$DEPLOYMENT_TARGET"
-  eval $NPM_CMD install
-  exitWithMessageOnError "npm failed"
-  cd - > /dev/null
-fi
-
-# 3.3 Install Yarn
-# echo "Verifying Yarn Install."
-# eval $NPM_CMD install install yarn -g
-
-# 3.4 Install Yarn packages
-# echo "Installing Yarn Packages."
+# echo "**** Installing npm packages ****"
 # if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
 #   cd "$DEPLOYMENT_TARGET"
-#   yarn install
-#   exitWithMessageOnError "Yarn failed"
+#   eval $NPM_CMD install
+#   exitWithMessageOnError "npm failed"
 #   cd - > /dev/null
 # fi
+
+3.3 Install Yarn
+echo "Verifying Yarn Install."
+eval $NPM_CMD install install yarn -g
+
+3.4 Install Yarn packages
+echo "Installing Yarn Packages."
+if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  yarn install
+  exitWithMessageOnError "Yarn failed"
+  cd - > /dev/null
+fi
 
 # 3.5 Build Assets
 echo "Building Frontend Assets."

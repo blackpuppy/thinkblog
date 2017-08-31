@@ -157,6 +157,7 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
 fi
 
 # 2.5 Run Database Migrations/Seeding
+# echo "**** Running Database Migrations/Seeding ****"
 # vendor/bin/phinx migrate -c _phinx/phinx.php
 # vendor/bin/phinx seed:run -c _phinx/phinx.php
 
@@ -172,12 +173,12 @@ selectNodeVersion
 #   cd - > /dev/null
 # fi
 
-3.3 Install Yarn
-echo "Verifying Yarn Install."
+# 3.3 Install Yarn
+echo "**** Verifying Yarn Install ****"
 eval $NPM_CMD install install yarn -g
 
-3.4 Install Yarn packages
-echo "Installing Yarn Packages."
+# 3.4 Install Yarn packages
+echo "**** Installing Yarn Packages ****"
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   yarn install
@@ -186,7 +187,7 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
 fi
 
 # 3.5 Build Assets
-echo "Building Frontend Assets."
+echo "**** Building Frontend Assets ****"
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   # yarn dev

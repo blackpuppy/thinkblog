@@ -121,7 +121,7 @@ if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
 fi
 
 # 2.1 Install composer
-if [ ! -e "D:\home\site\deployments\tools/composer.phar" ]; then
+if [ ! -e "D:\home\site\deployments\tools/composer" ]; then
   echo "**** Installing composer ****"
   pushd "D:\home\site\deployments\tools"
 
@@ -129,7 +129,6 @@ if [ ! -e "D:\home\site\deployments\tools/composer.phar" ]; then
   php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
   php composer-setup.php --filename=composer
   php -r "unlink('composer-setup.php');"
-  # mv composer.phar composer
   echo @php "%~dp0composer" %*>composer.bat
 
   popd
@@ -158,8 +157,15 @@ fi
 
 # 2.5 Run Database Migrations/Seeding
 echo "**** Running Database Migrations/Seeding ****"
+pushd "$DEPLOYMENT_TARGET"
+
 vendor/bin/phinx migrate -c _phinx/phinx.php
+exitWithMessageOnError "Database Migrations failed"
+
 vendor/bin/phinx seed:run -c _phinx/phinx.php
+exitWithMessageOnError "Database Seeding failed"
+
+popd
 
 # 3.1 Select node version
 selectNodeVersion
@@ -174,16 +180,20 @@ selectNodeVersion
 # fi
 
 # 3.3 Install Yarn
-echo "**** Verifying Yarn Install ****"
-eval $NPM_CMD install install yarn -g
+yarn -V
+if [ ! $? -eq 0 ]; then
+  echo "**** Installing Yarn ****"
+  eval $NPM_CMD install yarn -g
+  exitWithMessageOnError "Yarn Install failed"
+fi
 
 # 3.4 Install Yarn packages
 echo "**** Installing Yarn Packages ****"
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
-  cd "$DEPLOYMENT_TARGET"
+  pushd "$DEPLOYMENT_TARGET"
   yarn install
   exitWithMessageOnError "Yarn failed"
-  cd - > /dev/null
+  popd
 fi
 
 # 3.5 Build Assets

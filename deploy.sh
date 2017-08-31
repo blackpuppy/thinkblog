@@ -187,14 +187,14 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
 fi
 
 # 3.5 Build Assets
-echo "**** Building Frontend Assets ****"
-if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
-  cd "$DEPLOYMENT_TARGET"
-  # yarn dev
-  eval $NPM_CMD run dev
-  exitWithMessageOnError "Yarn failed"
-  cd - > /dev/null
-fi
+# echo "**** Building Frontend Assets ****"
+# if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
+#   cd "$DEPLOYMENT_TARGET"
+#   # yarn dev
+#   eval $NPM_CMD run dev
+#   exitWithMessageOnError "Yarn failed"
+#   cd - > /dev/null
+# fi
 
 ##################################################################################################################################echo "Finished successfully."
 echo "Finished successfully."

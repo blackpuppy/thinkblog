@@ -1,4 +1,28 @@
 <?php
+$isAzure = false;
+$dbHost = "";
+$dbUser = "";
+$dbPwd = "";
+
+// 解析 Azure MySQL in App 数据库连接字符串
+foreach ($_SERVER as $key => $value) {
+    if (strpos($key, "MYSQLCONNSTR_") !== 0) {
+        continue;
+    }
+
+    $isAzure = true;
+    $dbHost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+    // $dbName = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+    $dbUser = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+    $dbPwd = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+}
+
+if (!$isAzure) {
+    $dbHost = getenv('DB_HOST');
+    $dbUser = getenv('DB_NAME');
+    $dbPwd = getenv('DB_PWD');
+}
+
 return [
     //'配置项'=>'配置值'
 
@@ -11,10 +35,10 @@ return [
     'VAR_LANGUAGE'      => getenv('VAR_LANGUAGE'),      // 默认语言切换变量
 
     'DB_TYPE'       => getenv('DB_TYPE'),       // 数据库类型
-    'DB_HOST'       => getenv('DB_HOST'),       // 服务器地址
+    'DB_HOST'       => $dbHost,                 // 服务器地址
     'DB_NAME'       => getenv('DB_NAME'),       // 数据库名
-    'DB_USER'       => getenv('DB_USER'),       // 用户名
-    'DB_PWD'        => getenv('DB_PWD'),        // 密码
+    'DB_USER'       => $dbUser,                 // 用户名
+    'DB_PWD'        => $dbPwd,                  // 密码
     'DB_PORT'       => getenv('DB_PORT'),       // 端口
     'DB_PREFIX'     => getenv('DB_PREFIX'),     // 数据库表前缀
     'DB_CHARSET'    => getenv('DB_CHARSET'),    // 字符集

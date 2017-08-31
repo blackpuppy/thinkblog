@@ -127,16 +127,16 @@ if [ ! -e "D:\home\site\deployments\tools/composer.phar" ]; then
 
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
   php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-  php composer-setup.php
+  php composer-setup.php --filename=composer
   php -r "unlink('composer-setup.php');"
-  echo @php "%~dp0composer.phar" %*>composer.bat
+  echo @php "%~dp0composer" %*>composer.bat
 
   popd
 fi
 
 # 2.2 Verify composer installed
 # pushd "D:\home\site\deployments\tools"
-hash /d/home/site/deployments/tools/composer.bat 2>/dev/null
+hash /d/home/site/deployments/tools/composer 2>/dev/null
 exitWithMessageOnError "Missing composer executable"
 # popd
 
@@ -149,7 +149,7 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
   echo "Found composer.json"
   # cd "$DEPLOYMENT_TARGET"
   pushd "$DEPLOYMENT_TARGET"
-  /d/home/site/deployments/tools/composer.bat install $COMPOSER_ARGS
+  /d/home/site/deployments/tools/composer install $COMPOSER_ARGS
   exitWithMessageOnError "Composer install failed"
   popd
   # cd - > /dev/null
@@ -163,31 +163,33 @@ fi
 selectNodeVersion
 
 # 3.2 Install npm packages
-# if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
-#   cd "$DEPLOYMENT_TARGET"
-#   eval $NPM_CMD install --production
-#   exitWithMessageOnError "npm failed"
-#   cd - > /dev/null
-# fi
-
-# 3.3 Install Yarn
-echo "Verifying Yarn Install."
-eval $NPM_CMD install install yarn -g
-
-# 3.4 Install Yarn packages
-echo "Installing Yarn Packages."
+echo "Installing npm packages."
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
-  yarn install
-  exitWithMessageOnError "Yarn failed"
+  eval $NPM_CMD install
+  exitWithMessageOnError "npm failed"
   cd - > /dev/null
 fi
+
+# 3.3 Install Yarn
+# echo "Verifying Yarn Install."
+# eval $NPM_CMD install install yarn -g
+
+# 3.4 Install Yarn packages
+# echo "Installing Yarn Packages."
+# if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
+#   cd "$DEPLOYMENT_TARGET"
+#   yarn install
+#   exitWithMessageOnError "Yarn failed"
+#   cd - > /dev/null
+# fi
 
 # 3.5 Build Assets
 echo "Building Frontend Assets."
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
-  yarn dev
+  # yarn dev
+  eval $NPM_CMD run dev
   exitWithMessageOnError "Yarn failed"
   cd - > /dev/null
 fi

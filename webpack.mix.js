@@ -4,7 +4,8 @@ const path = require('path');
 mix.webpackConfig({
     output: {
         path: path.resolve(__dirname, 'webroot/Public'),
-        publicPath: '/Public'
+        pathinfo: process.env.NODE_ENV !== 'production'
+        // publicPath: '/Public/'
     },
     module: {
         rules: [
@@ -23,8 +24,8 @@ mix.webpackConfig({
 });
 
 mix.js('resources/js/app.js', 'js')
-    .sass('resources/sass/app.scss', 'css')
-    .setPublicPath('webroot/Public');
+    .sass('resources/sass/app.scss', 'css');
+    // .setPublicPath('webroot/Public');
 
 if (mix.inProduction()) {
     mix.version();

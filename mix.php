@@ -20,17 +20,20 @@ if (! function_exists('mix')) {
     {
         static $manifest;
         $publicFolder = '/Public';
-        $rootPath = $_SERVER['DOCUMENT_ROOT'];
+        // $rootPath = $_SERVER['DOCUMENT_ROOT'];
+        $rootPath = __DIR__;
         $publicPath = $rootPath . $publicFolder;
         if ($manifestDirectory && ! starts_with($manifestDirectory, '/')) {
             $manifestDirectory = "/{$manifestDirectory}";
         }
 
-        // $msg = PHP_EOL . '$rootPath = ' . $rootPath
-        //     . PHP_EOL . '$publicFolder = ' . $publicFolder
-        //     . PHP_EOL . '$publicPath = ' . $publicPath
-        //     . PHP_EOL . '$manifestDirectory = ' . $manifestDirectory
-        //     . PHP_EOL . '$manifest = ' . print_r($manifest, true);
+        $msg = PHP_EOL . '$rootPath = ' . $rootPath
+            . PHP_EOL . '$publicFolder = ' . $publicFolder
+            . PHP_EOL . '$publicPath = ' . $publicPath
+            . PHP_EOL . '$manifestDirectory = ' . $manifestDirectory
+            . PHP_EOL . 'manifest file path = ' . ($rootPath . $manifestDirectory.'/mix-manifest.json');
+            // . PHP_EOL . '$manifest = ' . print_r($manifest, true);
+        // \Think\Log::write($msg, 'INFO');
 
         if (! $manifest) {
             if (! file_exists($manifestPath = ($rootPath . $manifestDirectory.'/mix-manifest.json') )) {
@@ -43,9 +46,9 @@ if (! function_exists('mix')) {
         }
         // $path = $publicFolder . $path;
 
-        // $msg .= PHP_EOL . '$path = ' . $path
-        //     . PHP_EOL . '$manifest = ' . print_r($manifest, true);
-        // \Think\Log::write($msg, 'INFO');
+        $msg .= PHP_EOL . '$path = ' . $path
+            . PHP_EOL . '$manifest = ' . print_r($manifest, true);
+        \Think\Log::write($msg, 'INFO');
 
         if (! array_key_exists($path, $manifest)) {
             throw new Exception(
@@ -55,6 +58,6 @@ if (! function_exists('mix')) {
         }
         return file_exists($publicPath . ($manifestDirectory.'/hot'))
                     ? "http://localhost:8084{$manifest[$path]}"
-                    : $manifestDirectory.$manifest[$path];
+                    : $manifestDirectory.$publicFolder.$manifest[$path];
     }
 }

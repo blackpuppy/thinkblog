@@ -86,4 +86,4 @@ $msg = PHP_EOL . 'index.php:'
     . PHP_EOL . '  C(VAR_LANGUAGE) = ' . C('VAR_LANGUAGE')
     . PHP_EOL . str_repeat('-', 80);
 // Think\Log::write($msg, 'INFO');
-trace($msg, '调试', 'DEBUG', true);
+// trace($msg, '调试', 'DEBUG', true);

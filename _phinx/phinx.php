@@ -32,6 +32,13 @@ if (!$isAzure) {
     $dbPwd = getenv('DB_PWD');
 }
 
+$msg = PHP_EOL . 'phinx.php:'
+    . PHP_EOL . '$isAzure = ' . $isAzure
+    . PHP_EOL . '$dbHost = ' . $dbHost
+    . PHP_EOL . '$dbUser = ' . $dbUser
+    . PHP_EOL . '$dbPwd = ' . $dbPwd;
+echo $msg;
+
 date_default_timezone_set(getenv('DEFAULT_TIMEZONE'));
 
 return [

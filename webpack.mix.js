@@ -28,10 +28,10 @@ const path = require('path');
 
 mix.sass('resources/sass/app.scss', 'css')
     .js('resources/js/app.js', 'js')
-    .setPublicPath('webroot/Public')
-    .setResourceRoot('webroot/Public')
-    // .setPublicPath(path.normalize('webroot/Public'))
-    // .setResourceRoot(path.normalize('webroot/Public'))
+    // .setPublicPath('webroot/Public')
+    // .setResourceRoot('webroot/Public')
+    .setPublicPath(path.normalize('webroot/Public'))
+    .setResourceRoot(path.normalize('webroot/Public'))
     .disableNotifications();
 
 if (mix.inProduction()) {

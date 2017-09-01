@@ -31,8 +31,8 @@ mix.sass('resources/sass/app.scss', 'css')
     // .setPublicPath('webroot/Public')
     // .setResourceRoot('webroot/Public')
     .setPublicPath(path.normalize('webroot/Public'))
-    .setResourceRoot(path.normalize('webroot/Public'))
-    .disableNotifications();
+    .setResourceRoot(path.normalize('webroot/Public'));
+    // .disableNotifications();
 
 if (mix.inProduction()) {
     mix.version();

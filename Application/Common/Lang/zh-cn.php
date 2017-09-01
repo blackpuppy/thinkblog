@@ -32,16 +32,20 @@ return [
     'WELCOME_TO_USE'    => '欢迎使用',
 
     // 主页
-    'HOMEPAGE_DESC'             => '演示以下技术：',
+    'TECH_DESC'                 => '演示以下技术：',
     'REMOVE_ENTRY_IN_URL'       => '去掉地址里面的入口文件 {$entry_file}',
     'DEV_USING_DOCKER'          => '用 Docker 配置本地开发环境',
     'CONFIG_IN_ENV'             => '配置放入环境',
     'BASIC_CRUD'                => '基本的 CRUD',
     'BUILD_WITH_LARAVEL_MIX'    => '用 Laravel Mix 构建前端资源',
-    'USER_AUTH'                 => '用户验证与授权',
+    'USER_AUTHENTICATION'       => '用户认证：用户是否是系统的合法用户，包括注册、登录、注销和忘记密码，等等',
+    'USER_AUTHORIZATION'        => '用户授权：用户是否有权做某项操作，比如是否可以访问某个页面/某项功能、是否可以读/写/删某项数据，等等',
     'MULTI_LANGUAGES'           => '多语言支持',
+    'MODEL_ASSOCIATION'         => '模型关联：模型之间的关联（一对一，一对多，属于，和多对多）',
     'WEB_API'                   => 'Web API',
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 客户端',
+    'USING_HTTPS'               => '使用 HTTPS',
+    'SOURCE_DESC'               => '演示程序的<a href="https://github.com/blackpuppy/thinkblog">源代码</a>可以自由获取。',
 
     // login
     'SIGN_UP'           => '注册新用户',

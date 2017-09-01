@@ -32,16 +32,21 @@ return [
     'WELCOME_TO_USE'    => 'Welcome to developing with',
 
     // Home page
-    'HOMEPAGE_DESC'             => 'Demonstrates the following techniques:',
+    'TECH_DESC'                 => 'Demonstrates the following techniques:',
     'REMOVE_ENTRY_IN_URL'       => 'Remove entry file {$entry_file} from URL',
     'DEV_USING_DOCKER'          => 'Dockerize local development environment',
     'CONFIG_IN_ENV'             => 'Externalize configuration in environment',
     'BASIC_CRUD'                => 'Basic CRUD',
     'BUILD_WITH_LARAVEL_MIX'    => 'Build frontend assets with Laravel Mix',
-    'USER_AUTH'                 => 'User Authentication/Authorization',
+    'USER_AUTHENTICATION'       => 'User Authentication/Authorization',
+    'USER_AUTHORIZATION'        => 'User Authentication: whether the user is legal user of the system, including registration, login, logout and forget password, etc.',
+    'USER_AUTH'                 => 'User Authorization：whether the user has the permission to make an operation, for example, whether accessible to a page/function, whether can read/write/delete a piece of data, etc.',
     'MULTI_LANGUAGES'           => 'Internationalization/Localization (I18n/L10n)',
+    'MODEL_ASSOCIATION'         => 'Model Assoication: Associations between models (one to one, one to many, belongs to, and many to many)',
     'WEB_API'                   => 'Web API',
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 Client',
+    'USING_HTTPS'               => 'Using HTTPS',
+    'SOURCE_DESC'               => 'You can access the <a href="https://github.com/blackpuppy/thinkblog">source code</a> of this demo.',
 
     // User
     'SIGN_UP'           => 'Sign Up',

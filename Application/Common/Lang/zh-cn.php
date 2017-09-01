@@ -46,6 +46,7 @@ return [
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 客户端',
     'USING_HTTPS'               => '使用 HTTPS',
     'SOURCE_DESC'               => '演示程序的<a href="https://github.com/blackpuppy/thinkblog">源代码</a>可以自由获取。',
+    'WELCOME_FEEDBACK'          => '欢迎任何 <a href="https://github.com/blackpuppy/thinkblog/issues/new">反馈和建议</a>！',
 
     // login
     'SIGN_UP'           => '注册新用户',

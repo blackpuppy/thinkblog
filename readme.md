@@ -63,3 +63,7 @@ $ docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node yarn dev
 ## 在线演示
 
 可以查看在线的[演示程序](http://thinkblog.azurewebsites.net/)。
+
+## 反馈和建议
+
+欢迎任何[反馈和建议](https://github.com/blackpuppy/thinkblog/issues/new)！

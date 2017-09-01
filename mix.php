@@ -51,7 +51,7 @@ if (! function_exists('mix')) {
 
         $msg .= PHP_EOL . '$path = ' . $path
             . PHP_EOL . '$manifest = ' . print_r($manifest, true);
-        \Think\Log::write($msg, 'INFO');
+        // \Think\Log::write($msg, 'INFO');
 
         if (! array_key_exists($path, $manifest)) {
             throw new Exception(

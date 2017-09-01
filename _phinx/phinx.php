@@ -28,7 +28,7 @@ foreach ($_SERVER as $key => $value) {
 
 if (!$isAzure) {
     $dbHost = getenv('DB_HOST');
-    $dbUser = getenv('DB_NAME');
+    $dbUser = getenv('DB_USER');
     $dbPwd = getenv('DB_PWD');
 }
 

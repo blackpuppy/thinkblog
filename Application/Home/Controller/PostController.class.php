@@ -30,7 +30,7 @@ class PostController extends Controller
             throw $e;
         } finally {
             $msg .= PHP_EOL . str_repeat('-', 80);
-            // \Think\Log::write($msg, 'INFO');
+            // \Think\Log::write($msg, 'DEBUG');
         }
     }
 
@@ -156,7 +156,7 @@ class PostController extends Controller
             throw $e;
         } finally {
             $msg .= PHP_EOL . str_repeat('-', 80);
-            // \Think\Log::write($msg, 'INFO');
+            // \Think\Log::write($msg, 'DEBUG');
         }
     }
 
@@ -199,7 +199,7 @@ class PostController extends Controller
             throw $e;
         } finally {
             $msg .= PHP_EOL . str_repeat('-', 80);
-            // \Think\Log::write($msg, 'INFO');
+            // \Think\Log::write($msg, 'DEBUG');
         }
     }
 }

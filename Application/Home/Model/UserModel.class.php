@@ -73,7 +73,7 @@ class UserModel extends BaseModel
 
         $msg .= PHP_EOL . '  $fullName = ' . $fullName
             . PHP_EOL . str_repeat('-', 80);
-        // \Think\Log::write($msg, 'INFO');
+        // \Think\Log::write($msg, 'DEBUG');
 
         return $fullName;
     }

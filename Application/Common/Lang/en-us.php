@@ -33,7 +33,7 @@ return [
     'ENGLISH'           => 'English',
 
     // Footer
-    'WELCOME_TO_USE'    => 'Welcome to developing with',
+    'WELCOME_TO_USE'    => 'Welcome to {$appName}. Open <a href="https://github.com/blackpuppy/thinkblog">source code</a>. Developed using <b>ThinkPHP</b> Version V{$thinkphpVersion}!',
 
     // Home page
     'TECH_DESC'                 => 'Demonstrates the following techniques:',

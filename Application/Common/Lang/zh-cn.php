@@ -33,7 +33,7 @@ return [
     'ENGLISH'           => '英文',
 
     // 页脚
-    'WELCOME_TO_USE'    => '欢迎使用',
+    'WELCOME_TO_USE'    => '欢迎使用 {$appName}，<a href="https://github.com/blackpuppy/thinkblog">源代码</a>可自由获取，基于 <b>ThinkPHP</b> 版本 V{$thinkphpVersion}！',
 
     // 主页
     'TECH_DESC'                 => '演示以下技术：',

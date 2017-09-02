@@ -17,6 +17,7 @@
         "ext-gd": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
+        "fzaninotto/faker": "^1.7",
         "nesbot/carbon": "^1.22",
         "robmorgan/phinx": "^0.8.1",
         "snowair/think-dotenv": "dev-master",

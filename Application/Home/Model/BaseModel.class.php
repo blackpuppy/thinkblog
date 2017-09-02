@@ -1,6 +1,7 @@
 <?php
 namespace Home\Model;
 
+use Carbon\Carbon;
 use Think\Model\AdvModel;
 
 abstract class BaseModel extends AdvModel
@@ -17,7 +18,15 @@ abstract class BaseModel extends AdvModel
 
     public function getNow()
     {
-        return date('Y-m-d H:i:s.u');
+        // return date('Y-m-d H:i:s.u');
+
+        $now = Carbon::now();
+        $nowStr = $now->toDateTimeString('Y-m-d H:i:s') . '.' . $now->micro;
+        $msg = PHP_EOL . 'BaseModel::getNow(): returns ' . $nowStr
+            . PHP_EOL . str_repeat('-', 80);
+        \Think\Log::write($msg, 'INFO');
+
+        return $nowStr;
     }
 
     //------------------------------------------------------

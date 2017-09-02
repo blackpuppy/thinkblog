@@ -85,7 +85,7 @@ class PostController extends Controller
                 throw $e;
             } finally {
                 $msg .= PHP_EOL . str_repeat('-', 80);
-                \Think\Log::write($msg, 'DEBUG');
+                // \Think\Log::write($msg, 'DEBUG');
             }
         }
     }
@@ -143,8 +143,6 @@ class PostController extends Controller
                     $result = $Post->save();
 
                     $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
-                    $msg .= PHP_EOL . str_repeat('-', 80);
-                    \Think\Log::write($msg, 'INFO');
 
                     if ($result !== false) {
                         $this->success(L('SAVE_POST_SUCCESS'), U('/posts'), 3);
@@ -201,7 +199,7 @@ class PostController extends Controller
             throw $e;
         } finally {
             $msg .= PHP_EOL . str_repeat('-', 80);
-            \Think\Log::write($msg, 'INFO');
+            // \Think\Log::write($msg, 'INFO');
         }
     }
 }

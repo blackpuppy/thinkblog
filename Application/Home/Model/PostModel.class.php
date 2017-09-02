@@ -19,14 +19,11 @@ class PostModel extends BaseModel
         ],
     ];
 
-    public function __construct($name = '', $tablePrefix = '', $connection = '')
-    {
-        parent::__construct($name, $tablePrefix, $connection);
-
-        $this->_auto = [
-            ['author_user_id', 'getCurrentUserId', self::MODEL_INSERT, 'callback'],
-        ];
-    }
+    protected $_auto = [
+        ['created_at', 'getNow', self::MODEL_INSERT, 'callback'],
+        ['updated_at', 'getNow', self::MODEL_UPDATE, 'callback'],
+        ['author_user_id', 'getCurrentUserId', self::MODEL_INSERT, 'callback'],
+    ];
 
     public function getCurrentUserId()
     {

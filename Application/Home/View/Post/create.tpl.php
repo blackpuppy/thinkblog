@@ -28,9 +28,7 @@
             <div class="col-md-8">
                 <textarea id="content" class="form-control" name="content"
                     cols="60" rows="5"
-                >
-                    {:isset($post['content']) ? $post['content'] : ''}
-                </textarea>
+                >{:isset($post['content']) ? $post['content'] : ''}</textarea>
             </div>
         </div>
 

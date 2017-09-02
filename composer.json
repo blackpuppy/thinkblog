@@ -17,6 +17,7 @@
         "ext-gd": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
+        "nesbot/carbon": "^1.22",
         "robmorgan/phinx": "^0.8.1",
         "snowair/think-dotenv": "dev-master",
         "topthink/thinkphp": "^3.2"

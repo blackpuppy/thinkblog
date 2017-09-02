@@ -59,6 +59,7 @@ return [
         'signup'          => 'Home/User/signup',
         'login'           => 'Home/User/login',
         'logout'          => 'Home/User/logout',
+
         'profile/edit'    => 'Home/Profile/edit',
         'profile'         => 'Home/Profile/view',
 

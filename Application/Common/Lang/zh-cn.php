@@ -80,6 +80,7 @@ return [
     'FORGET_PASSWORD'   => '忘记密码',
 
     // 个人资料
+    'VIEW_PROFILE'      => '查看个人资料',
     'EDIT_PROFILE'      => '编辑个人资料',
     'ADDRESS'           => '地址',
     'POSTAL_CODE'       => '邮政编码',

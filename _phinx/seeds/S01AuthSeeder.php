@@ -59,6 +59,18 @@ class S01AuthSeeder extends AbstractSeed
                 'status'    => 1,
                 'condition' => '',
             ], [
+                'name'      => 'Home/Profile/view',
+                'title'     => '查看个人资料',
+                'type'      => 1,
+                'status'    => 1,
+                'condition' => '',
+            ], [
+                'name'      => 'Home/Profile/edit',
+                'title'     => '编辑个人资料',
+                'type'      => 1,
+                'status'    => 1,
+                'condition' => '',
+            ], [
                 'name'      => 'Home/Post/create',
                 'title'     => '添加文章',
                 'type'      => 1,
@@ -114,7 +126,10 @@ class S01AuthSeeder extends AbstractSeed
                 'status'    => 1,
                 'rules'     => [
                     'Home/User/logout',
+                    'Home/Profile/view',
+                    'Home/Profile/edit',
                     'Home/Post/create',
+                    'Home/Post/view',
                     'Home/Post/update',
                     'Home/Post/delete',
                 ],
@@ -123,7 +138,10 @@ class S01AuthSeeder extends AbstractSeed
                 'status'    => 1,
                 'rules'     => [
                     'Home/User/logout',
+                    'Home/Profile/view',
+                    'Home/Profile/edit',
                     'Home/Post/create',
+                    'Home/Post/view',
                     'Home/Post/update',
                     'Home/Post/delete',
                 ],
@@ -132,6 +150,7 @@ class S01AuthSeeder extends AbstractSeed
             //     'title'     => '读者',
             //     'status'    => 1,
             //     'rules'     => [
+            //         'Home/Post/view',
             //         'Comment/create',
             //         'Comment/update',
             //         'Comment/delete',

@@ -4,7 +4,7 @@ $genders = ConfigListModel::getConfigList(ConfigListModel::LIST_NAME_GENDER);
 ?>
 
 <div class="container">
-    <h1>{$Think.lang.EDIT_PROFILE}</h1>
+    <h1>{$Think.lang.VIEW_PROFILE}</h1>
 
     <if condition="!empty($validationError)">
     <div class="alert alert-danger">

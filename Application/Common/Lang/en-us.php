@@ -81,6 +81,7 @@ return [
     'FORGET_PASSWORD'   => 'Forget Password',
 
     // Profile
+    'VIEW_PROFILE'      => 'View Profile',
     'EDIT_PROFILE'      => 'Edit Profile',
     'ADDRESS'           => 'Address',
     'POSTAL_CODE'       => 'Postal Code',

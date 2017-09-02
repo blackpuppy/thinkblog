@@ -29,8 +29,7 @@ class AuthBehavior extends Behavior {
 
         // $msg .= PHP_EOL . '  session() = ' . print_r(session(), true);
 
-        $isAuthenticated = session('?authentication.authenticated')
-                        && session('authentication.authenticated');
+        $isAuthenticated = isAuthenticated();
 
         $url = MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME;
         $loginUrl = U(C('AUTH_CONFIG.AUTH_LOGIN_URL'));

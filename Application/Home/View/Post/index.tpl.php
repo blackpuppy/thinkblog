@@ -5,11 +5,13 @@
         </div>
     </div>
 
+    <if condition="isAuthenticated()">
     <div class="row">
         <div class="col-md-12">
             <a href="{:U('/posts/create')}" class="btn btn-primary">{$Think.lang.CREATE_POST}</a>
         </div>
     </div>
+    </if>
 
     <div class="post-listing row">
         <div class="col-md-10">
@@ -31,8 +33,13 @@
                         <td>{$post.content}</td>
                         <td>{:ProfileModel::getFullName($post['author'])}</td>
                         <td>
-                            <a href="{:U('/posts/update/' . $post['id'])}" class="btn btn-primary">{$Think.lang.CHANGE}</a>
-                            <!-- <a href="{:U('/posts/delete/' . $post['id'])}" class="btn btn-danger">删除</a> -->
+                            <a href="{:U('/posts/update/' . $post['id'])}" class="btn btn-primary"
+                                <if condition="!isAuthenticated() || getAuthenticatedUser()['id'] != $post['author_user_id']">
+                                    disabled="true"
+                                </if>
+                            >
+                                {$Think.lang.CHANGE}
+                            </a>
                             <button type="button" class="btn btn-danger"
                                     data-toggle="confirmation" data-popout="true"
                                     data-singleton="true" data-html="true"
@@ -40,7 +47,11 @@
                                     data-btn-cancel-class="btn-danger"
                                     data-title="<h5 class='text-center'><strong>{$Think.lang.CONFIRM_TITLE}</strong></h5>"
                                     data-content="{:L('CONFIRM_TO_DELETE', ['model' => strtolower(L('POST'))])}"
-                                    data-delete-url="{:U('/posts/delete/' . $post['id'])}">
+                                    data-delete-url="{:U('/posts/delete/' . $post['id'])}"
+                                    <if condition="!isAuthenticated() || getAuthenticatedUser()['id'] != $post['author_user_id']">
+                                        disabled="true"
+                                    </if>
+                            >
                                 {$Think.lang.DELETE}
                             </button>
                         </td>

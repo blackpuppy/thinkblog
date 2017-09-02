@@ -26,6 +26,7 @@ return [
     'APPLICATION_SHORT_DESC'    => 'ThinkPHP Development Demo Application',
 
     // Menu
+    'MENU_PROFILE'      => 'User Profile',
     'MENU_POSTS'        => 'Posts',
     'SWITCH_LANGUAGE'   => 'Language',
     'CHINESE'           => 'Chinese',

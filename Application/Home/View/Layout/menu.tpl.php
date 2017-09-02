@@ -27,7 +27,9 @@ use Home\Model\ProfileModel;
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <if condition="!session('?authentication.authenticated') || !session('authentication.authenticated')">
+                <li><a href="{:U('/posts')}">{$Think.lang.MENU_POSTS}</a></li>
+
+                <if condition="!isAuthenticated()">
                     <li><a href="{:U('/login')}">{$Think.lang.LOGIN}</a></li>
                     <li><a href="{:U('/signup')}">{$Think.lang.SIGNUP}</a></li>
                 <else />
@@ -38,9 +40,7 @@ use Home\Model\ProfileModel;
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{:U('/profile')}">个人资料</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{:U('/posts')}">{$Think.lang.MENU_POSTS}</a></li>
+                            <li><a href="{:U('/profile')}">{$Think.lang.MENU_PROFILE}</a></li>
                             <!-- <li role="separator" class="divider"></li>
                             <li><a href="{:U('/users')}">用户</a></li> -->
                             <li role="separator" class="divider"></li>

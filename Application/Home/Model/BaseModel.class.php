@@ -20,9 +20,8 @@ abstract class BaseModel extends AdvModel
 
     public function getCurrentUserId()
     {
-        $isAuthenticated = session('?authentication.authenticated')
-                        && session('authentication.authenticated');
-        $currentUserId = $isAuthenticated ? session('authentication.user')['id'] : 0;
+        $isAuthenticated = isAuthenticated();
+        $currentUserId = $isAuthenticated ? getAuthenticatedUser()['id'] : 0;
         return $currentUserId;
     }
 

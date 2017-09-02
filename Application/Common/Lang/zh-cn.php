@@ -26,6 +26,7 @@ return [
     'APPLICATION_SHORT_DESC'    => '用 ThinkPHP 进行开发的演示程序',
 
     // 菜单
+    'MENU_PROFILE'      => '个人资料',
     'MENU_POSTS'        => '文章',
     'SWITCH_LANGUAGE'   => '语言',
     'CHINESE'           => '中文',

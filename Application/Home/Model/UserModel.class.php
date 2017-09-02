@@ -28,6 +28,56 @@ class UserModel extends BaseModel
         'password' => ['encryptPassword'],
     ];
 
+    protected $_link = [
+        'Post' => [
+            'mapping_type'  => self::HAS_MANY,
+            'class_name'    => 'Post',
+            'foreign_key'   => 'author_user_id',
+            'mapping_name'  => 'posts',
+            'mapping_order' => 'create_at desc',
+        ],
+    ];
+
+    public function fullName()
+    {
+        // return substr(LANG_SET, 0, 2) === 'zh' ?
+        //     $fullName = $this->last_name . ' ' . $this->first_name :
+        //     $fullName = $this->first_name . ' ' . $this->last_name;
+
+        return UserModel::getFullName($this);
+    }
+
+    public static function getFullName(mixed $user, string $lastName = null)
+    {
+        $msg = 'UserModel::getFullName():'
+            . PHP_EOL . '  $user = ' . print_r($user, true)
+            . PHP_EOL . '  $lastName = ' . $lastName;
+
+        $fullName = "";
+
+        if (is_string($user)) {
+            $firstName = $user;
+        } elseif (is_array($user)) {
+            $firstName = $user['first_name'];
+            $lastName = $user['last_name'];
+        } elseif (is_subclass_of($user, 'UserModel')) {
+            $firstName = $user->first_name;
+            $lastName = $user->last_name;
+        }
+
+        if (substr(LANG_SET, 0, 2) === 'zh') {
+            $fullName = $lastName . ' ' . $firstName;
+        } else {
+            $fullName = $firstName . ' ' . $lastName;
+        }
+
+        $msg .= PHP_EOL . '  $fullName = ' . $fullName
+            . PHP_EOL . str_repeat('-', 80);
+        \Think\Log::write($msg, 'INFO');
+
+        return $fullName;
+    }
+
     public function login($username, $password)
     {
         $msg = PHP_EOL . 'Home\Model\UserModel::login():'

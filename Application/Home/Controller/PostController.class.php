@@ -16,7 +16,7 @@ class PostController extends Controller
 
         try {
             $Post = D('Post');
-            $posts = $Post->order(['id' => 'desc'])->select();
+            $posts = $Post->relation(true)->order(['id' => 'desc'])->select();
 
             $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
 

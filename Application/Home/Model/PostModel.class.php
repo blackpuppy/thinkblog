@@ -10,6 +10,15 @@ class PostModel extends BaseModel
         ['content', 'require', '{%CONTENT_REQUIRED}'],
     ];
 
+    protected $_link = [
+        'User' => [
+            'mapping_type'  => self::BELONGS_TO,
+            'class_name'    => 'User',
+            'foreign_key'   => 'author_user_id',
+            'mapping_name'  => 'author',
+        ],
+    ];
+
     public function __construct($name = '', $tablePrefix = '', $connection = '')
     {
         parent::__construct($name, $tablePrefix, $connection);

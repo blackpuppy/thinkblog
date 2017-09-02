@@ -83,6 +83,7 @@ return [
     'CHANGE_POST'       => 'Cange Post',
     'TITLE'             => 'Title',
     'CONTENT'           => 'Content',
+    'AUTHOR'            => 'Author',
 
     //--------------------------------------------------------------------------
     // Validation

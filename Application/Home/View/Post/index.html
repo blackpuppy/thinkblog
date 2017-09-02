@@ -19,6 +19,7 @@
                         <th class="text-center">{$Think.lang.SERIAL_NO}</th>
                         <th class="text-center">{$Think.lang.TITLE}</th>
                         <th class="text-center">{$Think.lang.CONTENT}</th>
+                        <th class="text-center">{$Think.lang.AUTHOR}</th>
                         <th class="text-center">{$Think.lang.ACTION}</th>
                     </tr>
                 </thead>
@@ -28,6 +29,7 @@
                         <td>{$no}</td>
                         <td>{$post.title}</td>
                         <td>{$post.content}</td>
+                        <td>{:UserModel::getFullName($post['author'])}</td>
                         <td>
                             <a href="{:U('/posts/update/' . $post['id'])}" class="btn btn-primary">{$Think.lang.CHANGE}</a>
                             <!-- <a href="{:U('/posts/delete/' . $post['id'])}" class="btn btn-danger">删除</a> -->

@@ -34,7 +34,7 @@ if (! function_exists('mix')) {
             . PHP_EOL . '$publicPath = ' . $publicPath
             . PHP_EOL . '$manifestDirectory = ' . $manifestDirectory;
             // . PHP_EOL . '$manifest = ' . print_r($manifest, true);
-        // \Think\Log::write($msg, 'INFO');
+        // \Think\Log::write($msg, 'DEBUG');
 
         if (! $manifest) {
             $manifestPath = "$rootPath$manifestDirectory/mix-manifest.json";
@@ -51,7 +51,7 @@ if (! function_exists('mix')) {
 
         $msg .= PHP_EOL . '$path = ' . $path
             . PHP_EOL . '$manifest = ' . print_r($manifest, true);
-        // \Think\Log::write($msg, 'INFO');
+        // \Think\Log::write($msg, 'DEBUG');
 
         if (! array_key_exists($path, $manifest)) {
             throw new Exception(

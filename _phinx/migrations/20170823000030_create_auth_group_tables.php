@@ -41,10 +41,22 @@ class CreateAuthGroupTables extends AbstractMigration
             'collation' => 'utf8_unicode_ci',
             'encoding' => 'utf8',
             'comment' => '用户组拥有的规则id， 多个规则用","隔开',
+        ])->addColumn('created_by', 'integer', [
+            'null' => false,
+            'limit' => MysqlAdapter::INT_REGULAR,
+            'precision' => 10,
+            'signed' => false,
+            'comment' => '创建用户id'
         ])->addColumn('created_at', 'datetime', [
             'null' => false,
             'default' => 'CURRENT_TIMESTAMP',
             'comment' => '创建时间',
+        ])->addColumn('updated_by', 'integer', [
+            'null' => true,
+            'limit' => MysqlAdapter::INT_REGULAR,
+            'precision' => 10,
+            'signed' => false,
+            'comment' => '更新用户id'
         ])->addColumn('updated_at', 'datetime', [
             'null' => true,
             'comment' => '更新时间',

@@ -91,6 +91,7 @@ class S03PostSeeder extends AbstractSeed
                 $sql = str_replace('{{title}}', $post['title'], $sqlTmpl);
                 $row = $this->fetchRow($sql);
                 if (empty($row)) {
+                    $post['created_by'] = 1;
                     $this->table('post')
                         ->insert($post)
                         ->saveData();

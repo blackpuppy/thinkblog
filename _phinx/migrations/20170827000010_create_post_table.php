@@ -41,15 +41,27 @@ class CreatePostTable extends AbstractMigration
             'precision' => 10,
             'signed' => false,
             'comment' => '作者用户id'
+        ])->addColumn('created_by', 'integer', [
+            'null' => false,
+            'limit' => MysqlAdapter::INT_REGULAR,
+            'precision' => 10,
+            'signed' => false,
+            'comment' => '创建用户id'
         ])->addColumn('created_at', 'datetime', [
             'null' => false,
             'default' => 'CURRENT_TIMESTAMP',
             'comment' => '创建时间',
+        ])->addColumn('updated_by', 'integer', [
+            'null' => true,
+            'limit' => MysqlAdapter::INT_REGULAR,
+            'precision' => 10,
+            'signed' => false,
+            'comment' => '更新用户id'
         ])->addColumn('updated_at', 'datetime', [
             'null' => true,
             'comment' => '更新时间',
         ])->addIndex(['author_user_id'], [
-            'name' => 'author',
+            'name' => 'idx_author',
             'unique' => false,
         ])->addForeignKey('author_user_id', 'user', 'id', [
             'delete'=> 'RESTRICT',

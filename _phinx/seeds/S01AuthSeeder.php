@@ -83,6 +83,7 @@ class S01AuthSeeder extends AbstractSeed
             $sql = str_replace('{{name}}', $rule['name'], $sqlTmpl);
             $row = $this->fetchRow($sql);
             if (empty($row)) {
+                $rule['created_by'] = 1;
                 $this->table('auth_rule')
                     ->insert($rule)
                     ->saveData();
@@ -105,7 +106,7 @@ class S01AuthSeeder extends AbstractSeed
 
         $prefixedTableName = $tableAdapter->getAdapterTableName('auth_group');
         $sqlTmpl = "SELECT * FROM `$prefixedTableName` WHERE `title` = '{{title}}';";
-        $updateTmpl = "UPDATE `$prefixedTableName` SET `rules` = '{{rules}}', `updated_at` = '{{updated_at}}' WHERE `title` = '{{title}}';";
+        $updateTmpl = "UPDATE `$prefixedTableName` SET `rules` = '{{rules}}', `updated_by` = {{updated_by}}, `updated_at` = '{{updated_at}}' WHERE `title` = '{{title}}';";
 
         $groups = [
             [
@@ -154,13 +155,16 @@ class S01AuthSeeder extends AbstractSeed
             $row = $this->fetchRow($sql);
 
             if (empty($row)) {
+                $group['created_by'] = 1;
                 $this->table('auth_group')
                     ->insert($group)
                     ->saveData();
             } else {
+                $group['updated_by'] = 1;
                 $group['updated_at'] = date('Y-m-d H:i:s.u');
                 $sql = str_replace('{{title}}', $group['title'], $updateTmpl);
                 $sql = str_replace('{{rules}}', $group['rules'], $sql);
+                $sql = str_replace('{{updated_by}}', $group['updated_by'], $sql);
                 $sql = str_replace('{{updated_at}}', $group['updated_at'], $sql);
                 $count = $this->execute($sql);
             }

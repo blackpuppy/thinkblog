@@ -26,24 +26,36 @@ class CreateUserGroupTables extends AbstractMigration
             'precision' => 10,
             'signed' => false,
             'comment' => '用户组id',
+        ])->addColumn('created_by', 'integer', [
+            'null' => false,
+            'limit' => MysqlAdapter::INT_REGULAR,
+            'precision' => 10,
+            'signed' => false,
+            'comment' => '创建用户id'
         ])->addColumn('created_at', 'datetime', [
             'null' => false,
             'default' => 'CURRENT_TIMESTAMP',
             'comment' => '创建时间',
+        ])->addColumn('updated_by', 'integer', [
+            'null' => true,
+            'limit' => MysqlAdapter::INT_REGULAR,
+            'precision' => 10,
+            'signed' => false,
+            'comment' => '更新用户id'
         ])->addColumn('updated_at', 'datetime', [
             'null' => true,
             'comment' => '更新时间',
         ])->addIndex(['uid', 'group_id'], [
-            'name' => 'uid_group_id',
+            'name' => 'idx_uid_group_id',
             'unique' => true
         ])->addIndex(['uid'], [
-            'name' => 'uid',
+            'name' => 'idx_uid',
             'unique' => false
         ])->addForeignKey('uid', 'user', 'id', [
             'delete'=> 'RESTRICT',
             'update'=> 'CASCADE',
         ])->addIndex(['group_id'], [
-            'name' => 'group_id',
+            'name' => 'idx_group_id',
             'unique' => false,
         ])->addForeignKey('group_id', 'auth_group', 'id', [
             'delete'=> 'RESTRICT',

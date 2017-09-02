@@ -54,15 +54,27 @@ class CreateAuthRuleTables extends AbstractMigration
             'collation' => 'utf8_unicode_ci',
             'encoding' => 'utf8',
             'comment' => '规则附件条件，为空表示存在就验证，不为空表示按照条件验证。满足附加条件的规则，才认为是有效的规则',
+        ])->addColumn('created_by', 'integer', [
+            'null' => false,
+            'limit' => MysqlAdapter::INT_REGULAR,
+            'precision' => 10,
+            'signed' => false,
+            'comment' => '创建用户id'
         ])->addColumn('created_at', 'datetime', [
             'null' => false,
             'default' => 'CURRENT_TIMESTAMP',
             'comment' => '创建时间',
+        ])->addColumn('updated_by', 'integer', [
+            'null' => true,
+            'limit' => MysqlAdapter::INT_REGULAR,
+            'precision' => 10,
+            'signed' => false,
+            'comment' => '更新用户id'
         ])->addColumn('updated_at', 'datetime', [
             'null' => true,
             'comment' => '更新时间',
         ])->addIndex(['name'], [
-            'name' => 'name',
+            'name' => 'idx_name',
             'unique' => true
         ])->create();
     }

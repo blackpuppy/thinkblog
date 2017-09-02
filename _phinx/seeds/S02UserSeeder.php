@@ -26,7 +26,7 @@ class S02UserSeeder extends AbstractSeed
 
         $prefixedTableName = $tableAdapter->getAdapterTableName('user');
         $selectUserTmpl = "SELECT `id` FROM `$prefixedTableName` WHERE `name` = '{{name}}';";
-        $updateUserTmpl = "UPDATE `$prefixedTableName` SET `password` = '{{password}}', `first_name` = '{{first_name}}', `last_name` = '{{last_name}}', `email` = '{{email}}', `updated_at` = '{{updated_at}}' WHERE `name` = '{{name}}';";
+        $updateUserTmpl = "UPDATE `$prefixedTableName` SET `password` = '{{password}}', `first_name` = '{{first_name}}', `last_name` = '{{last_name}}', `email` = '{{email}}', `updated_by` = {{updated_by}}, `updated_at` = '{{updated_at}}' WHERE `name` = '{{name}}';";
 
         $prefixedTableName = $tableAdapter->getAdapterTableName('user_group');
         $deleteUserGroupTmpl = "DELETE FROM `$prefixedTableName` WHERE `uid` = {{uid}};";
@@ -96,6 +96,7 @@ class S02UserSeeder extends AbstractSeed
             $sql = str_replace('{{name}}', $user['name'], $selectUserTmpl);
             $userRow = $this->fetchRow($sql);
             if (empty($userRow)) {
+                $user['created_by'] = 1;
                 $this->table('user')
                     ->insert($user)
                     ->saveData();
@@ -104,6 +105,7 @@ class S02UserSeeder extends AbstractSeed
                 $sql = str_replace('{{name}}', $user['name'], $selectUserTmpl);
                 $userRow = $this->fetchRow($sql);
             } else {
+                $user['updated_by'] = 1;
                 $user['updated_at'] = date('Y-m-d H:i:s.u');
 
                 $sql = str_replace('{{name}}', $user['name'], $updateUserTmpl);
@@ -111,6 +113,7 @@ class S02UserSeeder extends AbstractSeed
                 $sql = str_replace('{{first_name}}', $user['first_name'], $sql);
                 $sql = str_replace('{{last_name}}', $user['last_name'], $sql);
                 $sql = str_replace('{{email}}', $user['email'], $sql);
+                $sql = str_replace('{{updated_by}}', $user['updated_by'], $sql);
                 $sql = str_replace('{{updated_at}}', $user['updated_at'], $sql);
                 $count = $this->execute($sql);
             }
@@ -125,6 +128,7 @@ class S02UserSeeder extends AbstractSeed
                     $userGroup = [
                         'uid' => $user['id'],
                         'group_id' => $group_id,
+                        'created_by' => 1,
                     ];
                     $this->table('user_group')
                         ->insert($userGroup)

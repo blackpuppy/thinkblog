@@ -31,36 +31,49 @@ class S05ProfileSeeder extends AbstractSeed
 
         $profiles = [
             [
+                'first_name'    => 'Administraor',
                 'address'     => str_replace(PHP_EOL, ' ', $faker->address),
                 'postal_code' => $faker->postcode,
                 'gender_key'  => 'male',
                 'username'    => 'admin',
             ], [
-                'address'     => str_replace(PHP_EOL, ' ', $faker->address),
-                'postal_code' => $faker->postcode,
-                'gender_key'  => 'male',
-                'username'    => 'mark.story',
-            ], [
+                'first_name'    => 'Tayler',
+                'last_name'     => 'Otwell',
                 'address'     => str_replace(PHP_EOL, ' ', $faker->address),
                 'postal_code' => $faker->postcode,
                 'gender_key'  => 'male',
                 'username'    => 'tayler.otwell',
             ], [
+                'first_name'    => 'Mark',
+                'last_name'     => 'Story',
+                'address'     => str_replace(PHP_EOL, ' ', $faker->address),
+                'postal_code' => $faker->postcode,
+                'gender_key'  => 'male',
+                'username'    => 'mark.story',
+            ], [
+                'first_name'    => '强',
+                'last_name'     => '薛',
                 'address'     => str_replace(PHP_EOL, ' ', $faker->address),
                 'postal_code' => $faker->postcode,
                 'gender_key'  => 'male',
                 'username'    => 'qiang.xue',
             ], [
+                'first_name'    => '晨',
+                'last_name'     => '刘',
                 'address'     => str_replace(PHP_EOL, ' ', $faker->address),
                 'postal_code' => $faker->postcode,
                 'gender_key'  => 'male',
                 'username'    => 'chen.liu',
             ], [
+                'first_name'    => 'Jane',
+                'last_name'     => 'Lorna',
                 'address'     => str_replace(PHP_EOL, ' ', $faker->address),
                 'postal_code' => $faker->postcode,
                 'gender_key'  => 'female',
                 'username'    => 'jane.lorna',
             ], [
+                'first_name'    => 'John',
+                'last_name'     => 'Doe',
                 'address'     => str_replace(PHP_EOL, ' ', $faker->address),
                 'postal_code' => $faker->postcode,
                 'gender_key'  => 'male',

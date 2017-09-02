@@ -111,6 +111,7 @@ return [
     'PASSWORD_LENGTH'           => '密码至少5个字符，最多72个字符！',
     'CONFIRM_PASSWORD_DISMATCH' => '确认密码比匹配！',
     'FIRST_NAME_LENGTH'         => '名至少1个字符，最多255个字符！',
+    'LAST_NAME_LENGTH'          => '姓可为空，最多255个字符！',
     'EMAIL_INVALID'             => '不合法的电子邮箱地址！',
     'EMAIL_DUPLICATE'           => '该电子邮箱地址已被占用！请选择其他的电子邮箱。',
 

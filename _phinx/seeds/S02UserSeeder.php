@@ -26,7 +26,7 @@ class S02UserSeeder extends AbstractSeed
 
         $prefixedTableName = $tableAdapter->getAdapterTableName('user');
         $selectUserTmpl = "SELECT `id` FROM `$prefixedTableName` WHERE `name` = '{{name}}';";
-        $updateUserTmpl = "UPDATE `$prefixedTableName` SET `password` = '{{password}}', `first_name` = '{{first_name}}', `last_name` = '{{last_name}}', `email` = '{{email}}', `updated_by` = {{updated_by}}, `updated_at` = '{{updated_at}}' WHERE `name` = '{{name}}';";
+        $updateUserTmpl = "UPDATE `$prefixedTableName` SET `password` = '{{password}}', `email` = '{{email}}', `updated_by` = {{updated_by}}, `updated_at` = '{{updated_at}}' WHERE `name` = '{{name}}';";
 
         $prefixedTableName = $tableAdapter->getAdapterTableName('user_group');
         $deleteUserGroupTmpl = "DELETE FROM `$prefixedTableName` WHERE `uid` = {{uid}};";
@@ -35,49 +35,36 @@ class S02UserSeeder extends AbstractSeed
             [
                 'name'          => 'admin',
                 'password'      => 'admin',
-                'first_name'    => 'Administraor',
                 'email'         => 'admin@example.com',
                 'groups'        => ['管理员'],
             ], [
                 'name'          => 'tayler.otwell',
                 'password'      => 'P@55w0rd',
-                'first_name'    => 'Tayler',
-                'last_name'     => 'Otwell',
                 'email'         => 'tayler.otwell@example.com',
                 'groups'        => ['作者'],
             ], [
                 'name'          => 'mark.story',
                 'password'      => 'P@55w0rd',
-                'first_name'    => 'Mark',
-                'last_name'     => 'Story',
                 'email'         => 'mark.story@example.com',
                 'groups'        => ['作者'],
             ], [
                 'name'          => 'qiang.xue',
                 'password'      => 'P@55w0rd',
-                'first_name'    => '强',
-                'last_name'     => '薛',
                 'email'         => 'qiang.xue@example.com',
                 'groups'        => ['作者'],
             ], [
                 'name'          => 'chen.liu',
                 'password'      => 'P@55w0rd',
-                'first_name'    => '晨',
-                'last_name'     => '刘',
                 'email'         => 'chen.liu@example.com',
                 'groups'        => ['作者'],
             ], [
                 'name'          => 'jane.lorna',
                 'password'      => 'P@55w0rd',
-                'first_name'    => 'Jane',
-                'last_name'     => 'Lorna',
                 'email'         => 'jane.lorna@example.com',
                 'groups'        => ['作者'],
             ], [
                 'name'          => 'john.doe',
                 'password'      => 'P@55w0rd',
-                'first_name'    => 'John',
-                'last_name'     => 'Doe',
                 'email'         => 'john.doe@example.com',
                 'groups'        => ['作者'],
             ]
@@ -117,8 +104,6 @@ class S02UserSeeder extends AbstractSeed
 
                 $sql = str_replace('{{name}}', $user['name'], $updateUserTmpl);
                 $sql = str_replace('{{password}}', $user['password'], $sql);
-                $sql = str_replace('{{first_name}}', $user['first_name'], $sql);
-                $sql = str_replace('{{last_name}}', $user['last_name'], $sql);
                 $sql = str_replace('{{email}}', $user['email'], $sql);
                 $sql = str_replace('{{updated_by}}', $user['updated_by'], $sql);
                 $sql = str_replace('{{updated_at}}', $user['updated_at'], $sql);

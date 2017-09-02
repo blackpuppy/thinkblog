@@ -30,6 +30,24 @@ class CreateProfileTable extends AbstractMigration
             'precision' => 10,
             'signed' => false,
             'comment' => '用户id'
+        ])->addColumn('first_name', 'string', [
+            'null' => true,
+            'limit' => 255,
+            'collation' => 'utf8_unicode_ci',
+            'encoding' => 'utf8',
+            'comment' => '名',
+        ])->addColumn('last_name', 'string', [
+            'null' => true,
+            'limit' => 255,
+            'collation' => 'utf8_unicode_ci',
+            'encoding' => 'utf8',
+            'comment' => '姓',
+        ])->addColumn('phone', 'string', [
+            'null' => true,
+            'limit' => 127,
+            'collation' => 'utf8_unicode_ci',
+            'encoding' => 'utf8',
+            'comment' => '电话号码',
         ])->addColumn('address', 'string', [
             'null' => false,
             'limit' => 255,

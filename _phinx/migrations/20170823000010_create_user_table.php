@@ -36,30 +36,12 @@ class CreateUserTable extends AbstractMigration
             'collation' => 'utf8_unicode_ci',
             'encoding' => 'utf8',
             'comment' => '经过加密的密码',
-        ])->addColumn('first_name', 'string', [
-            'null' => true,
-            'limit' => 255,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
-            'comment' => '名',
-        ])->addColumn('last_name', 'string', [
-            'null' => true,
-            'limit' => 255,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
-            'comment' => '姓',
         ])->addColumn('email', 'string', [
             'null' => true,
             'limit' => 255,
             'collation' => 'utf8_unicode_ci',
             'encoding' => 'utf8',
             'comment' => '电子邮箱地址',
-        ])->addColumn('phone', 'string', [
-            'null' => true,
-            'limit' => 127,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
-            'comment' => '电话号码',
         ])->addColumn('remember_token', 'string', [
             'null' => true,
             'limit' => 127,

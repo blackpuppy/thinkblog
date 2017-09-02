@@ -59,6 +59,7 @@ return [
         'users/signup'          => 'Home/User/signup',
         'users/login'           => 'Home/User/login',
         'users/logout'          => 'Home/User/logout',
+        'users/profile'         => 'Home/Profile/edit',
 
         // '/^posts$/'                 => 'Home/Post/index',
         // '/^posts\/add$/'            => 'Home/Post/add',

@@ -25,14 +25,14 @@ $genders = ConfigListModel::getConfigList(ConfigListModel::LIST_NAME_GENDER);
             <div class="col-md-6">
             <if condition="substr(LANG_SET, 0, 2) === 'zh'">
                 <input type="text" name="last_name" placeholder="{$Think.lang.LAST_NAME}"
-                    value="{$profile['last_name']}" disabled="true" autofocus="true">
+                    value="{$profile['last_name']}" disabled="true" readonly autofocus="true">
                 <input type="text" name="first_name" placeholder="{$Think.lang.FIRST_NAME}"
-                    value="{$profile['first_name']}" disabled="true">
+                    value="{$profile['first_name']}" disabled="true" readonly>
             <else />
                 <input type="text" name="first_name" placeholder="{$Think.lang.FIRST_NAME}"
-                    value="{$profile['first_name']}" disabled="true" autofocus="true">
+                    value="{$profile['first_name']}" disabled="true" readonly autofocus="true">
                 <input type="text" name="last_name" placeholder="{$Think.lang.LAST_NAME}"
-                    value="{$profile['last_name']}" disabled="true">
+                    value="{$profile['last_name']}" disabled="true" readonly>
             </if>
             </div>
         </div>

@@ -14,7 +14,7 @@ $genders = ConfigListModel::getConfigList(ConfigListModel::LIST_NAME_GENDER);
     </div>
     </if>
 
-    <form action="{:U('/users/profile')}" method="post" class="form-horizontal">
+    <form action="{:U('/profile/edit')}" method="post" class="form-horizontal">
         <input type="hidden" name="id" value="{$profile['id']}">
         <input type="hidden" name="user_id" value="{$profile['user_id']}">
 

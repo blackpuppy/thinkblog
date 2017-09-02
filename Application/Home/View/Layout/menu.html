@@ -28,8 +28,8 @@ use Home\Model\UserModel;
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <if condition="!session('?authentication.authenticated') || !session('authentication.authenticated')">
-                    <li><a href="{:U('/users/login')}">{$Think.lang.LOGIN}</a></li>
-                    <li><a href="{:U('/users/signup')}">{$Think.lang.SIGNUP}</a></li>
+                    <li><a href="{:U('/login')}">{$Think.lang.LOGIN}</a></li>
+                    <li><a href="{:U('/signup')}">{$Think.lang.SIGNUP}</a></li>
                 <else />
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -38,13 +38,13 @@ use Home\Model\UserModel;
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{:U('/users/profile')}">个人资料</a></li>
+                            <li><a href="{:U('/profile')}">个人资料</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{:U('/posts')}">{$Think.lang.MENU_POSTS}</a></li>
                             <!-- <li role="separator" class="divider"></li>
                             <li><a href="{:U('/users')}">用户</a></li> -->
                             <li role="separator" class="divider"></li>
-                            <li><a href="{:U('/users/logout')}">{$Think.lang.LOGOUT}</a></li>
+                            <li><a href="{:U('/logout')}">{$Think.lang.LOGOUT}</a></li>
                         </ul>
                     </li>
                 </if>

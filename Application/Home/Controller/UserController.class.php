@@ -13,7 +13,7 @@ class UserController extends Controller
     public function signup()
     {
         if (!IS_GET && !IS_POST) {
-            $this->redirect(U('/users/signup'));
+            $this->redirect(U('/signup'));
             return;
         }
 
@@ -55,7 +55,7 @@ class UserController extends Controller
 
                         $this->success(L('SIGNUP_USER_SUCCESS'), U('/'), 3);
                     } else {
-                        $this->error(L('SIGNUP_USER_FAILURE'), U('/users/signup'), 5);
+                        $this->error(L('SIGNUP_USER_FAILURE'), U('/signup'), 5);
                     }
                 }
             } catch (Exception $e) {
@@ -75,7 +75,7 @@ class UserController extends Controller
     public function login()
     {
         if (!IS_GET && !IS_POST) {
-            $this->redirect(U('/users/login'));
+            $this->redirect(U('/login'));
             return;
         }
 

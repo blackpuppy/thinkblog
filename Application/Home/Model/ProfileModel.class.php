@@ -60,9 +60,19 @@ class ProfileModel extends BaseModel
         if (is_string($user)) {
             $firstName = $user;
         } elseif (is_array($user)) {
+            if (!isset($user['profile'])) {
+                $msg .= PHP_EOL . '  read profile';
+                $user['profile'] = D('Profile')
+                    ->where(['user_id' => $user['id']])->find();
+            }
             $firstName = $user['profile']['first_name'];
             $lastName = $user['profile']['last_name'];
         } elseif (is_subclass_of($user, 'ProfileModel')) {
+            if (!isset($user->profile)) {
+                $msg .= PHP_EOL . '  read profile';
+                $user->profile = D('Profile')
+                    ->where(['user_id' => $user['id']])->find();
+            }
             $firstName = $user->profile->first_name;
             $lastName = $user->profile->last_name;
         }
@@ -75,7 +85,7 @@ class ProfileModel extends BaseModel
 
         $msg .= PHP_EOL . '  $fullName = ' . $fullName
             . PHP_EOL . str_repeat('-', 80);
-        \Think\Log::write($msg, 'DEBUG');
+        // \Think\Log::write($msg, 'DEBUG');
 
         return $fullName;
     }

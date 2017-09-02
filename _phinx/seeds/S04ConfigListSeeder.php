@@ -36,7 +36,12 @@ class S04ConfigListSeeder extends AbstractSeed
 
         foreach ($configs as $config) {
             $sql = str_replace('{{list_name}}', $config['list_name'], $sqlTmpl);
-            $sql = str_replace('{{list_key}}', $config['list_key'], $sqlTmpl);
+            $sql = str_replace('{{list_key}}', $config['list_key'], $sql);
+
+            // $this->getOutput()->writeln(
+            //     PHP_EOL . '$sql = ' . $sql
+            // );
+
             $row = $this->fetchRow($sql);
             if (empty($row)) {
                 $config['created_by'] = 1;

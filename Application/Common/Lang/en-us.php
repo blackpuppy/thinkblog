@@ -17,6 +17,9 @@ return [
     'SUBMIT'                    => 'Submit',
     'SAVE'                      => 'Save',
     'CANCEL'                    => 'Cancel',
+    'SELECT_ONE'                => 'Select One',
+    'MALE'                      => 'Male',
+    'FEMALE'                    => 'Female',
 
     // Application
     'APPLICATION_NAME'          => 'ThinkPHP Blog',
@@ -76,6 +79,12 @@ return [
     'REMEMBER_ME'       => 'Remember Me',
     'FORGET_PASSWORD'   => 'Forget Password',
 
+    // Profile
+    'EDIT_PROFILE'      => 'Edit Profile',
+    'ADDRESS'           => 'Address',
+    'POSTAL_CODE'       => 'Postal Code',
+    'GENDER'            => 'Gender',
+
     // Post
     'POST'              => 'Post',
     'POST_LISTING'      => 'Posts',
@@ -91,11 +100,12 @@ return [
     // Validation Rules
     // 'REQUIRED'                  => '{$field}必须填写！',
 
-    // Validation - Post
-    'TITLE_REQUIRED'            => 'Title is required!',
-    'CONTENT_REQUIRED'          => 'Content is required!',
+    // Validation - User Profile
+    'ADDERSS_REQUIRED'          => 'Address is required!',
+    'INVALID_POSTAL_CODE'       => 'Invalid postal code!',
+    'INVALID_GENDER'            => 'Invalid gender!',
 
-    // validation - User
+    // Validation - User
     'NAME_REQUIRED'             => 'User name is required!',
     'NAME_DUPLICATE'            => 'The user name is already used!  Please change the user name.',
     'PASSWORD_REQUIRED'         => 'Password is required!',
@@ -105,15 +115,12 @@ return [
     'EMAIL_INVALID'             => 'Invalid email!',
     'EMAIL_DUPLICATE'           => 'The email is already used!  Please change the email.',
 
+    // Validation - Post
+    'TITLE_REQUIRED'            => 'Title is required!',
+    'CONTENT_REQUIRED'          => 'Content is required!',
+
     //--------------------------------------------------------------------------
     // Controller
-
-    // Post
-    'SAVE_POST_SUCCESS'     => 'Post saved successfully!',
-    'SAVE_POST_FAILURE'     => 'Post failed to save!',
-    'POST_NOT_FOUND'        => 'Post not found!',
-    'DELETE_POST_SUCCESS'   => 'Post deleted successfully!',
-    'DELETE_POST_FAILURE'   => 'Post failed to delete!',
 
     // User
     'SIGNUP_USER_SUCCESS'   => 'User saved successfully!',
@@ -123,6 +130,13 @@ return [
     'USER_NOT_FOUND'        => 'User not found!',
     'DELETE_USER_SUCCESS'   => 'User deleted successfully!',
     'DELETE_USER_FAILURE'   => 'User failed to delete!',
+
+    // Post
+    'SAVE_POST_SUCCESS'     => 'Post saved successfully!',
+    'SAVE_POST_FAILURE'     => 'Post failed to save!',
+    'POST_NOT_FOUND'        => 'Post not found!',
+    'DELETE_POST_SUCCESS'   => 'Post deleted successfully!',
+    'DELETE_POST_FAILURE'   => 'Post failed to delete!',
 
     //--------------------------------------------------------------------------
     // Authentication & Authorization

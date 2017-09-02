@@ -17,6 +17,9 @@ return [
     'SUBMIT'                    => '提交',
     'SAVE'                      => '保存',
     'CANCEL'                    => '取消',
+    'SELECT_ONE'                => '请选择',
+    'MALE'                      => '男',
+    'FEMALE'                    => '女',
 
     // 应用程序
     'APPLICATION_NAME'          => 'ThinkPHP 博客',
@@ -48,7 +51,7 @@ return [
     'USER_AUTHORIZATION'        => '用户授权：用户是否有权做某项操作，比如是否可以访问某个页面/某项功能、是否可以读/写/删某项数据，等等',
     'MULTI_LANGUAGES'           => '多语言支持',
     'MODEL_ASSOCIATION'         => '模型关联：模型之间的关联（一对一，一对多，属于，和多对多）',
-    'RELATIONSHIP_USER_PROFILE' => '用户有一份用户资料，用户资料属于用户',
+    'RELATIONSHIP_USER_PROFILE' => '用户有一份个人资料，个人资料属于用户',
     'RELATIONSHIP_USER_POST'    => '作者(用户)写了许多文章，文章属于作者(用户)',
     'RELATIONSHIP_POST_TAG'     => '文章有许多标签，标签有许多文章',
     'RELATIONSHIP_USER_COMMENT' => '用户有许多评论，评论属于用户',
@@ -59,7 +62,7 @@ return [
     'SOURCE_DESC'               => '演示程序的<a href="https://github.com/blackpuppy/thinkblog">源代码</a>可以自由获取。',
     'WELCOME_FEEDBACK'          => '欢迎任何 <a href="https://github.com/blackpuppy/thinkblog/issues/new">反馈和建议</a>！',
 
-    // login
+    // 登录
     'SIGN_UP'           => '注册新用户',
     'SIGNUP'            => '注册',
     'LOGIN'             => '登录',
@@ -74,6 +77,12 @@ return [
     'RECAPTCHA'         => '验证码',
     'REMEMBER_ME'       => '记住我',
     'FORGET_PASSWORD'   => '忘记密码',
+
+    // 个人资料
+    'EDIT_PROFILE'      => '编辑个人资料',
+    'ADDRESS'           => '地址',
+    'POSTAL_CODE'       => '邮政编码',
+    'GENDER'            => '性别',
 
     // 文章
     'POST'              => '文章',
@@ -90,9 +99,10 @@ return [
     // 验证规则
     // 'REQUIRED'                  => '{$field}必须填写！',
 
-    // 数据验证 - 文章
-    'TITLE_REQUIRED'            => '标题必须填写！',
-    'CONTENT_REQUIRED'          => '内容必须填写！',
+    // 数据验证 - 个人资料
+    'ADDERSS_REQUIRED'          => '地址必须填写！',
+    'INVALID_POSTAL_CODE'       => '邮政编码不正确！',
+    'INVALID_GENDER'            => '性别不正确！',
 
     // 数据验证 - 用户
     'NAME_REQUIRED'             => '用户名必须填写！',
@@ -104,15 +114,12 @@ return [
     'EMAIL_INVALID'             => '不合法的电子邮箱地址！',
     'EMAIL_DUPLICATE'           => '该电子邮箱地址已被占用！请选择其他的电子邮箱。',
 
+    // 数据验证 - 文章
+    'TITLE_REQUIRED'            => '标题必须填写！',
+    'CONTENT_REQUIRED'          => '内容必须填写！',
+
     //--------------------------------------------------------------------------
     // 控制器
-
-    // 文章
-    'SAVE_POST_SUCCESS'     => '文章保存成功！',
-    'SAVE_POST_FAILURE'     => '文章保存失败！',
-    'POST_NOT_FOUND'        => '文章不存在！',
-    'DELETE_POST_SUCCESS'   => '文章删除成功！',
-    'DELETE_POST_FAILURE'   => '文章删除失败！',
 
     // 用户
     'SIGNUP_USER_SUCCESS'   => '用户注册成功！',
@@ -122,6 +129,13 @@ return [
     'USER_NOT_FOUND'        => '用户不存在！',
     'DELETE_USER_SUCCESS'   => '用户删除成功！',
     'DELETE_USER_FAILURE'   => '用户删除失败！',
+
+    // 文章
+    'SAVE_POST_SUCCESS'     => '文章保存成功！',
+    'SAVE_POST_FAILURE'     => '文章保存失败！',
+    'POST_NOT_FOUND'        => '文章不存在！',
+    'DELETE_POST_SUCCESS'   => '文章删除成功！',
+    'DELETE_POST_FAILURE'   => '文章删除失败！',
 
     //--------------------------------------------------------------------------
     // 用户认证与授权

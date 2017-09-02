@@ -7,13 +7,23 @@ use Think\Model\AdvModel;
 abstract class BaseModel extends AdvModel
 {
     protected $_auto = [
-        ['created_at', 'getNow', self::MODEL_INSERT, 'callback'],
-        ['updated_at', 'getNow', self::MODEL_UPDATE, 'callback'],
+        ['created_by', 'getCurrentUserId',  self::MODEL_INSERT, 'callback'],
+        ['created_at', 'getNow',            self::MODEL_INSERT, 'callback'],
+        ['updated_by', 'getCurrentUserId',  self::MODEL_UPDATE, 'callback'],
+        ['updated_at', 'getNow',            self::MODEL_UPDATE, 'callback'],
     ];
 
     public function __construct($name = '', $tablePrefix = '', $connection = '')
     {
         parent::__construct($name, $tablePrefix, $connection);
+    }
+
+    public function getCurrentUserId()
+    {
+        $isAuthenticated = session('?authentication.authenticated')
+                        && session('authentication.authenticated');
+        $currentUserId = $isAuthenticated ? session('authentication.user')['id'] : 0;
+        return $currentUserId;
     }
 
     public function getNow()
@@ -31,6 +41,7 @@ abstract class BaseModel extends AdvModel
 
     //------------------------------------------------------
     // 以下加入 RelationModel
+    // 愚蠢的AdvModel和RelationMode分支。有更好的办法吗？
 
     const HAS_ONE      = 1;
     const BELONGS_TO   = 2;

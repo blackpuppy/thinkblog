@@ -20,16 +20,10 @@ class PostModel extends BaseModel
     ];
 
     protected $_auto = [
-        ['created_at', 'getNow', self::MODEL_INSERT, 'callback'],
-        ['updated_at', 'getNow', self::MODEL_UPDATE, 'callback'],
+        ['created_by',     'getCurrentUserId', self::MODEL_INSERT, 'callback'],
+        ['created_at',     'getNow',           self::MODEL_INSERT, 'callback'],
+        ['updated_by',     'getCurrentUserId', self::MODEL_UPDATE, 'callback'],
+        ['updated_at',     'getNow',           self::MODEL_UPDATE, 'callback'],
         ['author_user_id', 'getCurrentUserId', self::MODEL_INSERT, 'callback'],
     ];
-
-    public function getCurrentUserId()
-    {
-        $isAuthenticated = session('?authentication.authenticated')
-                        && session('authentication.authenticated');
-        $currentUserId = $isAuthenticated ? session('authentication.user')['id'] : 0;
-        return $currentUserId;
-    }
 }

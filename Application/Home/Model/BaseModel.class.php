@@ -6,16 +6,16 @@ use Think\Model\AdvModel;
 
 abstract class BaseModel extends AdvModel
 {
-    protected $_auto = [
-        ['created_by', 'getCurrentUserId',  self::MODEL_INSERT, 'callback'],
-        ['created_at', 'getNow',            self::MODEL_INSERT, 'callback'],
-        ['updated_by', 'getCurrentUserId',  self::MODEL_UPDATE, 'callback'],
-        ['updated_at', 'getNow',            self::MODEL_UPDATE, 'callback'],
-    ];
-
     public function __construct($name = '', $tablePrefix = '', $connection = '')
     {
         parent::__construct($name, $tablePrefix, $connection);
+
+        $this->_auto = [
+            ['created_by', 'getCurrentUserId',  self::MODEL_INSERT, 'callback'],
+            ['created_at', 'getNow',            self::MODEL_INSERT, 'callback'],
+            ['updated_by', 'getCurrentUserId',  self::MODEL_UPDATE, 'callback'],
+            ['updated_at', 'getNow',            self::MODEL_UPDATE, 'callback'],
+        ];
     }
 
     public function getCurrentUserId()
@@ -32,9 +32,9 @@ abstract class BaseModel extends AdvModel
 
         $now = Carbon::now();
         $nowStr = $now->toDateTimeString('Y-m-d H:i:s') . '.' . $now->micro;
-        $msg = PHP_EOL . 'BaseModel::getNow(): returns ' . $nowStr
-            . PHP_EOL . str_repeat('-', 80);
-        \Think\Log::write($msg, 'INFO');
+        // $msg = PHP_EOL . 'BaseModel::getNow(): returns ' . $nowStr
+        //     . PHP_EOL . str_repeat('-', 80);
+        // \Think\Log::write($msg, 'DEBUG');
 
         return $nowStr;
     }

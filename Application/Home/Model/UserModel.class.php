@@ -29,6 +29,12 @@ class UserModel extends BaseModel
     ];
 
     protected $_link = [
+        'Profile' => [
+            'mapping_type'  => self::HAS_ONE,
+            'class_name'    => 'Profile',
+            'foreign_key'   => 'user_id',
+            'mapping_name'  => 'profile',
+        ],
         'Post' => [
             'mapping_type'  => self::HAS_MANY,
             'class_name'    => 'Post',

@@ -1,5 +1,24 @@
 <?php
 
+use Carbon\Carbon;
+
+/**
+ * 获取给当前时间。
+ * @return string 当前时间。
+ */
+function getNow()
+{
+    // return date('Y-m-d H:i:s.u');
+
+    $now = Carbon::now();
+    $nowStr = $now->toDateTimeString('Y-m-d H:i:s') . '.' . $now->micro;
+    // $msg = PHP_EOL . 'BaseModel::getNow(): returns ' . $nowStr
+    //     . PHP_EOL . str_repeat('-', 80);
+    // \Think\Log::write($msg, 'DEBUG');
+
+    return $nowStr;
+}
+
 /**
  * 加密给定密码。
  * @param string $password 给定密码。
@@ -37,6 +56,17 @@ function isAuthenticated()
 function getAuthenticatedUser()
 {
     return isAuthenticated() ? session('authentication.user') : null;
+}
+
+/**
+ * 获取给当前登录的用户的 id。
+ * @return array 当前登录用户的 id，如未登录则返回 0。
+ */
+function getCurrentUserId()
+{
+    $isAuthenticated = isAuthenticated();
+    $currentUserId = $isAuthenticated ? getAuthenticatedUser()['id'] : 0;
+    return $currentUserId;
 }
 
 /**

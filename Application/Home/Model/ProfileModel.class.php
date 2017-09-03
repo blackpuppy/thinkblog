@@ -35,7 +35,7 @@ class ProfileModel extends BaseModel
             ['gender_key', $genderKeys, '{%INVALID_GENDER}', self::VALUE_VALIDATE, 'in'],
         ];
 
-        $this->_auto[] = ['user_id', 'getCurrentUserId', self::MODEL_INSERT, 'callback'];
+        $this->_auto[] = ['user_id', 'getCurrentUserId', self::MODEL_INSERT, 'function'];
 
         // \Think\Log::write('$this->_auto = ' . print_r($this->_auto, true), 'DEBUG');
     }

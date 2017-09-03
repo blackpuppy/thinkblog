@@ -18,7 +18,7 @@ class ProfileController extends Controller
         }
 
         $Profile = D('Profile');
-        $userId = $Profile->getCurrentUserId();
+        $userId = getCurrentUserId();
         if (!$userId) {
             $this->redirect(U('/'));
             return;
@@ -62,7 +62,7 @@ class ProfileController extends Controller
         }
 
         $Profile = D('Profile');
-        $userId = $Profile->getCurrentUserId();
+        $userId = getCurrentUserId();
         if (!$userId) {
             $this->redirect(U('/'));
             return;

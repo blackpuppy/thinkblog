@@ -1,7 +1,6 @@
 <?php
 namespace Home\Model;
 
-use Carbon\Carbon;
 use Think\Model\AdvModel;
 
 abstract class BaseModel extends AdvModel
@@ -11,31 +10,11 @@ abstract class BaseModel extends AdvModel
         parent::__construct($name, $tablePrefix, $connection);
 
         $this->_auto = [
-            ['created_by', 'getCurrentUserId',  self::MODEL_INSERT, 'callback'],
-            ['created_at', 'getNow',            self::MODEL_INSERT, 'callback'],
-            ['updated_by', 'getCurrentUserId',  self::MODEL_UPDATE, 'callback'],
-            ['updated_at', 'getNow',            self::MODEL_UPDATE, 'callback'],
+            ['created_by', 'getCurrentUserId',  self::MODEL_INSERT, 'function'],
+            ['created_at', 'getNow',            self::MODEL_INSERT, 'function'],
+            ['updated_by', 'getCurrentUserId',  self::MODEL_UPDATE, 'function'],
+            ['updated_at', 'getNow',            self::MODEL_UPDATE, 'function'],
         ];
-    }
-
-    public function getCurrentUserId()
-    {
-        $isAuthenticated = isAuthenticated();
-        $currentUserId = $isAuthenticated ? getAuthenticatedUser()['id'] : 0;
-        return $currentUserId;
-    }
-
-    public function getNow()
-    {
-        // return date('Y-m-d H:i:s.u');
-
-        $now = Carbon::now();
-        $nowStr = $now->toDateTimeString('Y-m-d H:i:s') . '.' . $now->micro;
-        // $msg = PHP_EOL . 'BaseModel::getNow(): returns ' . $nowStr
-        //     . PHP_EOL . str_repeat('-', 80);
-        // \Think\Log::write($msg, 'DEBUG');
-
-        return $nowStr;
     }
 
     //------------------------------------------------------

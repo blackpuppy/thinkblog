@@ -53,7 +53,7 @@ function isAuthenticated()
  * 获取给当前登录的用户。
  * @return array 当前登录的用户，如未登录则返回 null。
  */
-function getAuthenticatedUser()
+function getCurrentUser()
 {
     return isAuthenticated() ? session('authentication.user') : null;
 }
@@ -65,7 +65,7 @@ function getAuthenticatedUser()
 function getCurrentUserId()
 {
     $isAuthenticated = isAuthenticated();
-    $currentUserId = $isAuthenticated ? getAuthenticatedUser()['id'] : 0;
+    $currentUserId = $isAuthenticated ? getCurrentUser()['id'] : 0;
     return $currentUserId;
 }
 

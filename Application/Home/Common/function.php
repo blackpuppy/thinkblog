@@ -109,6 +109,14 @@ function getUserFullName(mixed $user, string $lastName = null)
         $fullName = $firstName . ' ' . $lastName;
     }
 
+    if (empty(trim($fullName))) {
+        if (is_array($user)) {
+            $fullName = $user['name'];
+        } elseif (is_subclass_of($user, 'ProfileModel')) {
+            $fullName = $user->name;
+        }
+    }
+
     $msg .= PHP_EOL . '  $fullName = ' . $fullName
         . PHP_EOL . str_repeat('-', 80);
     // \Think\Log::write($msg, 'DEBUG');

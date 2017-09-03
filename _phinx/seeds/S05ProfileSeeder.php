@@ -31,12 +31,12 @@ class S05ProfileSeeder extends AbstractSeed
 
         $profiles = [
             [
-                'first_name'    => 'Administraor',
-                'address'     => str_replace(PHP_EOL, ' ', $faker->address),
-                'postal_code' => $faker->postcode,
-                'gender_key'  => 'male',
-                'username'    => 'admin',
-            ], [
+            //     'first_name'    => 'Administraor',
+            //     'address'     => str_replace(PHP_EOL, ' ', $faker->address),
+            //     'postal_code' => $faker->postcode,
+            //     'gender_key'  => 'male',
+            //     'username'    => 'admin',
+            // ], [
                 'first_name'    => 'Tayler',
                 'last_name'     => 'Otwell',
                 'address'     => str_replace(PHP_EOL, ' ', $faker->address),

@@ -105,7 +105,12 @@ return [
     // 'REQUIRED'                  => '{$field}必须填写！',
 
     // Validation - User Profile
+    'FIRST_NAME_REQUIRED'       => 'First name is required!',
+    'FIRST_NAME_LENGTH'         => 'First name must be 1-255 characters long!',
+    'LAST_NAME_REQUIRED'        => 'Last name is required!',
+    'LAST_NAME_LENGTH'          => 'Last name must be 0-255 characters long!',
     'ADDERSS_REQUIRED'          => 'Address is required!',
+    'POSTAL_CODE_REQUIRED'      => 'Postal code is required!',
     'INVALID_POSTAL_CODE'       => 'Invalid postal code!',
     'INVALID_GENDER'            => 'Invalid gender!',
 
@@ -113,10 +118,8 @@ return [
     'NAME_REQUIRED'             => 'User name is required!',
     'NAME_DUPLICATE'            => 'The user name is already used!  Please change the user name.',
     'PASSWORD_REQUIRED'         => 'Password is required!',
-    'PASSWORD_LENGTH'           => 'First name must be 5-72 characters long!',
+    'PASSWORD_LENGTH'           => 'Password must be 5-72 characters long!',
     'CONFIRM_PASSWORD_DISMATCH' => 'Confirm password does not match!',
-    'FIRST_NAME_LENGTH'         => 'First name must be 1-255 characters long!',
-    'LAST_NAME_LENGTH'          => 'Last name must be 0-255 characters long!',
     'EMAIL_INVALID'             => 'Invalid email!',
     'EMAIL_DUPLICATE'           => 'The email is already used!  Please change the email.',
 
@@ -135,6 +138,10 @@ return [
     'USER_NOT_FOUND'        => 'User not found!',
     'DELETE_USER_SUCCESS'   => 'User deleted successfully!',
     'DELETE_USER_FAILURE'   => 'User failed to delete!',
+
+    // 个人资料
+    'SAVE_PROFILE_SUCCESS'  => 'User profile saved successfully!',
+    'SAVE_PROFILE_FAILURE'  => 'User profile failed to save!',
 
     // Post
     'SAVE_POST_SUCCESS'     => 'Post saved successfully!',

@@ -49,19 +49,19 @@ class CreateProfileTable extends AbstractMigration
             'encoding' => 'utf8',
             'comment' => '电话号码',
         ])->addColumn('address', 'string', [
-            'null' => false,
+            'null' => true,
             'limit' => 255,
             'collation' => 'utf8_unicode_ci',
             'encoding' => 'utf8',
             'comment' => '地址',
         ])->addColumn('postal_code', 'string', [
-            'null' => false,
+            'null' => true,
             'limit' => 16,
             'collation' => 'utf8_unicode_ci',
             'encoding' => 'utf8',
             'comment' => '邮政编码',
         ])->addColumn('gender_key', 'string', [
-            'null' => false,
+            'null' => true,
             'limit' => 32,
             'collation' => 'utf8_unicode_ci',
             'encoding' => 'utf8',

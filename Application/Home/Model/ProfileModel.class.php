@@ -28,16 +28,19 @@ class ProfileModel extends BaseModel
         // \Think\Log::write('$genderKeys = ' . print_r($genderKeys, true), 'DEBUG');
 
         $this->_validate = [
-            ['first_name', '1,255', '{%FIRST_NAME_LENGTH}', self::EXISTS_VALIDATE, 'length'],
-            ['last_name', '0,255', '{%LAST_NAME_LENGTH}', self::EXISTS_VALIDATE, 'length'],
-            ['address', 'require', '{%ADDERSS_REQUIRED}', self::VALUE_VALIDATE],
-            ['postal_code', '/[^0-9]*/', '{%INVALID_POSTAL_CODE}', self::VALUE_VALIDATE, 'regex'],
-            ['gender_key', $genderKeys, '{%INVALID_GENDER}', self::VALUE_VALIDATE, 'in'],
+            ['first_name',  'require',   '{%FIRST_NAME_REQUIRED}',  self::EXISTS_VALIDATE],
+            ['first_name',  '1,255',     '{%FIRST_NAME_LENGTH}',    self::EXISTS_VALIDATE, 'length'],
+            ['last_name',   'require',   '{%LAST_NAME_REQUIRED}',   self::EXISTS_VALIDATE],
+            ['last_name',   '1,255',     '{%LAST_NAME_LENGTH}',     self::EXISTS_VALIDATE, 'length'],
+            ['address',     'require',   '{%ADDERSS_REQUIRED}',     self::EXISTS_VALIDATE],
+            ['postal_code', 'require',   '{%POSTAL_CODE_REQUIRED}', self::EXISTS_VALIDATE],
+            ['postal_code', '/[^0-9]*/', '{%INVALID_POSTAL_CODE}',  self::EXISTS_VALIDATE, 'regex'],
+            ['gender_key',  $genderKeys, '{%INVALID_GENDER}',       self::VALUE_VALIDATE,  'in'],
         ];
 
         $this->_auto[] = ['user_id', 'getCurrentUserId', self::MODEL_INSERT, 'function'];
 
-        // \Think\Log::write('$this->_auto = ' . print_r($this->_auto, true), 'DEBUG');
+        // \Think\Log::write('ProfileModel::__construct(): $this->_auto = ' . print_r($this->_auto, true), 'DEBUG');
     }
 
     public function getFullName()

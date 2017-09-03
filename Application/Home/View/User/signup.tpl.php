@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group">
-            <label for="content" class="control-label col-sm-2">
+            <label for="password" class="control-label col-sm-2">
                 {$Think.lang.PASSWORD}{$Think.lang.COLON}
             </label>
             <div class="col-md-3">
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            <label for="content" class="control-label col-sm-2">
+            <label for="confirm_password" class="control-label col-sm-2">
                 {$Think.lang.CONFIRM_PASSWORD}{$Think.lang.COLON}
             </label>
             <div class="col-md-3">
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            <label for="content" class="control-label col-sm-2">
+            <label for="email" class="control-label col-sm-2">
                 {$Think.lang.EMAIL}{$Think.lang.COLON}
             </label>
             <div class="col-md-6">

@@ -61,6 +61,8 @@ return [
     'WEB_API'                   => 'Web API',
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 Client',
     'USING_HTTPS'               => 'Using HTTPS',
+    'UNIT_TESTING'              => 'Unit Testing',
+    'MULTI_LANGUAGES_IN_DATA'   => 'Internationalization/Localization (I18n/L10n) in data',
     'SOURCE_DESC'               => 'You can access the <a href="https://github.com/blackpuppy/thinkblog">source code</a> of this demo.',
     'WELCOME_FEEDBACK'          => 'Any <a href="https://github.com/blackpuppy/thinkblog/issues/new">feedback or suggestions</a> are welcome!',
 

@@ -102,6 +102,14 @@
             <input type="checkbox" id="using_https" name="using_https" disabled>
             <label for="using_https">{$Think.lang.USING_HTTPS}</label>
         </li>
+        <li>
+            <input type="checkbox" id="using_https" name="using_https" disabled>
+            <label for="using_https">{$Think.lang.UNIT_TESTING}</label>
+        </li>
+        <li>
+            <input type="checkbox" id="using_https" name="using_https" disabled>
+            <label for="using_https">{$Think.lang.MULTI_LANGUAGES_IN_DATA}</label>
+        </li>
     </ul>
 
     <p>{$Think.lang.SOURCE_DESC}</p>

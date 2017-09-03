@@ -60,6 +60,8 @@ return [
     'WEB_API'                   => 'Web API',
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 客户端',
     'USING_HTTPS'               => '使用 HTTPS',
+    'UNIT_TESTING'              => '单元测试',
+    'MULTI_LANGUAGES_IN_DATA'   => '数据中的多语言支持',
     'SOURCE_DESC'               => '演示程序的<a href="https://github.com/blackpuppy/thinkblog">源代码</a>可以自由获取。',
     'WELCOME_FEEDBACK'          => '欢迎任何 <a href="https://github.com/blackpuppy/thinkblog/issues/new">反馈和建议</a>！',
 

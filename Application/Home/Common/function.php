@@ -71,11 +71,11 @@ function getCurrentUserId()
 
 /**
  * 获取给定用户的全名。
- * @param  mixed       $user     给定用户(数组或对象)或者用户的名。
- * @param  string|null $lastName 给定用户的姓。
- * @return string                给定用户的全名。
+ * @param  string|array|object  $user     给定用户(数组或对象)或者用户的名。
+ * @param  string|null          $lastName 给定用户的姓。
+ * @return string                         给定用户的全名。
  */
-function getUserFullName(mixed $user, string $lastName = null)
+function getUserFullName($user, string $lastName = null)
 {
     $msg = 'getUserFullName():'
         . PHP_EOL . '  $user = ' . print_r($user, true)

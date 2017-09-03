@@ -65,7 +65,7 @@ abstract class BaseModel extends AdvModel
     }
 
     // 查询成功后的回调方法
-    protected function _after_find(&$result, $options)
+    protected function _after_find(&$result, $options = '')
     {
         // 获取关联数据 并附加到结果中
         if (!empty($options['link'])) {
@@ -75,7 +75,7 @@ abstract class BaseModel extends AdvModel
     }
 
     // 查询数据集成功后的回调方法
-    protected function _after_select(&$result, $options)
+    protected function _after_select(&$result, $options = '')
     {
         // 获取关联数据 并附加到结果中
         if (!empty($options['link'])) {

@@ -1,7 +1,3 @@
-<?php
-use Home\Model\ProfileModel;
-?>
-
 <nav class="navbar navbar-default navbar-static-top navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -35,7 +31,7 @@ use Home\Model\ProfileModel;
                 <else />
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {:ProfileModel::getFullName(session('authentication.user'))}
+                            {:getUserFullName(session('authentication.user'))}
                             <span class="caret"></span>
                         </a>
 

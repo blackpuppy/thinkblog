@@ -1,41 +1,22 @@
 <?php
 namespace Home\Model;
 
-use Carbon\Carbon;
 use Think\Model\AdvModel;
 
 abstract class BaseModel extends AdvModel
 {
+    const MODEL_LOGIN = 4;   // 用于自动验证，用户登录时
+
     public function __construct($name = '', $tablePrefix = '', $connection = '')
     {
         parent::__construct($name, $tablePrefix, $connection);
 
         $this->_auto = [
-            ['created_by', 'getCurrentUserId',  self::MODEL_INSERT, 'callback'],
-            ['created_at', 'getNow',            self::MODEL_INSERT, 'callback'],
-            ['updated_by', 'getCurrentUserId',  self::MODEL_UPDATE, 'callback'],
-            ['updated_at', 'getNow',            self::MODEL_UPDATE, 'callback'],
+            ['created_by', 'getCurrentUserId',  self::MODEL_INSERT, 'function'],
+            ['created_at', 'getNow',            self::MODEL_INSERT, 'function'],
+            ['updated_by', 'getCurrentUserId',  self::MODEL_UPDATE, 'function'],
+            ['updated_at', 'getNow',            self::MODEL_UPDATE, 'function'],
         ];
-    }
-
-    public function getCurrentUserId()
-    {
-        $isAuthenticated = isAuthenticated();
-        $currentUserId = $isAuthenticated ? getAuthenticatedUser()['id'] : 0;
-        return $currentUserId;
-    }
-
-    public function getNow()
-    {
-        // return date('Y-m-d H:i:s.u');
-
-        $now = Carbon::now();
-        $nowStr = $now->toDateTimeString('Y-m-d H:i:s') . '.' . $now->micro;
-        // $msg = PHP_EOL . 'BaseModel::getNow(): returns ' . $nowStr
-        //     . PHP_EOL . str_repeat('-', 80);
-        // \Think\Log::write($msg, 'DEBUG');
-
-        return $nowStr;
     }
 
     //------------------------------------------------------
@@ -84,7 +65,7 @@ abstract class BaseModel extends AdvModel
     }
 
     // 查询成功后的回调方法
-    protected function _after_find(&$result, $options)
+    protected function _after_find(&$result, $options = '')
     {
         // 获取关联数据 并附加到结果中
         if (!empty($options['link'])) {
@@ -94,7 +75,7 @@ abstract class BaseModel extends AdvModel
     }
 
     // 查询数据集成功后的回调方法
-    protected function _after_select(&$result, $options)
+    protected function _after_select(&$result, $options = '')
     {
         // 获取关联数据 并附加到结果中
         if (!empty($options['link'])) {

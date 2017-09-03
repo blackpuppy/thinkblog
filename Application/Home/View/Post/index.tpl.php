@@ -31,10 +31,10 @@
                         <td>{$no}</td>
                         <td>{$post.title}</td>
                         <td>{$post.content}</td>
-                        <td>{:ProfileModel::getFullName($post['author'])}</td>
+                        <td>{:getUserFullName($post['author'])}</td>
                         <td>
                             <a href="{:U('/posts/update/' . $post['id'])}" class="btn btn-primary"
-                                <if condition="!isAuthenticated() || getAuthenticatedUser()['id'] != $post['author_user_id']">
+                                <if condition="!isAuthenticated() || getCurrentUser()['id'] != $post['author_user_id']">
                                     disabled="true"
                                 </if>
                             >
@@ -48,7 +48,7 @@
                                     data-title="<h5 class='text-center'><strong>{$Think.lang.CONFIRM_TITLE}</strong></h5>"
                                     data-content="{:L('CONFIRM_TO_DELETE', ['model' => strtolower(L('POST'))])}"
                                     data-delete-url="{:U('/posts/delete/' . $post['id'])}"
-                                    <if condition="!isAuthenticated() || getAuthenticatedUser()['id'] != $post['author_user_id']">
+                                    <if condition="!isAuthenticated() || getCurrentUser()['id'] != $post['author_user_id']">
                                         disabled="true"
                                     </if>
                             >

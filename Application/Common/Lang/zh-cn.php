@@ -104,7 +104,12 @@ return [
     // 'REQUIRED'                  => '{$field}必须填写！',
 
     // 数据验证 - 个人资料
+    'FIRST_NAME_REQUIRED'       => '名必须填写！',
+    'FIRST_NAME_LENGTH'         => '名至少1个字符，最多255个字符！',
+    'LAST_NAME_REQUIRED'        => '姓必须填写！',
+    'LAST_NAME_LENGTH'          => '姓至少1个字符，最多255个字符！',
     'ADDERSS_REQUIRED'          => '地址必须填写！',
+    'POSTAL_CODE_REQUIRED'      => '邮政编码必须填写！',
     'INVALID_POSTAL_CODE'       => '邮政编码不正确！',
     'INVALID_GENDER'            => '性别不正确！',
 
@@ -114,8 +119,6 @@ return [
     'PASSWORD_REQUIRED'         => '密码必须填写！',
     'PASSWORD_LENGTH'           => '密码至少5个字符，最多72个字符！',
     'CONFIRM_PASSWORD_DISMATCH' => '确认密码比匹配！',
-    'FIRST_NAME_LENGTH'         => '名至少1个字符，最多255个字符！',
-    'LAST_NAME_LENGTH'          => '姓可为空，最多255个字符！',
     'EMAIL_INVALID'             => '不合法的电子邮箱地址！',
     'EMAIL_DUPLICATE'           => '该电子邮箱地址已被占用！请选择其他的电子邮箱。',
 
@@ -134,6 +137,10 @@ return [
     'USER_NOT_FOUND'        => '用户不存在！',
     'DELETE_USER_SUCCESS'   => '用户删除成功！',
     'DELETE_USER_FAILURE'   => '用户删除失败！',
+
+    // 个人资料
+    'SAVE_PROFILE_SUCCESS'  => '个人资料保存成功！',
+    'SAVE_PROFILE_FAILURE'  => '个人资料保存失败！',
 
     // 文章
     'SAVE_POST_SUCCESS'     => '文章保存成功！',

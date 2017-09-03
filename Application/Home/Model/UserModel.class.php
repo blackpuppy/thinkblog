@@ -5,8 +5,6 @@ use Home\Model\BaseModel;
 
 class UserModel extends BaseModel
 {
-    const USER_LOGIN = 4;   // 用户登录
-
     protected $_validate = [
         ['name', 'require', '{%NAME_REQUIRED}'],
         ['name', '', '{%NAME_DUPLICATE}', self::EXISTS_VALIDATE, 'unique', self::MODEL_BOTH],
@@ -19,8 +17,8 @@ class UserModel extends BaseModel
         ['email', '', '{%EMAIL_DUPLICATE}', self::EXISTS_VALIDATE, 'unique'],
 
         // 用户登录时的验证规则
-        ['name',     'require', '{%NAME_REQUIRED}',     self::MUST_VALIDATE, '', self::USER_LOGIN],
-        ['password', 'require', '{%PASSWORD_REQUIRED}', self::MUST_VALIDATE, '', self::USER_LOGIN],
+        ['name',     'require', '{%NAME_REQUIRED}',     self::MUST_VALIDATE, '', self::MODEL_LOGIN],
+        ['password', 'require', '{%PASSWORD_REQUIRED}', self::MUST_VALIDATE, '', self::MODEL_LOGIN],
     ];
 
     protected $_filter = [

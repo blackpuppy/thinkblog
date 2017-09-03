@@ -5,6 +5,8 @@ use Think\Model\AdvModel;
 
 abstract class BaseModel extends AdvModel
 {
+    const MODEL_LOGIN = 4;   // 用于自动验证，用户登录时
+
     public function __construct($name = '', $tablePrefix = '', $connection = '')
     {
         parent::__construct($name, $tablePrefix, $connection);

@@ -1,7 +1,7 @@
 <?php
 namespace Home\Controller;
 
-use Home\Model\UserModel;
+use Home\Model\BaseModel;
 use Think\Controller;
 
 class UserController extends Controller
@@ -91,7 +91,7 @@ class UserController extends Controller
                 // $password = I('password');
 
                 $User = D('User');
-                $user = $User->create(I('post.'), UserModel::USER_LOGIN);
+                $user = $User->create(I('post.'), BaseModel::MODEL_LOGIN);
 
                 $msg .= PHP_EOL . '  post data = ' . print_r(I('post.'), true)
                     . PHP_EOL . '  $user = ' . print_r($user, true);

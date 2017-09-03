@@ -109,6 +109,9 @@ class ProfileController extends Controller
                 $this->display();
             } elseif (IS_POST) {
                 $userInput = I('post.user');
+                if (empty($userInput['password']) && empty($userInput['confirm_password'])) {
+                    unset($userInput['password']);
+                }
                 $user = $User->create($userInput);
 
                 $profileInput = I('post.profile');
@@ -143,17 +146,35 @@ class ProfileController extends Controller
                 } else {
                     $msg .= PHP_EOL . '  validation passed';
 
-                    if (isset($profile['id'])) {
-                        $msg .= PHP_EOL . '  going to save profile';
-                        $result = $Profile->save();
-                    } else {
-                        $msg .= PHP_EOL . '  going to add profile';
-                        $result = $Profile->add();
+                    $result = false;
+
+                    try {
+                        $User->startTrans();
+
+                        $userResult = $User->save();
+
+                        if (isset($profile['id'])) {
+                            $msg .= PHP_EOL . '  going to save profile';
+                            $profileResult = $Profile->save();
+                        } else {
+                            $msg .= PHP_EOL . '  going to add profile';
+                            $profileResult = $Profile->add();
+                        }
+
+                        $msg .= PHP_EOL . '  $userResult = ' . print_r($userResult, true)
+                            . PHP_EOL . '  $profileResult = ' . print_r($profileResult, true);
+
+                        $result = $userResult !== false && $profileResult !== false;
+                        if ($result) {
+                            $User->commit();
+                        } else {
+                            $User->rollback();
+                        }
+                    } catch (Exception $e) {
+                        $User->rollback();
                     }
 
-                    $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
-
-                    if ($result !== false) {
+                    if ($result) {
                         $this->success(L('SAVE_PROFILE_SUCCESS'), U('/posts'), 3);
                     } else {
                         $msg .= PHP_EOL . str_repeat('-', 80);

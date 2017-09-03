@@ -30,8 +30,8 @@ $genders = ConfigListModel::getConfigList(ConfigListModel::LIST_NAME_GENDER);
             </label>
             <div class="col-md-3">
                 <input type="text" class="form-control" name="user[name]"
-                    placeholder="{$Think.lang.USER_NAME}"
-                    value="{$user['name']}" autofocus="true">
+                    placeholder="{$Think.lang.USER_NAME}" readonly
+                    value="{$user['name']}">
             </div>
         </div>
 
@@ -40,8 +40,8 @@ $genders = ConfigListModel::getConfigList(ConfigListModel::LIST_NAME_GENDER);
                 {$Think.lang.PASSWORD}{$Think.lang.COLON}
             </label>
             <div class="col-md-3">
-                <input type="password" class="form-control"
-                    name="user[password]" placeholder="{$Think.lang.PASSWORD}">
+                <input type="password" class="form-control" name="user[password]"
+                    placeholder="{$Think.lang.PASSWORD}" autofocus="true">
             </div>
         </div>
 

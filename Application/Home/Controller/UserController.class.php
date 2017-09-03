@@ -116,7 +116,7 @@ class UserController extends Controller
                         session('authentication.user', $user);
 
                         // redirect to intended page
-                        $this->redirect(U('/'));
+                        $this->redirect(U(C('AUTH_CONFIG.AUTH_LOGIN_REDIRECT_URL')));
                     } else {
                         $msg .= PHP_EOL . '  login failed';
 

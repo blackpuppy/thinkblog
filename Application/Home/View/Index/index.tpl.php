@@ -69,7 +69,7 @@
             <label for="model_association">{$Think.lang.MODEL_ASSOCIATION}</label>
             <ul>
                 <li>
-                    <input type="checkbox" id="relationship_user_profile" name="relationship_user_profile" disabled>
+                    <input type="checkbox" id="relationship_user_profile" name="relationship_user_profile" disabled checked>
                     <label for="relationship_user_profile">{$Think.lang.RELATIONSHIP_USER_PROFILE}</label>
                 </li>
                 <li>

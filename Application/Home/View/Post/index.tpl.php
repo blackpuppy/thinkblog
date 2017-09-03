@@ -31,7 +31,7 @@
                         <td>{$no}</td>
                         <td>{$post.title}</td>
                         <td>{$post.content}</td>
-                        <td>{:ProfileModel::getFullName($post['author'])}</td>
+                        <td>{:getUserFullName($post['author'])}</td>
                         <td>
                             <a href="{:U('/posts/update/' . $post['id'])}" class="btn btn-primary"
                                 <if condition="!isAuthenticated() || getAuthenticatedUser()['id'] != $post['author_user_id']">

@@ -40,53 +40,8 @@ class ProfileModel extends BaseModel
         // \Think\Log::write('$this->_auto = ' . print_r($this->_auto, true), 'DEBUG');
     }
 
-    public function fullName()
+    public function getFullName()
     {
-        // return substr(LANG_SET, 0, 2) === 'zh' ?
-        //     $fullName = $this->last_name . ' ' . $this->first_name :
-        //     $fullName = $this->first_name . ' ' . $this->last_name;
-
-        return ProfileModel::getFullName($this);
-    }
-
-    public static function getFullName(mixed $user, string $lastName = null)
-    {
-        $msg = 'ProfileModel::getFullName():'
-            . PHP_EOL . '  $user = ' . print_r($user, true)
-            . PHP_EOL . '  $lastName = ' . $lastName;
-
-        $fullName = "";
-
-        if (is_string($user)) {
-            $firstName = $user;
-        } elseif (is_array($user)) {
-            if (!isset($user['profile'])) {
-                $msg .= PHP_EOL . '  read profile';
-                $user['profile'] = D('Profile')
-                    ->where(['user_id' => $user['id']])->find();
-            }
-            $firstName = $user['profile']['first_name'];
-            $lastName = $user['profile']['last_name'];
-        } elseif (is_subclass_of($user, 'ProfileModel')) {
-            if (!isset($user->profile)) {
-                $msg .= PHP_EOL . '  read profile';
-                $user->profile = D('Profile')
-                    ->where(['user_id' => $user['id']])->find();
-            }
-            $firstName = $user->profile->first_name;
-            $lastName = $user->profile->last_name;
-        }
-
-        if (substr(LANG_SET, 0, 2) === 'zh') {
-            $fullName = $lastName . ' ' . $firstName;
-        } else {
-            $fullName = $firstName . ' ' . $lastName;
-        }
-
-        $msg .= PHP_EOL . '  $fullName = ' . $fullName
-            . PHP_EOL . str_repeat('-', 80);
-        // \Think\Log::write($msg, 'DEBUG');
-
-        return $fullName;
+        return getUserFullName($this);
     }
 }

@@ -16,7 +16,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a href="{:U('/posts')}">{$Think.lang.ALL_POSTS}</a></li>
-                        <li><a href="{:U('/posts', ['filter' => 'author=me'])}">{$Think.lang.MY_POSTS}</a></li>
+                        <li><a href="{:U('/posts', ['filter' => 'author|me'])}">{$Think.lang.MY_POSTS}</a></li>
                     </ul>
                 </div>
                 <div class="btn-group" role="group" aria-label="create-post">

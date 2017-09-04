@@ -15,16 +15,15 @@ class PostController extends Controller
         $msg = PHP_EOL . 'Home\Controller\PostController::index():';
 
         try {
-            $author = I('author');
+            $filter = I('filter');
+            $order = I('order');
+            $page = I('page');
+            $parameters = compact('filter', 'order', 'page');
 
-            $msg .= PHP_EOL . '  filter author = ' . $author;
+            // $msg .= PHP_EOL . '  parameters = ' . print_r($parameters, true);
 
             $Post = D('Post');
-            $query = $Post->relation(true)->order(['id' => 'desc']);
-            if (isAuthenticated() && $author === 'me') {
-                $query = $query->where(['author_user_id' => getCurrentUserId()]);
-            }
-            $posts = $query->select();
+            $posts = $Post->getMany($parameters);
 
             // $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
 
@@ -38,7 +37,7 @@ class PostController extends Controller
             throw $e;
         } finally {
             $msg .= PHP_EOL . str_repeat('-', 80);
-            // \Think\Log::write($msg, 'DEBUG');
+            \Think\Log::write($msg, 'DEBUG');
         }
     }
 

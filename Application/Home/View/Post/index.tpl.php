@@ -40,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <volist name="posts" id="post" key="no" empty="{:$Think.lang.NO_DATA_FOUND}">
+                <volist name="posts['data']" id="post" key="no" empty="{:$Think.lang.NO_DATA_FOUND}">
                     <tr>
                         <td>{$no}</td>
                         <td>{$post.title}</td>
@@ -72,7 +72,10 @@
                     </tr>
                 </volist>
                 </tbody>
+                <tfoot>
+                </tfoot>
             </table>
+            {:$posts['paginator']}
         </div>
 
         <form class="delete-post-form form-inline" action="#" method="POST">

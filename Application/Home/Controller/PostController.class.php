@@ -23,9 +23,9 @@ class PostController extends Controller
             // $msg .= PHP_EOL . '  parameters = ' . print_r($parameters, true);
 
             $Post = D('Post');
-            $posts = $Post->getMany($parameters);
+            $posts = $Post->paginate($parameters);
 
-            // $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
+            $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
 
             $title = L('POST_LISTING');
 

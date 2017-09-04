@@ -23,6 +23,7 @@ class PostModel extends BaseModel
     {
         parent::__construct($name, $tablePrefix, $connection);
 
-        $this->_auto[] = ['author_user_id', 'getCurrentUserId', self::MODEL_INSERT, 'function'];
+        $this->_auto[] =
+            ['author_user_id', 'getCurrentUserId', self::MODEL_INSERT, 'function'];
     }
 }

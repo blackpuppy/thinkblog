@@ -15,10 +15,18 @@ class PostController extends Controller
         $msg = PHP_EOL . 'Home\Controller\PostController::index():';
 
         try {
-            $Post = D('Post');
-            $posts = $Post->relation(true)->order(['id' => 'desc'])->select();
+            $author = I('author');
 
-            $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
+            $msg .= PHP_EOL . '  filter author = ' . $author;
+
+            $Post = D('Post');
+            $query = $Post->relation(true)->order(['id' => 'desc']);
+            if (isAuthenticated() && $author === 'me') {
+                $query = $query->where(['author_user_id' => getCurrentUserId()]);
+            }
+            $posts = $query->select();
+
+            // $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
 
             $title = L('POST_LISTING');
 

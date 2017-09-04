@@ -8,7 +8,21 @@
     <if condition="isAuthenticated()">
     <div class="row">
         <div class="col-md-12">
-            <a href="{:U('/posts/create')}" class="btn btn-primary">{$Think.lang.CREATE_POST}</a>
+            <div class="btn-toolbar" role="toolbar" aria-label="post-toolbar">
+                <div class="btn-group" role="group" aria-label="post-filter">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {$Think.lang.FILTER_BY_AUTHOR}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="{:U('/posts')}">{$Think.lang.ALL_POSTS}</a></li>
+                        <li><a href="{:U('/posts', ['filter' => 'author=me'])}">{$Think.lang.MY_POSTS}</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group" role="group" aria-label="create-post">
+                    <a href="{:U('/posts/create')}" class="btn btn-primary">{$Think.lang.CREATE_POST}</a>
+                </div>
+            </div>
         </div>
     </div>
     </if>

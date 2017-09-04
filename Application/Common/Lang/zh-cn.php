@@ -91,6 +91,9 @@ return [
     // 文章
     'POST'              => '文章',
     'POST_LISTING'      => '文章列表',
+    'FILTER_BY_AUTHOR'  => '按作者过滤',
+    'ALL_POSTS'         => '所有文章',
+    'MY_POSTS'          => '我的文章',
     'CREATE_POST'       => '添加文章',
     'CHANGE_POST'       => '修改文章',
     'TITLE'             => '标题',

@@ -69,10 +69,9 @@ class PostModel extends BaseModel
      *
      * @param  array $parameters  给定的查询参数，{@see PostModel::buildQueryParams()}。
      * @return array 按照给定条件查询得到的多条记录分页结果，有如下键：
-     *               - string    $filter   过滤条件，如 field1|value1,field2|value2
-     *               - string    $order    排序，如 field1|asc,field2|desc
-     *               - int|null  $pageSize 每页记录数，如 10, 25
-     *               - int|null  $page     页数
+     *               - array    $data       查询所得数据
+     *               - int      $count      不考虑分页的记录数量
+     *               - string   $pagination 分页链接的HTML
      *
      * @author 朱明 <mingzhu.z+gitlab@gmail.com>
      */
@@ -85,22 +84,43 @@ class PostModel extends BaseModel
         extract($queryParams);
 
         $count = $this->getCount($parameters);
-        $Page = new \Think\Page($count, $pageSize);
-        $paginator = $Page->show();
+
+        $theme = <<<'EOD'
+<li>%FIRST%</li>
+<li>%UP_PAGE%</li>
+<li>%LINK_PAGE%</li>
+<li>%DOWN_PAGE%</li>
+<li>%END%</li>
+EOD;
+
+        $parameters = array_filter($parameters);
+        $Page = new \Think\Page($count, $pageSize, $parameters);
+        $Page->setConfig('header', '篇文章');
+        $Page->setConfig('theme', $theme);
+
+        $pagination = $Page->show();
+        if (startsWith($pagination, '<div>')
+            && endsWith($pagination, '</div>')
+        ) {
+            $pagination = substr($pagination, 5, -6);
+        }
+
         $data = $this->relation(true)
             ->where($where)
             ->order($order)
             ->page($page, $pageSize)
             ->select();
 
-        $msg .= PHP_EOL . '  $count = ' . $count
-            . PHP_EOL . '  $data = ' . print_r($data, true)
-            . PHP_EOL . '  $paginator = ' . print_r($paginator, true);
+        $msg .= PHP_EOL . '  $queryParams = ' . print_r($queryParams, true)
+            // . PHP_EOL . '  $Page = ' . print_r($Page, true)
+            . PHP_EOL . '  $count = ' . $count
+            // . PHP_EOL . '  $data = ' . print_r($data, true)
+            . PHP_EOL . '  $pagination = ' . print_r($pagination, true);
 
         $msg .= PHP_EOL . str_repeat('-', 80);
         // \Think\Log::write($msg, 'DEBUG');
 
-        return compact('data', 'count', 'paginator');
+        return compact('data', 'count', 'pagination');
     }
 
     /**
@@ -144,7 +164,7 @@ class PostModel extends BaseModel
                 // $msg .= PHP_EOL . '  $filterText = ' . $filterText;
                 // $msg .= PHP_EOL . '  $criterion = ' . print_r($criterion, true);
 
-                $criterion = $this->processCriterion($criterion);
+                $criterion = $this->mapCriterion($criterion);
                 if (is_array($criterion) && count($criterion) === 2) {
                     $where[$criterion[0]] = $criterion[1];
                 }
@@ -160,7 +180,14 @@ class PostModel extends BaseModel
         return $queryParams;
     }
 
-    protected function processCriterion(array $criterion = [])
+    /**
+     * 映射来自客户端的查询条件为可用于数据库查询的 where 条件。
+     * @param  array $criterion 来自客户端的查询条件，格式：['field', 'value]。
+     * @return array 可用于数据库查询的 where 条件，格式：['field', 'value]。
+     *
+     * @author 朱明 <mingzhu.z+gitlab@gmail.com>
+     */
+    protected function mapCriterion(array $criterion = [])
     {
         $result = false;
 

@@ -60,18 +60,70 @@ class S03PostSeeder extends AbstractSeed
             ], [
                 'title'   => 'Zend Framework',
                 'content' => '老牌的框架，没用过，不了解。',
-                'author'  => 'john.doe',
+                'author'  => 'jane.lorna',
             ], [
                 'title'   => 'Symfony',
                 'content' => '老牌的框架，没用过，不了解。',
-                'author'  => 'john.doe',
+                'author'  => 'jane.lorna',
             ], [
                 'title'   => 'CodeIgniter',
                 'content' => '老牌的框架，没用过，不了解。',
-                'author'  => 'john.doe',
+                'author'  => 'jane.lorna',
             ], [
                 'title'   => 'Phalcon',
                 'content' => 'C写的框架，速度快。没用过，不了解。',
+                'author'  => 'jane.lorna',
+            ], [
+                'title'   => 'JavaScript',
+                'content' => '当今最热门的编程语言。',
+                'author'  => 'dahl.ryan',
+            ], [
+                'title'   => 'Node.js',
+                'content' => '服务器端的JavaScrip，在其上诞生了很多流行的框架，比如React，Vue.js。',
+                'author'  => 'dahl.ryan',
+            ], [
+                'title'   => 'PHP',
+                'content' => '使用人数最多的编程语言，简单易学。',
+                'author'  => 'dahl.ryan',
+            ], [
+                'title'   => 'Java',
+                'content' => '曾经最流行的跨平台编程语言。',
+                'author'  => 'dahl.ryan',
+            ], [
+                'title'   => 'C#',
+                'content' => '为.NET而生的编程语言，借鉴了Java的经验教训。',
+                'author'  => 'dahl.ryan',
+            ], [
+                'title'   => 'C',
+                'content' => '相比于面向应用的编程语言，这是更适合底层、对效率和性能要求较高的语言。',
+                'author'  => 'dahl.ryan',
+            ], [
+                'title'   => 'HTML',
+                'content' => '描述网页内容的标记语言。',
+                'author'  => 'evan.you',
+            ], [
+                'title'   => 'CSS',
+                'content' => '描述网页布局和视觉效果的语言。',
+                'author'  => 'evan.you',
+            ], [
+                'title'   => 'React',
+                'content' => 'Facebook开发的框架，简化了MVC的复杂性。',
+                'author'  => 'evan.you',
+            ], [
+                'title'   => 'Vue.js',
+                'content' => '比React更易于上手的框架，上升趋势明显快于React。',
+                'author'  => 'evan.you',
+            ], [
+                'title'   => 'Vagrant',
+                'content' => '虚拟机管理器，便于团队建立相同的开发环境。',
+                'author'  => 'john.doe',
+            ], [
+                'title'   => 'Docker',
+                'content' => '容器平台，虚拟化的进程管理，便于软件更好的发布。',
+                'author'  => 'john.doe',
+            ], [
+                'title'   => 'DevOps',
+                'content' => '更好地结合开发人员和系统管理人员，实现软件更流畅的开发、发布、监控。',
                 'author'  => 'john.doe',
             ]
         ];

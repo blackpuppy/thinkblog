@@ -72,6 +72,20 @@ class S05ProfileSeeder extends AbstractSeed
                 'gender_key'  => 'female',
                 'username'    => 'jane.lorna',
             ], [
+                'first_name'    => 'Ryan',
+                'last_name'     => 'Dahl',
+                'address'     => str_replace(PHP_EOL, ' ', $faker->address),
+                'postal_code' => $faker->postcode,
+                'gender_key'  => 'male',
+                'username'    => 'dahl.ryan',
+            ], [
+                'first_name'    => 'Evan',
+                'last_name'     => 'You',
+                'address'     => str_replace(PHP_EOL, ' ', $faker->address),
+                'postal_code' => $faker->postcode,
+                'gender_key'  => 'male',
+                'username'    => 'evan.you',
+            ], [
                 'first_name'    => 'John',
                 'last_name'     => 'Doe',
                 'address'     => str_replace(PHP_EOL, ' ', $faker->address),

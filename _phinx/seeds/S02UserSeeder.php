@@ -63,6 +63,16 @@ class S02UserSeeder extends AbstractSeed
                 'email'         => 'jane.lorna@example.com',
                 'groups'        => ['作者'],
             ], [
+                'name'          => 'dahl.ryan',
+                'password'      => 'P@55w0rd',
+                'email'         => 'dahl.ryan@example.com',
+                'groups'        => ['作者'],
+            ], [
+                'name'          => 'evan.you',
+                'password'      => 'P@55w0rd',
+                'email'         => 'evan.you@example.com',
+                'groups'        => ['作者'],
+            ], [
                 'name'          => 'john.doe',
                 'password'      => 'P@55w0rd',
                 'email'         => 'john.doe@example.com',

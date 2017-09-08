@@ -94,16 +94,6 @@ class PostModel extends BaseModel
 
         // massage $pagination to get a nice pagination data
         $pagination = $this->generatePagination($count, $pageSize, $parameters);
-        // $msg .= PHP_EOL . '  data $pagination = ' . print_r($pagination, true);
-
-//         $theme = <<<'EOD'
-// <li>%FIRST%</li>
-// <li>%UP_PAGE%</li>
-// <li>%LINK_PAGE%</li>
-// <li>%DOWN_PAGE%</li>
-// <li>%END%</li>
-// EOD;
-//         $pagination = $this->generateThemedPagination($Page, $theme);
 
         $data = $this->relation(true)
             ->where($where)
@@ -118,7 +108,7 @@ class PostModel extends BaseModel
         $msg .= PHP_EOL . str_repeat('-', 80);
         // \Think\Log::write($msg, 'DEBUG');
 
-        return compact('data', 'count', 'pagination');
+        return compact('queryParams', 'data', 'count', 'pagination');
     }
 
     /**

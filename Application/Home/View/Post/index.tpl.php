@@ -77,7 +77,42 @@
                         <td colspan="5" class="text-center">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination">
-                                    {:$posts['pagination']}
+                                    <if condition="isset($posts['pagination']['links']['previous'])">
+                                        <li>
+                                            <a href="{:$posts['pagination']['links']['previous']}" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                    </if>
+                                    <?php
+                                        $current = (int)$posts['pagination']['meta']['currentPage'];
+                                        $pages = array_keys($posts['pagination']['links']['pages']);
+                                        $pages[] = $current;
+                                        $from = min($pages);
+                                        $to = max($pages);
+
+                                        // $msg = PHP_EOL . 'index.tpl.php:'
+                                        //     . PHP_EOL . '  $current = ' . $current
+                                        //     . PHP_EOL . '  $pages = ' . print_r($pages, true)
+                                        //     . PHP_EOL . '  $from = ' . $from
+                                        //     . PHP_EOL . '  $to = ' . $to;
+                                        // $msg .= PHP_EOL . str_repeat('-', 80);
+                                        // \Think\Log::write($msg, 'DEBUG');
+                                    ?>
+                                    <for start="$from" end="$to" comparison="elt" name="i">
+                                        <if condition="$i === $current">
+                                            <li><span>{$current}</span></li>
+                                        <else/>
+                                            <li><a href="{$posts['pagination']['links']['pages'][$i]}">{$i}</a></li>
+                                        </if>
+                                    </for>
+                                    <if condition="isset($posts['pagination']['links']['next'])">
+                                        <li>
+                                          <a href="{$posts['pagination']['links']['next']}" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                          </a>
+                                        </li>
+                                    </if>
                                 </ul>
                             </nav>
                         </td>

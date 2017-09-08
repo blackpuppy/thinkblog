@@ -40,9 +40,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php
+                    $pageSize = $posts['queryParams']['pageSize'];
+                    $page = $posts['queryParams']['page'];
+                ?>
                 <volist name="posts['data']" id="post" key="no" empty="{:$Think.lang.NO_DATA_FOUND}">
                     <tr>
-                        <td>{$no}</td>
+                        <td>{$pageSize * ($page - 1) + $no}</td>
                         <td>{$post.title}</td>
                         <td>{$post.content}</td>
                         <td>{:getUserFullName($post['author'])}</td>

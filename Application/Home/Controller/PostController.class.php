@@ -15,10 +15,18 @@ class PostController extends Controller
         $msg = PHP_EOL . 'Home\Controller\PostController::index():';
 
         try {
-            $Post = D('Post');
-            $posts = $Post->relation(true)->order(['id' => 'desc'])->select();
+            $filter = I('filter');
+            $order = I('order');
+            $page = I(C('VAR_PAGE'));
+            $parameters = compact('filter', 'order', 'page');
 
-            $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
+            $msg .= // PHP_EOL . '  VAR_PAGE = ' . C('VAR_PAGE') .
+                PHP_EOL . '  parameters = ' . print_r($parameters, true);
+
+            $Post = D('Post');
+            $posts = $Post->paginate($parameters);
+
+            // $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
 
             $title = L('POST_LISTING');
 

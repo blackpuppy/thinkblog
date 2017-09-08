@@ -3,6 +3,28 @@
 use Carbon\Carbon;
 
 /**
+ * 检查给定字符串是否以给定的子字符串开始。
+ * @return bool 给定字符串是否以给定的子字符串开始。
+ */
+function startsWith($haystack, $needle)
+{
+    $length = strlen($needle);
+    return substr($haystack, 0, $length) === $needle;
+}
+
+/**
+ * 检查给定字符串是否以给定的子字符串结尾。
+ * @return bool 给定字符串是否以给定的子字符串结尾。
+ */
+function endsWith($haystack, $needle)
+{
+    $length = strlen($needle);
+
+    return $length === 0 ||
+        substr($haystack, -$length) === $needle;
+}
+
+/**
  * 获取给当前时间。
  * @return string 当前时间。
  */

@@ -8,6 +8,10 @@ use Think\Controller\RestController;
  */
 class BaseController extends RestController
 {
+    public static $authentication = [
+        'authenticated' => false,
+        'user' => null,
+    ];
 
     /**
      * 构造函数
@@ -18,12 +22,12 @@ class BaseController extends RestController
         parent::__construct();
     }
 
-	/**
-	 * 读取POST输入。
-	 * @return array POST输入。
-	 */
-	public function getPostInput()
-	{
-		return json_decode($GLOBALS['HTTP_RAW_POST_DATA'], true);
-	}
+    /**
+     * 读取POST输入。
+     * @return array POST输入。
+     */
+    public function getPostInput()
+    {
+        return json_decode($GLOBALS['HTTP_RAW_POST_DATA'], true);
+    }
 }

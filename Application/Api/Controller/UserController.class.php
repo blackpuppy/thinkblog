@@ -50,7 +50,8 @@ class UserController extends BaseController
 
                     $User->protect($user);
 
-                    // TODO: generate jwt
+                    // generate jwt token
+                    $token = $User->generateJwtToken($user);
 
                     $data = [
                         'user' => $user,
@@ -62,7 +63,7 @@ class UserController extends BaseController
                     $msg .= PHP_EOL . str_repeat('-', 80);
                     \Think\Log::write($msg, 'DEBUG');
 
-                    $this->response(compact('data', 'meta'), 'json', 201);
+                    $this->response(compact('token', 'data', 'meta'), 'json', 200);
                 } else {
                     $msg .= PHP_EOL . '  login failed';
 
@@ -73,7 +74,7 @@ class UserController extends BaseController
                     $msg .= PHP_EOL . str_repeat('-', 80);
                     \Think\Log::write($msg, 'DEBUG');
 
-                    $this->response(compact('meta'), 'json', 500);
+                    $this->response(compact('meta'), 'json', 401);
                 }
             }
         } catch (Exception $e) {
@@ -81,7 +82,7 @@ class UserController extends BaseController
             throw $e;
         } finally {
             $msg .= PHP_EOL . str_repeat('-', 80);
-            \Think\Log::write($msg, 'DEBUG');
+            // \Think\Log::write($msg, 'DEBUG');
         }
     }
 }

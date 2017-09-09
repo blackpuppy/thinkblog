@@ -47,6 +47,14 @@ class UserModel extends BaseModel
         ],
     ];
 
+    /**
+     * 包含敏感信息的属性/字段。
+     */
+    protected $_sensitive = [
+        'password',
+        'confirm_password',
+    ];
+
     public function login($username, $password)
     {
         $msg = PHP_EOL . 'Home\Model\UserModel::login():'

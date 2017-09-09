@@ -28,17 +28,19 @@ class UserController extends Controller
             $this->display();
         } elseif (IS_POST) {
             try {
-                $User = D('User');
+                $input = I('post.');
 
-                $newUser = $User->create();
+                $User = D('User');
+                $newUser = $User->create($input);
 
                 $msg .= PHP_EOL . '  $newUser = ' . print_r($newUser, true);
 
                 if (!$newUser) {
                     $msg .= PHP_EOL . '  validation error: ' . $User->getError();
 
+                    $User->protect($input);
                     $data = [
-                        'user' => I('post.'),
+                        'user' => $input,
                         'validationError' => $User->getError(),
                     ];
                     $this->assign($data);

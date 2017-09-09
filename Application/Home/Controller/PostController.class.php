@@ -29,6 +29,7 @@ class PostController extends Controller
 
             $Post = D('Post');
             $posts = $Post->paginate($parameters);
+            $Post->protect($posts);
 
             // $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
 

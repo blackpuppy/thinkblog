@@ -48,7 +48,8 @@ class UserController extends BaseController
                 if ($user !== false) {
                     $msg .= PHP_EOL . '  login succeeded!';
 
-                    // TODO: protect password
+                    $User->protect($user);
+
                     // TODO: generate jwt
 
                     $data = [

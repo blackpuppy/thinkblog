@@ -22,8 +22,9 @@ class UserModel extends BaseModel
         ['email', '', '{%EMAIL_DUPLICATE}', self::EXISTS_VALIDATE, 'unique'],
 
         // 用户登录时的验证规则
-        ['name',     'require', '{%NAME_REQUIRED}',     self::MUST_VALIDATE, '', self::MODEL_LOGIN],
-        ['password', 'require', '{%PASSWORD_REQUIRED}', self::MUST_VALIDATE, '', self::MODEL_LOGIN],
+        ['name',     'require', '{%NAME_REQUIRED}',     self::MUST_VALIDATE, '',       self::MODEL_LOGIN],
+        ['password', 'require', '{%PASSWORD_REQUIRED}', self::MUST_VALIDATE, '',       self::MODEL_LOGIN],
+        ['password', '5,72',    '{%PASSWORD_LENGTH}',   self::MUST_VALIDATE, 'length', self::MODEL_LOGIN],
     ];
 
     protected $_filter = [

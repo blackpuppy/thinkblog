@@ -1,7 +1,6 @@
 <?php
 namespace Api\Controller;
 
-use Home\Model\BaseModel;
 use Think\Controller\RestController;
 
 /**
@@ -9,6 +8,16 @@ use Think\Controller\RestController;
  */
 class BaseController extends RestController
 {
+
+    /**
+     * 构造函数
+     * @access public
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
 	/**
 	 * 读取POST输入。
 	 * @return array POST输入。

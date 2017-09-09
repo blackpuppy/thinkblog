@@ -4,6 +4,9 @@ namespace Home\Controller;
 use Home\Model\BaseModel;
 use Think\Controller;
 
+/**
+ * 用户控制器。
+ */
 class UserController extends Controller
 {
     /**

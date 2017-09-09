@@ -1,13 +1,12 @@
 <?php
-namespace Home\Controller;
+namespace Api\Controller;
 
-use Think\Controller\RestController;
-use Think\Model;
+use Api\Controller\BaseController;
 
 /**
  * 文章API控制器。
  */
-class PostApiController extends RestController
+class PostController extends BaseController
 {
     // REST允许的请求类型列表
     protected $allowMethod = array('get', 'post', 'put', 'delete');
@@ -24,7 +23,7 @@ class PostApiController extends RestController
      */
     public function index()
     {
-        $msg = PHP_EOL . 'Home\Controller\PostApiController::index():';
+        $msg = PHP_EOL . 'Api\Controller\PostApiController::index():';
 
         try {
             $filter = I('filter');
@@ -36,7 +35,7 @@ class PostApiController extends RestController
             $msg .= // PHP_EOL . '  VAR_PAGE = ' . C('VAR_PAGE') .
                 PHP_EOL . '  parameters = ' . print_r($parameters, true);
 
-            $Post = D('Post');
+            $Post = D('Home/Post');
             $posts = $Post->paginate($parameters);
 
             // $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
@@ -62,17 +61,17 @@ class PostApiController extends RestController
             return;
         }
 
-        $msg = PHP_EOL . 'Home\Controller\PostApiController::create():';
+        $msg = PHP_EOL . 'Api\Controller\PostApiController::create():';
 
         try {
-            $input = json_decode($GLOBALS['HTTP_RAW_POST_DATA'], true);
+            $input = $this->getPostInput();
 
             $msg .= PHP_EOL . '  $input = ' . print_r($input, true);
 
-            $Post = D('Post');
+            $Post = D('Home/Post');
             $newPost = $Post->create($input);
 
-            // 暂时
+            // TODO: 用当前登录的用户ID替换
             $newPost['created_by'] = 9;
             $newPost['author_user_id'] = 9;
             $Post->created_by = 9;

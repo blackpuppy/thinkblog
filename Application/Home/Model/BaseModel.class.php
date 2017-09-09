@@ -3,6 +3,9 @@ namespace Home\Model;
 
 use Think\Model\AdvModel;
 
+/**
+ * 模型基类。
+ */
 abstract class BaseModel extends AdvModel
 {
     const MODEL_LOGIN = 4;   // 用于自动验证，用户登录时

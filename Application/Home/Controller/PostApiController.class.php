@@ -50,4 +50,75 @@ class PostApiController extends RestController
             \Think\Log::write($msg, 'DEBUG');
         }
     }
+
+    /**
+     * 添加文章。
+     * @return void
+     */
+    public function create()
+    {
+        if (!IS_POST) {
+            $this->response(L('METHOD_NOT_ALLOWED'), 'json', 405);
+            return;
+        }
+
+        $msg = PHP_EOL . 'Home\Controller\PostApiController::create():';
+
+        try {
+            $input = json_decode($GLOBALS['HTTP_RAW_POST_DATA'], true);
+
+            $msg .= PHP_EOL . '  $input = ' . print_r($input, true);
+
+            $Post = D('Post');
+            $newPost = $Post->create($input);
+
+            // 暂时
+            $newPost['created_by'] = 9;
+            $newPost['author_user_id'] = 9;
+            $Post->created_by = 9;
+            $Post->author_user_id = 9;
+
+            $msg .= PHP_EOL . '  $newPost = ' . print_r($newPost, true);
+
+            if (!$newPost) {
+                $msg .= PHP_EOL . '  validation error: ' . $Post->getError();
+
+                $this->response($Post->getError(), 'json', 400);
+            } else {
+                $result = $Post->add();
+
+                $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+
+                if ($result !== false) {
+                    $data = $Post->find($result);
+                    $meta = [
+                        'message' => L('SAVE_POST_SUCCESS'),
+                    ];
+
+                    $msg .= PHP_EOL . '  $data = ' . print_r($data, true);
+                    $msg .= PHP_EOL . '  $meta = ' . print_r($meta, true);
+                    $msg .= PHP_EOL . str_repeat('-', 80);
+                    \Think\Log::write($msg, 'DEBUG');
+
+                    $this->response(compact('data', 'meta'), 'json', 201);
+                } else {
+                    $meta = [
+                        'message' => L('SAVE_POST_FAILURE'),
+                    ];
+
+                    $msg .= PHP_EOL . '  $meta = ' . print_r($meta, true);
+                    $msg .= PHP_EOL . str_repeat('-', 80);
+                    \Think\Log::write($msg, 'DEBUG');
+
+                    $this->response(compact('meta'), 'json', 500);
+                }
+            }
+        } catch (Exception $e) {
+            $msg .= PHP_EOL . '  error: ' . $e->getMessage();
+            throw $e;
+        } finally {
+            $msg .= PHP_EOL . str_repeat('-', 80);
+            \Think\Log::write($msg, 'DEBUG');
+        }
+    }
 }

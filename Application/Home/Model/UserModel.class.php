@@ -1,6 +1,7 @@
 <?php
 namespace Home\Model;
 
+use \Firebase\JWT\JWT;
 use Home\Model\BaseModel;
 
 class UserModel extends BaseModel
@@ -78,5 +79,39 @@ class UserModel extends BaseModel
         // \Think\Log::write($msg, 'DEBUG');
 
         return $authenticated;
+    }
+
+    public function generateJwtToken()
+    {
+        $tokenId    = base64_encode(mcrypt_create_iv(32));
+        $issuedAt   = time();
+        $notBefore  = $issuedAt + 10;           // Adding 10 seconds
+        $expire     = $notBefore + 60;          // Adding 60 seconds
+        $serverName = I('server.SERVER_NAME');  // Retrieve the server name
+
+        $data = [
+            'iat'  => $issuedAt,            // Issued at: time when the token was generated
+            'jti'  => $tokenId,             // Json Token Id: an unique identifier for the token
+            'iss'  => $serverName,          // Issuer
+            'nbf'  => $notBefore,           // Not before
+            'exp'  => $expire,              // Expire
+            'data' => [                     // Data related to the signer user
+                'userId'   => $$this->id,   // userid from the users table
+                'userName' => $this->name,  // User name
+            ]
+        ];
+
+        $secretKey = base64_decode(C('JWT_KEY'));
+
+        $jwt = JWT::encode(
+            $data,      //Data to be encoded in the JWT
+            $secretKey, // The signing key
+            'HS512'     // Algorithm used to sign the token, see https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40#section-3
+        );
+
+        // $unencodedArray = ['jwt' => $jwt];
+        // $token = json_encode($unencodedArray);
+
+        return $jwt;
     }
 }

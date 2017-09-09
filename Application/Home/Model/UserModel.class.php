@@ -1,7 +1,8 @@
 <?php
 namespace Home\Model;
 
-use \Firebase\JWT\JWT;
+use Firebase\JWT\ExpiredException;
+use Firebase\JWT\JWT;
 use Home\Model\BaseModel;
 
 class UserModel extends BaseModel
@@ -128,9 +129,9 @@ class UserModel extends BaseModel
      * @param string $encodedToken  经过编码的JWT令牌
      * @return bool|string          若认证成功，则返回解码JWT令牌得到的用户数据；否则返回false
      */
-    public function decodeJwtToken($encodedToken)
+    public function parseJwtToken($encodedToken)
     {
-        $msg = PHP_EOL . 'Api\Model\UserModel::decodeJwtToken():'
+        $msg = PHP_EOL . 'Api\Model\UserModel::parseJwtToken():'
             . PHP_EOL . '  $encodedToken = ' . $encodedToken;
 
         $user = false;
@@ -147,8 +148,12 @@ class UserModel extends BaseModel
 
             $msg .= PHP_EOL . '  $token = ' . print_r($token, true)
                 . PHP_EOL . '  $user = ' . print_r($user, true);
+        } catch (ExpiredException $ee) {
+            // deal with different exceptions differently
+            $msg .= PHP_EOL . '  ExpiredException: ' .  $ee->getMessage();
+            throw $ee;
         } catch (Exception $e) {
-            $user = false;
+            $msg .= PHP_EOL . '  Exception: ' . $e->getMessage();
         }
 
         $msg .= PHP_EOL . str_repeat('-', 80);

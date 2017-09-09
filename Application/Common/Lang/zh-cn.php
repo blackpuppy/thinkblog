@@ -160,5 +160,6 @@ return [
 
     'BAD_REQUEST'           => '非法请求！',             // 400
     'UNAUTHORIZED'          => '未获授权访问！',           // 401
+    'EXPIRED_TOKEN'         => '令牌已过期！',            // 401
     'METHOD_NOT_ALLOWED'    => '请求类型不允许！',          // 405
 ];

@@ -73,7 +73,7 @@
                     <label for="relationship_user_profile">{$Think.lang.RELATIONSHIP_USER_PROFILE}</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="relationship_user_post" name="relationship_user_post" disabled>
+                    <input type="checkbox" id="relationship_user_post" name="relationship_user_post" disabled checked>
                     <label for="relationship_user_post">{$Think.lang.RELATIONSHIP_USER_POST}</label>
                 </li>
                 <li>
@@ -93,6 +93,20 @@
         <li>
             <input type="checkbox" id="web_api" name="web_api" disabled>
             <label for="web_api">{$Think.lang.WEB_API}</label>
+            <ul>
+                <li>
+                    <input type="checkbox" id="web_api_authentication" name="web_api_authentication" disabled>
+                    <label for="web_api_authentication">{$Think.lang.WEB_API_AUTHENTICATION}</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="web_api_authorization" name="web_api_authorization" disabled>
+                    <label for="web_api_authorization">{$Think.lang.WEB_API_AUTHORIZATION}</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="web_api_others" name="web_api_others" disabled>
+                    <label for="web_api_others">{$Think.lang.WEB_API_OTHERS}</label>
+                </li>
+            </ul>
         </li>
         <li>
             <input type="checkbox" id="angularjs_1_client" name="angularjs_1_client" disabled>

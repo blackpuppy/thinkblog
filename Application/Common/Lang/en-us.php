@@ -154,6 +154,9 @@ return [
     'DELETE_POST_FAILURE'   => 'Post failed to delete!',
 
     //--------------------------------------------------------------------------
-    // Authentication & Authorization
-    'UNAUTHORIZED'  => 'Unauthorized!',
+    // HTTP Codes
+
+    'BAD_REQUEST'           => 'Bad Request!',          // 400
+    'UNAUTHORIZED'          => 'Unauthorized!',         // 401
+    'METHOD_NOT_ALLOWED'    => 'Method Not Allowed!',   // 405
 ];

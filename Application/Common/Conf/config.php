@@ -72,6 +72,13 @@ return [
         'posts/update/:id\d'    => 'Home/Post/update',
         'posts/delete/:id\d'    => 'Home/Post/delete',
         'posts'                 => 'Home/Post/index',
+
+        // API
+        ['postsapi',       'Home/PostApi/index', '',  ['method' => 'get']],
+        ['postsapi',       'Home/PostApi/create', '', ['method' => 'post']],
+        ['postsapi/:id\d', 'Home/PostApi/show',   '', ['method' => 'get']],
+        ['postsapi/:id\d', 'Home/PostApi/update', '', ['method' => 'put']],
+        ['postsapi/:id\d', 'Home/PostApi/delete', '', ['method' => 'delete']],
     ],
 
     // 日志

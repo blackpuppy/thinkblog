@@ -1,7 +1,8 @@
 <?php
 namespace Home\Model;
 
-use \Firebase\JWT\JWT;
+use Firebase\JWT\ExpiredException;
+use Firebase\JWT\JWT;
 use Home\Model\BaseModel;
 
 class UserModel extends BaseModel
@@ -88,10 +89,11 @@ class UserModel extends BaseModel
     }
 
     /**
-     * 用当前用户数据生成JWT令牌。
-     * @return string 用当前用户数据生成的经过编码的JWT令牌
+     * 用给定或当前用户数据生成JWT令牌。
+     * @param array $user 给定用户数据
+     * @return string     用给定或当前用户数据生成的经过编码的JWT令牌
      */
-    public function generateJwtToken()
+    public function generateJwtToken($user = null)
     {
         $tokenId    = base64_encode(mcrypt_create_iv(32));
         $issuedAt   = time();
@@ -99,7 +101,16 @@ class UserModel extends BaseModel
         $expire     = $notBefore + C('JWT_EXPIRE'); // 令牌过期时间
         $serverName = I('server.SERVER_NAME');      // Retrieve the server name
 
-        $user = $this->data();
+        if (!$user) {
+            $user = $this->data();
+        }
+
+        \Think\Log::write(
+            'UserModel::generateJwtToken(): $user = ' . print_r($user, true)
+                . PHP_EOL . str_repeat('-', 80),
+            'DEBUG'
+        );
+
         $data = [
             'iat'  => $issuedAt,              // Issued at: time when the token was generated
             'jti'  => $tokenId,               // Json Token Id: an unique identifier for the token
@@ -128,9 +139,9 @@ class UserModel extends BaseModel
      * @param string $encodedToken  经过编码的JWT令牌
      * @return bool|string          若认证成功，则返回解码JWT令牌得到的用户数据；否则返回false
      */
-    public function decodeJwtToken($encodedToken)
+    public function parseJwtToken($encodedToken)
     {
-        $msg = PHP_EOL . 'Api\Model\UserModel::decodeJwtToken():'
+        $msg = PHP_EOL . 'Api\Model\UserModel::parseJwtToken():'
             . PHP_EOL . '  $encodedToken = ' . $encodedToken;
 
         $user = false;
@@ -147,8 +158,12 @@ class UserModel extends BaseModel
 
             $msg .= PHP_EOL . '  $token = ' . print_r($token, true)
                 . PHP_EOL . '  $user = ' . print_r($user, true);
+        } catch (ExpiredException $ee) {
+            // deal with different exceptions differently
+            $msg .= PHP_EOL . '  ExpiredException: ' .  $ee->getMessage();
+            throw $ee;
         } catch (Exception $e) {
-            $user = false;
+            $msg .= PHP_EOL . '  Exception: ' . $e->getMessage();
         }
 
         $msg .= PHP_EOL . str_repeat('-', 80);

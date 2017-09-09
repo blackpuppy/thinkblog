@@ -160,5 +160,6 @@ return [
 
     'BAD_REQUEST'           => 'Bad Request!',          // 400
     'UNAUTHORIZED'          => 'Unauthorized!',         // 401
+    'EXPIRED_TOKEN'         => 'Expired Token!',        // 401
     'METHOD_NOT_ALLOWED'    => 'Method Not Allowed!',   // 405
 ];

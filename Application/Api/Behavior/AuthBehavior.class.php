@@ -2,6 +2,7 @@
 namespace Api\Behavior;
 
 use Api\Controller\BaseController;
+use Firebase\JWT\ExpiredException;
 use Org\Net\Http;
 use Think\Auth;
 use Think\Behavior;
@@ -11,11 +12,9 @@ use Think\Behavior;
  */
 class AuthBehavior extends Behavior
 {
-    public function run(&$return)
+    public function run(&$params)
     {
         $msg = PHP_EOL . 'Api\Behavior\AuthBehavior::run():';
-
-        $return = true;
 
         $authHeader = Http::getHeaderInfo('Authorization', false);
 
@@ -27,20 +26,25 @@ class AuthBehavior extends Behavior
             $msg .= PHP_EOL . '  $jwt = ' . $jwt;
 
             if ($jwt) {
-                $User = D('Home/User');
-                $user = $User->decodeJwtToken($jwt);
+                try {
+                    $User = D('Home/User');
+                    $user = $User->parseJwtToken($jwt);
 
-                if ($user !== false) {
-                    // authenticated
                     BaseController::$authentication = [
-                        'authenticated' => true,
-                        'user' => $user,
+                        'authenticated' => ($user !== false),
+                        'user' => $user ?: null,
                     ];
-                } else {
-                    BaseController::$authentication = [
-                        'authenticated' => false,
-                        'user' => null,
+                } catch (ExpiredException $ee) {
+                    // TODO: deal with different exceptions differently
+                    $msg .= PHP_EOL . '  ExpiredException: ' .  $ee->getMessage();
+
+                    Http::sendHttpStatus(401);
+                    header('Content-Type:application/json; charset=utf-8');
+                    $meta = [
+                        'message' => L('EXPIRED_TOKEN')
                     ];
+                    echo json_encode(compact('meta'), true);
+                    exit;
                 }
             }
         }

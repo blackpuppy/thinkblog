@@ -15,17 +15,18 @@ class UserController extends BaseController
      */
     public function signup()
     {
-        if (!IS_GET && !IS_POST) {
-            $this->redirect(U('/signup'));
+        if (!IS_POST) {
+            $this->response(L('METHOD_NOT_ALLOWED'), 'json', 405);
             return;
         }
 
         $msg = PHP_EOL . 'Api\Controller\UserController::signup():';
 
         try {
-            $User = D('Home/User');
+            $input = $this->getPostInput();
 
-            $newUser = $User->create();
+            $User = D('Home/User');
+            $newUser = $User->create($input);
 
             $msg .= PHP_EOL . '  $newUser = ' . print_r($newUser, true);
 
@@ -33,12 +34,14 @@ class UserController extends BaseController
                 $msg .= PHP_EOL . '  validation error: ' . $User->getError();
 
                 $data = [
-                    'user' => I('post.'),
+                    'user' => $input,
                     'validationError' => $User->getError(),
                 ];
-                $this->assign($data);
 
-                $this->display();
+                $msg .= PHP_EOL . str_repeat('-', 80);
+                \Think\Log::write($msg, 'DEBUG');
+
+                $this->response($data, 'json', 400);
             } else {
                 $result = $User->add();
 
@@ -47,13 +50,34 @@ class UserController extends BaseController
                 if ($result !== false) {
                     $newUser['id'] = $result;
 
-                    // set authenticated
-                    session('authentication.authenticated', true);
-                    session('authentication.user', $newUser);
+                    $newUser = $User->relation(true)->find($result);
+                    $User->protect($newUser);
 
-                    $this->success(L('SIGNUP_USER_SUCCESS'), U('/'), 3);
+                    // generate jwt token
+                    $token = $User->generateJwtToken($newUser);
+
+                    $data = [
+                        'user' => $newUser,
+                    ];
+                    $meta = [
+                        'message' => L('SIGNUP_USER_SUCCESS'),
+                    ];
+
+                    $msg .= PHP_EOL . str_repeat('-', 80);
+                    \Think\Log::write($msg, 'DEBUG');
+
+                    $this->response(compact('token', 'data', 'meta'), 'json', 201);
                 } else {
-                    $this->error(L('SIGNUP_USER_FAILURE'), U('/signup'), 5);
+                    $msg .= PHP_EOL . '  login failed';
+
+                    $meta = [
+                        'message' => L('SIGNUP_USER_FAILURE'),
+                    ];
+
+                    $msg .= PHP_EOL . str_repeat('-', 80);
+                    \Think\Log::write($msg, 'DEBUG');
+
+                    $this->response(compact('meta'), 'json', 500);
                 }
             }
         } catch (Exception $e) {

@@ -4,6 +4,9 @@ namespace Home\Controller;
 use Think\Controller;
 use Think\Model;
 
+/**
+ * 文章控制器。
+ */
 class PostController extends Controller
 {
     /**
@@ -18,13 +21,15 @@ class PostController extends Controller
             $filter = I('filter');
             $order = I('order');
             $page = I(C('VAR_PAGE'));
-            $parameters = compact('filter', 'order', 'page');
+            $pageSize = I('pageSize');
+            $parameters = compact('filter', 'order', 'page', 'pageSize');
 
             $msg .= // PHP_EOL . '  VAR_PAGE = ' . C('VAR_PAGE') .
                 PHP_EOL . '  parameters = ' . print_r($parameters, true);
 
             $Post = D('Post');
             $posts = $Post->paginate($parameters);
+            $Post->protect($posts);
 
             // $msg .= PHP_EOL . '  $posts = ' . print_r($posts, true);
 

@@ -58,6 +58,9 @@ return [
     'RELATIONSHIP_USER_COMMENT' => '用户有许多评论，评论属于用户',
     'RELATIONSHIP_POST_COMMENT' => '文章有许多评论，评论属于文章',
     'WEB_API'                   => 'Web API',
+    'WEB_API_AUTHENTICATION'    => '用户认证：包括注册、登录和忘记密码，等等',
+    'WEB_API_AUTHORIZATION'     => '用户授权',
+    'WEB_API_OTHERS'            => '其他的 API',
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 客户端',
     'USING_HTTPS'               => '使用 HTTPS',
     'UNIT_TESTING'              => '单元测试',
@@ -153,6 +156,9 @@ return [
     'DELETE_POST_FAILURE'   => '文章删除失败！',
 
     //--------------------------------------------------------------------------
-    // 用户认证与授权
-    'UNAUTHORIZED'  => '未获授权访问！',
+    // HTTP状态代码
+
+    'BAD_REQUEST'           => '非法请求！',             // 400
+    'UNAUTHORIZED'          => '未获授权访问！',           // 401
+    'METHOD_NOT_ALLOWED'    => '请求类型不允许！',          // 405
 ];

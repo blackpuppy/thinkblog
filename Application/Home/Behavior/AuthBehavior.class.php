@@ -7,7 +7,8 @@ use Think\Behavior;
 /**
  * 检查用户认证与授权的行为。
  */
-class AuthBehavior extends Behavior {
+class AuthBehavior extends Behavior
+{
     public function run(&$return)
     {
         $return = true;

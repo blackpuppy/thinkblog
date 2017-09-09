@@ -34,7 +34,7 @@ function getNow()
 
     $now = Carbon::now();
     $nowStr = $now->toDateTimeString('Y-m-d H:i:s') . '.' . $now->micro;
-    // $msg = PHP_EOL . 'BaseModel::getNow(): returns ' . $nowStr
+    // $msg = PHP_EOL . 'getNow(): returns ' . $nowStr
     //     . PHP_EOL . str_repeat('-', 80);
     // \Think\Log::write($msg, 'DEBUG');
 
@@ -144,4 +144,27 @@ function getUserFullName($user, string $lastName = null)
     // \Think\Log::write($msg, 'DEBUG');
 
     return $fullName;
+}
+
+/**
+ * 递归去除给定数组中指定的键。
+ * @param  array &$data        给定数组
+ * @param  array $unwantedKeys 指定的键
+ * @return void
+ */
+function recursiveUnset(&$data, $unwantedKeys) {
+    foreach ($unwantedKeys as $key) {
+        unset($data[$key]);
+    }
+    foreach ($data as &$value) {
+        if (is_array($value)) {
+            recursiveUnset($value, $unwantedKeys);
+        }
+    }
+
+    // $msg = PHP_EOL . 'recursiveUnset(): '
+    //     . PHP_EOL . '  $unwantedKeys = ' . print_r($unwantedKeys, true)
+    //     . PHP_EOL . '  $data = ' . print_r($data, true)
+    //     . PHP_EOL . str_repeat('-', 80);
+    // \Think\Log::write($msg, 'DEBUG');
 }

@@ -42,15 +42,14 @@ return [
     'CONFIG_IN_ENV'             => 'Externalize configuration in environment',
     'BASIC_CRUD'                => 'Basic CRUD',
     'BUILD_WITH_LARAVEL_MIX'    => 'Build frontend assets with Laravel Mix',
-    'USER_AUTHENTICATION'       => 'User Authentication/Authorization',
+    'USER_AUTHENTICATION'       => 'User Authentication: whether the user is legal user of the system, including registration, login, logout and forget password, etc.',
     'FUNCTION_REGISTRATION'     => 'Registration',
     'FUNCTION_LOGIN'            => 'Log In',
     'FUNCTION_LOGOUT'           => 'Log Out',
     'FUNCTION_REMEMBER_ME'      => 'Remember Me',
     'FUNCTION_RECAPTCHA'        => 'ReCaptcha',
     'FUNCTION_FORGET_PASSWORD'  => 'Forget Password',
-    'USER_AUTHORIZATION'        => 'User Authentication: whether the user is legal user of the system, including registration, login, logout and forget password, etc.',
-    'USER_AUTH'                 => 'User Authorization：whether the user has the permission to make an operation, for example, whether accessible to a page/function, whether can read/write/delete a piece of data, etc.',
+    'USER_AUTHORIZATION'        => 'User Authorization：whether the user has the permission to make an operation, for example, whether accessible to a page/function, whether can read/write/delete a piece of data, etc.',
     'MULTI_LANGUAGES'           => 'Internationalization/Localization (I18n/L10n)',
     'MODEL_ASSOCIATION'         => 'Model Assoication: Associations between models (one to one, one to many, belongs to, and many to many)',
     'RELATIONSHIP_USER_PROFILE' => 'User has one Profile, Profile belongs to User',
@@ -59,6 +58,9 @@ return [
     'RELATIONSHIP_USER_COMMENT' => 'User has many Comment, Comment belongs to User',
     'RELATIONSHIP_POST_COMMENT' => 'Post has many Comment, Comment belongs to Post',
     'WEB_API'                   => 'Web API',
+    'WEB_API_AUTHENTICATION'    => 'User Authentication: including registration, login and forget password, etc.',
+    'WEB_API_AUTHORIZATION'     => 'User Authorization',
+    'WEB_API_OTHERS'            => 'Other APIs',
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 Client',
     'USING_HTTPS'               => 'Using HTTPS',
     'UNIT_TESTING'              => 'Unit Testing',
@@ -154,6 +156,9 @@ return [
     'DELETE_POST_FAILURE'   => 'Post failed to delete!',
 
     //--------------------------------------------------------------------------
-    // Authentication & Authorization
-    'UNAUTHORIZED'  => 'Unauthorized!',
+    // HTTP Codes
+
+    'BAD_REQUEST'           => 'Bad Request!',          // 400
+    'UNAUTHORIZED'          => 'Unauthorized!',         // 401
+    'METHOD_NOT_ALLOWED'    => 'Method Not Allowed!',   // 405
 ];

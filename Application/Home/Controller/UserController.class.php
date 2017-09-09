@@ -4,6 +4,9 @@ namespace Home\Controller;
 use Home\Model\BaseModel;
 use Think\Controller;
 
+/**
+ * 用户控制器。
+ */
 class UserController extends Controller
 {
     /**
@@ -25,17 +28,19 @@ class UserController extends Controller
             $this->display();
         } elseif (IS_POST) {
             try {
-                $User = D('User');
+                $input = I('post.');
 
-                $newUser = $User->create();
+                $User = D('User');
+                $newUser = $User->create($input);
 
                 $msg .= PHP_EOL . '  $newUser = ' . print_r($newUser, true);
 
                 if (!$newUser) {
                     $msg .= PHP_EOL . '  validation error: ' . $User->getError();
 
+                    $User->protect($input);
                     $data = [
-                        'user' => I('post.'),
+                        'user' => $input,
                         'validationError' => $User->getError(),
                     ];
                     $this->assign($data);
@@ -87,20 +92,19 @@ class UserController extends Controller
             $this->display();
         } elseif (IS_POST) {
             try {
-                // $username = I('name');
-                // $password = I('password');
+                $input = I('post.');
 
                 $User = D('User');
-                $user = $User->create(I('post.'), BaseModel::MODEL_LOGIN);
+                $user = $User->create($input, BaseModel::MODEL_LOGIN);
 
-                $msg .= PHP_EOL . '  post data = ' . print_r(I('post.'), true)
+                $msg .= PHP_EOL . '  post data = ' . print_r($input, true)
                     . PHP_EOL . '  $user = ' . print_r($user, true);
 
                 if (!$user) {
                     $msg .= PHP_EOL . '  validation error: ' . $User->getError();
 
                     $data = [
-                        'user' => I('post.'),
+                        'user' => $input,
                         'validationError' => $User->getError(),
                     ];
                     $this->assign($data);
@@ -115,6 +119,9 @@ class UserController extends Controller
                         session('authentication.authenticated', true);
                         session('authentication.user', $user);
 
+                        $msg .= PHP_EOL . str_repeat('-', 80);
+                        \Think\Log::write($msg, 'DEBUG');
+
                         // redirect to intended page
                         $this->redirect(U(C('AUTH_CONFIG.AUTH_LOGIN_REDIRECT_URL')));
                     } else {
@@ -125,7 +132,7 @@ class UserController extends Controller
                         session('authentication.user', null);
 
                         $data = [
-                            'user' => I('post.'),
+                            'user' => $input,
                             'validationError' => L('LOGIN_USER_FAILURE'),
                         ];
                         $this->assign($data);

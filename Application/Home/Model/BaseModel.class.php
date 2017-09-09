@@ -3,9 +3,21 @@ namespace Home\Model;
 
 use Think\Model\AdvModel;
 
+/**
+ * 模型基类。
+ */
 abstract class BaseModel extends AdvModel
 {
     const MODEL_LOGIN = 4;   // 用于自动验证，用户登录时
+
+    /**
+     * 包含敏感信息的属性/字段，比如password。
+     */
+    protected $_sensitive = [
+        'password',
+        'pwd',
+        'confirm_password',
+    ];
 
     public function __construct($name = '', $tablePrefix = '', $connection = '')
     {
@@ -18,6 +30,21 @@ abstract class BaseModel extends AdvModel
             ['updated_at', 'getNow',            self::MODEL_UPDATE, 'function'],
         ];
     }
+
+    /**
+     * 清除敏感信息。
+     * @param array $data 要清除敏感信息的模型数据
+     * @return void
+     */
+    public function protect(&$data)
+    {
+        recursiveUnset($data, $this->_sensitive);
+
+        // $msg = PHP_EOL . 'BaseModel::protect(): $data = ' . print_r($data, true)
+        //     . PHP_EOL . str_repeat('-', 80);
+        // \Think\Log::write($msg, 'DEBUG');
+    }
+
 
     //------------------------------------------------------
     // 以下加入 RelationModel

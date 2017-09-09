@@ -129,8 +129,7 @@ class ProfileController extends Controller
                     $msg .= PHP_EOL . '  user validation error: ' . $User->getError()
                         . PHP_EOL . '  profile validation error: ' . $Profile->getError();
 
-                    unset($userInput['password']);
-                    unset($userInput['confirm_password']);
+                    $User->protect($userInput);
 
                     $data = [
                         'user' => $userInput,

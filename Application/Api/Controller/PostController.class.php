@@ -82,14 +82,20 @@ class PostController extends BaseController
             if (!$newPost) {
                 $msg .= PHP_EOL . '  validation error: ' . $Post->getError();
 
-                $this->response($Post->getError(), 'json', 400);
+                $data = [
+                    'data' => $input,
+                    'validationError' => $Post->getError(),
+                ];
+                $this->response($data, 'json', 400);
             } else {
                 $result = $Post->add();
 
                 $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
 
                 if ($result !== false) {
-                    $data = $Post->find($result);
+                    $data = [
+                        'post' => $Post->find($result),
+                    ];
                     $meta = [
                         'message' => L('SAVE_POST_SUCCESS'),
                     ];

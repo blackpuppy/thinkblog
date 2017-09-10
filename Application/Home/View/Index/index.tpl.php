@@ -99,7 +99,7 @@
                     <label for="web_api_authentication">{$Think.lang.WEB_API_AUTHENTICATION}</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="web_api_authorization" name="web_api_authorization" disabled>
+                    <input type="checkbox" id="web_api_authorization" name="web_api_authorization" disabled checked>
                     <label for="web_api_authorization">{$Think.lang.WEB_API_AUTHORIZATION}</label>
                 </li>
                 <li>

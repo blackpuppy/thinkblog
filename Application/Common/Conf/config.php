@@ -81,11 +81,11 @@ return [
         ['api/profile', 'Api/Profile/show',  '', ['method' => 'get']],
         ['api/profile', 'Api/Profile/store', '', ['method' => 'post']],
 
-        ['api/posts',       'Api/Post/index',  '', ['method' => 'get']],
-        // ['api/posts',       'Api/Post/create', '', ['method' => 'post']],
-        // ['api/posts/:id\d', 'Api/Post/show',   '', ['method' => 'get']],
+        ['api/posts/:id\d', 'Api/Post/show',   '', ['method' => 'get']],
         // ['api/posts/:id\d', 'Api/Post/update', '', ['method' => 'put']],
         // ['api/posts/:id\d', 'Api/Post/delete', '', ['method' => 'delete']],
+        ['api/posts',       'Api/Post/index',  '', ['method' => 'get']],
+        ['api/posts',       'Api/Post/create', '', ['method' => 'post']],
     ],
 
     // 日志

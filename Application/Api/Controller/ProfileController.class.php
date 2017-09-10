@@ -52,7 +52,7 @@ class ProfileController extends BaseController
             $msg .= PHP_EOL . str_repeat('-', 80);
             \Think\Log::write($msg, 'DEBUG');
 
-            $this->response($data, 'json', 400);
+            $this->response($data, 'json', 200);
         } catch (Exception $e) {
             $msg .= PHP_EOL . 'error: ' . $e->getMessage();
             throw $e;

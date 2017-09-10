@@ -126,4 +126,41 @@ class PostController extends BaseController
             \Think\Log::write($msg, 'DEBUG');
         }
     }
+
+    /**
+     * 读取文章。
+     * @param int $id 文章id
+     * @return void
+     */
+    public function show($id)
+    {
+        if (!IS_GET) {
+            $this->response(L('METHOD_NOT_ALLOWED'), 'json', 405);
+            return;
+        }
+
+        $msg = PHP_EOL . 'Api\Controller\PostApiController::show():'
+            . PHP_EOL . '  $id = ' . $id;
+
+        $Post = D('Home/Post');
+        $post = $Post->relation(true)->find($id);
+
+        $msg .= PHP_EOL . '  $post = ' . print_r($post, true);
+
+        if (!$post) {
+            $msg .= PHP_EOL . '  ' . L('POST_NOT_FOUND');
+
+            $this->response(L('POST_NOT_FOUND'), 'json', 400);
+            return;
+        }
+
+        $data = compact('post');
+        $Post->protect($data);
+
+        $msg .= PHP_EOL . '  $data = ' . print_r($data, true);
+        $msg .= PHP_EOL . str_repeat('-', 80);
+        \Think\Log::write($msg, 'DEBUG');
+
+        $this->response($data, 'json', 200);
+    }
 }

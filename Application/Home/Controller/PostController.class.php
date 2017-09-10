@@ -105,6 +105,7 @@ class PostController extends Controller
 
     /**
      * 修改文章。
+     * @param int $id 文章id
      * @return void
      */
     public function update($id)
@@ -175,6 +176,7 @@ class PostController extends Controller
 
     /**
      * 删除文章。
+     * @param int $id 文章id
      * @return void
      */
     public function delete($id)

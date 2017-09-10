@@ -105,11 +105,11 @@ class UserModel extends BaseModel
             $user = $this->data();
         }
 
-        \Think\Log::write(
-            'UserModel::generateJwtToken(): $user = ' . print_r($user, true)
-                . PHP_EOL . str_repeat('-', 80),
-            'DEBUG'
-        );
+        // \Think\Log::write(
+        //     'UserModel::generateJwtToken(): $user = ' . print_r($user, true)
+        //         . PHP_EOL . str_repeat('-', 80),
+        //     'DEBUG'
+        // );
 
         $data = [
             'iat'  => $issuedAt,              // Issued at: time when the token was generated
@@ -166,8 +166,8 @@ class UserModel extends BaseModel
             $msg .= PHP_EOL . '  Exception: ' . $e->getMessage();
         }
 
-        $msg .= PHP_EOL . str_repeat('-', 80);
-        \Think\Log::write($msg, 'DEBUG');
+        // $msg .= PHP_EOL . str_repeat('-', 80);
+        // \Think\Log::write($msg, 'DEBUG');
 
         return $user;
     }

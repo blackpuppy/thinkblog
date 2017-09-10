@@ -45,8 +45,8 @@ class S01AuthSeeder extends AbstractSeed
             //     'status'    => 1,
             //     'condition' => '',
             // ], [
-            //     'name'      => 'Home/Post/view',
-            //     'title'     => '阅读文章',
+            //     'name'      => 'Home/Post/show',
+            //     'title'     => '显示文章',
             //     'type'      => 1,
             //     'status'    => 1,
             //     'condition' => '',
@@ -59,7 +59,7 @@ class S01AuthSeeder extends AbstractSeed
                 'status'    => 1,
                 'condition' => '',
             ], [
-                'name'      => 'Home/Profile/view',
+                'name'      => 'Home/Profile/show',
                 'title'     => '查看个人资料',
                 'type'      => 1,
                 'status'    => 1,
@@ -88,6 +88,53 @@ class S01AuthSeeder extends AbstractSeed
                 'type'      => 1,
                 'status'    => 1,
                 'condition' => '',
+
+            // 可以公开访问的API
+            // ], [
+            //     'name'      => 'Api/Post/index',
+            //     'title'     => '文章列表API',
+            //     'type'      => 1,
+            //     'status'    => 1,
+            //     'condition' => '',
+            // ], [
+            //     'name'      => 'Api/Post/show',
+            //     'title'     => '显示文章API',
+            //     'type'      => 1,
+            //     'status'    => 1,
+            //     'condition' => '',
+
+            // 需要通过用户验证的API
+            ], [
+                'name'      => 'Api/Profile/show',
+                'title'     => '显示个人资料API',
+                'type'      => 1,
+                'status'    => 1,
+                'condition' => '',
+            ], [
+                'name'      => 'Api/Profile/save',
+                'title'     => '保存个人资料API',
+                'type'      => 1,
+                'status'    => 1,
+                'condition' => '',
+            ], [
+                'name'      => 'Api/Post/create',
+                'title'     => '添加文章API',
+                'type'      => 1,
+                'status'    => 1,
+                'condition' => '',
+            ], [
+                'name'      => 'Api/Post/update',
+                'title'     => '修改文章API',
+                'type'      => 1,
+                'status'    => 1,
+                'condition' => '',
+            ], [
+                'name'      => 'Api/Post/delete',
+                'title'     => '删除文章API',
+                'type'      => 1,
+                'status'    => 1,
+                'condition' => '',
+
             ]
         ];
 

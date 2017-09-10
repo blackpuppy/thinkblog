@@ -165,17 +165,4 @@ class UserController extends BaseController
             // \Think\Log::write($msg, 'DEBUG');
         }
     }
-
-    /**
-     * 注销。
-     * @return void
-     */
-    public function logout()
-    {
-        // clear authenticated
-        session('authentication.authenticated', false);
-        session('authentication.user', null);
-
-        $this->redirect(U('/'));
-    }
 }

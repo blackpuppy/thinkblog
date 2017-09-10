@@ -78,6 +78,9 @@ return [
         ['api/login',  'Api/User/login',  '', ['method' => 'post']],
         // ['api/logout', 'Api/User/logout', '', ['method' => 'post']],
 
+        // 'profile'         => 'Api/Profile/show',
+        // 'profile/save'    => 'Api/Profile/save',
+
         ['api/posts',       'Api/Post/index',  '', ['method' => 'get']],
         // ['api/posts',       'Api/Post/create', '', ['method' => 'post']],
         // ['api/posts/:id\d', 'Api/Post/show',   '', ['method' => 'get']],

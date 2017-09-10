@@ -11,8 +11,8 @@ class RoleModel extends BaseModel
             'mapping_type'         => self::MANY_TO_MANY,
             'class_name'           => 'User',
             'mapping_name'         => 'users',
-            'foreign_key'          => 'role_id',
-            'relation_foreign_key' => 'user_id',
+            'foreign_key'          => 'group_id',
+            'relation_foreign_key' => 'uid',
             'relation_table'       => 'user_group',
         ],
     ];

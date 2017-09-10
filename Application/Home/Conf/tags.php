@@ -2,6 +2,6 @@
 
 return [
     'action_begin' => [
-        'Api\Behavior\ApiAuthBehavior',
+        'Home\Behavior\AuthBehavior',
     ],
 ];

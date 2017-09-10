@@ -7,7 +7,8 @@ class CreateAuthRuleTables extends AbstractMigration
 {
     public function change()
     {
-        $this->table('auth_rule', [
+        $tableName = getenv('AUTH_RULE') ?: 'auth_rule';
+        $this->table($tableName, [
             'id' => false,
             'primary_key' => ['id'],
             'engine' => 'InnoDB',

@@ -61,7 +61,7 @@ return [
         'logout'          => 'Home/User/logout',
 
         'profile/edit'    => 'Home/Profile/edit',
-        'profile'         => 'Home/Profile/view',
+        'profile'         => 'Home/Profile/show',
 
         // '/^posts$/'                 => 'Home/Post/index',
         // '/^posts\/add$/'            => 'Home/Post/add',
@@ -77,6 +77,9 @@ return [
         ['api/signup', 'Api/User/signup', '', ['method' => 'post']],
         ['api/login',  'Api/User/login',  '', ['method' => 'post']],
         // ['api/logout', 'Api/User/logout', '', ['method' => 'post']],
+
+        ['api/profile', 'Api/Profile/show',  '', ['method' => 'get']],
+        ['api/profile', 'Api/Profile/store', '', ['method' => 'post']],
 
         ['api/posts',       'Api/Post/index',  '', ['method' => 'get']],
         // ['api/posts',       'Api/Post/create', '', ['method' => 'post']],

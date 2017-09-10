@@ -7,6 +7,8 @@ use Home\Model\BaseModel;
 
 class UserModel extends BaseModel
 {
+    // protected $tableName = 'user';
+
     protected $_validate = [
         ['name', 'require', '{%NAME_REQUIRED}', self::MUST_VALIDATE],
         ['name', '', '{%NAME_DUPLICATE}', self::MUST_VALIDATE, 'unique', self::MODEL_INSERT],
@@ -46,6 +48,14 @@ class UserModel extends BaseModel
             'foreign_key'   => 'author_user_id',
             'mapping_name'  => 'posts',
             'mapping_order' => 'create_at desc',
+        ],
+        'Role' => [
+            'mapping_type'         => self::MANY_TO_MANY,
+            'class_name'           => 'Role',
+            'mapping_name'         => 'roles',
+            'foreign_key'          => 'user_id',
+            'relation_foreign_key' => 'role_id',
+            'relation_table'       => 'user_group',
         ],
     ];
 
@@ -105,11 +115,11 @@ class UserModel extends BaseModel
             $user = $this->data();
         }
 
-        \Think\Log::write(
-            'UserModel::generateJwtToken(): $user = ' . print_r($user, true)
-                . PHP_EOL . str_repeat('-', 80),
-            'DEBUG'
-        );
+        // \Think\Log::write(
+        //     'UserModel::generateJwtToken(): $user = ' . print_r($user, true)
+        //         . PHP_EOL . str_repeat('-', 80),
+        //     'DEBUG'
+        // );
 
         $data = [
             'iat'  => $issuedAt,              // Issued at: time when the token was generated
@@ -166,8 +176,8 @@ class UserModel extends BaseModel
             $msg .= PHP_EOL . '  Exception: ' . $e->getMessage();
         }
 
-        $msg .= PHP_EOL . str_repeat('-', 80);
-        \Think\Log::write($msg, 'DEBUG');
+        // $msg .= PHP_EOL . str_repeat('-', 80);
+        // \Think\Log::write($msg, 'DEBUG');
 
         return $user;
     }

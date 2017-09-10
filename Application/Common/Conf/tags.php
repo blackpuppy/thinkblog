@@ -8,8 +8,4 @@ return [
     'app_begin' => [
         'Behavior\CheckLangBehavior',
     ],
-
-    'action_begin' => [
-        'Home\Behavior\AuthBehavior',
-    ],
 ];

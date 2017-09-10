@@ -15,7 +15,8 @@ class S02UserSeeder extends AbstractSeed
     {
         $tableAdapter = new TablePrefixAdapter($this->getAdapter());
 
-        $prefixedTableName = $tableAdapter->getAdapterTableName('auth_group');
+        $groupTableName = getenv('AUTH_GROUP') ?: 'role';
+        $prefixedTableName = $tableAdapter->getAdapterTableName($groupTableName);
         $sql = "SELECT `id`, `title` FROM `$prefixedTableName` WHERE `status` = 1;";
         $allGroups = $this->fetchAll($sql);
         $groupMap = [];
@@ -24,11 +25,13 @@ class S02UserSeeder extends AbstractSeed
            $groupMap[$group['title']] = $group['id'];
         });
 
-        $prefixedTableName = $tableAdapter->getAdapterTableName('user');
+        $userTableName = getenv('AUTH_USER') ?: 'user';
+        $prefixedTableName = $tableAdapter->getAdapterTableName($userTableName);
         $selectUserTmpl = "SELECT `id` FROM `$prefixedTableName` WHERE `name` = '{{name}}';";
         $updateUserTmpl = "UPDATE `$prefixedTableName` SET `password` = '{{password}}', `email` = '{{email}}', `updated_by` = {{updated_by}}, `updated_at` = '{{updated_at}}' WHERE `name` = '{{name}}';";
 
-        $prefixedTableName = $tableAdapter->getAdapterTableName('user_group');
+        $accessTableName = getenv('AUTH_GROUP_ACCESS') ?: 'user_group';
+        $prefixedTableName = $tableAdapter->getAdapterTableName($accessTableName);
         $deleteUserGroupTmpl = "DELETE FROM `$prefixedTableName` WHERE `uid` = {{uid}};";
 
         $users = [
@@ -101,7 +104,7 @@ class S02UserSeeder extends AbstractSeed
             $userRow = $this->fetchRow($sql);
             if (empty($userRow)) {
                 $user['created_by'] = 1;
-                $this->table('user')
+                $this->table($userTableName)
                     ->insert($user)
                     ->saveData();
 
@@ -132,7 +135,7 @@ class S02UserSeeder extends AbstractSeed
                         'group_id' => $group_id,
                         'created_by' => 1,
                     ];
-                    $this->table('user_group')
+                    $this->table($accessTableName)
                         ->insert($userGroup)
                         ->saveData();
                 }

@@ -10,7 +10,8 @@ class CreateUserTable extends AbstractMigration
      */
     public function change()
     {
-        $this->table('user', [
+        $tableName = getenv('AUTH_USER') ?: 'user';
+        $this->table($tableName, [
             'id' => false,
             'primary_key' => ['id'],
             'engine' => 'InnoDB',

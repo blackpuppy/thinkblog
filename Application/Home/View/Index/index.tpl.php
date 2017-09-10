@@ -73,6 +73,10 @@
                     <label for="relationship_user_profile">{$Think.lang.RELATIONSHIP_USER_PROFILE}</label>
                 </li>
                 <li>
+                    <input type="checkbox" id="relationship_user_role" name="relationship_user_role" disabled checked>
+                    <label for="relationship_user_role">{$Think.lang.RELATIONSHIP_USER_ROLE}</label>
+                </li>
+                <li>
                     <input type="checkbox" id="relationship_user_post" name="relationship_user_post" disabled checked>
                     <label for="relationship_user_post">{$Think.lang.RELATIONSHIP_USER_POST}</label>
                 </li>
@@ -99,7 +103,7 @@
                     <label for="web_api_authentication">{$Think.lang.WEB_API_AUTHENTICATION}</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="web_api_authorization" name="web_api_authorization" disabled>
+                    <input type="checkbox" id="web_api_authorization" name="web_api_authorization" disabled checked>
                     <label for="web_api_authorization">{$Think.lang.WEB_API_AUTHORIZATION}</label>
                 </li>
                 <li>

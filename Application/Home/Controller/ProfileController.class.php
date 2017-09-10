@@ -2,7 +2,6 @@
 namespace Home\Controller;
 
 use Think\Controller;
-use Think\Model;
 
 class ProfileController extends Controller
 {
@@ -10,9 +9,9 @@ class ProfileController extends Controller
      * 查看用户个人资料。
      * @return void
      */
-    public function view()
+    public function show()
     {
-        $msg = PHP_EOL . 'Home\Controller\ProfileController::view():'
+        $msg = PHP_EOL . 'Home\Controller\ProfileController::show():'
             . PHP_EOL . '  REQUEST_METHOD = ' . REQUEST_METHOD;
 
         if (!IS_GET) {

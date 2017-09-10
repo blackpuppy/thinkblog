@@ -54,6 +54,7 @@ return [
     'MODEL_ASSOCIATION'         => 'Model Assoication: Associations between models (one to one, one to many, belongs to, and many to many)',
     'RELATIONSHIP_USER_PROFILE' => 'User has one Profile, Profile belongs to User',
     'RELATIONSHIP_USER_POST'    => 'Author (User) has many Post, Post belongs to Author (User)',
+    'RELATIONSHIP_USER_ROLE'    => 'User has many Role, Role has many User',
     'RELATIONSHIP_POST_TAG'     => 'Post has many Tag, Tag has many Post',
     'RELATIONSHIP_USER_COMMENT' => 'User has many Comment, Comment belongs to User',
     'RELATIONSHIP_POST_COMMENT' => 'Post has many Comment, Comment belongs to Post',

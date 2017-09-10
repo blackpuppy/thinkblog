@@ -1,5 +1,6 @@
 <?php
 
+use Api\Controller\BaseController;
 use Carbon\Carbon;
 
 /**
@@ -67,8 +68,16 @@ function encryptPassword($password)
  */
 function isAuthenticated()
 {
-    return session('?authentication.authenticated')
-        && session('authentication.authenticated');
+    $authenticated = false;
+
+    if (MODULE_NAME === 'Api') {
+        $authenticated = BaseController::isAuthenticated();
+    } else {
+        $authenticated = session('?authentication.authenticated')
+            && session('authentication.authenticated');
+    }
+
+    return $authenticated;
 }
 
 /**
@@ -77,7 +86,15 @@ function isAuthenticated()
  */
 function getCurrentUser()
 {
-    return isAuthenticated() ? session('authentication.user') : null;
+    $currentUser = null;
+
+    if (MODULE_NAME === 'Api') {
+        $currentUser = BaseController::getCurrentUser();
+    } else {
+        $currentUser = isAuthenticated() ? session('authentication.user') : null;
+    }
+
+    return $currentUser;
 }
 
 /**
@@ -86,8 +103,15 @@ function getCurrentUser()
  */
 function getCurrentUserId()
 {
-    $isAuthenticated = isAuthenticated();
-    $currentUserId = $isAuthenticated ? getCurrentUser()['id'] : 0;
+    $currentUserId = null;
+
+    if (MODULE_NAME === 'Api') {
+        $currentUserId = BaseController::getCurrentUserId();
+    } else {
+        $isAuthenticated = isAuthenticated();
+        $currentUserId = $isAuthenticated ? getCurrentUser()['id'] : 0;
+    }
+
     return $currentUserId;
 }
 

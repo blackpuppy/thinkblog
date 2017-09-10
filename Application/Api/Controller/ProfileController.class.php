@@ -92,7 +92,7 @@ class ProfileController extends BaseController
         try {
             $input = $this->getPostInput();
 
-            $msg .= PHP_EOL . '  $input = ' . print_r($input, true);
+            // $msg .= PHP_EOL . '  $input = ' . print_r($input, true);
 
             $User = D('Home/User');
             $Profile = D('Home/Profile');
@@ -102,19 +102,12 @@ class ProfileController extends BaseController
                 unset($userInput['password']);
             }
             $user = $User->create($userInput);
-            $User->updated_by = $user['updated_by'] = $userId;
 
             $profileInput = $input['user']['profile'];
             if (!$profileInput['id']) {
                 unset($profileInput['id']);
             }
             $profile = $Profile->create($profileInput);
-            $Profile->user_id = $profile['user_id'] = $userId;
-            if ($profile['id']) {
-                $Profile->updated_by = $profile['updated_by'] = $userId;
-            } else {
-                $Profile->created_by = $profile['created_by'] = $userId;
-            }
 
             // $msg .= PHP_EOL . '  $userInput = ' . print_r($userInput, true)
             //     . PHP_EOL . '  $profileInput = ' . print_r($profileInput, true);

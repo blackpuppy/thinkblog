@@ -57,11 +57,8 @@ class UserController extends BaseController
                     $userRoleInput = [
                         'uid' => $userResult,
                         'group_id' => 2,
-                        'created_by' => $userResult,
                     ];
                     $newUserRole = $UserRole->create($userRoleInput);
-                    $newUserRole['created_by'] = $userResult;
-                    $UserRole->created_by = $userResult;
 
                     $msg .= PHP_EOL . '  $userRoleInput = ' . print_r($userRoleInput, true)
                         . PHP_EOL . '  $newUserRole = ' . print_r($newUserRole, true);

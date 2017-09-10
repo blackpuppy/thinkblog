@@ -88,6 +88,7 @@ return [
     // 个人资料
     'VIEW_PROFILE'      => '查看个人资料',
     'EDIT_PROFILE'      => '编辑个人资料',
+    'PHONE'             => '电话',
     'ADDRESS'           => '地址',
     'POSTAL_CODE'       => '邮政编码',
     'GENDER'            => '性别',

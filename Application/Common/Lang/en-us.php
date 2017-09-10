@@ -88,6 +88,7 @@ return [
     // Profile
     'VIEW_PROFILE'      => 'View Profile',
     'EDIT_PROFILE'      => 'Edit Profile',
+    'PHONE'             => 'Phone',
     'ADDRESS'           => 'Address',
     'POSTAL_CODE'       => 'Postal Code',
     'GENDER'            => 'Gender',

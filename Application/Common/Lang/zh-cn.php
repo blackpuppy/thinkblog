@@ -54,6 +54,7 @@ return [
     'MODEL_ASSOCIATION'         => '模型关联：模型之间的关联（一对一，一对多，属于，和多对多）',
     'RELATIONSHIP_USER_PROFILE' => '用户有一份个人资料，个人资料属于用户',
     'RELATIONSHIP_USER_POST'    => '作者(用户)写了许多文章，文章属于作者(用户)',
+    'RELATIONSHIP_USER_ROLE'    => '用户有许多角色，角色有许多用户',
     'RELATIONSHIP_POST_TAG'     => '文章有许多标签，标签有许多文章',
     'RELATIONSHIP_USER_COMMENT' => '用户有许多评论，评论属于用户',
     'RELATIONSHIP_POST_COMMENT' => '文章有许多评论，评论属于文章',

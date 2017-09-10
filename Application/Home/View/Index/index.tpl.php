@@ -73,6 +73,10 @@
                     <label for="relationship_user_profile">{$Think.lang.RELATIONSHIP_USER_PROFILE}</label>
                 </li>
                 <li>
+                    <input type="checkbox" id="relationship_user_role" name="relationship_user_role" disabled checked>
+                    <label for="relationship_user_role">{$Think.lang.RELATIONSHIP_USER_ROLE}</label>
+                </li>
+                <li>
                     <input type="checkbox" id="relationship_user_post" name="relationship_user_post" disabled checked>
                     <label for="relationship_user_post">{$Think.lang.RELATIONSHIP_USER_POST}</label>
                 </li>

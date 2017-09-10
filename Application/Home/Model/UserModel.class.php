@@ -49,6 +49,14 @@ class UserModel extends BaseModel
             'mapping_name'  => 'posts',
             'mapping_order' => 'create_at desc',
         ],
+        'Role' => [
+            'mapping_type'         => self::MANY_TO_MANY,
+            'class_name'           => 'Role',
+            'mapping_name'         => 'roles',
+            'foreign_key'          => 'user_id',
+            'relation_foreign_key' => 'role_id',
+            'relation_table'       => 'user_group',
+        ],
     ];
 
     /**

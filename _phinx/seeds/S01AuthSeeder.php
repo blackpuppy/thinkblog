@@ -19,8 +19,9 @@ class S01AuthSeeder extends AbstractSeed
 
     protected function SeedAuthRule()
     {
+        $ruleTableName = getenv('AUTH_RULE') ?: 'auth_rule';
         $tableAdapter = new TablePrefixAdapter($this->getAdapter());
-        $prefixedTableName = $tableAdapter->getAdapterTableName('auth_rule');
+        $prefixedTableName = $tableAdapter->getAdapterTableName($ruleTableName);
 
         $sqlTmpl = "SELECT * FROM `$prefixedTableName` WHERE `name` = '{{name}}';";
 
@@ -143,7 +144,7 @@ class S01AuthSeeder extends AbstractSeed
             $row = $this->fetchRow($sql);
             if (empty($row)) {
                 $rule['created_by'] = 1;
-                $this->table('auth_rule')
+                $this->table($ruleTableName)
                     ->insert($rule)
                     ->saveData();
             }
@@ -154,7 +155,8 @@ class S01AuthSeeder extends AbstractSeed
     {
         $tableAdapter = new TablePrefixAdapter($this->getAdapter());
 
-        $prefixedTableName = $tableAdapter->getAdapterTableName('auth_rule');
+        $ruleTableName = getenv('AUTH_RULE') ?: 'auth_rule';
+        $prefixedTableName = $tableAdapter->getAdapterTableName($ruleTableName);
         $sql = "SELECT `id`, `name` FROM `$prefixedTableName` WHERE `status` = 1;";
         $allRules = $this->fetchAll($sql);
         $ruleMap = [];
@@ -163,7 +165,8 @@ class S01AuthSeeder extends AbstractSeed
            $ruleMap[$rule['name']] = $rule['id'];
         });
 
-        $prefixedTableName = $tableAdapter->getAdapterTableName('auth_group');
+        $groupTableName = getenv('AUTH_GROUP') ?: 'auth_group';
+        $prefixedTableName = $tableAdapter->getAdapterTableName($groupTableName);
         $sqlTmpl = "SELECT * FROM `$prefixedTableName` WHERE `title` = '{{title}}';";
         $updateTmpl = "UPDATE `$prefixedTableName` SET `rules` = '{{rules}}', `updated_by` = {{updated_by}}, `updated_at` = '{{updated_at}}' WHERE `title` = '{{title}}';";
 
@@ -229,7 +232,7 @@ class S01AuthSeeder extends AbstractSeed
 
             if (empty($row)) {
                 $group['created_by'] = 1;
-                $this->table('auth_group')
+                $this->table($groupTableName)
                     ->insert($group)
                     ->saveData();
             } else {

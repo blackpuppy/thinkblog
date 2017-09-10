@@ -7,7 +7,8 @@ class CreateAuthGroupTables extends AbstractMigration
 {
     public function change()
     {
-        $this->table('auth_group', [
+        $tableName = getenv('AUTH_GROUP') ?: 'role';
+        $this->table($tableName, [
             'id' => false,
             'primary_key' => ['id'],
             'engine' => 'InnoDB',

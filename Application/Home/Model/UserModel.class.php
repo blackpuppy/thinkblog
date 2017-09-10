@@ -7,6 +7,8 @@ use Home\Model\BaseModel;
 
 class UserModel extends BaseModel
 {
+    // protected $tableName = 'user';
+
     protected $_validate = [
         ['name', 'require', '{%NAME_REQUIRED}', self::MUST_VALIDATE],
         ['name', '', '{%NAME_DUPLICATE}', self::MUST_VALIDATE, 'unique', self::MODEL_INSERT],

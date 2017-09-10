@@ -10,6 +10,8 @@ class CreatePostTable extends AbstractMigration
      */
     public function change()
     {
+        $userTableName = getenv('AUTH_USER') ?: 'user';
+
         $this->table('post', [
             'id' => false,
             'primary_key' => ['id'],
@@ -63,7 +65,7 @@ class CreatePostTable extends AbstractMigration
         ])->addIndex(['author_user_id'], [
             'name' => 'idx_author',
             'unique' => false,
-        ])->addForeignKey('author_user_id', 'user', 'id', [
+        ])->addForeignKey('author_user_id', $userTableName, 'id', [
             'delete'=> 'RESTRICT',
             'update'=> 'CASCADE',
         ])->create();

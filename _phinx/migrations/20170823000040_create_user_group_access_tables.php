@@ -3,11 +3,15 @@
 use Phinx\Migration\AbstractMigration;
 use Phinx\Db\Adapter\MysqlAdapter;
 
-class CreateUserGroupTables extends AbstractMigration
+class CreateUserGroupAccessTables extends AbstractMigration
 {
     public function change()
     {
-        $this->table('user_group', [
+        $userTableName = getenv('AUTH_USER') ?: 'user';
+        $accessTableName = getenv('AUTH_GROUP_ACCESS') ?: 'user_group';
+        $groupTableName = getenv('AUTH_GROUP') ?: 'role';
+
+        $this->table($accessTableName, [
             'id' => false,
             'primary_key' => ['uid', 'group_id'],
             'engine' => 'InnoDB',
@@ -51,13 +55,13 @@ class CreateUserGroupTables extends AbstractMigration
         ])->addIndex(['uid'], [
             'name' => 'idx_uid',
             'unique' => false
-        ])->addForeignKey('uid', 'user', 'id', [
+        ])->addForeignKey('uid', $userTableName, 'id', [
             'delete'=> 'RESTRICT',
             'update'=> 'CASCADE',
         ])->addIndex(['group_id'], [
             'name' => 'idx_group_id',
             'unique' => false,
-        ])->addForeignKey('group_id', 'auth_group', 'id', [
+        ])->addForeignKey('group_id', $groupTableName, 'id', [
             'delete'=> 'RESTRICT',
             'update'=> 'CASCADE',
         ])->create();

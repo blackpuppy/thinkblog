@@ -10,6 +10,8 @@ class CreateProfileTable extends AbstractMigration
      */
     public function change()
     {
+        $userTableName = getenv('AUTH_USER') ?: 'user';
+
         $this->table('profile', [
             'id' => false,
             'primary_key' => ['id'],
@@ -88,7 +90,7 @@ class CreateProfileTable extends AbstractMigration
         ])->addIndex(['user_id'], [
             'name' => 'idx_user_id',
             'unique' => true,
-        ])->addForeignKey('user_id', 'user', 'id', [
+        ])->addForeignKey('user_id', $userTableName, 'id', [
             'delete'=> 'RESTRICT',
             'update'=> 'CASCADE',
         ])->create();

@@ -10,7 +10,7 @@ class ProfileController extends Controller
      * 查看用户个人资料。
      * @return void
      */
-    public function view()
+    public function show()
     {
         $msg = PHP_EOL . 'Home\Controller\ProfileController::view():'
             . PHP_EOL . '  REQUEST_METHOD = ' . REQUEST_METHOD;

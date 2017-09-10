@@ -61,7 +61,7 @@ return [
         'logout'          => 'Home/User/logout',
 
         'profile/edit'    => 'Home/Profile/edit',
-        'profile'         => 'Home/Profile/view',
+        'profile'         => 'Home/Profile/show',
 
         // '/^posts$/'                 => 'Home/Post/index',
         // '/^posts\/add$/'            => 'Home/Post/add',

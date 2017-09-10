@@ -78,8 +78,8 @@ return [
         ['api/login',  'Api/User/login',  '', ['method' => 'post']],
         // ['api/logout', 'Api/User/logout', '', ['method' => 'post']],
 
-        // 'profile'         => 'Api/Profile/show',
-        // 'profile/save'    => 'Api/Profile/save',
+        ['api/profile',      'Api/Profile/show', '', ['method' => 'get']],
+        // ['api/profile/save', 'Api/Profile/save', '', ['method' => 'post']],
 
         ['api/posts',       'Api/Post/index',  '', ['method' => 'get']],
         // ['api/posts',       'Api/Post/create', '', ['method' => 'post']],

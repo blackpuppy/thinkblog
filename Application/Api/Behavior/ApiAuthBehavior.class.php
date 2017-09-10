@@ -74,7 +74,7 @@ class ApiAuthBehavior extends AuthBehavior
                     if (!$isAuthorized) {
                         $msg .= PHP_EOL . '  not authorized';
                         $msg .= PHP_EOL . str_repeat('-', 80);
-                        \Think\Log::write($msg, 'DEBUG');
+                        // \Think\Log::write($msg, 'DEBUG');
                         // trace($msg, '调试', 'DEBUG', true);
 
                         $this->sendJsonResponse(401, L('UNAUTHORIZED'));
@@ -99,7 +99,7 @@ class ApiAuthBehavior extends AuthBehavior
         }
 
         $msg .= PHP_EOL . str_repeat('-', 80);
-        \Think\Log::write($msg, 'DEBUG');
+        // \Think\Log::write($msg, 'DEBUG');
         // trace($msg, '调试', 'DEBUG', true);
     }
 

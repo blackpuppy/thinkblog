@@ -40,19 +40,12 @@ class ProfileController extends BaseController
             $input = $this->getPostInput();
 
             $User = D('Home/User');
-            $Profile = D('Home/Profile');
 
-            $user = $User->find($userId);
-            $profile = $Profile->where(['user_id' => $userId])->find();
+            $user = $User->relation('profile')->find($userId);
 
-            // $msg .= PHP_EOL . '  $user = ' . print_r($user, true)
-            //     . PHP_EOL . '  $profile = ' . print_r($profile, true);
+            $msg .= PHP_EOL . '  $user = ' . print_r($user, true);
 
-            if (!$profile) {
-                $profile = $Profile->create();
-            }
-
-            $data = compact('user', 'profile');
+            $data = compact('user');
             $User->protect($data);
 
             $msg .= PHP_EOL . '  $data = ' . print_r($data, true);
@@ -108,7 +101,7 @@ class ProfileController extends BaseController
             }
             $user = $User->create($userInput);
 
-            $profileInput = $input['profile'];
+            $profileInput = $input['user']['profile'];
             if (!$profileInput['id']) {
                 unset($profileInput['id']);
             }
@@ -179,6 +172,9 @@ class ProfileController extends BaseController
                     $meta = [
                         'message' => L('SAVE_PROFILE_SUCCESS'),
                     ];
+
+                    $msg .= PHP_EOL . str_repeat('-', 80);
+                    \Think\Log::write($msg, 'DEBUG');
 
                     $this->response(compact('data', 'meta'), 'json', 200);
                 } else {

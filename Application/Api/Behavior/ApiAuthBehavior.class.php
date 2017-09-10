@@ -20,7 +20,7 @@ class ApiAuthBehavior extends AuthBehavior
         // 1. 用户认证
         $authHeader = Http::getHeaderInfo('Authorization', false);
 
-        $msg .= PHP_EOL . '  $authHeader = ' . $authHeader;
+        // $msg .= PHP_EOL . '  $authHeader = ' . $authHeader;
 
         if ($authHeader) {
             list($jwt) = sscanf($authHeader, 'Authorization: Bearer %s');

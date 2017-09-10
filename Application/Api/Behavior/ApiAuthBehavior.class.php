@@ -34,10 +34,10 @@ class ApiAuthBehavior extends AuthBehavior
 
                     $msg .= PHP_EOL . '  $user = ' . print_r($user, true);
 
-                    BaseController::$authentication = [
+                    BaseController::setAuthentication([
                         'authenticated' => ($user !== false),
                         'user' => $user ?: null,
-                    ];
+                    ]);
 
                 } catch (ExpiredException $ee) {
                     // TODO: deal with different exceptions differently
@@ -50,7 +50,7 @@ class ApiAuthBehavior extends AuthBehavior
         }
 
         // 2. 用户授权
-        $isAuthenticated = BaseController::$authentication['authenticated'];
+        $isAuthenticated = BaseController::isAuthenticated();
         $url = MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME;
         $isPublicUrl = $this->checkPublicUrl($url);
 
@@ -63,7 +63,7 @@ class ApiAuthBehavior extends AuthBehavior
                 $msg .= PHP_EOL . '  member:';
 
                 if (C('AUTH_CONFIG.AUTH_ON', null, false)) {
-                    $userId = BaseController::$authentication['authenticated']['id'];
+                    $userId = BaseController::getCurrentUserId();
 
                     $Auth = new Auth();
                     $isAuthorized = $Auth->check($url, $userId);

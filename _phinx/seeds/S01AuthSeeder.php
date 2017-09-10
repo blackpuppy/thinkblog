@@ -60,7 +60,7 @@ class S01AuthSeeder extends AbstractSeed
                 'condition' => '',
             ], [
                 'name'      => 'Home/Profile/show',
-                'title'     => '查看个人资料',
+                'title'     => '显示个人资料',
                 'type'      => 1,
                 'status'    => 1,
                 'condition' => '',
@@ -106,7 +106,7 @@ class S01AuthSeeder extends AbstractSeed
             // 需要通过用户验证的API
             ], [
                 'name'      => 'Api/Profile/show',
-                'title'     => '显示个人资料API',
+                'title'     => '读取个人资料API',
                 'type'      => 1,
                 'status'    => 1,
                 'condition' => '',
@@ -173,31 +173,38 @@ class S01AuthSeeder extends AbstractSeed
                 'status'    => 1,
                 'rules'     => [
                     'Home/User/logout',
-                    'Home/Profile/view',
+                    'Home/Profile/show',
                     'Home/Profile/edit',
                     'Home/Post/create',
-                    'Home/Post/view',
                     'Home/Post/update',
                     'Home/Post/delete',
+                    'Api/Profile/show',
+                    'Api/Profile/save',
+                    'Api/Post/create',
+                    'Api/Post/update',
+                    'Api/Post/delete',
                 ],
             ], [
                 'title'     => '作者',
                 'status'    => 1,
                 'rules'     => [
                     'Home/User/logout',
-                    'Home/Profile/view',
+                    'Home/Profile/show',
                     'Home/Profile/edit',
                     'Home/Post/create',
-                    'Home/Post/view',
                     'Home/Post/update',
                     'Home/Post/delete',
+                    'Api/Profile/show',
+                    'Api/Profile/save',
+                    'Api/Post/create',
+                    'Api/Post/update',
+                    'Api/Post/delete',
                 ],
             // 以后增加
             // ], [
             //     'title'     => '读者',
             //     'status'    => 1,
             //     'rules'     => [
-            //         'Home/Post/view',
             //         'Comment/create',
             //         'Comment/update',
             //         'Comment/delete',

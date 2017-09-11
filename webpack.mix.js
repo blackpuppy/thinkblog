@@ -28,6 +28,7 @@ const path = require('path');
 
 mix.sass('resources/sass/app.scss', 'css')
     .js('resources/js/app.js', 'js')
+    .copy('./resources/js/app/**/*.html', './webroot/Public/template', false)
     // .setPublicPath('webroot/Public')
     // .setResourceRoot('webroot/Public')
     .setPublicPath(path.normalize('webroot/Public'))

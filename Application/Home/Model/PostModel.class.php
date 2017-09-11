@@ -31,13 +31,31 @@ class PostModel extends BaseModel
     /**
      * 验证当前用户是否是当前文章作者。
      *
+     * @param array $data 给定模型数据
      * @return bool 当前用户是否是当前文章作者
      *
      * @author 朱明 <mingzhu.z+gitlab@gmail.com>
      */
-    public function checkAuthor()
+    public function checkAuthor($data)
     {
-        return (int)$this->author_user_id === getCurrentUserId();
+        // $msg = "PostModel::checkAuthor():";
+
+        $valid = false;
+
+        if (is_array($data)) {
+            // $msg .= PHP_EOL . '  author_user_id = ' . (int)$data['author_user_id'];
+            $valid = (int)$data['author_user_id'] === getCurrentUserId();
+        } else {
+            // $msg .= PHP_EOL . '  author_user_id = ' . (int)$this->author_user_id;
+            $valid = (int)$this->author_user_id === getCurrentUserId();
+        }
+
+        // $msg .= PHP_EOL . '  getCurrentUserId() = ' . getCurrentUserId()
+        //     . PHP_EOL . '  $valid = ' . $valid
+        //     . PHP_EOL . str_repeat('-', 80);
+        // \Think\Log::write($msg, 'DEBUG');
+
+        return $valid;
     }
 
     /**

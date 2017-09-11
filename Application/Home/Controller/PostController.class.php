@@ -133,7 +133,7 @@ class PostController extends Controller
                 $this->error(L('POST_NOT_FOUND'), U('/posts'), 5);
             }
 
-            if (!$oldPost['author_user_id'] !== getCurrentUserId()) {
+            if (!$Post->checkAuthor($oldPost)) {
                 $msg .= PHP_EOL . '  ' . L('NOT_AUTHOR');
 
                 $this->error(L('NOT_AUTHOR'), U('/posts'), 5);
@@ -206,7 +206,7 @@ class PostController extends Controller
                 $this->error(L('POST_NOT_FOUND'), U('/posts'), 5);
             }
 
-            if (!$oldPost['author_user_id'] !== getCurrentUserId()) {
+            if (!$Post->checkAuthor($post)) {
                 $msg .= PHP_EOL . '  ' . L('NOT_AUTHOR');
 
                 $this->error(L('NOT_AUTHOR'), U('/posts'), 5);

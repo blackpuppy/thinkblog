@@ -37,7 +37,7 @@ class PostModel extends BaseModel
      */
     public function checkAuthor()
     {
-        return $this->author_user_id === getCurrentUserId();
+        return (int)$this->author_user_id === getCurrentUserId();
     }
 
     /**

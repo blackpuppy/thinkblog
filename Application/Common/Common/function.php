@@ -99,7 +99,7 @@ function getCurrentUser()
 
 /**
  * 获取给当前登录的用户的 id。
- * @return array 当前登录用户的 id，如未登录则返回 0。
+ * @return int 当前登录用户的 id，如未登录则返回 0。
  */
 function getCurrentUserId()
 {
@@ -112,7 +112,7 @@ function getCurrentUserId()
         $currentUserId = $isAuthenticated ? getCurrentUser()['id'] : 0;
     }
 
-    return $currentUserId;
+    return (int)$currentUserId;
 }
 
 /**

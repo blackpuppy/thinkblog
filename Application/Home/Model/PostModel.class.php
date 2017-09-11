@@ -8,6 +8,7 @@ class PostModel extends BaseModel
     protected $_validate = [
         ['title', 'require', '{%TITLE_REQUIRED}'],
         ['content', 'require', '{%CONTENT_REQUIRED}'],
+        ['author_user_id', 'checkAuthor', '{%NOT_AUTHOR}', self::MUST_VALIDATE, 'callback', self::MODEL_UPDATE],
     ];
 
     protected $_link = [
@@ -25,6 +26,18 @@ class PostModel extends BaseModel
 
         $this->_auto[] =
             ['author_user_id', 'getCurrentUserId', self::MODEL_INSERT, 'function'];
+    }
+
+    /**
+     * 验证当前用户是否是当前文章作者。
+     *
+     * @return bool 当前用户是否是当前文章作者
+     *
+     * @author 朱明 <mingzhu.z+gitlab@gmail.com>
+     */
+    public function checkAuthor()
+    {
+        return $this->author_user_id === getCurrentUserId();
     }
 
     /**

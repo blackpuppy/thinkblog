@@ -133,6 +133,7 @@ return [
     // Validation - Post
     'TITLE_REQUIRED'            => 'Title is required!',
     'CONTENT_REQUIRED'          => 'Content is required!',
+    'NOT_AUTHOR'                => 'You are not authorized to modify this post!',
 
     //--------------------------------------------------------------------------
     // Controller

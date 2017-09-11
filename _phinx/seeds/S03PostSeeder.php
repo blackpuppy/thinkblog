@@ -123,7 +123,7 @@ class S03PostSeeder extends AbstractSeed
                 'author'  => 'john.doe',
             ], [
                 'title'   => 'DevOps',
-                'content' => '更好地结合开发人员和系统管理人员，实现软件更流畅的开发、发布、监控。',
+                'content' => '简化流程，使开发人员和系统管理人员更好地合作，实现软件更流畅的开发、部署和监控。',
                 'author'  => 'john.doe',
             ]
         ];

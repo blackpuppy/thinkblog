@@ -173,7 +173,7 @@ class UserController extends Controller
         $Verify->entry();
     }
 
-    /* 验证码校验 */
+    /* 校验验证码 */
     public function checkRecaptcha($code, $id = '')
     {
         $verify = new \Think\Verify([

@@ -17,6 +17,8 @@ return [
     'SUBMIT'                    => '提交',
     'SAVE'                      => '保存',
     'CANCEL'                    => '取消',
+    'RECAPTCHA'                 => '验证码',
+    'RECAPTCHA_INPUT'           => '请输入验证码',
     'SELECT_ONE'                => '请选择',
     'MALE'                      => '男',
     'FEMALE'                    => '女',

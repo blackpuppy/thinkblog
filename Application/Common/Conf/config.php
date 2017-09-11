@@ -59,6 +59,8 @@ return [
         'signup'          => 'Home/User/signup',
         'login'           => 'Home/User/login',
         'logout'          => 'Home/User/logout',
+        'recaptcha'       => 'Home/User/recaptcha',
+        'check_recaptcha' => 'Home/User/checkRecaptcha',
 
         'profile/edit'    => 'Home/Profile/edit',
         'profile'         => 'Home/Profile/show',

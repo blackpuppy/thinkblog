@@ -17,6 +17,9 @@
     "heroku-postbuild": "yarn dev"
   },
   "devDependencies": {
+    "angular": "^1.6.6",
+    "angular-resource": "^1.6.6",
+    "angular-route": "^1.6.6",
     "bootstrap-confirmation2": "^2.4.0",
     "bootstrap-sass": "^3.3.7",
     "browser-sync": "^2.18.13",

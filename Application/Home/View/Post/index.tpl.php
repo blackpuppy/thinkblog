@@ -1,4 +1,6 @@
-<div class="container">
+<div class="container post-list">
+    <post-list></post-list>
+
     <div class="row">
         <div class="col-md-12">
             <h1>{$Think.lang.POST_LISTING}</h1>

@@ -71,12 +71,6 @@ class PostController extends BaseController
             $Post = D('Home/Post');
             $newPost = $Post->create($input);
 
-            // TODO: 用当前登录的用户ID替换
-            $newPost['created_by'] = 9;
-            $newPost['author_user_id'] = 9;
-            $Post->created_by = 9;
-            $Post->author_user_id = 9;
-
             $msg .= PHP_EOL . '  $newPost = ' . print_r($newPost, true);
 
             if (!$newPost) {
@@ -192,8 +186,12 @@ class PostController extends BaseController
                 return;
             }
 
-            if (!$oldPost['author_user_id'] !== getCurrentUserId()) {
+            $msg .= PHP_EOL . '  getCurrentUserId() = ' . getCurrentUserId();
+
+            if ((int)$oldPost['author_user_id'] !== getCurrentUserId()) {
                 $msg .= PHP_EOL . '  ' . L('UNAUTHORIZED');
+                $msg .= PHP_EOL . str_repeat('-', 80);
+                \Think\Log::write($msg, 'DEBUG');
 
                 $this->response(L('UNAUTHORIZED'), 'json', 401);
                 return;
@@ -211,7 +209,7 @@ class PostController extends BaseController
                 $msg .= PHP_EOL . '  validation error: ' . $Post->getError();
 
                 $data = [
-                    'post' => I('post.'),
+                    'post' => $input,
                     'validationError' => $Post->getError(),
                 ];
 

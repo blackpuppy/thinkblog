@@ -186,9 +186,7 @@ class PostController extends BaseController
                 return;
             }
 
-            $msg .= PHP_EOL . '  getCurrentUserId() = ' . getCurrentUserId();
-
-            if ((int)$oldPost['author_user_id'] !== getCurrentUserId()) {
+            if (!$Post->checkAuthor($post)) {
                 $msg .= PHP_EOL . '  ' . L('UNAUTHORIZED');
                 $msg .= PHP_EOL . str_repeat('-', 80);
                 \Think\Log::write($msg, 'DEBUG');
@@ -253,6 +251,66 @@ class PostController extends BaseController
         } finally {
             $msg .= PHP_EOL . str_repeat('-', 80);
             // \Think\Log::write($msg, 'DEBUG');
+        }
+    }
+
+    /**
+     * 删除文章。
+     * @param int $id 文章id
+     * @return void
+     */
+    public function delete($id)
+    {
+        if (!IS_DELETE) {
+            return;
+        }
+
+        $msg = PHP_EOL . 'Api\Controller\PostController::delete():'
+            . PHP_EOL . '  $id = ' . $id;
+
+        try {
+            $Post = D('Home/Post');
+            $post = $Post->find($id);
+
+            $msg .= PHP_EOL . '  $post = ' . print_r($post, true);
+
+            if (!$post) {
+                $msg .= PHP_EOL . '  ' . L('POST_NOT_FOUND');
+
+                $this->response(L('POST_NOT_FOUND'), 'json', 400);
+                return;
+            }
+
+            if (!$Post->checkAuthor($post)) {
+                $msg .= PHP_EOL . '  ' . L('UNAUTHORIZED');
+                $msg .= PHP_EOL . str_repeat('-', 80);
+                \Think\Log::write($msg, 'DEBUG');
+
+                $this->response(L('UNAUTHORIZED'), 'json', 401);
+                return;
+            }
+
+            $result = $Post->delete();
+
+            $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+
+            $code = $result !== false ? 200 : 500;
+            $message = $result !== false ?
+                L('DELETE_POST_SUCCESS') :
+                L('DELETE_POST_FAILURE');
+            $meta = compact('message');
+
+            $msg .= PHP_EOL . '  $meta = ' . print_r($meta, true);
+            $msg .= PHP_EOL . str_repeat('-', 80);
+            \Think\Log::write($msg, 'DEBUG');
+
+            $this->response(compact('meta'), 'json', $code);
+        } catch (Exception $e) {
+            $msg .= PHP_EOL . 'error: ' . $e->getMessage();
+            throw $e;
+        } finally {
+            $msg .= PHP_EOL . str_repeat('-', 80);
+            \Think\Log::write($msg, 'DEBUG');
         }
     }
 }

@@ -52,6 +52,17 @@
         </div>
 
         <div class="form-group">
+            <label for="recaptcha" class="control-label col-sm-2">
+                {$Think.lang.RECAPTCHA}{$Think.lang.COLON}
+            </label>
+            <div class="col-md-4">
+                <img id="recaptcha" alt="点击更换" title="点击更换"
+                    src="{:U('/recaptcha',array())}" class=""
+                >
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-sm-offset-2 col-sm-4">
                 <input type="submit" value="{$Think.lang.SIGNUP}" class="btn btn-success">
                 <a href="{:U('/login')}" class="btn btn-default">{$Think.lang.LOGIN}</a>

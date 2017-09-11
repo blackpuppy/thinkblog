@@ -17,6 +17,7 @@ return [
     'SUBMIT'                    => 'Submit',
     'SAVE'                      => 'Save',
     'CANCEL'                    => 'Cancel',
+    'RECAPTCHA'                 => 'reCAPTCHA',
     'SELECT_ONE'                => 'Select One',
     'MALE'                      => 'Male',
     'FEMALE'                    => 'Female',

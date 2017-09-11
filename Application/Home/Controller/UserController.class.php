@@ -162,4 +162,14 @@ class UserController extends Controller
 
         $this->redirect(U('/'));
     }
+
+    /**
+     * 生成验证码。
+     * @return void
+     */
+    public function recaptcha()
+    {
+        $Verify = new \Think\Verify();
+        $Verify->entry();
+    }
 }

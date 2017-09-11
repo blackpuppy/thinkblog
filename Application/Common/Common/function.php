@@ -1,27 +1,50 @@
 <?php
 
+use Api\Controller\BaseController;
 use Carbon\Carbon;
 
-/**
- * 检查给定字符串是否以给定的子字符串开始。
- * @return bool 给定字符串是否以给定的子字符串开始。
- */
-function startsWith($haystack, $needle)
-{
-    $length = strlen($needle);
-    return substr($haystack, 0, $length) === $needle;
+if (!function_exists('startsWith')) {
+    /**
+     * 检查给定字符串是否以给定的子字符串开始。
+     * @return bool 给定字符串是否以给定的子字符串开始。
+     */
+    function startsWith($haystack, $needle)
+    {
+        $length = strlen($needle);
+        return substr($haystack, 0, $length) === $needle;
+    }
 }
 
-/**
- * 检查给定字符串是否以给定的子字符串结尾。
- * @return bool 给定字符串是否以给定的子字符串结尾。
- */
-function endsWith($haystack, $needle)
-{
-    $length = strlen($needle);
+if (!function_exists('endsWith')) {
+    /**
+     * 检查给定字符串是否以给定的子字符串结尾。
+     * @return bool 给定字符串是否以给定的子字符串结尾。
+     */
+    function endsWith($haystack, $needle)
+    {
+        $length = strlen($needle);
 
-    return $length === 0 ||
-        substr($haystack, -$length) === $needle;
+        return $length === 0 ||
+            substr($haystack, -$length) === $needle;
+    }
+}
+
+if ( ! function_exists('str_limit'))
+{
+    /**
+     * Limit the number of characters in a string.
+     *
+     * @param  string  $value
+     * @param  int     $limit
+     * @param  string  $end
+     * @return string
+     */
+    function str_limit($value, $limit = 100, $end = '...')
+    {
+        if (mb_strlen($value) <= $limit) return $value;
+
+        return rtrim(mb_substr($value, 0, $limit, 'UTF-8')).$end;
+    }
 }
 
 /**
@@ -67,8 +90,16 @@ function encryptPassword($password)
  */
 function isAuthenticated()
 {
-    return session('?authentication.authenticated')
-        && session('authentication.authenticated');
+    $authenticated = false;
+
+    if (MODULE_NAME === 'Api') {
+        $authenticated = BaseController::isAuthenticated();
+    } else {
+        $authenticated = session('?authentication.authenticated')
+            && session('authentication.authenticated');
+    }
+
+    return $authenticated;
 }
 
 /**
@@ -77,18 +108,33 @@ function isAuthenticated()
  */
 function getCurrentUser()
 {
-    return isAuthenticated() ? session('authentication.user') : null;
+    $currentUser = null;
+
+    if (MODULE_NAME === 'Api') {
+        $currentUser = BaseController::getCurrentUser();
+    } else {
+        $currentUser = isAuthenticated() ? session('authentication.user') : null;
+    }
+
+    return $currentUser;
 }
 
 /**
  * 获取给当前登录的用户的 id。
- * @return array 当前登录用户的 id，如未登录则返回 0。
+ * @return int 当前登录用户的 id，如未登录则返回 0。
  */
 function getCurrentUserId()
 {
-    $isAuthenticated = isAuthenticated();
-    $currentUserId = $isAuthenticated ? getCurrentUser()['id'] : 0;
-    return $currentUserId;
+    $currentUserId = null;
+
+    if (MODULE_NAME === 'Api') {
+        $currentUserId = BaseController::getCurrentUserId();
+    } else {
+        $isAuthenticated = isAuthenticated();
+        $currentUserId = $isAuthenticated ? getCurrentUser()['id'] : 0;
+    }
+
+    return (int)$currentUserId;
 }
 
 /**

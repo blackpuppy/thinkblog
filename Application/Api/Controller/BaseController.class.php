@@ -23,7 +23,7 @@ class BaseController extends RestController
      */
     public function getPostInput()
     {
-        return json_decode($GLOBALS['HTTP_RAW_POST_DATA'], true);
+        return json_decode(file_get_contents("php://input"), true);
     }
 
     protected static $authentication = [

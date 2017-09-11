@@ -105,6 +105,7 @@ class PostController extends Controller
 
     /**
      * 修改文章。
+     * @param int $id 文章id
      * @return void
      */
     public function update($id)
@@ -130,6 +131,12 @@ class PostController extends Controller
                 $msg .= PHP_EOL . '  ' . L('POST_NOT_FOUND');
 
                 $this->error(L('POST_NOT_FOUND'), U('/posts'), 5);
+            }
+
+            if (!$Post->checkAuthor($oldPost)) {
+                $msg .= PHP_EOL . '  ' . L('NOT_AUTHOR');
+
+                $this->error(L('NOT_AUTHOR'), U('/posts'), 5);
             }
 
             if (IS_GET) {
@@ -175,6 +182,7 @@ class PostController extends Controller
 
     /**
      * 删除文章。
+     * @param int $id 文章id
      * @return void
      */
     public function delete($id)
@@ -196,6 +204,12 @@ class PostController extends Controller
                 $msg .= PHP_EOL . '  ' . L('POST_NOT_FOUND');
 
                 $this->error(L('POST_NOT_FOUND'), U('/posts'), 5);
+            }
+
+            if (!$Post->checkAuthor($post)) {
+                $msg .= PHP_EOL . '  ' . L('NOT_AUTHOR');
+
+                $this->error(L('NOT_AUTHOR'), U('/posts'), 5);
             }
 
             $result = $Post->delete();

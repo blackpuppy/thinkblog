@@ -34,23 +34,23 @@ class ProfileController extends Controller
 
         $msg = PHP_EOL . '  $userId = ' . $userId;
 
-        $this->assign('title', L('EDIT_PROFILE'));
+        $this->assign('title', L('VIEW_PROFILE'));
 
         try {
             $User = D('User');
-            $Profile = D('Profile');
+            // $Profile = D('Profile');
 
-            $user = $User->find($userId);
-            $profile = $Profile->where(['user_id' => $userId])->find();
+            $user = $User->relation('profile')->find($userId);
+            // $profile = $Profile->where(['user_id' => $userId])->find();
 
-            $msg .= PHP_EOL . '  $user = ' . print_r($user, true)
-                . PHP_EOL . '  $profile = ' . print_r($profile, true);
+            $msg .= PHP_EOL . '  $user = ' . print_r($user, true);
+                // . PHP_EOL . '  $profile = ' . print_r($profile, true);
 
-            if (!$profile) {
-                $profile = $Profile->create();
-            }
+            // if (!$profile) {
+            //     $profile = $Profile->create();
+            // }
 
-            $this->assign(compact('user', 'profile'));
+            $this->assign(compact('user'));
             $this->display();
         } catch (Exception $e) {
             $msg .= PHP_EOL . 'error: ' . $e->getMessage();
@@ -94,17 +94,17 @@ class ProfileController extends Controller
             $Profile = D('Profile');
 
             if (IS_GET) {
-                $user = $User->find($userId);
-                $profile = $Profile->where(['user_id' => $userId])->find();
+                $user = $User->relation('profile')->find($userId);
+                // $profile = $Profile->where(['user_id' => $userId])->find();
 
-                $msg .= PHP_EOL . '  $user = ' . print_r($user, true)
-                    . PHP_EOL . '  $profile = ' . print_r($profile, true);
+                $msg .= PHP_EOL . '  $user = ' . print_r($user, true);
+                    // . PHP_EOL . '  $profile = ' . print_r($profile, true);
 
-                if (!$profile) {
-                    $profile = $Profile->create();
-                }
+                // if (!$profile) {
+                //     $profile = $Profile->create();
+                // }
 
-                $this->assign(compact('user', 'profile'));
+                $this->assign(compact('user'));
                 $this->display();
             } elseif (IS_POST) {
                 $userInput = I('post.user');
@@ -113,14 +113,18 @@ class ProfileController extends Controller
                 }
                 $user = $User->create($userInput);
 
-                $profileInput = I('post.profile');
+                $profileInput = $userInput['profile'];
+
+                // $msg .= PHP_EOL . '  $userInput = ' . print_r($userInput, true)
+                //     . PHP_EOL . '  $profileInput = ' . print_r($profileInput, true);
+                // $msg .= PHP_EOL . str_repeat('-', 80);
+                // \Think\Log::write($msg, 'DEBUG');
+
                 if (!$profileInput['id']) {
                     unset($profileInput['id']);
                 }
                 $profile = $Profile->create($profileInput);
 
-                // $msg .= PHP_EOL . '  $userInput = ' . print_r($userInput, true)
-                //     . PHP_EOL . '  $profileInput = ' . print_r($profileInput, true);
                 $msg .= PHP_EOL . '  $user = ' . print_r($user, true)
                     . PHP_EOL . '  $profile = ' . print_r($profile, true);
 
@@ -132,7 +136,7 @@ class ProfileController extends Controller
 
                     $data = [
                         'user' => $userInput,
-                        'profile' => $profileInput,
+                        // 'profile' => $profileInput,
                         'userValidationError' => $User->getError(),
                         'profileValidationError' => $Profile->getError(),
                     ];

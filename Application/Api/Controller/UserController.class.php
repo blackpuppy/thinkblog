@@ -26,6 +26,8 @@ class UserController extends BaseController
             $input = $this->getPostInput();
 
             $User = D('Home/User');
+            $UserRole = D('Home/UserRole');
+
             $newUser = $User->create($input);
 
             $msg .= PHP_EOL . '  $newUser = ' . print_r($newUser, true);
@@ -43,14 +45,45 @@ class UserController extends BaseController
 
                 $this->response($data, 'json', 400);
             } else {
-                $result = $User->add();
+                $result = false;
+
+                try {
+                    $User->startTrans();
+
+                    $userResult = $User->add();
+
+                    $msg .= PHP_EOL . '  $userResult = ' . print_r($userResult, true);
+
+                    $userRoleInput = [
+                        'uid' => $userResult,
+                        'group_id' => 2,
+                    ];
+                    $newUserRole = $UserRole->create($userRoleInput);
+
+                    $msg .= PHP_EOL . '  $userRoleInput = ' . print_r($userRoleInput, true)
+                        . PHP_EOL . '  $newUserRole = ' . print_r($newUserRole, true);
+                        // . PHP_EOL . '  validation error = ' . $UserRole->getError();
+
+                    $roleResult = $UserRole->add();
+
+                    $msg .= PHP_EOL . '  $roleResult = ' . print_r($roleResult, true);
+
+                    $result = $userResult !== false && $roleResult !== false;
+                    if ($result) {
+                        $User->commit();
+                    } else {
+                        $User->rollback();
+                    }
+                } catch (Exception $e) {
+                    $User->rollback();
+                }
 
                 $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
 
                 if ($result !== false) {
                     $newUser['id'] = $result;
 
-                    $newUser = $User->relation(true)->find($result);
+                    $newUser = $User->relation(true)->find($userResult);
                     $User->protect($newUser);
 
                     // generate jwt token
@@ -68,7 +101,7 @@ class UserController extends BaseController
 
                     $this->response(compact('token', 'data', 'meta'), 'json', 201);
                 } else {
-                    $msg .= PHP_EOL . '  login failed';
+                    $msg .= PHP_EOL . '  signup failed';
 
                     $meta = [
                         'message' => L('SIGNUP_USER_FAILURE'),

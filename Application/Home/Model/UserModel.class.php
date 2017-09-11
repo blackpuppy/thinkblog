@@ -49,13 +49,20 @@ class UserModel extends BaseModel
             'mapping_name'  => 'posts',
             'mapping_order' => 'create_at desc',
         ],
+        // 'Role' => [
+        //     'mapping_type'         => self::MANY_TO_MANY,
+        //     'class_name'           => 'Role',
+        //     'mapping_name'         => 'roles',
+        //     'foreign_key'          => 'user_id',
+        //     'relation_foreign_key' => 'role_id',
+        //     'relation_table'       => 'user_group',
+        // ],
         'Role' => [
-            'mapping_type'         => self::MANY_TO_MANY,
-            'class_name'           => 'Role',
-            'mapping_name'         => 'roles',
-            'foreign_key'          => 'user_id',
-            'relation_foreign_key' => 'role_id',
-            'relation_table'       => 'user_group',
+            'mapping_type'  => self::HAS_MANY,
+            'class_name'    => 'UserRole',
+            'mapping_name'  => 'roles',
+            'foreign_key'   => 'user_id',
+            'mapping_order' => 'id asc',
         ],
     ];
 
@@ -113,6 +120,10 @@ class UserModel extends BaseModel
 
         if (!$user) {
             $user = $this->data();
+        }
+
+        if (!is_array($user)) {
+            $user = json_decode(json_encode($user), true);
         }
 
         // \Think\Log::write(

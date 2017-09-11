@@ -95,7 +95,7 @@
             </ul>
         </li>
         <li>
-            <input type="checkbox" id="web_api" name="web_api" disabled>
+            <input type="checkbox" id="web_api" name="web_api" disabled checked>
             <label for="web_api">{$Think.lang.WEB_API}</label>
             <ul>
                 <li>
@@ -107,7 +107,7 @@
                     <label for="web_api_authorization">{$Think.lang.WEB_API_AUTHORIZATION}</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="web_api_others" name="web_api_others" disabled>
+                    <input type="checkbox" id="web_api_others" name="web_api_others" disabled checked>
                     <label for="web_api_others">{$Think.lang.WEB_API_OTHERS}</label>
                 </li>
             </ul>

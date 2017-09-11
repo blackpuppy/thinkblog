@@ -21,8 +21,8 @@ $genders = ConfigListModel::getConfigList(ConfigListModel::LIST_NAME_GENDER);
 
     <form action="{:U('/profile/edit')}" method="post" class="form-horizontal">
         <input type="hidden" name="user[id]" value="{$user['id']}">
-        <input type="hidden" name="profile[id]" value="{$profile['id']}">
-        <input type="hidden" name="profile[user_id]" value="{$profile['user_id']}">
+        <input type="hidden" name="user[profile][id]" value="{$user['profile']['id']}">
+        <input type="hidden" name="user[profile][user_id]" value="{$user['profile']['user_id']}">
 
         <div class="form-group">
             <label for="title" class="control-label col-sm-2">
@@ -71,20 +71,51 @@ $genders = ConfigListModel::getConfigList(ConfigListModel::LIST_NAME_GENDER);
             </label>
             <div class="col-md-6">
             <if condition="substr(LANG_SET, 0, 2) === 'zh'">
-                <input type="text" name="profile[last_name]"
+                <input type="text" name="user[profile][last_name]"
                     placeholder="{$Think.lang.LAST_NAME}" autofocus="true"
-                    value="{$profile['last_name']}">
-                <input type="text" name="profile[first_name]"
+                    value="{$user['profile']['last_name']}">
+                <input type="text" name="user[profile][first_name]"
                     placeholder="{$Think.lang.FIRST_NAME}"
-                    value="{$profile['first_name']}">
+                    value="{$user['profile']['first_name']}">
             <else />
-                <input type="text" name="profile[first_name]"
+                <input type="text" name="user[profile][first_name]"
                     placeholder="{$Think.lang.FIRST_NAME}" autofocus="true"
-                    value="{$profile['first_name']}">
-                <input type="text" name="profile[last_name]"
+                    value="{$user['profile']['first_name']}">
+                <input type="text" name="user[profile][last_name]"
                     placeholder="{$Think.lang.LAST_NAME}"
-                    value="{$profile['last_name']}">
+                    value="{$user['profile']['last_name']}">
             </if>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender_key" class="control-label col-sm-2">
+                {$Think.lang.GENDER}{$Think.lang.COLON}
+            </label>
+            <div class="col-md-2">
+                <select id="gender_key" name="user[profile][gender_key]"
+                    class="form-control"
+                >
+                    <option value="">
+                        -- {$Think.lang.SELECT_ONE} --
+                    </option>
+                    <volist name="genders" id="gender">
+                    <option value="{:$gender['list_key']}" <if condition="$gender['list_key'] === $user['profile']['gender_key']">selected="selected"</if>>
+                        {:L(strtoupper($gender['list_value_desc']))}
+                    </option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone" class="control-label col-sm-2">
+                {$Think.lang.PHONE}{$Think.lang.COLON}
+            </label>
+            <div class="col-md-3">
+                <input type="text" id="phone" name="user[profile][phone]"
+                    value="{:isset($user['profile']['phone']) ? $user['profile']['phone'] : ''}"
+                    class="form-control">
             </div>
         </div>
 
@@ -93,8 +124,8 @@ $genders = ConfigListModel::getConfigList(ConfigListModel::LIST_NAME_GENDER);
                 {$Think.lang.ADDRESS}{$Think.lang.COLON}
             </label>
             <div class="col-md-8">
-                <input type="text" id="address" name="profile[address]"
-                    value="{:isset($profile['address']) ? $profile['address'] : ''}"
+                <input type="text" id="address" name="user[profile][address]"
+                    value="{:isset($user['profile']['address']) ? $user['profile']['address'] : ''}"
                     class="form-control">
             </div>
         </div>
@@ -104,29 +135,9 @@ $genders = ConfigListModel::getConfigList(ConfigListModel::LIST_NAME_GENDER);
                 {$Think.lang.POSTAL_CODE}{$Think.lang.COLON}
             </label>
             <div class="col-md-2">
-                <input type="text" id="postal_code" name="profile[postal_code]"
-                    value="{:isset($profile['postal_code']) ? $profile['postal_code'] : ''}"
+                <input type="text" id="postal_code" name="user[profile][postal_code]"
+                    value="{:isset($user['profile']['postal_code']) ? $user['profile']['postal_code'] : ''}"
                     class="form-control">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="gender_key" class="control-label col-sm-2">
-                {$Think.lang.GENDER}{$Think.lang.COLON}
-            </label>
-            <div class="col-md-2">
-                <select id="gender_key" name="profile[gender_key]"
-                    class="form-control"
-                >
-                    <option value="">
-                        -- {$Think.lang.SELECT_ONE} --
-                    </option>
-                    <volist name="genders" id="gender">
-                    <option value="{:$gender['list_key']}" <if condition="$gender['list_key'] === $profile['gender_key']">selected="selected"</if>>
-                        {:L(strtoupper($gender['list_value_desc']))}
-                    </option>
-                    </volist>
-                </select>
             </div>
         </div>
 

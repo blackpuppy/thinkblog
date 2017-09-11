@@ -48,9 +48,9 @@
                     <tr>
                         <td>{$pageSize * ($page - 1) + $no}</td>
                         <td>{$post.title}</td>
-                        <td>{$post.content}</td>
-                        <td>{:getUserFullName($post['author'])}</td>
-                        <td>
+                        <td>{:str_limit($post['content'], 20)}</td>
+                        <td class="text-nowrap">{:getUserFullName($post['author'])}</td>
+                        <td class="text-nowrap">
                             <a href="{:U('/posts/update/' . $post['id'])}" class="btn btn-primary"
                                 <if condition="!isAuthenticated() || getCurrentUser()['id'] != $post['author_user_id']">
                                     disabled="true"

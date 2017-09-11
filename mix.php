@@ -1,5 +1,12 @@
 <?php
-if (! function_exists('mix')) {
+if (! function_exists('starts_with')) {
+    /**
+     * Determine if a given string starts with a given substring.
+     *
+     * @param  string  $haystack
+     * @param  string  $needles
+     * @return bool
+     */
     function starts_with($haystack, $needle)
     {
         return substr($haystack, 0, strlen($needle)) === $needle;

@@ -172,4 +172,22 @@ class UserController extends Controller
         $Verify = new \Think\Verify();
         $Verify->entry();
     }
+
+    /* 验证码校验 */
+    public function checkRecaptcha($code, $id = '')
+    {
+        $verify = new \Think\Verify([
+            'reset' => false,
+        ]);
+        $valid = $verify->check($code, $id);
+
+        $msg = PHP_EOL . 'Home\Controller\UserController::checkRecaptcha():'
+            . PHP_EOL . '  $code = ' . $code
+            . PHP_EOL . '  $id = ' . $id
+            . PHP_EOL . '  $valid = ' . $valid
+            . PHP_EOL . str_repeat('-', 80);
+        \Think\Log::write($msg, 'DEBUG');
+
+        $this->ajaxReturn($valid, 'json');
+    }
 }

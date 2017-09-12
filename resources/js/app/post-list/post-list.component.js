@@ -2,19 +2,15 @@
 
 angular.module('postList')
 .component('postList', {
-    templateUrl: '/Public/template/post-list.template.html',
-    controller: function PostListController() {
-        this.posts = [
-            {
-                name: 'Nexus S',
-                snippet: 'Fast just got faster with Nexus S.'
-            }, {
-                name: 'Motorola XOOM™ with Wi-Fi',
-                snippet: 'The Next, Next Generation tablet.'
-            }, {
-                name: 'MOTOROLA XOOM™',
-                snippet: 'The Next, Next Generation tablet.'
-            }
-        ];
-    }
+    templateUrl: 'Public/template/post-list/post-list.template.html',
+    controller: ['$http', '$log',
+        function PostListController($http, $log) {
+            var self = this;
+            $http.get('/api/posts').then(function(response) {
+                $log.info('/api/posts returns data: ', response);
+                self.posts = response.data.data;
+                self.params = response.data.queryParams;
+            })
+        }
+    ]
 });

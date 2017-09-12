@@ -1,6 +1,49 @@
-<ul>
-    <li ng-repeat="post in $ctrl.posts">
-        <span>{{post.name}}</span>
-        <p>{{post.snippet}}</p>
-    </li>
-</ul>
+<div class="post-listing row">
+    <div class="col-md-10">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">{$Think.lang.SERIAL_NO}</th>
+                    <th class="text-center">{$Think.lang.TITLE}</th>
+                    <th class="text-center">{$Think.lang.CONTENT}</th>
+                    <th class="text-center">{$Think.lang.AUTHOR}</th>
+                    <th class="text-center">{$Think.lang.ACTION}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="post in $ctrl.posts">
+                    <td>{{ $ctrl.params.pageSize * ($ctrl.params.page - 1) + $index + 1 }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.content }}</td>
+                    <td class="text-nowrap">{{ post.author.name }}</td>
+                    <td class="text-nowrap">
+                        <a href="{{ '/posts/update/' + post.id }}" class="btn btn-primary">
+                            {$Think.lang.CHANGE}
+                        </a>
+                        <button type="button" class="btn btn-danger"
+                                data-toggle="confirmation" data-popout="true"
+                                data-singleton="true" data-html="true"
+                                data-btn-ok-class="btn-success"
+                                data-btn-cancel-class="btn-danger"
+                                data-title="<h5 class='text-center'><strong>{$Think.lang.CONFIRM_TITLE}</strong></h5>"
+                                data-content="{:L('CONFIRM_TO_DELETE', ['model' => strtolower(L('POST'))])}"
+                                data-delete-url="{{ '/posts/delete/' . post.id }}"
+                        >
+                            {$Think.lang.DELETE}
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                    	这里是分页
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <form class="delete-post-form form-inline" action="#" method="POST">
+    </form>
+</div>

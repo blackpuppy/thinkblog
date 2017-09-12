@@ -20,14 +20,9 @@
     <link rel="stylesheet" href="<?php echo mix('css/app.css'); ?>" />
 </head>
 <body>
-    <!-- <header>
+    <header>
         <include file="Partial/header" />
-    </header> -->
-
-    <include file="Partial/menu" />
-
-    <!-- <aside>
-    </aside> -->
+    </header>
 
     <section>
         {__CONTENT__}

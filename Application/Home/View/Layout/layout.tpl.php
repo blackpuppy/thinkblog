@@ -21,10 +21,10 @@
 </head>
 <body>
     <!-- <header>
-        <include file="Layout/header" />
+        <include file="Partial/header" />
     </header> -->
 
-    <include file="Layout/menu" />
+    <include file="Partial/menu" />
 
     <!-- <aside>
     </aside> -->
@@ -34,7 +34,7 @@
     </section>
 
     <footer class="footer">
-        <include file="Layout/footer" />
+        <include file="Partial/footer" />
     </footer>
 
     <script src="<?php echo mix('js/app.js'); ?>"></script>

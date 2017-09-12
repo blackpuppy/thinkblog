@@ -1,5 +1,5 @@
 <div class="container post-list">
-    <post-list></post-list>
+    <div ng-view></div>
 
     <div class="row">
         <div class="col-md-12">

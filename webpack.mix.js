@@ -28,12 +28,14 @@ const path = require('path');
 
 mix.sass('resources/sass/app.scss', 'css')
     .js('resources/js/app.js', 'js')
-    .copy('./resources/js/app/**/*.html', './webroot/Public/template', false)
     // .setPublicPath('webroot/Public')
     // .setResourceRoot('webroot/Public')
     .setPublicPath(path.normalize('webroot/Public'))
     .setResourceRoot(path.normalize('/Public/'));
     // .disableNotifications();
+
+// cannot keep folder structure, have to copy one folder by one folder
+mix.copy('./resources/js/app/post-list/*.html', './webroot/Public/template/post-list');
 
 if (mix.inProduction()) {
     mix.version();

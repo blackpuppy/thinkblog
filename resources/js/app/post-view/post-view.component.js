@@ -2,10 +2,17 @@
 
 angular.module('postView')
 .component('postView', {
-    template: 'TBD: View view for <span>{{$ctrl.postId}}</span>',
-    controller: ['$routeParams',
-        function PostViewController($routeParams) {
+    templateUrl: 'Public/template/post-view/post-view.template.html',
+    controller: ['$http', '$routeParams', '$log',
+        function PostViewController($http, $routeParams, $log) {
             this.postId = $routeParams.postId;
+
+            var self = this;
+
+            $http.get('api/posts/' + $routeParams.postId).then(function(response) {
+                $log.info('response = ', response);
+                self.post = response.data.post;
+            });
         }
     ]
 });

@@ -36,6 +36,7 @@ mix.sass('resources/sass/app.scss', 'css')
 
 // cannot keep folder structure, have to copy one folder by one folder
 mix.copy('./resources/js/app/post-list/*.html', './webroot/Public/template/post-list');
+mix.copy('./resources/js/app/post-view/*.html', './webroot/Public/template/post-view');
 
 if (mix.inProduction()) {
     mix.version();

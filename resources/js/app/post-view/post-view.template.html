@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>{$Think.lang.CHANGE_POST}</h1>
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="title" class="control-label col-sm-2">
+                {$Think.lang.TITLE}{$Think.lang.COLON}
+            </label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" id="title" name="title"
+                    value="{{ $ctrl.post.title }}"
+                    autofocus="true" disabled="true">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="content" class="control-label col-sm-2">
+                {$Think.lang.CONTENT}{$Think.lang.COLON}
+            </label>
+            <div class="col-md-8">
+                <textarea id="content" class="form-control" name="content"
+                    cols="60" rows="5" disabled="true"
+                >{{ $ctrl.post.content }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a href="{{ '/posts/' + $ctrl.postId + '/edit' }}" class="btn btn-primary">{$Think.lang.CHANGE}</a>
+                <a href="{{ '/posts' }}" class="btn btn-default">{$Think.lang.CANCEL}</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,15 +3,16 @@
 angular.module('postView')
 .component('postView', {
     templateUrl: 'Public/template/post-view/post-view.template.html',
-    controller: ['$http', '$routeParams', '$log',
-        function PostViewController($http, $routeParams, $log) {
-            this.postId = $routeParams.postId;
+    controller: ['$routeParams', 'Post', '$log',
+        function PostViewController($routeParams, Post, $log) {
+            this.id = $routeParams.id;
 
             var self = this;
 
-            $http.get('api/posts/' + $routeParams.postId).then(function(response) {
-                $log.info('response = ', response);
-                self.post = response.data.post;
+            Post.get({id: $routeParams.id}, function(response) {
+                $log.info('Post.get(' + $routeParams.id + ') returns response = ', response);
+
+                self.post = response.post;
             });
         }
     ]

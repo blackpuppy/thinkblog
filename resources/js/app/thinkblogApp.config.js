@@ -9,7 +9,7 @@ angular.module('thinkblogApp')
         	when('/posts', {
           		template: '<post-list></post-list>'
         	}).
-        	when('/posts/:postId', {
+        	when('/posts/:id', {
           		template: '<post-view></post-view>'
         	}).
         	otherwise('/posts');

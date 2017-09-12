@@ -1,5 +1,6 @@
 'use strict';
 
 angular.module('postView', [
-    'ngRoute'
+    'ngRoute',
+    'core.post'
 ]);

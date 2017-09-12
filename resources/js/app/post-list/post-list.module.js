@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('postList', []);
+angular.module('postList', ['core.post']);

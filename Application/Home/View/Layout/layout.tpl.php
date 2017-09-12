@@ -32,7 +32,8 @@
         <include file="Partial/footer" />
     </footer>
 
-    <script src="<?php echo mix('js/app.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo mix('js/app.js'); ?>"></script>
+    <include file="Partial/url" />
 </body>
 
 </html>

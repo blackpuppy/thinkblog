@@ -1,6 +1,4 @@
 <div class="container post-list">
-    <div ng-view></div>
-
     <div class="row">
         <div class="col-md-12">
             <h1>{$Think.lang.POST_LISTING}</h1>

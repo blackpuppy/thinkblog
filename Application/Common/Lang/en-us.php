@@ -28,8 +28,9 @@ return [
     'APPLICATION_SHORT_DESC'    => 'ThinkPHP Development Demo Application',
 
     // Menu
-    'MENU_PROFILE'      => 'User Profile',
     'MENU_POSTS'        => 'Posts',
+    'MENU_ANGULARJS'    => 'AngularJS Demo',
+    'MENU_PROFILE'      => 'User Profile',
     'SWITCH_LANGUAGE'   => 'Language',
     'CHINESE'           => 'Chinese',
     'ENGLISH'           => 'English',

@@ -3,7 +3,7 @@
     require_once '../mix.php';
 ?>
 <!DOCTYPE html>
-<html ng-app="thinkblogApp">
+<html>
 
 <head>
     <meta charset="utf-8">

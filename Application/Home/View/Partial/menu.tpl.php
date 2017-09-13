@@ -19,12 +19,12 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
+                <li><a href="{:U('/posts')}">{$Think.lang.MENU_POSTS}</a></li>
+                <li><a href="{:U('/angularjs')}">{$Think.lang.MENU_ANGULARJS}</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{:U('/posts')}">{$Think.lang.MENU_POSTS}</a></li>
-
                 <if condition="!isAuthenticated()">
                     <li><a href="{:U('/login')}">{$Think.lang.LOGIN}</a></li>
                     <li><a href="{:U('/signup')}">{$Think.lang.SIGNUP}</a></li>

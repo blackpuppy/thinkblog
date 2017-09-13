@@ -28,8 +28,9 @@ return [
     'APPLICATION_SHORT_DESC'    => '用 ThinkPHP 进行开发的演示程序',
 
     // 菜单
-    'MENU_PROFILE'      => '个人资料',
     'MENU_POSTS'        => '文章',
+    'MENU_ANGULARJS'    => 'AngularJS 演示',
+    'MENU_PROFILE'      => '个人资料',
     'SWITCH_LANGUAGE'   => '语言',
     'CHINESE'           => '中文',
     'ENGLISH'           => '英文',

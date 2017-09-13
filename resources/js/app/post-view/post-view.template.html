@@ -8,7 +8,7 @@
             </label>
             <div class="col-md-8">
                 <input type="text" class="form-control" id="title" name="title"
-                    value="{{ $ctrl.post.title }}"
+                    value="{{ $ctrl.data.post.title }}"
                     autofocus="true" disabled="true">
             </div>
         </div>
@@ -20,14 +20,14 @@
             <div class="col-md-8">
                 <textarea id="content" class="form-control" name="content"
                     cols="60" rows="5" disabled="true"
-                >{{ $ctrl.post.content }}</textarea>
+                >{{ $ctrl.data.post.content }}</textarea>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <a href="{{ '/posts/' + $ctrl.id + '/edit' }}" class="btn btn-primary">{$Think.lang.CHANGE}</a>
-                <a href="{{ '/posts' }}" class="btn btn-default">{$Think.lang.CANCEL}</a>
+                <a ui-sref="post-list" class="btn btn-default">{$Think.lang.CANCEL}</a>
             </div>
         </div>
     </div>

@@ -11,9 +11,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="post in $ctrl.posts">
-                    <td>{{ $ctrl.params.pageSize * ($ctrl.params.page - 1) + $index + 1 }}</td>
-                    <td><a href="#!/posts/{{post.id}}">{{ post.title }}</a></td>
+                <tr ng-repeat="post in $ctrl.data.data">
+                    <td>{{ $ctrl.data.queryParams.pageSize * ($ctrl.data.queryParams.page - 1) + $index + 1 }}</td>
+                    <td><a ui-sref="post-view({ id: post.id })">{{ post.title }}</a></td>
                     <td>{{ post.content }}</td>
                     <td class="text-nowrap">{{ post.author.name }}</td>
                     <td class="text-nowrap">

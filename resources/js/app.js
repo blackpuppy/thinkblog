@@ -7,8 +7,8 @@ require('bootstrap-confirmation2/bootstrap-confirmation.min');
 
 // AngularJS
 require('angular/angular');
-require('angular-route/angular-route');
 require('angular-resource/angular-resource');
+require('angular-ui-router/release/angular-ui-router');
 
 // Application JavaScript.
 require('./thinkblog');

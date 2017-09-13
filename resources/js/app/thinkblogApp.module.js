@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('thinkblogApp', [
-  	'ngRoute',
+    'ui.router',
+    'core.post',
     'postList',
     'postView'
 ]);

@@ -1,3 +1,3 @@
 <div class="container angularjs" ng-app="thinkblogApp">
-	<div ng-view></div>
+    <ui-view></ui-view>
 </div>

@@ -18,9 +18,12 @@
   },
   "devDependencies": {
     "angular": "^1.6.6",
+    "angular-animate": "^1.6.6",
     "angular-resource": "^1.6.6",
+    "angular-touch": "^1.6.6",
     "angular-translate": "^2.15.2",
     "angular-translate-loader-url": "^2.15.2",
+    "angular-ui-bootstrap": "^2.5.0",
     "angular-ui-router": "^1.0.3",
     "bootstrap-confirmation2": "^2.4.0",
     "bootstrap-sass": "^3.3.7",

@@ -83,9 +83,17 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+angular-animate@^1.6.6:
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.6.6.tgz#6925647b141a040d241bf125040f1a150fcd8a70"
+
 angular-resource@^1.6.6:
   version "1.6.6"
   resolved "https://registry.yarnpkg.com/angular-resource/-/angular-resource-1.6.6.tgz#430660e969c3e7cf40c5e247e5e690f06d6efc61"
+
+angular-touch@^1.6.6:
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/angular-touch/-/angular-touch-1.6.6.tgz#f2068282501b95e29135930d1ce715d5405ec3e5"
 
 angular-translate-loader-url@^2.15.2:
   version "2.15.2"
@@ -98,6 +106,10 @@ angular-translate@^2.15.2, angular-translate@~2.15.2:
   resolved "https://registry.yarnpkg.com/angular-translate/-/angular-translate-2.15.2.tgz#f9a3c2b8d5daeb7d76c9e2c01ff3c3d57fe12b90"
   dependencies:
     angular ">=1.2.26 <=1.6"
+
+angular-ui-bootstrap@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/angular-ui-bootstrap/-/angular-ui-bootstrap-2.5.0.tgz#2facefb915386655dc5f44150258032517236d01"
 
 angular-ui-router@^1.0.3:
   version "1.0.3"

@@ -9,6 +9,8 @@ require('bootstrap-confirmation2/bootstrap-confirmation.min');
 require('angular/angular');
 require('angular-resource/angular-resource');
 require('angular-ui-router/release/angular-ui-router');
+require('angular-translate/dist/angular-translate');
+require('angular-translate-loader-url/angular-translate-loader-url');
 
 // Application JavaScript.
 require('./thinkblog');

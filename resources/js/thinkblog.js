@@ -42,6 +42,7 @@
         this.URL_API_SHOW_POST      = 'URL_API_SHOW_POST';
         this.URL_API_UPDATE_POST    = 'URL_API_UPDATE_POST';
         this.URL_API_DELETE_POST    = 'URL_API_DELETE_POST';
+        this.URL_API_TRANSLATE      = 'URL_API_TRANSLATE';
 
         var urls = {};
 

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('thinkblogApp')
-.config(['$stateProvider', '$urlRouterProvider',
-    function config($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$translateProvider',
+    function config($stateProvider, $urlRouterProvider, $locationProvider, $translateProvider) {
         // $locationProvider.hashPrefix('!');
 
         $urlRouterProvider.otherwise('/posts');
@@ -31,5 +31,8 @@ angular.module('thinkblogApp')
 
         $stateProvider.state(postListState);
         $stateProvider.state(postViewState);
+
+        $translateProvider.useUrlLoader(ThinkBlog.getUrl(ThinkBlog.URL_API_TRANSLATE));
+        $translateProvider.preferredLanguage('zh-CN');
     }
 ]);

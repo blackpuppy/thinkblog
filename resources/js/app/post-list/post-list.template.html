@@ -3,33 +3,34 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <th class="text-center">{$Think.lang.SERIAL_NO}</th>
-                    <th class="text-center">{$Think.lang.TITLE}</th>
-                    <th class="text-center">{$Think.lang.CONTENT}</th>
-                    <th class="text-center">{$Think.lang.AUTHOR}</th>
-                    <th class="text-center">{$Think.lang.ACTION}</th>
+                    <th class="text-center text-nowrap" translate>SERIAL_NO</th>
+                    <th class="text-center text-nowrap" translate>TITLE</th>
+                    <th class="text-center text-nowrap" translate>CONTENT</th>
+                    <th class="text-center text-nowrap" translate>AUTHOR</th>
+                    <th class="text-center text-nowrap" translate>ACTION</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="post in $ctrl.data.data">
-                    <td>{{ $ctrl.data.queryParams.pageSize * ($ctrl.data.queryParams.page - 1) + $index + 1 }}</td>
-                    <td><a ui-sref="post-view({ id: post.id })">{{ post.title }}</a></td>
+                    <td class="text-nowrap">{{ $ctrl.data.queryParams.pageSize * ($ctrl.data.queryParams.page - 1) + $index + 1 }}</td>
+                    <td class="text-nowrap"><a ui-sref="post-view({ id: post.id })">{{ post.title }}</a></td>
                     <td>{{ post.content }}</td>
                     <td class="text-nowrap">{{ post.author.name }}</td>
                     <td class="text-nowrap">
-                        <a href="{{ '/posts/update/' + post.id }}" class="btn btn-primary">
-                            {$Think.lang.CHANGE}
+                        <a href="{{ '/posts/update/' + post.id }}" class="btn btn-primary" translate>
+                            CHANGE
                         </a>
                         <button type="button" class="btn btn-danger"
                                 data-toggle="confirmation" data-popout="true"
                                 data-singleton="true" data-html="true"
                                 data-btn-ok-class="btn-success"
                                 data-btn-cancel-class="btn-danger"
-                                data-title="<h5 class='text-center'><strong>{$Think.lang.CONFIRM_TITLE}</strong></h5>"
-                                data-content="{:L('CONFIRM_TO_DELETE', ['model' => strtolower(L('POST'))])}"
+                                data-title="<h5 class='text-center'><strong>{{ 'CONFIRM_TITLE' | translate }}</strong></h5>"
+                                data-content="{{ 'CONFIRM_TO_DELETE_POST' | translate }}"
                                 data-delete-url="{{ '/posts/delete/' . post.id }}"
+                                translate
                         >
-                            {$Think.lang.DELETE}
+                            DELETE
                         </button>
                     </td>
                 </tr>

@@ -13,7 +13,7 @@ return [
     'CHANGE'                    => '修改',
     'DELETE'                    => '删除',
     'CONFIRM_TITLE'             => '请确认',
-    'CONFIRM_TO_DELETE'         => '您确认要删除这篇{$model}吗？',
+    'CONFIRM_TO_DELETE'         => '您确认要删除这{$model}吗？',
     'SUBMIT'                    => '提交',
     'SAVE'                      => '保存',
     'CANCEL'                    => '取消',
@@ -100,16 +100,17 @@ return [
     'GENDER'            => '性别',
 
     // 文章
-    'POST'              => '文章',
-    'POST_LISTING'      => '文章列表',
-    'FILTER_BY_AUTHOR'  => '按作者过滤',
-    'ALL_POSTS'         => '所有文章',
-    'MY_POSTS'          => '我的文章',
-    'CREATE_POST'       => '添加文章',
-    'CHANGE_POST'       => '修改文章',
-    'TITLE'             => '标题',
-    'CONTENT'           => '内容',
-    'AUTHOR'            => '作者',
+    'POST'                   => '文章',
+    'POST_LISTING'           => '文章列表',
+    'FILTER_BY_AUTHOR'       => '按作者过滤',
+    'ALL_POSTS'              => '所有文章',
+    'MY_POSTS'               => '我的文章',
+    'CREATE_POST'            => '添加文章',
+    'CHANGE_POST'            => '修改文章',
+    'TITLE'                  => '标题',
+    'CONTENT'                => '内容',
+    'AUTHOR'                 => '作者',
+    'CONFIRM_TO_DELETE_POST' => '您确认要删除这篇文章吗？',
 
     //--------------------------------------------------------------------------
     // 数据验证

@@ -64,7 +64,7 @@
                                     data-btn-ok-class="btn-success"
                                     data-btn-cancel-class="btn-danger"
                                     data-title="<h5 class='text-center'><strong>{$Think.lang.CONFIRM_TITLE}</strong></h5>"
-                                    data-content="{:L('CONFIRM_TO_DELETE', ['model' => strtolower(L('POST'))])}"
+                                    data-content="{:L('CONFIRM_TO_DELETE_POST')}"
                                     data-delete-url="{:U('/posts/delete/' . $post['id'])}"
                                     <if condition="!isAuthenticated() || getCurrentUser()['id'] != $post['author_user_id']">
                                         disabled="true"

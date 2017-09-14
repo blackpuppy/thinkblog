@@ -100,16 +100,17 @@ return [
     'GENDER'            => 'Gender',
 
     // Post
-    'POST'              => 'Post',
-    'POST_LISTING'      => 'Posts',
-    'FILTER_BY_AUTHOR'  => 'By Author',
-    'ALL_POSTS'         => 'All Posts',
-    'MY_POSTS'          => 'My Posts',
-    'CREATE_POST'       => 'New Post',
-    'CHANGE_POST'       => 'Cange Post',
-    'TITLE'             => 'Title',
-    'CONTENT'           => 'Content',
-    'AUTHOR'            => 'Author',
+    'POST'                   => 'Post',
+    'POST_LISTING'           => 'Posts',
+    'FILTER_BY_AUTHOR'       => 'By Author',
+    'ALL_POSTS'              => 'All Posts',
+    'MY_POSTS'               => 'My Posts',
+    'CREATE_POST'            => 'New Post',
+    'CHANGE_POST'            => 'Cange Post',
+    'TITLE'                  => 'Title',
+    'CONTENT'                => 'Content',
+    'AUTHOR'                 => 'Author',
+    'CONFIRM_TO_DELETE_POST' => 'Are you sure you wan to delete this post?',
 
     //--------------------------------------------------------------------------
     // Validation

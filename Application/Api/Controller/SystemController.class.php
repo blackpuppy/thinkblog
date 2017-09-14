@@ -25,6 +25,12 @@ class SystemController extends BaseController
 
         $data = L();
 
+        array_walk($data, function(&$value)
+        {
+            $value = str_replace('{$', '{{', $value);
+            $value = str_replace('}', '}}', $value);
+        });
+
         // $msg .= PHP_EOL . '  $data = ' . print_r($data, true);
         // $msg .= PHP_EOL . str_repeat('-', 80);
         // \Think\Log::write($msg, 'DEBUG');

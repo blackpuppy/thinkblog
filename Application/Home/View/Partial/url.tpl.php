@@ -24,6 +24,7 @@
     ThinkBlog.setUrl(ThinkBlog.URL_API_SHOW_POST,    '{:U("/api/posts/:id")}');
     ThinkBlog.setUrl(ThinkBlog.URL_API_UPDATE_POST,  '{:U("/api/posts/:id")}');
     ThinkBlog.setUrl(ThinkBlog.URL_API_DELETE_POST,  '{:U("/api/posts/:id")}');
+    ThinkBlog.setUrl(ThinkBlog.URL_API_TRANSLATE,    '{:U("/api/translate")}');
 
     // console.debug('urls = ' , ThinkBlog.getUrls());
 </script>

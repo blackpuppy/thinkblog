@@ -78,18 +78,19 @@ return [
 
 
         // API
-        ['api/signup', 'Api/User/signup', '', ['method' => 'post']],
-        ['api/login',  'Api/User/login',  '', ['method' => 'post']],
-        // ['api/logout', 'Api/User/logout', '', ['method' => 'post']],
+        ['api/signup',      'Api/User/signup',      '', ['method' => 'post']],
+        ['api/login',       'Api/User/login',       '', ['method' => 'post']],
 
-        ['api/profile', 'Api/Profile/show',  '', ['method' => 'get']],
-        ['api/profile', 'Api/Profile/store', '', ['method' => 'post']],
+        ['api/profile',     'Api/Profile/show',     '', ['method' => 'get']],
+        ['api/profile',     'Api/Profile/store',    '', ['method' => 'post']],
 
-        ['api/posts/:id\d', 'Api/Post/show',   '', ['method' => 'get']],
-        ['api/posts/:id\d', 'Api/Post/update', '', ['method' => 'post']],
-        ['api/posts/:id\d', 'Api/Post/delete', '', ['method' => 'delete']],
-        ['api/posts',       'Api/Post/index',  '', ['method' => 'get']],
-        ['api/posts',       'Api/Post/create', '', ['method' => 'post']],
+        ['api/posts/:id\d', 'Api/Post/show',        '', ['method' => 'get']],
+        ['api/posts/:id\d', 'Api/Post/update',      '', ['method' => 'post']],
+        ['api/posts/:id\d', 'Api/Post/delete',      '', ['method' => 'delete']],
+        ['api/posts',       'Api/Post/index',       '', ['method' => 'get']],
+        ['api/posts',       'Api/Post/create',      '', ['method' => 'post']],
+
+        ['api/translate',   'Api/System/translate', '', ['method' => 'get']],
     ],
 
     // 日志

@@ -5,6 +5,7 @@ angular.module('thinkblogApp', [
     'pascalprecht.translate',
     'ui.bootstrap',
     'mwl.confirm',
+    'angular-jwt',
 
     'core.post',
     'postList',

@@ -6,14 +6,16 @@ angular.module('thinkblogApp')
     '$urlRouterProvider',
     '$locationProvider',
     '$translateProvider',
+    '$httpProvider',
+    'jwtOptionsProvider',
     function config(
         $stateProvider,
         $urlRouterProvider,
         $locationProvider,
-        $translateProvider
+        $translateProvider,
+        $httpProvider,
+        jwtOptionsProvider
     ) {
-        // $locationProvider.hashPrefix('!');
-
         $urlRouterProvider.otherwise('/posts');
 
         var postListState = {
@@ -44,5 +46,13 @@ angular.module('thinkblogApp')
         $translateProvider.useUrlLoader(ThinkBlog.getUrl(ThinkBlog.URL_API_TRANSLATE))
         $translateProvider.preferredLanguage('zh-CN');
         $translateProvider.determinePreferredLanguage();
+
+        jwtOptionsProvider.config({
+            tokenGetter: [function() {
+                return localStorage.getItem('id_token');
+            }]
+        });
+
+        $httpProvider.interceptors.push('jwtInterceptor');
     }
 ]);

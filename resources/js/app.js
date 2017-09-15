@@ -16,6 +16,7 @@ require('angular-touch/angular-touch');
 require('angular-ui-bootstrap/');
 require('angular-sanitize/angular-sanitize');
 require('angular-bootstrap-confirm/dist/angular-bootstrap-confirm');
+require('angular-jwt/');
 
 // Application JavaScript.
 require('./thinkblog');

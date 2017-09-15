@@ -1,8 +1,17 @@
 'use strict';
 
 angular.module('thinkblogApp')
-.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$translateProvider',
-    function config($stateProvider, $urlRouterProvider, $locationProvider, $translateProvider) {
+.config([
+    '$stateProvider',
+    '$urlRouterProvider',
+    '$locationProvider',
+    '$translateProvider',
+    function config(
+        $stateProvider,
+        $urlRouterProvider,
+        $locationProvider,
+        $translateProvider
+    ) {
         // $locationProvider.hashPrefix('!');
 
         $urlRouterProvider.otherwise('/posts');

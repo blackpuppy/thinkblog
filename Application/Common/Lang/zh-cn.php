@@ -22,6 +22,8 @@ return [
     'SELECT_ONE'                => '请选择',
     'MALE'                      => '男',
     'FEMALE'                    => '女',
+    'YES'                       => '是',
+    'NO'                        => '否',
 
     // 应用程序
     'APPLICATION_NAME'          => 'ThinkPHP 博客',

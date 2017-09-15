@@ -22,6 +22,8 @@ return [
     'SELECT_ONE'                => 'Select One',
     'MALE'                      => 'Male',
     'FEMALE'                    => 'Female',
+    'YES'                       => 'Yes',
+    'NO'                        => 'No',
 
     // Application
     'APPLICATION_NAME'          => 'ThinkPHP Blog',

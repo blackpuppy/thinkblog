@@ -11,6 +11,11 @@ require('angular-resource/angular-resource');
 require('angular-ui-router/release/angular-ui-router');
 require('angular-translate/dist/angular-translate');
 require('angular-translate-loader-url/angular-translate-loader-url');
+require('angular-animate/angular-animate');
+require('angular-touch/angular-touch');
+require('angular-ui-bootstrap/');
+require('angular-sanitize/angular-sanitize');
+require('angular-bootstrap-confirm/dist/angular-bootstrap-confirm');
 
 // Application JavaScript.
 require('./thinkblog');

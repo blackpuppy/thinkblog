@@ -21,17 +21,31 @@
                             CHANGE
                         </a>
                         <button type="button" class="btn btn-danger"
-                                data-toggle="confirmation" data-popout="true"
-                                data-singleton="true" data-html="true"
-                                data-btn-ok-class="btn-success"
-                                data-btn-cancel-class="btn-danger"
-                                data-title="<h5 class='text-center'><strong>{{ 'CONFIRM_TITLE' | translate }}</strong></h5>"
-                                data-content="{{ 'CONFIRM_TO_DELETE_POST' | translate }}"
-                                data-delete-url="{{ '/posts/delete/' . post.id }}"
-                                translate
+                            mwl-confirm
+                            data-title="<h5 class='text-center'><strong>{{ 'CONFIRM_TITLE' | translate }}</strong></h5>"
+                            message="{{ 'CONFIRM_TO_DELETE_POST' | translate }}"
+                            confirm-text="<i class='glyphicon glyphicon-ok'></i> {{ 'YES' | translate }}"
+                            cancel-text="<i class='glyphicon glyphicon-remove'></i> {{ 'NO' | translate }}"
+                            on-confirm="confirmClicked = true"
+                            on-cancel="cancelClicked = true"
+                            confirm-button-type="success"
+                            cancel-button-type="danger"
+
+                            data-delete-url="{{ '/posts/delete/' . post.id }}"
+                            translate
                         >
                             DELETE
                         </button>
+                        <!--
+                            placement="{{ placement }}"
+
+                            data-toggle="confirmation" data-popout="true"
+                            data-singleton="true" data-html="true"
+                            data-btn-ok-class="btn-success"
+                            data-btn-cancel-class="btn-danger"
+                            data-title="<h5 class='text-center'><strong>{{ 'CONFIRM_TITLE' | translate }}</strong></h5>"
+                            data-content="{{ 'CONFIRM_TO_DELETE_POST' | translate }}"
+                        -->
                     </td>
                 </tr>
             </tbody>

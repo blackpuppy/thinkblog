@@ -51,8 +51,8 @@
                     </a>
 
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="?l=zh-cn">{$Think.lang.CHINESE}</a></li>
-                        <li><a href="?l=en-us">{$Think.lang.ENGLISH}</a></li>
+                        <li><a href="?{$Think.config.var_language}=zh-cn">{$Think.lang.CHINESE}</a></li>
+                        <li><a href="?{$Think.config.var_language}=en-us">{$Think.lang.ENGLISH}</a></li>
                     </ul>
                 </li>
             </ul>

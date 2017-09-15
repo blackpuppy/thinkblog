@@ -139,7 +139,7 @@ class PostModel extends BaseModel
         $msg .= PHP_EOL . str_repeat('-', 80);
         // \Think\Log::write($msg, 'DEBUG');
 
-        return compact('queryParams', 'data', 'count', 'pagination');
+        return compact('parameters', 'queryParams', 'data', 'count', 'pagination');
     }
 
     /**

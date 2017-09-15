@@ -29,7 +29,7 @@ const path = require('path');
 mix.sass('resources/sass/app.scss', 'css')
     .js('resources/js/app.js', 'js')
     .setPublicPath('webroot/Public')
-    .setResourceRoot('webroot/Public')
+    .setResourceRoot('/Public/')
     // .setPublicPath(path.normalize('webroot/Public'))
     // .setResourceRoot(path.normalize('/Public/'));
     // .disableNotifications();

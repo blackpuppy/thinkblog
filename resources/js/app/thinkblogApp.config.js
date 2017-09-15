@@ -41,7 +41,8 @@ angular.module('thinkblogApp')
         $stateProvider.state(postListState);
         $stateProvider.state(postViewState);
 
-        $translateProvider.useUrlLoader(ThinkBlog.getUrl(ThinkBlog.URL_API_TRANSLATE));
+        $translateProvider.useUrlLoader(ThinkBlog.getUrl(ThinkBlog.URL_API_TRANSLATE))
         $translateProvider.preferredLanguage('zh-CN');
+        $translateProvider.determinePreferredLanguage();
     }
 ]);

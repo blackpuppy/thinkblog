@@ -20,6 +20,7 @@
     "angular": "^1.6.6",
     "angular-animate": "^1.6.6",
     "angular-bootstrap-confirm": "^2.5.1",
+    "angular-jwt": "^0.1.9",
     "angular-resource": "^1.6.6",
     "angular-sanitize": "^1.6.6",
     "angular-touch": "^1.6.6",

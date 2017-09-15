@@ -33,7 +33,7 @@
   - [x] 用户授权
   - [x] 其他数据相关的API
 
-- [x] AngularJS 1 客户端
+- [ ] AngularJS 1 客户端
 
   - [ ] CRUD
   - [x] 分页

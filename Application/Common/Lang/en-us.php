@@ -71,6 +71,7 @@ return [
     'ANGULARJS_1_CURD'          => 'CRUD',
     'ANGULARJS_1_PAGINATION'    => 'Pagination',
     'ANGULARJS_1_TRANSLATION'   => 'Translation',
+    'ANGULARJS_1_AUTH'          => 'Authentication/Authorization',
     'USING_HTTPS'               => 'Using HTTPS',
     'UNIT_TESTING'              => 'Unit Testing',
     'MULTI_LANGUAGES_IN_DATA'   => 'Internationalization/Localization (I18n/L10n) in data',

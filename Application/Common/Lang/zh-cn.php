@@ -71,6 +71,7 @@ return [
     'ANGULARJS_1_CURD'          => 'CRUD',
     'ANGULARJS_1_PAGINATION'    => '分页',
     'ANGULARJS_1_TRANSLATION'   => '翻译',
+    'ANGULARJS_1_AUTH'          => '用户认证与授权',
     'USING_HTTPS'               => '使用 HTTPS',
     'UNIT_TESTING'              => '单元测试',
     'MULTI_LANGUAGES_IN_DATA'   => '数据中的多语言支持',

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-header">
             <p class="text-muted">
-                {:L('WELCOME_TO_USE', [
+                {:L('FOOTER_MESSAGE', [
                     'appName' => L('APPLICATION_NAME'),
                     'thinkphpVersion' => THINK_VERSION,
                 ])}

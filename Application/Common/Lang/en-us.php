@@ -22,20 +22,23 @@ return [
     'SELECT_ONE'                => 'Select One',
     'MALE'                      => 'Male',
     'FEMALE'                    => 'Female',
+    'YES'                       => 'Yes',
+    'NO'                        => 'No',
 
     // Application
     'APPLICATION_NAME'          => 'ThinkPHP Blog',
     'APPLICATION_SHORT_DESC'    => 'ThinkPHP Development Demo Application',
 
     // Menu
-    'MENU_PROFILE'      => 'User Profile',
     'MENU_POSTS'        => 'Posts',
+    'MENU_ANGULARJS'    => 'AngularJS Demo',
+    'MENU_PROFILE'      => 'User Profile',
     'SWITCH_LANGUAGE'   => 'Language',
     'CHINESE'           => 'Chinese',
     'ENGLISH'           => 'English',
 
     // Footer
-    'WELCOME_TO_USE'    => 'Welcome to {$appName}. Open <a href="https://github.com/blackpuppy/thinkblog">source code</a>. Developed using <b>ThinkPHP</b> Version V{$thinkphpVersion}!',
+    'FOOTER_MESSAGE'    => 'Welcome to {$appName}. Developed using <b>ThinkPHP</b> Version V{$thinkphpVersion}! Open <a href="https://github.com/blackpuppy/thinkblog">source code</a>. Any <a href="https://github.com/blackpuppy/thinkblog/issues/new">feedback or suggestions</a> are welcome!',
 
     // Home page
     'TECH_DESC'                 => 'Demonstrates the following techniques:',
@@ -65,6 +68,10 @@ return [
     'WEB_API_AUTHORIZATION'     => 'User Authorization',
     'WEB_API_OTHERS'            => 'Other APIs',
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 Client',
+    'ANGULARJS_1_CURD'          => 'CRUD',
+    'ANGULARJS_1_PAGINATION'    => 'Pagination',
+    'ANGULARJS_1_TRANSLATION'   => 'Translation',
+    'ANGULARJS_1_AUTH'          => 'Authentication/Authorization',
     'USING_HTTPS'               => 'Using HTTPS',
     'UNIT_TESTING'              => 'Unit Testing',
     'MULTI_LANGUAGES_IN_DATA'   => 'Internationalization/Localization (I18n/L10n) in data',
@@ -96,16 +103,17 @@ return [
     'GENDER'            => 'Gender',
 
     // Post
-    'POST'              => 'Post',
-    'POST_LISTING'      => 'Posts',
-    'FILTER_BY_AUTHOR'  => 'By Author',
-    'ALL_POSTS'         => 'All Posts',
-    'MY_POSTS'          => 'My Posts',
-    'CREATE_POST'       => 'New Post',
-    'CHANGE_POST'       => 'Cange Post',
-    'TITLE'             => 'Title',
-    'CONTENT'           => 'Content',
-    'AUTHOR'            => 'Author',
+    'POST'                   => 'Post',
+    'POST_LISTING'           => 'Posts',
+    'FILTER_BY_AUTHOR'       => 'By Author',
+    'ALL_POSTS'              => 'All Posts',
+    'MY_POSTS'               => 'My Posts',
+    'CREATE_POST'            => 'New Post',
+    'CHANGE_POST'            => 'Cange Post',
+    'TITLE'                  => 'Title',
+    'CONTENT'                => 'Content',
+    'AUTHOR'                 => 'Author',
+    'CONFIRM_TO_DELETE_POST' => 'Are you sure you wan to delete this post?',
 
     //--------------------------------------------------------------------------
     // Validation

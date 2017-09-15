@@ -115,6 +115,24 @@
         <li>
             <input type="checkbox" id="angularjs_1_client" name="angularjs_1_client" disabled>
             <label for="angularjs_1_client">{$Think.lang.ANGULARJS_1_CLIENT}</label>
+            <ul>
+                <li>
+                    <input type="checkbox" id="angularjs_1_curd" name="angularjs_1_curd" disabled>
+                    <label for="angularjs_1_curd">{$Think.lang.ANGULARJS_1_CURD}</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="angularjs_1_pagination" name="angularjs_1_pagination" checked disabled>
+                    <label for="angularjs_1_pagination">{$Think.lang.ANGULARJS_1_PAGINATION}</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="angularjs_1_translation" name="angularjs_1_translation" checked disabled>
+                    <label for="angularjs_1_translation">{$Think.lang.ANGULARJS_1_TRANSLATION}</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="angularjs_1_auth" name="angularjs_1_auth" disabled>
+                    <label for="angularjs_1_auth">{$Think.lang.ANGULARJS_1_AUTH}</label>
+                </li>
+            </ul>
         </li>
         <li>
             <input type="checkbox" id="using_https" name="using_https" disabled>

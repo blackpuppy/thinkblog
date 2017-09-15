@@ -54,7 +54,8 @@ return [
     'URL_HTML_SUFFIX'   => getenv('URL_HTML_SUFFIX'),   // URL伪静态后缀设置
     'URL_ROUTER_ON'     => true,  //开启路由
     'URL_ROUTE_RULES'   => [ //定义路由规则
-        // '/'             => 'Home/Index/index',
+        // '/'               => 'Home/Index/index',
+        'angularjs'       => 'Home/Index/angularjs',
 
         'signup'          => 'Home/User/signup',
         'login'           => 'Home/User/login',
@@ -75,19 +76,21 @@ return [
         'posts/delete/:id\d'    => 'Home/Post/delete',
         'posts'                 => 'Home/Post/index',
 
+
         // API
-        ['api/signup', 'Api/User/signup', '', ['method' => 'post']],
-        ['api/login',  'Api/User/login',  '', ['method' => 'post']],
-        // ['api/logout', 'Api/User/logout', '', ['method' => 'post']],
+        ['api/signup',      'Api/User/signup',      '', ['method' => 'post']],
+        ['api/login',       'Api/User/login',       '', ['method' => 'post']],
 
-        ['api/profile', 'Api/Profile/show',  '', ['method' => 'get']],
-        ['api/profile', 'Api/Profile/store', '', ['method' => 'post']],
+        ['api/profile',     'Api/Profile/show',     '', ['method' => 'get']],
+        ['api/profile',     'Api/Profile/store',    '', ['method' => 'post']],
 
-        ['api/posts/:id\d', 'Api/Post/show',   '', ['method' => 'get']],
-        ['api/posts/:id\d', 'Api/Post/update', '', ['method' => 'post']],
-        ['api/posts/:id\d', 'Api/Post/delete', '', ['method' => 'delete']],
-        ['api/posts',       'Api/Post/index',  '', ['method' => 'get']],
-        ['api/posts',       'Api/Post/create', '', ['method' => 'post']],
+        ['api/posts/:id\d', 'Api/Post/show',        '', ['method' => 'get']],
+        ['api/posts/:id\d', 'Api/Post/update',      '', ['method' => 'post']],
+        ['api/posts/:id\d', 'Api/Post/delete',      '', ['method' => 'delete']],
+        ['api/posts',       'Api/Post/index',       '', ['method' => 'get']],
+        ['api/posts',       'Api/Post/create',      '', ['method' => 'post']],
+
+        ['api/translate',   'Api/System/translate', '', ['method' => 'get']],
     ],
 
     // 日志

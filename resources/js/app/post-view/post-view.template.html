@@ -1,0 +1,34 @@
+<div class="container">
+    <h1 translate>CHANGE_POST</h1>
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="title" class="control-label col-sm-2">
+                {{ 'TITLE' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" id="title" name="title"
+                    value="{{ $ctrl.data.post.title }}"
+                    autofocus="true" disabled="true">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="content" class="control-label col-sm-2">
+                {{ 'CONTENT' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-8">
+                <textarea id="content" class="form-control" name="content"
+                    cols="60" rows="5" disabled="true"
+                >{{ $ctrl.data.post.content }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a href="{{ '/posts/' + $ctrl.id + '/edit' }}" class="btn btn-primary" translate>CHANGE</a>
+                <a ui-sref="post-list" class="btn btn-default" translate>CANCEL</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,7 +13,7 @@ return [
     'CHANGE'                    => '修改',
     'DELETE'                    => '删除',
     'CONFIRM_TITLE'             => '请确认',
-    'CONFIRM_TO_DELETE'         => '您确认要删除这篇{$model}吗？',
+    'CONFIRM_TO_DELETE'         => '您确认要删除这{$model}吗？',
     'SUBMIT'                    => '提交',
     'SAVE'                      => '保存',
     'CANCEL'                    => '取消',
@@ -22,20 +22,23 @@ return [
     'SELECT_ONE'                => '请选择',
     'MALE'                      => '男',
     'FEMALE'                    => '女',
+    'YES'                       => '是',
+    'NO'                        => '否',
 
     // 应用程序
     'APPLICATION_NAME'          => 'ThinkPHP 博客',
     'APPLICATION_SHORT_DESC'    => '用 ThinkPHP 进行开发的演示程序',
 
     // 菜单
-    'MENU_PROFILE'      => '个人资料',
     'MENU_POSTS'        => '文章',
+    'MENU_ANGULARJS'    => 'AngularJS 演示',
+    'MENU_PROFILE'      => '个人资料',
     'SWITCH_LANGUAGE'   => '语言',
     'CHINESE'           => '中文',
     'ENGLISH'           => '英文',
 
     // 页脚
-    'WELCOME_TO_USE'    => '欢迎使用 {$appName}，<a href="https://github.com/blackpuppy/thinkblog">源代码</a>可自由获取，基于 <b>ThinkPHP</b> 版本 V{$thinkphpVersion}！',
+    'FOOTER_MESSAGE'    => '欢迎使用 {$appName}，基于 <b>ThinkPHP</b> 版本 V{$thinkphpVersion}！<a href="https://github.com/blackpuppy/thinkblog">源代码</a>可自由获取，欢迎 <a href="https://github.com/blackpuppy/thinkblog/issues/new">反馈和建议</a>！',
 
     // 主页
     'TECH_DESC'                 => '演示以下技术：',
@@ -65,6 +68,10 @@ return [
     'WEB_API_AUTHORIZATION'     => '用户授权',
     'WEB_API_OTHERS'            => '其他的 API',
     'ANGULARJS_1_CLIENT'        => 'AngularJS 1 客户端',
+    'ANGULARJS_1_CURD'          => 'CRUD',
+    'ANGULARJS_1_PAGINATION'    => '分页',
+    'ANGULARJS_1_TRANSLATION'   => '翻译',
+    'ANGULARJS_1_AUTH'          => '用户认证与授权',
     'USING_HTTPS'               => '使用 HTTPS',
     'UNIT_TESTING'              => '单元测试',
     'MULTI_LANGUAGES_IN_DATA'   => '数据中的多语言支持',
@@ -96,16 +103,17 @@ return [
     'GENDER'            => '性别',
 
     // 文章
-    'POST'              => '文章',
-    'POST_LISTING'      => '文章列表',
-    'FILTER_BY_AUTHOR'  => '按作者过滤',
-    'ALL_POSTS'         => '所有文章',
-    'MY_POSTS'          => '我的文章',
-    'CREATE_POST'       => '添加文章',
-    'CHANGE_POST'       => '修改文章',
-    'TITLE'             => '标题',
-    'CONTENT'           => '内容',
-    'AUTHOR'            => '作者',
+    'POST'                   => '文章',
+    'POST_LISTING'           => '文章列表',
+    'FILTER_BY_AUTHOR'       => '按作者过滤',
+    'ALL_POSTS'              => '所有文章',
+    'MY_POSTS'               => '我的文章',
+    'CREATE_POST'            => '添加文章',
+    'CHANGE_POST'            => '修改文章',
+    'TITLE'                  => '标题',
+    'CONTENT'                => '内容',
+    'AUTHOR'                 => '作者',
+    'CONFIRM_TO_DELETE_POST' => '您确认要删除这篇文章吗？',
 
     //--------------------------------------------------------------------------
     // 数据验证

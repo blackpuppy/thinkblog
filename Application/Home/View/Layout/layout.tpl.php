@@ -20,24 +20,20 @@
     <link rel="stylesheet" href="<?php echo mix('css/app.css'); ?>" />
 </head>
 <body>
-    <!-- <header>
-        <include file="Layout/header" />
-    </header> -->
-
-    <include file="Layout/menu" />
-
-    <!-- <aside>
-    </aside> -->
+    <header>
+        <include file="Partial/header" />
+    </header>
 
     <section>
         {__CONTENT__}
     </section>
 
     <footer class="footer">
-        <include file="Layout/footer" />
+        <include file="Partial/footer" />
     </footer>
 
-    <script src="<?php echo mix('js/app.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo mix('js/app.js'); ?>"></script>
+    <include file="Partial/url" />
 </body>
 
 </html>

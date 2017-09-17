@@ -21,17 +21,17 @@
 </head>
 <body>
     <header>
-        <include file="Partial/header" />
+        <ui-view name="header" />
     </header>
 
     <section>
-        <div class="container angularjs">
-            <ui-view></ui-view>
+        <div class="container">
+            <ui-view name="content" />
         </div>
     </section>
 
     <footer class="footer">
-        <include file="Partial/footer" />
+        <ui-view name="footer" />
     </footer>
 
     <script type="text/javascript" src="<?php echo mix('js/app.js'); ?>"></script>

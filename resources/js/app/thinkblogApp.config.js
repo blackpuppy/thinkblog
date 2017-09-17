@@ -16,7 +16,31 @@ angular.module('thinkblogApp')
         $httpProvider,
         jwtOptionsProvider
     ) {
-        $urlRouterProvider.otherwise('/posts');
+        $urlRouterProvider.otherwise('/');
+
+        var rootState = {
+            name: 'root',
+            abstract: true,
+            views: {
+                header: {
+                    name: 'menu',
+                    component: 'menu'
+                },
+                footer: {
+                    name: 'bottom',
+                    component: 'bottom'
+                }
+            }
+        };
+
+        var homeState = {
+            name: 'home',
+            url: '/',
+            views: {
+                'content@': 'home'
+            },
+            parent: 'root'
+        };
 
         var postListState = {
             name: 'post-list',
@@ -40,19 +64,23 @@ angular.module('thinkblogApp')
             }
         };
 
+        $stateProvider.state(rootState);
+        $stateProvider.state(homeState);
         $stateProvider.state(postListState);
         $stateProvider.state(postViewState);
 
         $translateProvider.useUrlLoader(ThinkBlog.getUrl(ThinkBlog.URL_API_TRANSLATE))
         $translateProvider.preferredLanguage('zh-CN');
         $translateProvider.determinePreferredLanguage();
+        // $translateProvider.useCookieStorage();
+        $translateProvider.useLocalStorage();
 
-        jwtOptionsProvider.config({
-            tokenGetter: [function() {
-                return localStorage.getItem('id_token');
-            }]
-        });
+        // jwtOptionsProvider.config({
+        //     tokenGetter: [function() {
+        //         return localStorage.getItem('id_token');
+        //     }]
+        // });
 
-        $httpProvider.interceptors.push('jwtInterceptor');
+        // $httpProvider.interceptors.push('jwtInterceptor');
     }
 ]);

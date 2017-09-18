@@ -45,7 +45,10 @@ angular.module('thinkblogApp')
         var postListState = {
             name: 'post-list',
             url: '/posts',
-            component: 'postList',
+            parent: 'root',
+            views: {
+                'content@': 'postList'
+            },
             resolve: {
                 data: function (Post) {
                     return Post.query();
@@ -56,7 +59,10 @@ angular.module('thinkblogApp')
         var postViewState = {
             name: 'post-view',
             url: '/posts/{id}',
-            component: 'postView',
+            parent: 'root',
+            views: {
+                'content@': 'postView'
+            },
             resolve: {
                 data: function(Post, $transition$) {
                     return Post.get({id: $transition$.params().id});
@@ -75,12 +81,14 @@ angular.module('thinkblogApp')
         // $translateProvider.useCookieStorage();
         $translateProvider.useLocalStorage();
 
-        jwtOptionsProvider.config({
-            tokenGetter: [function() {
-                return localStorage.getItem('id_token');
-            }]
-        });
+        // jwtOptionsProvider.config({
+        //     tokenGetter: ['options', '$log', function(options) {
+        //         $log.info('optios.url = ', optios.url);
 
-        $httpProvider.interceptors.push('jwtInterceptor');
+        //         return localStorage.getItem('id_token');
+        //     }]
+        // });
+
+        // $httpProvider.interceptors.push('jwtInterceptor');
     }
 ]);

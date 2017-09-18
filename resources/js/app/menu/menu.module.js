@@ -1,3 +1,6 @@
 'use strict';
 
-angular.module('menu', ['ui.bootstrap']);
+angular.module('menu', [
+	'ui.bootstrap',
+	'angular-jwt'
+]);

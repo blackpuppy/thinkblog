@@ -1,3 +1,61 @@
-<div>
-    <span>Header</span>
-</div>
+<nav class="navbar navbar-default navbar-static-top navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Branding Image -->
+            <a href="{{ $ctrl.homeUrl }}" class="navbar-brand">
+                {{ 'APPLICATION_NAME' | translate }}
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <!-- Left Side Of Navbar -->
+            <ul class="nav navbar-nav">
+                <li><a href="{{ $ctrl.postListUrl }}">{{ 'MENU_POSTS' | translate }}</a></li>
+                <li><a href="{{ $ctrl.angularjsUrl }}">{{ 'MENU_ANGULARJS' | translate }}</a></li>
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <if condition="!isAuthenticated()"> -->
+                    <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_LOGIN) }}">{{ 'LOGIN' | translate }}</a></li>
+                    <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_SIGNUP) }}">{{ 'SIGNUP' | translate }}</a></li>
+                <!-- <else /> -->
+                    <li uib-dropdown>
+                        <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
+                            user full name here
+                            <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                            <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.profile) }}">{{ 'MENU_PROFILE' | translate }}</a></li>
+                            <!-- <li role="separator" class="divider"></li>
+                            <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_USER) }}">用户</a></li> -->
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_LOGOUT) }}">{{ 'LOGOUT' | translate }}</a></li>
+                        </ul>
+                    </li>
+                <!-- </if> -->
+
+                <li dropdown>
+                    <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ 'SWITCH_LANGUAGE' | translate }}<span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                        <li><a href="?lang=zh-cn">{{ 'CHINESE' | translate }}</a></li>
+                        <li><a href="?lang=en-us">{{ 'ENGLISH' | translate }}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

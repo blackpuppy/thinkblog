@@ -75,12 +75,12 @@ angular.module('thinkblogApp')
         // $translateProvider.useCookieStorage();
         $translateProvider.useLocalStorage();
 
-        // jwtOptionsProvider.config({
-        //     tokenGetter: [function() {
-        //         return localStorage.getItem('id_token');
-        //     }]
-        // });
+        jwtOptionsProvider.config({
+            tokenGetter: [function() {
+                return localStorage.getItem('id_token');
+            }]
+        });
 
-        // $httpProvider.interceptors.push('jwtInterceptor');
+        $httpProvider.interceptors.push('jwtInterceptor');
     }
 ]);

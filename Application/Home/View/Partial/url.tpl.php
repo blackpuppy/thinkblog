@@ -1,6 +1,7 @@
 <script type="text/javascript">
     // 应用网址注入客户端
     ThinkBlog.setUrl(ThinkBlog.URL_HOME_PAGE,        '{:U("/")}');
+    ThinkBlog.setUrl(ThinkBlog.URL_ANGULARJS,        '{:U("/angularjs")}');
     ThinkBlog.setUrl(ThinkBlog.URL_SIGNUP,           '{:U("/signup")}');
     ThinkBlog.setUrl(ThinkBlog.URL_LOGIN,            '{:U("/login")}');
     ThinkBlog.setUrl(ThinkBlog.URL_LOGOUT,           '{:U("/logout")}');

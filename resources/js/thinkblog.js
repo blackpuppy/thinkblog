@@ -19,6 +19,7 @@
         // ---------------------------------------------------------------------
         // 客户端应用网址
         this.URL_HOME_PAGE          = 'URL_HOME_PAGE';
+        this.URL_ANGULARJS          = 'URL_ANGULARJS';
         this.URL_SIGNUP             = 'URL_SIGNUP';
         this.URL_LOGIN              = 'URL_LOGIN';
         this.URL_LOGOUT             = 'URL_LOGOUT';

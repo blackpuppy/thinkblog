@@ -9,6 +9,7 @@ angular.module('core.auth')
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
         service.isAuthenticated = isAuthenticated;
+        service.getCurrentUser = getCurrentUser;
 
         return service;
 
@@ -23,11 +24,13 @@ angular.module('core.auth')
         }
 
         function SetCredentials(data) {
+            $log.info('Auth.SetCredentials(): data = ', data);
+
             // var authdata = ThinkBlog.Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
                 token: data.token,
-                currentUser: data.user
+                currentUser: data.data.user
             };
 
             // set default auth header for http requests
@@ -46,9 +49,22 @@ angular.module('core.auth')
         }
 
         function isAuthenticated() {
-            return !!$rootScope.globals &&
-                !!$rootScope.globals.token
-                !jwtHelper.isTokenExpired($rootScope.globals.token);
+            var globals = $cookies.getObject('globals');
+
+            $log.info('Auth.isAuthenticated(): globals = ', globals);
+
+            return !!globals &&
+                !!globals.token
+                !jwtHelper.isTokenExpired(globals.token);
+        }
+
+        function getCurrentUser() {
+            var globals = $cookies.getObject('globals');
+
+            $log.info('Auth.getCurrentUser(): globals = ', globals);
+
+            return (!!globals && !!globals.currentUser) ?
+                globals.currentUser : null;
         }
     }
 ]);

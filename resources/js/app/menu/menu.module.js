@@ -2,5 +2,6 @@
 
 angular.module('menu', [
 	'ui.bootstrap',
-	'angular-jwt'
+	// 'angular-jwt',
+	'core.auth'
 ]);

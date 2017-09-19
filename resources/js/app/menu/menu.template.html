@@ -11,8 +11,8 @@
             </button>
 
             <!-- Branding Image -->
-            <a href="{{ $ctrl.homeUrl }}" class="navbar-brand">
-                {{ 'APPLICATION_NAME' | translate }}
+            <a href="{{ $ctrl.homeUrl }}" class="navbar-brand" translate>
+                APPLICATION_NAME
             </a>
         </div>
 
@@ -20,30 +20,27 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a ui-sref="post-list" translate>MENU_POSTS</a></li>
-                <li><a href="{{ $ctrl.angularjsUrl }}">{{ 'MENU_ANGULARJS' | translate }}</a></li>
+                <li><a href="{{ $ctrl.angularjsUrl }}" translate>MENU_ANGULARJS</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <!-- <if condition="!isAuthenticated()"> -->
-                    <li><a ui-sref="login" translate>LOGIN</a></li>
-                    <li><a ui-sref="login" translate>SIGNUP</a></li>
-                <!-- <else /> -->
-                    <li uib-dropdown>
-                        <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
-                            user full name here
-                            <span class="caret"></span>
-                        </a>
+                <li><a ui-sref="login" translate ng-if="!$ctrl.isAuthenticated">LOGIN</a></li>
+                <li><a ui-sref="login" translate ng-if="!$ctrl.isAuthenticated">SIGNUP</a></li>
+                <li uib-dropdown ng-if="$ctrl.isAuthenticated">
+                    <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ $ctrl.uesrDisplayName }}
+                        <span class="caret"></span>
+                    </a>
 
-                        <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-                            <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.profile) }}" translate>MENU_PROFILE</a></li>
-                            <!-- <li role="separator" class="divider"></li>
-                            <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_USER) }}">用户</a></li> -->
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_LOGOUT) }}" translate>LOGOUT</a></li>
-                        </ul>
-                    </li>
-                <!-- </if> -->
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                        <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.profile) }}" translate>MENU_PROFILE</a></li>
+                        <!-- <li role="separator" class="divider"></li>
+                        <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_USER) }}">用户</a></li> -->
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_LOGOUT) }}" translate>LOGOUT</a></li>
+                    </ul>
+                </li>
 
                 <li dropdown>
                     <a href="#" uib-dropdown-toggle data-toggle="dropdown"

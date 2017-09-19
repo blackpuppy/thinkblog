@@ -26,8 +26,8 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- <if condition="!isAuthenticated()"> -->
-                    <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_LOGIN) }}">{{ 'LOGIN' | translate }}</a></li>
-                    <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_SIGNUP) }}">{{ 'SIGNUP' | translate }}</a></li>
+                    <li><a ui-sref="login" translate>LOGIN</a></li>
+                    <li><a ui-sref="login" translate>SIGNUP</a></li>
                 <!-- <else /> -->
                     <li uib-dropdown>
                         <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
@@ -36,23 +36,25 @@
                         </a>
 
                         <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-                            <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.profile) }}">{{ 'MENU_PROFILE' | translate }}</a></li>
+                            <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.profile) }}" translate>MENU_PROFILE</a></li>
                             <!-- <li role="separator" class="divider"></li>
                             <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_USER) }}">用户</a></li> -->
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_LOGOUT) }}">{{ 'LOGOUT' | translate }}</a></li>
+                            <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_LOGOUT) }}" translate>LOGOUT</a></li>
                         </ul>
                     </li>
                 <!-- </if> -->
 
                 <li dropdown>
-                    <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ 'SWITCH_LANGUAGE' | translate }}<span class="caret"></span>
+                    <a href="#" uib-dropdown-toggle data-toggle="dropdown"
+                        role="button" aria-expanded="false" translate
+                    >
+                        SWITCH_LANGUAGE<span class="caret"></span>
                     </a>
 
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-                        <li><a href="?lang=zh-cn">{{ 'CHINESE' | translate }}</a></li>
-                        <li><a href="?lang=en-us">{{ 'ENGLISH' | translate }}</a></li>
+                        <li><a href="?lang=zh-cn" translate>CHINESE</a></li>
+                        <li><a href="?lang=en-us" translate>ENGLISH</a></li>
                     </ul>
                 </li>
             </ul>

@@ -9,10 +9,11 @@ angular.module('thinkblogApp', [
     'mwl.confirm',
     'angular-jwt',
 
-    'core.post',
+    'core',
     'menu',
     'bottom',
     'home',
+    'login',
     'postList',
     'postView'
 ]);

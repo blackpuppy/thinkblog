@@ -9,12 +9,13 @@ angular.module('menu')
             this.postListUrl = ThinkBlog.getUrl(ThinkBlog.URL_POST_LIST);
             this.angularjsUrl = ThinkBlog.getUrl(ThinkBlog.URL_ANGULARJS);
 
-            this.isAuthenticated = Auth.isAuthenticated();
+            this.isAuthenticated = !!$rootScope.globals.currentUser;
 
+            $log.info('menu: $rootScope.globals.currentUser = ', $rootScope.globals.currentUser);
             $log.info('menu: this.isAuthenticated = ', this.isAuthenticated);
 
             if (this.isAuthenticated) {
-                var user = Auth.getCurrentUser();
+                var user = $rootScope.globals.currentUser;
 
                 $log.info('menu: user = ', user);
 

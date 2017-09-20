@@ -8,8 +8,8 @@ angular.module('core.auth')
         service.Login = Login;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
-        service.isAuthenticated = isAuthenticated;
-        service.getCurrentUser = getCurrentUser;
+        // service.isAuthenticated = isAuthenticated;
+        // service.getCurrentUser = getCurrentUser;
 
         return service;
 
@@ -25,8 +25,6 @@ angular.module('core.auth')
 
         function SetCredentials(data) {
             $log.info('Auth.SetCredentials(): data = ', data);
-
-            // var authdata = ThinkBlog.Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
                 token: data.token,
@@ -48,23 +46,24 @@ angular.module('core.auth')
             $http.defaults.headers.common.Authorization = 'Bearer';
         }
 
-        function isAuthenticated() {
-            var globals = $cookies.getObject('globals');
+        // function isAuthenticated() {
+        //     var globals = $cookies.getObject('globals');
 
-            $log.info('Auth.isAuthenticated(): globals = ', globals);
+        //     $log.info('Auth.isAuthenticated(): cookie globals = ', globals);
+        //     $log.info('Auth.isAuthenticated(): $rootScope.globals = ', $rootScope.globals);
 
-            return !!globals &&
-                !!globals.token
-                !jwtHelper.isTokenExpired(globals.token);
-        }
+        //     return !!globals &&
+        //         !!globals.token
+        //         !jwtHelper.isTokenExpired(globals.token);
+        // }
 
-        function getCurrentUser() {
-            var globals = $cookies.getObject('globals');
+        // function getCurrentUser() {
+        //     var globals = $cookies.getObject('globals');
 
-            $log.info('Auth.getCurrentUser(): globals = ', globals);
+        //     $log.info('Auth.getCurrentUser(): globals = ', globals);
 
-            return (!!globals && !!globals.currentUser) ?
-                globals.currentUser : null;
-        }
+        //     return (!!globals && !!globals.currentUser) ?
+        //         globals.currentUser : null;
+        // }
     }
 ]);

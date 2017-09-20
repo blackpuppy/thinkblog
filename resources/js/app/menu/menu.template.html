@@ -25,9 +25,9 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a ui-sref="login" translate ng-if="!$ctrl.isAuthenticated">LOGIN</a></li>
-                <li><a ui-sref="login" translate ng-if="!$ctrl.isAuthenticated">SIGNUP</a></li>
-                <li uib-dropdown ng-if="$ctrl.isAuthenticated">
+                <li><a ui-sref="login" translate ng-if="!globals.currentUser">LOGIN</a></li>
+                <li><a ui-sref="login" translate ng-if="!globals.currentUser">SIGNUP</a></li>
+                <li uib-dropdown ng-if="!!globals.currentUser">
                     <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
                         {{ $ctrl.uesrDisplayName }}
                         <span class="caret"></span>
@@ -58,3 +58,15 @@
         </div>
     </div>
 </nav>
+
+<section ng-if="flash">
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

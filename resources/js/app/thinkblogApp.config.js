@@ -22,14 +22,8 @@ angular.module('thinkblogApp')
             name: 'root',
             abstract: true,
             views: {
-                header: {
-                    name: 'menu',
-                    component: 'menu'
-                },
-                footer: {
-                    name: 'bottom',
-                    component: 'bottom'
-                }
+                'header@': 'menu',
+                'footer@': 'bottom'
             }
         };
 
@@ -102,5 +96,33 @@ angular.module('thinkblogApp')
         });
 
         $httpProvider.interceptors.push('jwtInterceptor');
+    }
+])
+.run([
+    '$rootScope',
+    '$state',
+    '$cookies',
+    '$http',
+    '$log',
+    function run($rootScope, $state, $cookies, $http, $log) {
+        // keep user logged in after page refresh
+        $rootScope.globals = $cookies.getObject('globals') || {};
+        if (!!$rootScope.globals.currentUser) {
+            $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.globals.token;
+        }
+
+        $log.info('thinkblogApp.run(): $rootScope.globals = ', $rootScope.globals);
+        $log.info('thinkblogApp.run(): $state.current = ', $state.current);
+
+        $rootScope.$on('$stateChangeStart', function (evt, toState, toParams, fromState, fromParams) {
+            // redirect to login page if not logged in and trying to access a restricted page
+            var restrictedPage = $.inArray($state.current.name, ['home', 'login', 'signup']) === -1;
+            var loggedIn = !!$rootScope.globals.currentUser;
+            if (restrictedPage && !loggedIn) {
+                $log.info('thinkblogApp.run(): go to state login');
+
+                $state.go('login');
+            }
+        });
     }
 ]);

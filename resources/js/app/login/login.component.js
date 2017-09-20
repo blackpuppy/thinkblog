@@ -25,6 +25,7 @@ angular.module('login')
 
                     if (response.status === 200) {
                         Auth.SetCredentials(response.data);
+                        Flash.Success(response.data.meta.message);
                         $location.path('/');
                     } else {
                         Flash.Error(response.data.meta.message);

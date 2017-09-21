@@ -73,11 +73,26 @@ angular.module('thinkblogApp')
             }
         };
 
+        var postEditState = {
+            name: 'post-edit',
+            url: '/posts/{id}/edit',
+            parent: 'root',
+            views: {
+                'content@': 'postEdit'
+            },
+            resolve: {
+                data: function(Post, $transition$) {
+                    return Post.get({id: $transition$.params().id});
+                }
+            }
+        };
+
         $stateProvider.state(rootState);
         $stateProvider.state(homeState);
         $stateProvider.state(loginState);
         $stateProvider.state(postListState);
         $stateProvider.state(postViewState);
+        $stateProvider.state(postEditState);
 
         $translateProvider.useUrlLoader(ThinkBlog.getUrl(ThinkBlog.URL_API_TRANSLATE))
         $translateProvider.preferredLanguage('zh-CN');

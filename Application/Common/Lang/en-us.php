@@ -142,6 +142,7 @@ return [
 
     // Validation - Post
     'TITLE_REQUIRED'            => 'Title is required!',
+    'TITLE_TOO_LONG'            => 'Title cannot be longer than 255 characters!',
     'CONTENT_REQUIRED'          => 'Content is required!',
     'NOT_AUTHOR'                => 'You are not authorized to modify this post!',
 

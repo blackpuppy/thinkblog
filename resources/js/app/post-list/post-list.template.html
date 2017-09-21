@@ -24,7 +24,9 @@
                         <td>{{ post.content }}</td>
                         <td class="text-nowrap">{{ post.author.name }}</td>
                         <td class="text-nowrap">
-                            <a href="{{ '/posts/update/' + post.id }}" class="btn btn-primary" translate>
+                            <a ui-sref="post-edit({ id: post.id })" class="btn btn-primary" translate
+                                ng-disabled="$root.globals.currentUser.id !== post.author_user_id"
+                            >
                                 CHANGE
                             </a>
                             <button type="button" class="btn btn-danger"
@@ -39,6 +41,7 @@
                                 cancel-button-type="danger"
 
                                 data-delete-url="{{ '/posts/delete/' . post.id }}"
+                                ng-disabled="$root.globals.currentUser.id !== post.author_user_id"
                                 translate
                             >
                                 DELETE

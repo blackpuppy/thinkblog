@@ -47,6 +47,7 @@ mix.copy('./resources/js/app/home/*.html', './webroot/Public/template/home');
 mix.copy('./resources/js/app/login/*.html', './webroot/Public/template/login');
 mix.copy('./resources/js/app/post-list/*.html', './webroot/Public/template/post-list');
 mix.copy('./resources/js/app/post-view/*.html', './webroot/Public/template/post-view');
+mix.copy('./resources/js/app/post-edit/*.html', './webroot/Public/template/post-edit');
 
 if (mix.inProduction()) {
     mix.version();

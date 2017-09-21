@@ -142,6 +142,7 @@ return [
 
     // 数据验证 - 文章
     'TITLE_REQUIRED'            => '标题必须填写！',
+    'TITLE_TOO_LONG'            => '标题最长255个字符！',
     'CONTENT_REQUIRED'          => '内容必须填写！',
     'NOT_AUTHOR'                => '你无权修改这篇文章！',
 

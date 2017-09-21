@@ -26,7 +26,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <a href="{{ '/posts/' + $ctrl.id + '/edit' }}" class="btn btn-primary" translate>CHANGE</a>
+                <a ui-sref="post-edit({id: $ctrl.id})" class="btn btn-primary" translate>CHANGE</a>
                 <a ui-sref="post-list" class="btn btn-default" translate>CANCEL</a>
             </div>
         </div>

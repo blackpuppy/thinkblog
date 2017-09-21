@@ -34,3 +34,4 @@ require('./app/home/');
 require('./app/login/');
 require('./app/post-list/');
 require('./app/post-view/');
+require('./app/post-edit/');

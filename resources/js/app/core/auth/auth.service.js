@@ -8,8 +8,6 @@ angular.module('core.auth')
         service.Login = Login;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
-        // service.isAuthenticated = isAuthenticated;
-        // service.getCurrentUser = getCurrentUser;
 
         return service;
 
@@ -31,6 +29,8 @@ angular.module('core.auth')
                 currentUser: data.data.user
             };
 
+            $log.info('Auth.SetCredentials(): $rootScope.globals = ', $rootScope.globals);
+
             // set default auth header for http requests
             $http.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
 
@@ -45,25 +45,5 @@ angular.module('core.auth')
             $cookies.remove('globals');
             $http.defaults.headers.common.Authorization = 'Bearer';
         }
-
-        // function isAuthenticated() {
-        //     var globals = $cookies.getObject('globals');
-
-        //     $log.info('Auth.isAuthenticated(): cookie globals = ', globals);
-        //     $log.info('Auth.isAuthenticated(): $rootScope.globals = ', $rootScope.globals);
-
-        //     return !!globals &&
-        //         !!globals.token
-        //         !jwtHelper.isTokenExpired(globals.token);
-        // }
-
-        // function getCurrentUser() {
-        //     var globals = $cookies.getObject('globals');
-
-        //     $log.info('Auth.getCurrentUser(): globals = ', globals);
-
-        //     return (!!globals && !!globals.currentUser) ?
-        //         globals.currentUser : null;
-        // }
     }
 ]);

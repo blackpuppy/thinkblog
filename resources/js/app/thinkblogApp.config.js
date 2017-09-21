@@ -112,7 +112,7 @@ angular.module('thinkblogApp')
         }
 
         $log.info('thinkblogApp.run(): $rootScope.globals = ', $rootScope.globals);
-        $log.info('thinkblogApp.run(): $state.current = ', $state.current);
+        // $log.info('thinkblogApp.run(): $state.current = ', $state.current);
 
         $rootScope.$on('$stateChangeStart', function (evt, toState, toParams, fromState, fromParams) {
             // redirect to login page if not logged in and trying to access a restricted page

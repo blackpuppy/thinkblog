@@ -4,11 +4,11 @@ angular.module('login')
 .component('login', {
     templateUrl: 'Public/template/login/login.template.html',
     controller: [
-        '$location',
+        '$state',
         'Auth',
         'Flash',
         '$log',
-        function LoginController($location, Auth, Flash, $log) {
+        function LoginController($state, Auth, Flash, $log) {
             var self = this;
 
             self.login = login;
@@ -24,9 +24,9 @@ angular.module('login')
                     $log.info('login() response = ', response);
 
                     if (response.status === 200) {
-                        Auth.SetCredentials(response.data);
                         Flash.Success(response.data.meta.message);
-                        $location.path('/');
+                        Auth.SetCredentials(response.data);
+                        $state.go('home');
                     } else {
                         Flash.Error(response.data.meta.message);
                         self.dataLoading = false;

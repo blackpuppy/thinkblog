@@ -25,11 +25,11 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a ui-sref="login" translate ng-if="!globals.currentUser">LOGIN</a></li>
-                <li><a ui-sref="login" translate ng-if="!globals.currentUser">SIGNUP</a></li>
-                <li uib-dropdown ng-if="!!globals.currentUser">
+                <li><a ui-sref="login" translate ng-if="!$root.globals.currentUser">LOGIN</a></li>
+                <li><a ui-sref="login" translate ng-if="!$root.globals.currentUser">SIGNUP</a></li>
+                <li uib-dropdown ng-if="!!$root.globals.currentUser">
                     <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ $ctrl.uesrDisplayName }}
+                        {{ $ctrl.getFullName($root.globals.currentUser) }}
                         <span class="caret"></span>
                     </a>
 

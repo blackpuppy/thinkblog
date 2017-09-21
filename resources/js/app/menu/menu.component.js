@@ -9,18 +9,11 @@ angular.module('menu')
             this.postListUrl = ThinkBlog.getUrl(ThinkBlog.URL_POST_LIST);
             this.angularjsUrl = ThinkBlog.getUrl(ThinkBlog.URL_ANGULARJS);
 
-            this.isAuthenticated = !!$rootScope.globals.currentUser;
-
-            $log.info('menu: $rootScope.globals.currentUser = ', $rootScope.globals.currentUser);
-            $log.info('menu: this.isAuthenticated = ', this.isAuthenticated);
-
-            if (this.isAuthenticated) {
-                var user = $rootScope.globals.currentUser;
-
-                $log.info('menu: user = ', user);
-
-                var profile = user.profile;
-                this.uesrDisplayName = profile.first_name + ' ' + profile.last_name;
+            this.getFullName = function(user) {
+                if (user) {
+                    return user.profile.first_name + ' ' + user.profile.last_name;
+                }
+                return null;
             }
         }
     ]

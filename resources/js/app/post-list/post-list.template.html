@@ -24,11 +24,12 @@
                         <td>{{ post.content }}</td>
                         <td class="text-nowrap">{{ post.author.name }}</td>
                         <td class="text-nowrap">
-                            <a ui-sref="post-edit({ id: post.id })" class="btn btn-primary" translate
+                            <button type="button" class="btn btn-primary"
                                 ng-disabled="$root.globals.currentUser.id !== post.author_user_id"
+                                ng-click="$ctrl.editPost(post.id)" translate
                             >
                                 CHANGE
-                            </a>
+                            </button>
                             <button type="button" class="btn btn-danger"
                                 mwl-confirm
                                 data-title="<h5 class='text-center'><strong>{{ 'CONFIRM_TITLE' | translate }}</strong></h5>"

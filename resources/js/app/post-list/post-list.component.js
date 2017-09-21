@@ -6,9 +6,10 @@ angular.module('postList')
     templateUrl: 'Public/template/post-list/post-list.template.html',
     controller: [
         '$scope',
+        '$state',
         'Post',
         '$log',
-        function($scope, Post, $log) {
+        function($scope, $state, Post, $log) {
             var self = this;
             this.pageChange = function() {
                 // $log.info('self.data.queryParams.page = ', self.data.queryParams.page);
@@ -19,6 +20,11 @@ angular.module('postList')
                     self.data = response;
                 });
             };
+
+            this.editPost = function(id) {
+
+                $state.go('post-edit', { id: id });
+            }
         }
     ]
 });

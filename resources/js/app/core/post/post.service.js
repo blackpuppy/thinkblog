@@ -11,6 +11,10 @@ angular.module('core.post')
             query: {
                 method: 'GET',
                 params: {id: '@id'}
+            },
+            update: {
+                method: 'POST',
+                params: {id: '@id'}
             }
         });
     }

@@ -21,7 +21,7 @@ class ConfigListController extends BaseController
      * 获取配置列表。
      * @return void
      */
-    public function getConfigList()
+    public function index()
     {
         $msg = PHP_EOL . 'Api\Controller\ConfigListApiController::index():';
 

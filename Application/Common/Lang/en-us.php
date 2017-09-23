@@ -109,6 +109,7 @@ return [
     'ALL_POSTS'              => 'All Posts',
     'MY_POSTS'               => 'My Posts',
     'CREATE_POST'            => 'New Post',
+    'VIEW_POST'              => 'View Post',
     'CHANGE_POST'            => 'Cange Post',
     'TITLE'                  => 'Title',
     'CONTENT'                => 'Content',

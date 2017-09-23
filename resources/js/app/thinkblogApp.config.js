@@ -90,9 +90,12 @@ angular.module('thinkblogApp')
                 'content@': 'postView'
             },
             resolve: {
-                data: function(Post, $transition$) {
-                    return Post.get({id: $transition$.params().id});
-                }
+                data: [
+                    'Post', '$transition$',
+                    function(Post, $transition$) {
+                        return Post.get({id: $transition$.params().id});
+                    }
+                ]
             }
         };
 
@@ -104,9 +107,12 @@ angular.module('thinkblogApp')
                 'content@': 'postEdit'
             },
             resolve: {
-                data: function(Post, $transition$) {
-                    return Post.get({id: $transition$.params().id});
-                }
+                data: [
+                    'Post', '$transition$',
+                    function(Post, $transition$) {
+                        return Post.get({id: $transition$.params().id});
+                    }
+                ]
             }
         };
 
@@ -119,6 +125,33 @@ angular.module('thinkblogApp')
             }
         };
 
+        var profileViewState = {
+            name: 'profile-view',
+            url: '/profile',
+            parent: 'root',
+            views: {
+                'content@': 'profileView'
+            },
+            resolve: {
+                data: [
+                    'Profile', '$log',
+                    function(Profile, $log) {
+                        return Profile.get({}, function(res) {
+                            $log.info('Profile resolved = ', res);
+                        });
+                    }
+                ],
+                genders: [
+                    'ConfigList', '$log',
+                    function(ConfigList, $log) {
+                        return ConfigList.get({ list_name: 'gender' }, function(res) {
+                            $log.info('ConfigList resolved = ', res);
+                        });
+                    }
+                ]
+            }
+        };
+
         $stateProvider.state(rootState);
         $stateProvider.state(homeState);
         $stateProvider.state(loginState);
@@ -126,6 +159,7 @@ angular.module('thinkblogApp')
         $stateProvider.state(postViewState);
         $stateProvider.state(postEditState);
         $stateProvider.state(postCreateState);
+        $stateProvider.state(profileViewState);
 
         $translateProvider.useUrlLoader(ThinkBlog.getUrl(ThinkBlog.URL_API_TRANSLATE))
         $translateProvider.preferredLanguage('zh-CN');

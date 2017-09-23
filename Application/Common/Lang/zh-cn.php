@@ -109,6 +109,7 @@ return [
     'ALL_POSTS'              => '所有文章',
     'MY_POSTS'               => '我的文章',
     'CREATE_POST'            => '添加文章',
+    'VIEW_POST'              => '查看文章',
     'CHANGE_POST'            => '修改文章',
     'TITLE'                  => '标题',
     'CONTENT'                => '内容',

@@ -1,0 +1,110 @@
+<div class="container">
+    <h1 translate>VIEW_PROFILE</h1>
+
+    <div class="form form-horizontal">
+        <div class="form-group">
+            <label for="title" class="control-label col-sm-2">
+                {{ 'USER_NAME' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="user[name]"
+                    placeholder="{{ 'USER_NAME' | translate }}" disabled="true"
+                    value="{{ $ctrl.data.user.name }}" autofocus="true">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="control-label col-sm-2">
+                {{ 'EMAIL' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-6">
+                <input type="email" class="form-control" name="user[email]"
+                    placeholder="{{ 'EMAIL' | translate }}" value="{{ $ctrl.data.user.email }}"
+                    disabled="true">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="title" class="control-label col-sm-2">
+                {{ 'FULL_NAME' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-6" ng-if="$translate.use() === 'zh'">
+                <input type="text" name="profile[last_name]"
+                    placeholder="{{ 'LAST_NAME' | translate }}"
+                    value="{{ $ctrl.data.user.profile.last_name }}" disabled="true" readonly>
+                <input type="text" name="profile[first_name]"
+                    placeholder="{{ 'FIRST_NAME' | translate }}"
+                    value="{{ $ctrl.data.user.profile.first_name }}" disabled="true" readonly>
+            </div>
+            <div class="col-md-6" ng-if="$translate.use() !== 'zh'">
+                <input type="text" name="profile[first_name]"
+                    placeholder="{{ 'FIRST_NAME' | translate }}"
+                    value="{{ $ctrl.data.user.profile.first_name }}" disabled="true" readonly>
+                <input type="text" name="profile[last_name]"
+                    placeholder="{{ 'LAST_NAME' | translate }}"
+                    value="{{ $ctrl.data.user.profile.last_name }}" disabled="true" readonly>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender_key" class="control-label col-sm-2">
+                {{ 'GENDER' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-2">
+                <select id="gender_key" name="profile[gender_key]"
+                    class="form-control" disabled="true"
+                >
+                    <option value="">
+                        -- {{ 'SELECT_ONE' | translate }} --
+                    </option>
+                    <option
+                        ng-repeat="gender in $ctrl.genders"
+                        value="{{ gender.list_key }}" ng-selected="gender.list_key === $ctrl.data.user.profile.gender_key"
+                    >
+                        {{ gender.list_value_desc.toUpperCase() | translate }}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone" class="control-label col-sm-2">
+                {{ 'PHONE' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-3">
+                <input type="text" id="phone" name="profile[phone]"
+                    value="{{ $ctrl.data.user.profile.phone }}"
+                    class="form-control" disabled="true">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="address" class="control-label col-sm-2">
+                {{ 'ADDRESS' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-8">
+                <input type="text" id="address" name="profile[address]"
+                    value="{{ $ctrl.data.user.profile.address }}"
+                    class="form-control" disabled="true">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="postal_code" class="control-label col-sm-2">
+                {{ 'POSTAL_CODE' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-2">
+                <input type="text" id="postal_code" name="profile[postal_code]"
+                    value="{{ $ctrl.data.user.profile.postal_code }}"
+                    class="form-control" disabled="true">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a ui-sref="profile-edit" class="btn btn-primary" translate>CHANGE</a>
+                <a ui-sref="post-list" class="btn btn-default" translate>CANCEL</a>
+            </div>
+        </div>
+    </div>
+</div>

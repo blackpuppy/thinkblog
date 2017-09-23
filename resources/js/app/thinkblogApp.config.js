@@ -104,12 +104,22 @@ angular.module('thinkblogApp')
             }
         };
 
+        var postCreateState = {
+            name: 'post-create',
+            url: '/post/create',
+            parent: 'root',
+            views: {
+                'content@': 'postCreate'
+            }
+        };
+
         $stateProvider.state(rootState);
         $stateProvider.state(homeState);
         $stateProvider.state(loginState);
         $stateProvider.state(postListState);
         $stateProvider.state(postViewState);
         $stateProvider.state(postEditState);
+        $stateProvider.state(postCreateState);
 
         $translateProvider.useUrlLoader(ThinkBlog.getUrl(ThinkBlog.URL_API_TRANSLATE))
         $translateProvider.preferredLanguage('zh-CN');
@@ -150,7 +160,10 @@ angular.module('thinkblogApp')
 
         $rootScope.$on('$stateChangeStart', function (evt, toState, toParams, fromState, fromParams) {
             // redirect to login page if not logged in and trying to access a restricted page
-            var restrictedPage = $.inArray($state.current.name, ['home', 'login', 'signup']) === -1;
+            var restrictedPage = $.inArray(
+                $state.current.name,
+                ['home', 'login', 'signup']
+            ) === -1;
             var loggedIn = !!$rootScope.globals.currentUser;
             if (restrictedPage && !loggedIn) {
                 $log.info('thinkblogApp.run(): go to state login');

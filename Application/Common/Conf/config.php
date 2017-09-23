@@ -78,6 +78,8 @@ return [
 
 
         // API
+        ['api/config_list/', 'Api/ConfigList/getConfigList', '', ['method' => 'get']],
+
         ['api/signup',      'Api/User/signup',      '', ['method' => 'post']],
         ['api/login',       'Api/User/login',       '', ['method' => 'post']],
 

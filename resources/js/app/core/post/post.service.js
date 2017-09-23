@@ -10,7 +10,12 @@ angular.module('core.post')
         return $resource(url, {id: '@id'}, {
             query: {
                 method: 'GET',
-                params: {id: '@id'}
+                params: {
+                    filter: null,
+                    order: null,
+                    pageSize: null,
+                    page: null
+                }
             },
             update: {
                 method: 'POST',

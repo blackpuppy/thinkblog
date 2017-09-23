@@ -64,15 +64,21 @@ angular.module('thinkblogApp')
 
         var postListState = {
             name: 'post-list',
-            url: '/posts',
+            url: '/posts?filter&order&pageSize&page',
             parent: 'root',
             views: {
                 'content@': 'postList'
             },
             resolve: {
-                data: function (Post) {
-                    return Post.query();
-                }
+                data: [
+                    '$stateParams',
+                    '$log',
+                    'Post',
+                    function ($stateParams, $log, Post) {
+                        $log.info('state post-list: $stateParams = ', $stateParams);
+                        return Post.query($stateParams);
+                    }
+                ]
             }
         };
 

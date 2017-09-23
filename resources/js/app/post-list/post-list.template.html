@@ -16,8 +16,8 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="{:U('/posts')}" translate>ALL_POSTS</a></li>
-                        <li><a href="{:U('/posts', ['filter' => 'author|me'])}" translate>MY_POSTS</a></li>
+                        <li><a ui-sref="post-list({ filter: '' })" translate>ALL_POSTS</a></li>
+                        <li><a ui-sref="post-list({ filter: 'author|me' })" translate>MY_POSTS</a></li>
                     </ul>
                 </div>
                 <div class="btn-group" role="group" aria-label="create-post">

@@ -7,7 +7,7 @@ angular.module('core.post')
 
     	$log.info('Post: url = ', url);
 
-        return $resource(url, {}, {
+        return $resource(url, {id: '@id'}, {
             query: {
                 method: 'GET',
                 params: {id: '@id'}

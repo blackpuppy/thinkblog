@@ -22,8 +22,13 @@ angular.module('postList')
             };
 
             this.editPost = function(id) {
-
                 $state.go('post-edit', { id: id });
+            }
+
+            this.deletePost = function(id) {
+                Post.delete({}, {id: id}, function() {
+                    $state.reload();
+                });
             }
         }
     ]

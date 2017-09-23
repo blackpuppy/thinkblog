@@ -58,12 +58,12 @@
                                 message="{{ 'CONFIRM_TO_DELETE_POST' | translate }}"
                                 confirm-text="<i class='glyphicon glyphicon-ok'></i> {{ 'YES' | translate }}"
                                 cancel-text="<i class='glyphicon glyphicon-remove'></i> {{ 'NO' | translate }}"
-                                on-confirm="confirmClicked = true"
-                                on-cancel="cancelClicked = true"
+                                on-confirm="$ctrl.deletePost(post.id)"
                                 confirm-button-type="success"
                                 cancel-button-type="danger"
+                                focus-button="confirm"
+                                animation="true"
 
-                                data-delete-url="{{ '/posts/delete/' . post.id }}"
                                 ng-disabled="$root.globals.currentUser.id !== post.author_user_id"
                                 translate
                             >

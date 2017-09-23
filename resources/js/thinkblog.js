@@ -34,6 +34,7 @@
         this.URL_UPDATE_POST        = 'URL_UPDATE_POST';
         this.URL_DELETE_POST        = 'URL_DELETE_POST';
 
+        this.URL_API_CONFIG_LIST    = 'URL_API_CONFIG_LIST';
         this.URL_API_SIGNUP         = 'URL_API_SIGNUP';
         this.URL_API_LOGIN          = 'URL_API_LOGIN';
         this.URL_API_SHOW_PROFILE   = 'URL_API_VIEW_PROFILE';

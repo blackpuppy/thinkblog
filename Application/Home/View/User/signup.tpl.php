@@ -11,7 +11,7 @@
 
     <form action="" method="post" class="form-horizontal">
         <div class="form-group">
-            <label for="title" class="control-label col-sm-2">
+            <label for="name" class="control-label col-sm-2">
                 {$Think.lang.USER_NAME}{$Think.lang.COLON}
             </label>
             <div class="col-md-3">

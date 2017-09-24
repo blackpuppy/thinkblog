@@ -1,0 +1,94 @@
+<div class="container">
+    <h1 translate>SIGNUP</h1>
+
+    <form name="singupForm" role="form" class="form-horizontal"
+        ng-submit="$ctrl.signup(singupForm.$valid)"
+    >
+        <div class="form-group"
+            ng-class="{ 'has-error': singupForm.username.$dirty && singupForm.username.$error.required }"
+        >
+            <label for="name" class="control-label col-sm-2">
+                {{ 'USER_NAME' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="name" name="name"
+                    placeholder="{{ 'USER_NAME' | translate }}"
+                    ng-model="$ctrl.username" autofocus="true">
+                <span ng-show="singupForm.username.$dirty && singupForm.username.$error.required"
+                    class="help-block" translate
+                >
+                    NAME_REQUIRED
+                </span>
+                <span ng-show="singupForm.username.$dirty && singupForm.username.$error.duplicate"
+                    class="help-block" translate
+                >
+                    NAME_DUPLICATE
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group"
+            ng-class="{ 'has-error': singupForm.password.$dirty && singupForm.password.$error.required }"
+        >
+            <label for="password" class="control-label col-sm-2">
+                {{ 'PASSWORD' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-3">
+                <input type="password" class="form-control" id="password" name="password"
+                    placeholder="{{ 'PASSWORD' | translate }}"
+                    ng-model="$ctrl.password">
+                <span ng-show="singupForm.password.$dirty && singupForm.password.$error.required"
+                    class="help-block" translate
+                >
+                    PASSWORD_REQUIRED
+                </span>
+                <span ng-show="singupForm.password.$dirty && singupForm.password.$error.length"
+                    class="help-block" translate
+                >
+                    PASSWORD_LENGTH
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group"
+            ng-class="{ 'has-error': singupForm.confirm_password.$dirty && singupForm.confirm_password.$error.required }"
+        >
+            <label for="confirm_password" class="control-label col-sm-2">
+                {{ 'CONFIRM_PASSWORD' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-3">
+                <input type="password" class="form-control"
+                    id="confirm_password" name="confirm_password"
+                    placeholder="{{ 'CONFIRM_PASSWORD' | translate }}"
+                    ng-model="$ctrl.confirm_password">
+                <span ng-show="singupForm.confirm_password.$dirty && singupForm.confirm_password.$error.dismatch"
+                    class="help-block" translate
+                >
+                    CONFIRM_PASSWORD_DISMATCH
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="control-label col-sm-2">
+                {{ 'EMAIL' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-6">
+                <input type="email" class="form-control" id="email" name="email"
+                    placeholder="{{ 'EMAIL' | translate }}"
+                    ng-model="$ctrl.email">
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <div class="col-sm-offset-2 col-sm-4">
+                <input type="submit" class="btn btn-success"
+                    translate-attr="{ value: 'SIGNUP' }"
+                    ng-disabled="singupForm.$invalid || $ctrl.dataLoading"
+                >
+                <img ng-if="$ctrl.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                <a ui-sref="login" class="btn btn-default btn-link" translate>LOGIN</a>
+            </div>
+        </div>
+    </form>
+</div>

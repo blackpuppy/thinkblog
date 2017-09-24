@@ -10,10 +10,15 @@ angular.module('menu')
             this.angularjsUrl = ThinkBlog.getUrl(ThinkBlog.URL_ANGULARJS);
 
             this.getFullName = function(user) {
+                var displayName = null;
                 if (user) {
-                    return user.profile.first_name + ' ' + user.profile.last_name;
+                    if (user.profile) {
+                        displayName = user.profile.first_name + ' ' + user.profile.last_name;
+                    } else {
+                        displayName = user.name;
+                    }
                 }
-                return null;
+                return displayName;
             }
 
             this.logOut = function() {

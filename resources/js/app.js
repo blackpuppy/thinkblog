@@ -30,7 +30,7 @@ require('./app/core/');
 require('./app/menu/');
 require('./app/bottom/');
 require('./app/home/');
-// require('./app/signup/');
+require('./app/signup/');
 require('./app/login/');
 require('./app/post-list/');
 require('./app/post-view/');

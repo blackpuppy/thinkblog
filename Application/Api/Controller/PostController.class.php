@@ -46,7 +46,7 @@ class PostController extends BaseController
             throw $e;
         } finally {
             $msg .= PHP_EOL . str_repeat('-', 80);
-            \Think\Log::write($msg, 'DEBUG');
+            // \Think\Log::write($msg, 'DEBUG');
         }
     }
 
@@ -153,7 +153,7 @@ class PostController extends BaseController
 
         $msg .= PHP_EOL . '  $data = ' . print_r($data, true);
         $msg .= PHP_EOL . str_repeat('-', 80);
-        \Think\Log::write($msg, 'DEBUG');
+        // \Think\Log::write($msg, 'DEBUG');
 
         $this->response($data, 'json', 200);
     }
@@ -175,6 +175,7 @@ class PostController extends BaseController
 
         try {
             $Post = D('Home/Post');
+
             $oldPost = $Post->find($id);
 
             $msg .= PHP_EOL . '  $oldPost = ' . print_r($oldPost, true);
@@ -186,15 +187,6 @@ class PostController extends BaseController
                 return;
             }
 
-            if (!$Post->checkAuthor($post)) {
-                $msg .= PHP_EOL . '  ' . L('UNAUTHORIZED');
-                $msg .= PHP_EOL . str_repeat('-', 80);
-                \Think\Log::write($msg, 'DEBUG');
-
-                $this->response(L('UNAUTHORIZED'), 'json', 401);
-                return;
-            }
-
             $input = $this->getPostInput();
 
             $msg .= PHP_EOL . '  $input = ' . print_r($input, true);
@@ -203,6 +195,15 @@ class PostController extends BaseController
 
             $msg .= PHP_EOL . '  $updatedPost = ' . print_r($updatedPost, true);
 
+            if (!$Post->checkAuthor($updatedPost)) {
+                $msg .= PHP_EOL . '  ' . L('UNAUTHORIZED');
+                $msg .= PHP_EOL . str_repeat('-', 80);
+                \Think\Log::write($msg, 'DEBUG');
+
+                $this->response(L('UNAUTHORIZED'), 'json', 401);
+                return;
+            }
+
             if (!$updatedPost) {
                 $msg .= PHP_EOL . '  validation error: ' . $Post->getError();
 
@@ -210,6 +211,9 @@ class PostController extends BaseController
                     'post' => $input,
                     'validationError' => $Post->getError(),
                 ];
+
+                $msg .= PHP_EOL . str_repeat('-', 80);
+                \Think\Log::write($msg, 'DEBUG');
 
                 $this->response($data, 'json', 400);
             } else {
@@ -250,7 +254,7 @@ class PostController extends BaseController
             throw $e;
         } finally {
             $msg .= PHP_EOL . str_repeat('-', 80);
-            // \Think\Log::write($msg, 'DEBUG');
+            \Think\Log::write($msg, 'DEBUG');
         }
     }
 

@@ -1,0 +1,72 @@
+<nav class="navbar navbar-default navbar-static-top navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Branding Image -->
+            <a href="{{ $ctrl.homeUrl }}" class="navbar-brand" translate>
+                APPLICATION_NAME
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <!-- Left Side Of Navbar -->
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="post-list" translate>MENU_POSTS</a></li>
+                <li><a href="{{ $ctrl.angularjsUrl }}" translate>MENU_ANGULARJS</a></li>
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref="login" translate ng-if="!$root.globals.currentUser">LOGIN</a></li>
+                <li><a ui-sref="login" translate ng-if="!$root.globals.currentUser">SIGNUP</a></li>
+                <li uib-dropdown ng-if="!!$root.globals.currentUser">
+                    <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ $ctrl.getFullName($root.globals.currentUser) }}
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                        <li><a ui-sref="profile-view" translate>MENU_PROFILE</a></li>
+                        <!-- <li role="separator" class="divider"></li>
+                        <li><a href="{{ ThinkBlog.getUrl(ThinkBlog.URL_USER) }}">用户</a></li> -->
+                        <li role="separator" class="divider"></li>
+                        <li><a ng-click="$ctrl.logOut()" translate>LOGOUT</a></li>
+                    </ul>
+                </li>
+
+                <li dropdown>
+                    <a href="#" uib-dropdown-toggle data-toggle="dropdown"
+                        role="button" aria-expanded="false"
+                    >
+                        {{ 'SWITCH_LANGUAGE' | translate}}<span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                        <li><a href="?lang=zh-cn" translate>CHINESE</a></li>
+                        <li><a href="?lang=en-us" translate>ENGLISH</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section ng-if="flash">
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

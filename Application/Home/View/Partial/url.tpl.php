@@ -1,6 +1,7 @@
 <script type="text/javascript">
     // 应用网址注入客户端
     ThinkBlog.setUrl(ThinkBlog.URL_HOME_PAGE,        '{:U("/")}');
+    ThinkBlog.setUrl(ThinkBlog.URL_ANGULARJS,        '{:U("/angularjs")}');
     ThinkBlog.setUrl(ThinkBlog.URL_SIGNUP,           '{:U("/signup")}');
     ThinkBlog.setUrl(ThinkBlog.URL_LOGIN,            '{:U("/login")}');
     ThinkBlog.setUrl(ThinkBlog.URL_LOGOUT,           '{:U("/logout")}');
@@ -15,6 +16,7 @@
     ThinkBlog.setUrl(ThinkBlog.URL_UPDATE_POST,      '{:U("/posts/update/:id")}');
     ThinkBlog.setUrl(ThinkBlog.URL_DELETE_POST,      '{:U("/posts/delete/:id")}');
 
+    ThinkBlog.setUrl(ThinkBlog.URL_API_CONFIG_LIST,  '{:U("/api/config_list")}');
     ThinkBlog.setUrl(ThinkBlog.URL_API_SIGNUP,       '{:U("/api/signup")}');
     ThinkBlog.setUrl(ThinkBlog.URL_API_LOGIN,        '{:U("/api/login")}');
     ThinkBlog.setUrl(ThinkBlog.URL_API_SHOW_PROFILE, '{:U("/api/profile")}');

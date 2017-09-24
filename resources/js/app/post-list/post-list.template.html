@@ -5,6 +5,28 @@
         </div>
     </div>
 
+    <div class="row"
+        ng-show="!!$root.globals.currentUser.id"
+    >
+        <div class="col-md-12">
+            <div class="btn-toolbar" role="toolbar" aria-label="post-toolbar">
+                <div class="btn-group" role="group" aria-label="post-filter">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ 'FILTER_BY_AUTHOR' | translate }}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="post-list({ filter: '' })" translate>ALL_POSTS</a></li>
+                        <li><a ui-sref="post-list({ filter: 'author|me' })" translate>MY_POSTS</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group" role="group" aria-label="create-post">
+                    <a ui-sref="post-create" class="btn btn-primary" translate>CREATE_POST</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="post-listing row">
         <div class="col-md-10">
             <table class="table table-striped table-bordered table-hover">
@@ -24,21 +46,25 @@
                         <td>{{ post.content }}</td>
                         <td class="text-nowrap">{{ post.author.name }}</td>
                         <td class="text-nowrap">
-                            <a href="{{ '/posts/update/' + post.id }}" class="btn btn-primary" translate>
+                            <button type="button" class="btn btn-primary"
+                                ng-disabled="$root.globals.currentUser.id !== post.author_user_id"
+                                ng-click="$ctrl.editPost(post.id)" translate
+                            >
                                 CHANGE
-                            </a>
+                            </button>
                             <button type="button" class="btn btn-danger"
                                 mwl-confirm
                                 data-title="<h5 class='text-center'><strong>{{ 'CONFIRM_TITLE' | translate }}</strong></h5>"
                                 message="{{ 'CONFIRM_TO_DELETE_POST' | translate }}"
                                 confirm-text="<i class='glyphicon glyphicon-ok'></i> {{ 'YES' | translate }}"
                                 cancel-text="<i class='glyphicon glyphicon-remove'></i> {{ 'NO' | translate }}"
-                                on-confirm="confirmClicked = true"
-                                on-cancel="cancelClicked = true"
+                                on-confirm="$ctrl.deletePost(post.id)"
                                 confirm-button-type="success"
                                 cancel-button-type="danger"
+                                focus-button="confirm"
+                                animation="true"
 
-                                data-delete-url="{{ '/posts/delete/' . post.id }}"
+                                ng-disabled="$root.globals.currentUser.id !== post.author_user_id"
                                 translate
                             >
                                 DELETE

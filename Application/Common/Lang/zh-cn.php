@@ -109,6 +109,7 @@ return [
     'ALL_POSTS'              => '所有文章',
     'MY_POSTS'               => '我的文章',
     'CREATE_POST'            => '添加文章',
+    'VIEW_POST'              => '查看文章',
     'CHANGE_POST'            => '修改文章',
     'TITLE'                  => '标题',
     'CONTENT'                => '内容',
@@ -142,6 +143,7 @@ return [
 
     // 数据验证 - 文章
     'TITLE_REQUIRED'            => '标题必须填写！',
+    'TITLE_TOO_LONG'            => '标题最长255个字符！',
     'CONTENT_REQUIRED'          => '内容必须填写！',
     'NOT_AUTHOR'                => '你无权修改这篇文章！',
 

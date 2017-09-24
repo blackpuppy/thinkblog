@@ -5,20 +5,31 @@ angular.module('postList')
     bindings: { data: '<' },
     templateUrl: 'Public/template/post-list/post-list.template.html',
     controller: [
-    	'$scope',
-    	'Post',
-    	'$log',
-    	function($scope, Post, $log) {
-    		var self = this;
-    		this.pageChange = function() {
-    			// $log.info('self.data.queryParams.page = ', self.data.queryParams.page);
-    			var parameters = self.data.parameters;
-    			parameters.page = self.data.queryParams.page;
-    			Post.query(parameters, function(response) {
-	    			// $log.info('pageChange() success: response = ', response);
-    				self.data = response;
-    			});
-    		};
-    	}
+        '$scope',
+        '$state',
+        'Post',
+        '$log',
+        function($scope, $state, Post, $log) {
+            var self = this;
+            this.pageChange = function() {
+                // $log.info('self.data.queryParams.page = ', self.data.queryParams.page);
+                var parameters = self.data.parameters;
+                parameters.page = self.data.queryParams.page;
+                Post.query(parameters, function(response) {
+                    // $log.info('pageChange() success: response = ', response);
+                    self.data = response;
+                });
+            };
+
+            this.editPost = function(id) {
+                $state.go('post-edit', { id: id });
+            }
+
+            this.deletePost = function(id) {
+                Post.delete({}, {id: id}, function() {
+                    $state.reload();
+                });
+            }
+        }
     ]
 });

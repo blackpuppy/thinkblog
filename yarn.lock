@@ -91,6 +91,18 @@ angular-bootstrap-confirm@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/angular-bootstrap-confirm/-/angular-bootstrap-confirm-2.5.1.tgz#4aabaf19a9f27f87ab07b23a42e1119449b31941"
 
+angular-cookies@^1.6.6:
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/angular-cookies/-/angular-cookies-1.6.6.tgz#311642dafdbc4ff7cd69220b8925b88359fba148"
+
+angular-jwt@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/angular-jwt/-/angular-jwt-0.1.9.tgz#db8bcf18f05aa57320ac2fda161d7e9622c099c3"
+
+angular-local-storage@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/angular-local-storage/-/angular-local-storage-0.7.1.tgz#fbd2730763c29fa9af5725e0186c780621e8cdd2"
+
 angular-resource@^1.6.6:
   version "1.6.6"
   resolved "https://registry.yarnpkg.com/angular-resource/-/angular-resource-1.6.6.tgz#430660e969c3e7cf40c5e247e5e690f06d6efc61"
@@ -103,13 +115,7 @@ angular-touch@^1.6.6:
   version "1.6.6"
   resolved "https://registry.yarnpkg.com/angular-touch/-/angular-touch-1.6.6.tgz#f2068282501b95e29135930d1ce715d5405ec3e5"
 
-angular-translate-loader-url@^2.15.2:
-  version "2.15.2"
-  resolved "https://registry.yarnpkg.com/angular-translate-loader-url/-/angular-translate-loader-url-2.15.2.tgz#d83e5b1abb3bd08b47fdbc02f7547975510c175f"
-  dependencies:
-    angular-translate "~2.15.2"
-
-angular-translate@^2.15.2, angular-translate@~2.15.2:
+angular-translate@^2.15.2:
   version "2.15.2"
   resolved "https://registry.yarnpkg.com/angular-translate/-/angular-translate-2.15.2.tgz#f9a3c2b8d5daeb7d76c9e2c01ff3c3d57fe12b90"
   dependencies:

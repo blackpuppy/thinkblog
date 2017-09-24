@@ -153,7 +153,7 @@ class UserController extends BaseController
                 ];
 
                 $msg .= PHP_EOL . str_repeat('-', 80);
-                \Think\Log::write($msg, 'DEBUG');
+                // \Think\Log::write($msg, 'DEBUG');
 
                 $this->response($data, 'json', 400);
             } else {
@@ -174,7 +174,7 @@ class UserController extends BaseController
                     ];
 
                     $msg .= PHP_EOL . str_repeat('-', 80);
-                    \Think\Log::write($msg, 'DEBUG');
+                    // \Think\Log::write($msg, 'DEBUG');
 
                     $this->response(compact('token', 'data', 'meta'), 'json', 200);
                 } else {
@@ -185,7 +185,7 @@ class UserController extends BaseController
                     ];
 
                     $msg .= PHP_EOL . str_repeat('-', 80);
-                    \Think\Log::write($msg, 'DEBUG');
+                    // \Think\Log::write($msg, 'DEBUG');
 
                     $this->response(compact('meta'), 'json', 401);
                 }
@@ -195,7 +195,7 @@ class UserController extends BaseController
             throw $e;
         } finally {
             $msg .= PHP_EOL . str_repeat('-', 80);
-            // \Think\Log::write($msg, 'DEBUG');
+            \Think\Log::write($msg, 'DEBUG');
         }
     }
 }

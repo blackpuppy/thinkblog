@@ -1,0 +1,140 @@
+<div class="container">
+    <h1 translate>EDIT_PROFILE</h1>
+
+    <form name="profileForm" ng-submit="$ctrl.save(profileForm.$valid)"
+        novalidate method="post" class="form-horizontal"
+    >
+        <div class="form-group">
+            <label for="title" class="control-label col-sm-2">
+                {{ 'USER_NAME' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="user.name"
+                    placeholder="{{ 'USER_NAME' | translate }}" disabled="true"
+                    value="{{ $ctrl.data.user.name }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="control-label col-sm-2">
+                {{ 'PASSWORD' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-3">
+                <input type="password" class="form-control" name="user.password"
+                    ng-model="$ctrl.data.user.password"
+                    placeholder="{{ 'PASSWORD' | translate }}" autofocus="true">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirm_password" class="control-label col-sm-2">
+                {{ 'CONFIRM_PASSWORD' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-3">
+                <input type="password" class="form-control" name="user.confirm_password"
+                    ng-model="$ctrl.data.user.confirm_password"
+                    placeholder="{{ 'CONFIRM_PASSWORD' | translate }}">
+            </div>
+        </div>
+
+        <div class="form-group"
+            ng-class="{ 'has-error' : postForm.user.email.$invalid && !postForm.user.email.$pristine && $ctrl.submitted }"
+        >
+            <label for="email" class="control-label col-sm-2">
+                {{ 'EMAIL' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-6">
+                <input type="email" class="form-control" name="user.email"
+                    placeholder="{{ 'EMAIL' | translate }}" ng-model="$ctrl.data.user.email"
+                   >
+                <span ng-show="postForm.user.email.$error.required && $ctrl.submitted"
+                      class="help-block" translate>TITLE_REQUIRED</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="title" class="control-label col-sm-2">
+                {{ 'FULL_NAME' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-6" ng-if="$translate.use() === 'zh'">
+                <input type="text" name="profile.last_name"
+                    placeholder="{{ 'LAST_NAME' | translate }}"
+                    ng-model="$ctrl.data.user.profile.last_name" readonly>
+                <input type="text" name="profile.first_name"
+                    placeholder="{{ 'FIRST_NAME' | translate }}"
+                    ng-model="$ctrl.data.user.profile.first_name" readonly>
+            </div>
+            <div class="col-md-6" ng-if="$translate.use() !== 'zh'">
+                <input type="text" name="profile.first_name"
+                    placeholder="{{ 'FIRST_NAME' | translate }}"
+                    ng-model="$ctrl.data.user.profile.first_name" readonly>
+                <input type="text" name="profile.last_name"
+                    placeholder="{{ 'LAST_NAME' | translate }}"
+                    ng-model="$ctrl.data.user.profile.last_name" readonly>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender_key" class="control-label col-sm-2">
+                {{ 'GENDER' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-2">
+                <select id="gender_key" name="profile.gender_key"
+                    class="form-control"
+                >
+                    <option value="">
+                        -- {{ 'SELECT_ONE' | translate }} --
+                    </option>
+                    <option
+                        ng-repeat="gender in $ctrl.genders"
+                        value="{{ gender.list_key }}" ng-selected="gender.list_key === $ctrl.data.user.profile.gender_key"
+                    >
+                        {{ gender.list_value_desc.toUpperCase() | translate }}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone" class="control-label col-sm-2">
+                {{ 'PHONE' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-3">
+                <input type="text" id="phone" name="profile.phone"
+                    ng-model="$ctrl.data.user.profile.phone"
+                    class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="address" class="control-label col-sm-2">
+                {{ 'ADDRESS' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-8">
+                <input type="text" id="address" name="profile.address"
+                    ng-model="$ctrl.data.user.profile.address"
+                    class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="postal_code" class="control-label col-sm-2">
+                {{ 'POSTAL_CODE' | translate }}{{ 'COLON' | translate }}
+            </label>
+            <div class="col-md-2">
+                <input type="text" id="postal_code" name="profile.postal_code"
+                    ng-model="$ctrl.data.user.profile.postal_code"
+                    class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-success"
+                    translate-attr="{ value: 'SAVE' }"
+                >
+                <a ui-sref="post-list" class="btn btn-default" translate>CANCEL</a>
+            </div>
+        </div>
+    </form>
+</div>

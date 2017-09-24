@@ -38,21 +38,22 @@ class PostModel extends BaseModel
      */
     public function checkAuthor($data)
     {
-        // $msg = "PostModel::checkAuthor():";
+        $msg = "PostModel::checkAuthor():"
+            . PHP_EOL . '  $data = ' . print_r($data, true);
 
         $valid = false;
 
         if (is_array($data)) {
-            // $msg .= PHP_EOL . '  author_user_id = ' . (int)$data['author_user_id'];
+            $msg .= PHP_EOL . '  author_user_id = ' . (int)$data['author_user_id'];
             $valid = (int)$data['author_user_id'] === getCurrentUserId();
         } else {
-            // $msg .= PHP_EOL . '  author_user_id = ' . (int)$this->author_user_id;
+            $msg .= PHP_EOL . '  author_user_id = ' . (int)$this->author_user_id;
             $valid = (int)$this->author_user_id === getCurrentUserId();
         }
 
-        // $msg .= PHP_EOL . '  getCurrentUserId() = ' . getCurrentUserId()
-        //     . PHP_EOL . '  $valid = ' . $valid
-        //     . PHP_EOL . str_repeat('-', 80);
+        $msg .= PHP_EOL . '  getCurrentUserId() = ' . getCurrentUserId()
+            . PHP_EOL . '  $valid = ' . $valid
+            . PHP_EOL . str_repeat('-', 80);
         // \Think\Log::write($msg, 'DEBUG');
 
         return $valid;

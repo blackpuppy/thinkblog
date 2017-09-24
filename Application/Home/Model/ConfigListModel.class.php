@@ -17,6 +17,11 @@ class ConfigListModel extends BaseModel
     const LIST_KEY_GENDER_MALE = 'male';
     const LIST_KEY_GENDER_FEMALE = 'female';
 
+    /**
+     * 获取配置列表。
+     * @param string $listName 配置列表名。
+     * @return void
+     */
     public static function getConfigList($listName)
     {
         return D('ConfigList')

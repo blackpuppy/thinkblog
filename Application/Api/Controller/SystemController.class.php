@@ -24,6 +24,14 @@ class SystemController extends BaseController
         }
 
         $data = L();
+        $data['THINK_VERSION'] = THINK_VERSION;
+        $data['FOOTER_MESSAGE'] = L('FOOTER_MESSAGE', [
+            'appName' => L('APPLICATION_NAME'),
+            'thinkphpVersion' => THINK_VERSION,
+        ]);
+        $data['REMOVE_ENTRY_IN_URL'] = L('REMOVE_ENTRY_IN_URL', [
+            'entry_file' => 'index.php'
+        ]);
 
         array_walk($data, function(&$value)
         {

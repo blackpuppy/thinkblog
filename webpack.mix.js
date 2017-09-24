@@ -50,6 +50,7 @@ mix.copy('./resources/js/app/post-view/*.html', './webroot/Public/template/post-
 mix.copy('./resources/js/app/post-edit/*.html', './webroot/Public/template/post-edit');
 mix.copy('./resources/js/app/post-create/*.html', './webroot/Public/template/post-create');
 mix.copy('./resources/js/app/profile-view/*.html', './webroot/Public/template/profile-view');
+mix.copy('./resources/js/app/profile-edit/*.html', './webroot/Public/template/profile-edit');
 
 if (mix.inProduction()) {
     mix.version();

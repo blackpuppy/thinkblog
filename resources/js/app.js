@@ -37,3 +37,4 @@ require('./app/post-view/');
 require('./app/post-edit/');
 require('./app/post-create/');
 require('./app/profile-view/');
+require('./app/profile-edit/');

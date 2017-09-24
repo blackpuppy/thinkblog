@@ -18,5 +18,6 @@ angular.module('thinkblogApp', [
     'postView',
     'postEdit',
     'postCreate',
-    'profileView'
+    'profileView',
+    'profileEdit'
 ]);

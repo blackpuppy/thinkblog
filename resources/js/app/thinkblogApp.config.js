@@ -134,19 +134,38 @@ angular.module('thinkblogApp')
             },
             resolve: {
                 data: [
-                    'Profile', '$log',
-                    function(Profile, $log) {
-                        return Profile.get({}, function(res) {
-                            $log.info('Profile resolved = ', res);
-                        });
+                    'Profile',
+                    function(Profile) {
+                        return Profile.get();
                     }
                 ],
                 genders: [
-                    'ConfigList', '$log',
-                    function(ConfigList, $log) {
-                        return ConfigList.get({ list_name: 'gender' }, function(res) {
-                            $log.info('ConfigList resolved = ', res);
-                        });
+                    'ConfigList',
+                    function(ConfigList) {
+                        return ConfigList.get({ list_name: 'gender' });
+                    }
+                ]
+            }
+        };
+
+        var profileEditState = {
+            name: 'profile-edit',
+            url: '/profile/edit',
+            parent: 'root',
+            views: {
+                'content@': 'profileEdit'
+            },
+            resolve: {
+                data: [
+                    'Profile',
+                    function(Profile) {
+                        return Profile.get();
+                    }
+                ],
+                genders: [
+                    'ConfigList',
+                    function(ConfigList) {
+                        return ConfigList.get({ list_name: 'gender' });
                     }
                 ]
             }
@@ -160,12 +179,14 @@ angular.module('thinkblogApp')
         $stateProvider.state(postEditState);
         $stateProvider.state(postCreateState);
         $stateProvider.state(profileViewState);
+        $stateProvider.state(profileEditState);
 
         $translateProvider.useUrlLoader(ThinkBlog.getUrl(ThinkBlog.URL_API_TRANSLATE))
         $translateProvider.preferredLanguage('zh-CN');
         $translateProvider.determinePreferredLanguage();
         // $translateProvider.useCookieStorage();
         $translateProvider.useLocalStorage();
+        $translateProvider.useSanitizeValueStrategy('escapeParameters');
 
         jwtOptionsProvider.config({
             tokenGetter: ['options', function(options) {
@@ -195,7 +216,7 @@ angular.module('thinkblogApp')
             $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.globals.token;
         }
 
-        $log.info('thinkblogApp.run(): $rootScope.globals = ', $rootScope.globals);
+        // $log.info('thinkblogApp.run(): $rootScope.globals = ', $rootScope.globals);
         // $log.info('thinkblogApp.run(): $state.current = ', $state.current);
 
         $rootScope.$on('$stateChangeStart', function (evt, toState, toParams, fromState, fromParams) {
@@ -206,7 +227,7 @@ angular.module('thinkblogApp')
             ) === -1;
             var loggedIn = !!$rootScope.globals.currentUser;
             if (restrictedPage && !loggedIn) {
-                $log.info('thinkblogApp.run(): go to state login');
+                // $log.info('thinkblogApp.run(): go to state login');
 
                 $state.go('login');
             }

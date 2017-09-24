@@ -49,6 +49,9 @@ class CreateUserTable extends AbstractMigration
             'collation' => 'utf8_unicode_ci',
             'encoding' => 'utf8',
             'comment' => '记住我令牌',
+        ])->addColumn('remember_expired_at', 'datetime', [
+            'null' => true,
+            'comment' => '记住我令牌过期时间',
         ])->addColumn('created_by', 'integer', [
             'null' => false,
             'limit' => MysqlAdapter::INT_REGULAR,

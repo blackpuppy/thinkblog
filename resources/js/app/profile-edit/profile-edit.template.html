@@ -59,18 +59,18 @@
             <div class="col-md-6" ng-if="$translate.use() === 'zh'">
                 <input type="text" name="profile.last_name"
                     placeholder="{{ 'LAST_NAME' | translate }}"
-                    ng-model="$ctrl.data.user.profile.last_name" readonly>
+                    ng-model="$ctrl.data.user.profile.last_name">
                 <input type="text" name="profile.first_name"
                     placeholder="{{ 'FIRST_NAME' | translate }}"
-                    ng-model="$ctrl.data.user.profile.first_name" readonly>
+                    ng-model="$ctrl.data.user.profile.first_name">
             </div>
             <div class="col-md-6" ng-if="$translate.use() !== 'zh'">
                 <input type="text" name="profile.first_name"
                     placeholder="{{ 'FIRST_NAME' | translate }}"
-                    ng-model="$ctrl.data.user.profile.first_name" readonly>
+                    ng-model="$ctrl.data.user.profile.first_name">
                 <input type="text" name="profile.last_name"
                     placeholder="{{ 'LAST_NAME' | translate }}"
-                    ng-model="$ctrl.data.user.profile.last_name" readonly>
+                    ng-model="$ctrl.data.user.profile.last_name">
             </div>
         </div>
 

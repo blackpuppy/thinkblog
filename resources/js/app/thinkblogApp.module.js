@@ -13,6 +13,7 @@ angular.module('thinkblogApp', [
     'menu',
     'bottom',
     'home',
+    'signup',
     'login',
     'postList',
     'postView',

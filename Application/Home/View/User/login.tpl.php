@@ -11,11 +11,11 @@
 
     <form action="" method="post" class="form-horizontal">
         <div class="form-group">
-            <label for="title" class="control-label col-sm-2">
+            <label for="name" class="control-label col-sm-2">
                 {$Think.lang.USER_NAME}{$Think.lang.COLON}
             </label>
             <div class="col-md-3">
-                <input type="text" class="form-control" name="name"
+                <input type="text" class="form-control" id="name" name="name"
                     placeholder="{$Think.lang.USER_NAME}"
                     value="{:isset($user['name']) ? $user['name'] : ''}"
                     autofocus="true">
@@ -23,11 +23,11 @@
         </div>
 
         <div class="form-group">
-            <label for="content" class="control-label col-sm-2">
+            <label for="password" class="control-label col-sm-2">
                 {$Think.lang.PASSWORD}{$Think.lang.COLON}
             </label>
             <div class="col-md-3">
-                <input type="password" class="form-control" name="password"
+                <input type="password" class="form-control" id="password" name="password"
                     placeholder="{$Think.lang.PASSWORD}">
             </div>
         </div>

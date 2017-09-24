@@ -26,7 +26,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <li><a ui-sref="login" translate ng-if="!$root.globals.currentUser">LOGIN</a></li>
-                <li><a ui-sref="login" translate ng-if="!$root.globals.currentUser">SIGNUP</a></li>
+                <li><a ui-sref="signup" translate ng-if="!$root.globals.currentUser">SIGNUP</a></li>
                 <li uib-dropdown ng-if="!!$root.globals.currentUser">
                     <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
                         {{ $ctrl.getFullName($root.globals.currentUser) }}

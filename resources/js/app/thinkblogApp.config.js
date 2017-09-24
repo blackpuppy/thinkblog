@@ -62,6 +62,15 @@ angular.module('thinkblogApp')
             }
         };
 
+        var signupState = {
+            name: 'signup',
+            url: '/signup',
+            parent: 'root',
+            views: {
+                'content@': 'signup'
+            }
+        };
+
         var postListState = {
             name: 'post-list',
             url: '/posts?filter&order&pageSize&page',
@@ -174,6 +183,7 @@ angular.module('thinkblogApp')
         $stateProvider.state(rootState);
         $stateProvider.state(homeState);
         $stateProvider.state(loginState);
+        $stateProvider.state(signupState);
         $stateProvider.state(postListState);
         $stateProvider.state(postViewState);
         $stateProvider.state(postEditState);

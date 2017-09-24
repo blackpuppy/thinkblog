@@ -114,10 +114,29 @@ class UserController extends Controller
                     $user = $User->login($User->name, $User->password);
                     if ($user !== false) {
                         $msg .= PHP_EOL . '  login succeeded!';
+                        $msg .= PHP_EOL . '  remember me = ' . $input['remember'];
 
                         // set authenticated
                         session('authentication.authenticated', true);
                         session('authentication.user', $user);
+
+                        if ($input['remember']) {
+                            $token = bin2hex(openssl_random_pseudo_bytes(32));
+                            $expiredAt = strtotime(C('REMEMBER_ME_TIMEOUT', null, '1 day'));
+
+                            // $msg .= PHP_EOL . '  remember me token = ' . $token;
+                            // $msg .= PHP_EOL . '  remember me expiredAt = ' . $expiredAt;
+
+                            $result = $User->saveRememberMe($user['id'], $token, $expiredAt);
+
+                            // $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+
+                            if ($result) {
+                                setcookie(C('REMEMBER_ME_COOKIE_ID'), $token, $expiredAt);
+
+                                $msg .= PHP_EOL . '  remember me cookie set!';
+                            }
+                        }
 
                         $msg .= PHP_EOL . str_repeat('-', 80);
                         \Think\Log::write($msg, 'DEBUG');

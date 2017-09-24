@@ -1,6 +1,7 @@
 <?php
 namespace Home\Model;
 
+use Carbon\Carbon;
 use Firebase\JWT\ExpiredException;
 use Firebase\JWT\JWT;
 use Home\Model\BaseModel;
@@ -191,5 +192,39 @@ class UserModel extends BaseModel
         // \Think\Log::write($msg, 'DEBUG');
 
         return $user;
+    }
+
+    /**
+     * 保存制定用户的记住我令牌。
+     * @param int    $id            给定用户ID
+     * @param string $rememberToken 记住我令牌
+     * @param string $expiredAt     记住我令牌过期时间
+     * @return boolean
+     */
+    public function saveRememberMe($id, $rememberToken, $expiredAt)
+    {
+        $msg = 'UserModel.saveRememberMe():'
+            . PHP_EOL . '  id = ' . $id
+            . PHP_EOL . '  rememberToken = ' . $rememberToken
+            . PHP_EOL . '  expiredAt = ' . $expiredAt;
+
+        $data['remember_token'] = $rememberToken;
+        $dt = new Carbon;
+        $dt->timestamp = $expiredAt;
+        $data['remember_expired_at'] = $dt->toDateTimeString('Y-m-d H:i:s');
+        $data['updated_by'] = getCurrentUserId();
+        $data['updated_at'] = getNow();
+
+        $msg .= PHP_EOL . '  $data = ' . print_r($data, true);
+
+        $User = M('User');
+        $where = ['id' => $id];
+        $result = $User->data($data)->where($where)->save();
+
+        $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+        $msg .= PHP_EOL . str_repeat('-', 80);
+        // \Think\Log::write($msg, 'DEBUG');
+
+        return $result;
     }
 }

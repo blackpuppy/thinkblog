@@ -37,14 +37,14 @@
                 <input type="text" name="recaptcha" placeholder="验证码">
                 <img src="__CONTROLLER__/verifyImg" onClick="this.src=this.src+'?'+Math.random()">
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-4">
                 <input type="checkbox" name="remember" id="remember">
                 <label for="remember">{$Think.lang.REMEMBER_ME}</label>
             </div>
-        </div> -->
+        </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-4">

@@ -179,6 +179,8 @@ class UserController extends Controller
         session('authentication.authenticated', false);
         session('authentication.user', null);
 
+        setcookie(C('REMEMBER_ME_COOKIE_ID'), null);
+
         $this->redirect(U('/'));
     }
 

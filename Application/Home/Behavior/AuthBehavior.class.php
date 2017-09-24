@@ -30,6 +30,8 @@ class AuthBehavior extends Behavior
 
         // $msg .= PHP_EOL . '  session() = ' . print_r(session(), true);
 
+        $this->checkRememberMe();
+
         $isAuthenticated = isAuthenticated();
 
         $url = MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME;
@@ -122,5 +124,15 @@ class AuthBehavior extends Behavior
         $isPublicUrl = !in_array($url, $rules);
 
         return $isPublicUrl;
+    }
+
+    protected function checkRememberMe()
+    {
+        $User = D('User');
+        $user = $User->checkRememberMe();
+        if ($user) {
+            session('authentication.authenticated', true);
+            session('authentication.user', $user);
+        }
     }
 }

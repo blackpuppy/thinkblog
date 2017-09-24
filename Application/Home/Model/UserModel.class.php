@@ -210,7 +210,7 @@ class UserModel extends BaseModel
 
         $data['remember_token'] = $rememberToken;
         $dt = new Carbon;
-        $dt->timestamp = $expiredAt;
+        $dt->timestamp($expiredAt);
         $data['remember_expired_at'] = $dt->toDateTimeString('Y-m-d H:i:s');
         $data['updated_by'] = getCurrentUserId();
         $data['updated_at'] = getNow();
@@ -224,6 +224,46 @@ class UserModel extends BaseModel
         $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
         $msg .= PHP_EOL . str_repeat('-', 80);
         // \Think\Log::write($msg, 'DEBUG');
+
+        return $result;
+    }
+
+    /**
+     * 检查记住我令牌。
+     * @return boolean|array 记住我令牌是否合法
+     */
+    public function checkRememberMe()
+    {
+        $result = false;
+
+        $msg = 'UserModel.checkRememberMe():';
+
+        $rememberToken = cookie(C('REMEMBER_ME_COOKIE_ID'));
+
+        $msg .= PHP_EOL . '  rememberToken = ' . $rememberToken;
+
+        $user = $this->relation(true)->where([
+            'remember_token' => $rememberToken
+        ])->find();
+        $this->protect($user);
+
+        $msg .= PHP_EOL . '  $user = ' . print_r($user, true);
+
+        if ($user) {
+            $now = Carbon::now();
+            $expiredAt = Carbon::createFromFormat('Y-m-d H:i:s', $user['remember_expired_at']);
+
+            $msg .= PHP_EOL . '  now = ' . $now->toDateTimeString('Y-m-d H:i:s');
+            $msg .= PHP_EOL . '  expiredAt = ' . $expiredAt->toDateTimeString('Y-m-d H:i:s');
+
+            if ($now->lte($expiredAt)) {
+                $result = $user;
+            }
+        }
+
+        $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+        $msg .= PHP_EOL . str_repeat('-', 80);
+        \Think\Log::write($msg, 'DEBUG');
 
         return $result;
     }

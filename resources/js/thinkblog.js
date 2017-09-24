@@ -165,11 +165,11 @@ $(document).ready(function() {
         $form.prop('action', url).submit();
     });
 
-    // 显示验证码
-    $('.signup #recaptcha_img').click(function (e) {
-        // console.debug('.signup #recaptcha_img click:');
+    // 点击刷新验证码
+    $('form #recaptcha_img').click(function (e) {
+        // console.debug('#recaptcha_img click:');
 
-        $(".signup #recaptcha").val('');
+        $(this).val('');
 
         var url = "/recaptcha",
             time = new Date().getTime();
@@ -179,18 +179,18 @@ $(document).ready(function() {
     });
 
     // 检查验证码
-    $(".signup #recaptcha").keyup(function() {
+    $("form #recaptcha").keyup(function() {
         ThinkBlog.delay(function () {
-            var recaptcha = $(".signup #recaptcha").val();
+            var recaptcha = $("form #recaptcha").val();
 
-            // console.debug('.signup #recaptcha keyup: recaptcha = ', recaptcha);
+            console.debug('form #recaptcha keyup: recaptcha = ', recaptcha);
 
             $.post("/check_recaptcha",
                 { code : recaptcha },
                 function(valid) {
-                    // console.debug('#recaptcha keyup: valid = ', valid);
+                    console.debug('#recaptcha keyup: valid = ', valid);
 
-                    $(".signup #signup_button").prop('disabled', valid !== true);
+                    $('form input[type="submit"]').prop('disabled', !valid);
                 }
             );
         }, 500);

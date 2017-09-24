@@ -263,7 +263,7 @@ class UserModel extends BaseModel
 
         $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
         $msg .= PHP_EOL . str_repeat('-', 80);
-        \Think\Log::write($msg, 'DEBUG');
+        // \Think\Log::write($msg, 'DEBUG');
 
         return $result;
     }

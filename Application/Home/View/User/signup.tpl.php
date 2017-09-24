@@ -1,4 +1,4 @@
-<div class="container signup">
+<div class="container">
     <h1>{$Think.lang.SIGN_UP}</h1>
 
     <if condition="!empty($validationError)">
@@ -73,7 +73,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-4">
-                <input id="signup_button" type="submit" class="btn btn-success"
+                <input type="submit" class="btn btn-success"
                     value="{$Think.lang.SIGNUP}" disabled
                 >
                 <a href="{:U('/login')}" class="btn btn-default">{$Think.lang.LOGIN}</a>

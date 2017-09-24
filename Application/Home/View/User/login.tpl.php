@@ -32,12 +32,24 @@
             </div>
         </div>
 
-        <!-- <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-4">
-                <input type="text" name="recaptcha" placeholder="验证码">
-                <img src="__CONTROLLER__/verifyImg" onClick="this.src=this.src+'?'+Math.random()">
+        <div class="form-group">
+            <label for="recaptcha_img" class="control-label col-sm-2">
+                {$Think.lang.RECAPTCHA}{$Think.lang.COLON}
+            </label>
+            <div class="col-md-4">
+                <img id="recaptcha_img" alt="点击更换" title="点击更换"
+                    src="{:U('/recaptcha',array())}" class=""
+                >
             </div>
-        </div> -->
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-md-2">
+                <input type="text" class="form-control" id="recaptcha" name="recaptcha"
+                    placeholder="{$Think.lang.RECAPTCHA_INPUT}"
+                >
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-4">
@@ -48,7 +60,9 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-4">
-                <input type="submit" value="{$Think.lang.LOGIN}" class="btn btn-success">
+                <input type="submit" class="btn btn-success"
+                    value="{$Think.lang.LOGIN}" disabled
+                >
                 <a href="{:U('/signup')}" class="btn btn-default">{$Think.lang.SIGN_UP}</a>
             </div>
         </div>

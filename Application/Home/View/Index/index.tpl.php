@@ -113,11 +113,11 @@
             </ul>
         </li>
         <li>
-            <input type="checkbox" id="angularjs_1_client" name="angularjs_1_client" disabled>
+            <input type="checkbox" id="angularjs_1_client" name="angularjs_1_client" checked disabled>
             <label for="angularjs_1_client">{$Think.lang.ANGULARJS_1_CLIENT}</label>
             <ul>
                 <li>
-                    <input type="checkbox" id="angularjs_1_curd" name="angularjs_1_curd" disabled>
+                    <input type="checkbox" id="angularjs_1_curd" name="angularjs_1_curd" checked disabled>
                     <label for="angularjs_1_curd">{$Think.lang.ANGULARJS_1_CURD}</label>
                 </li>
                 <li>
@@ -129,7 +129,7 @@
                     <label for="angularjs_1_translation">{$Think.lang.ANGULARJS_1_TRANSLATION}</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="angularjs_1_auth" name="angularjs_1_auth" disabled>
+                    <input type="checkbox" id="angularjs_1_auth" name="angularjs_1_auth" checked disabled>
                     <label for="angularjs_1_auth">{$Think.lang.ANGULARJS_1_AUTH}</label>
                 </li>
             </ul>

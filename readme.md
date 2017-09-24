@@ -33,12 +33,12 @@
   - [x] 用户授权
   - [x] 其他数据相关的API
 
-- [ ] AngularJS 1 客户端
+- [x] AngularJS 1 客户端
 
-  - [ ] CRUD
+  - [x] CRUD
   - [x] 分页
   - [x] 翻译
-  - [ ] 用户认证与授权
+  - [x] 用户认证与授权
 
 - [ ] Using HTTPS
 - [ ] 单元测试

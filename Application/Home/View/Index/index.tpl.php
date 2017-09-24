@@ -43,7 +43,7 @@
                     <label for="function_logout">{$Think.lang.FUNCTION_LOGOUT}</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="function_remember_me" name="function_remember_me" disabled>
+                    <input type="checkbox" id="function_remember_me" name="function_remember_me" checked disabled>
                     <label for="function_remember_me">{$Think.lang.FUNCTION_REMEMBER_ME}</label>
                 </li>
                 <li>

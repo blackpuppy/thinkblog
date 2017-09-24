@@ -1,6 +1,7 @@
 <?php
 namespace Home\Model;
 
+use Carbon\Carbon;
 use Firebase\JWT\ExpiredException;
 use Firebase\JWT\JWT;
 use Home\Model\BaseModel;
@@ -191,5 +192,79 @@ class UserModel extends BaseModel
         // \Think\Log::write($msg, 'DEBUG');
 
         return $user;
+    }
+
+    /**
+     * 保存制定用户的记住我令牌。
+     * @param int    $id            给定用户ID
+     * @param string $rememberToken 记住我令牌
+     * @param string $expiredAt     记住我令牌过期时间
+     * @return boolean
+     */
+    public function saveRememberMe($id, $rememberToken, $expiredAt)
+    {
+        $msg = 'UserModel.saveRememberMe():'
+            . PHP_EOL . '  id = ' . $id
+            . PHP_EOL . '  rememberToken = ' . $rememberToken
+            . PHP_EOL . '  expiredAt = ' . $expiredAt;
+
+        $data['remember_token'] = $rememberToken;
+        $dt = new Carbon;
+        $dt->timestamp($expiredAt);
+        $data['remember_expired_at'] = $dt->toDateTimeString('Y-m-d H:i:s');
+        $data['updated_by'] = getCurrentUserId();
+        $data['updated_at'] = getNow();
+
+        $msg .= PHP_EOL . '  $data = ' . print_r($data, true);
+
+        $User = M('User');
+        $where = ['id' => $id];
+        $result = $User->data($data)->where($where)->save();
+
+        $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+        $msg .= PHP_EOL . str_repeat('-', 80);
+        // \Think\Log::write($msg, 'DEBUG');
+
+        return $result;
+    }
+
+    /**
+     * 检查记住我令牌。
+     * @return boolean|array 记住我令牌是否合法
+     */
+    public function checkRememberMe()
+    {
+        $result = false;
+
+        $msg = 'UserModel.checkRememberMe():';
+
+        $rememberToken = cookie(C('REMEMBER_ME_COOKIE_ID'));
+
+        $msg .= PHP_EOL . '  rememberToken = ' . $rememberToken;
+
+        $user = $this->relation(true)->where([
+            'remember_token' => $rememberToken
+        ])->find();
+        $this->protect($user);
+
+        $msg .= PHP_EOL . '  $user = ' . print_r($user, true);
+
+        if ($user) {
+            $now = Carbon::now();
+            $expiredAt = Carbon::createFromFormat('Y-m-d H:i:s', $user['remember_expired_at']);
+
+            $msg .= PHP_EOL . '  now = ' . $now->toDateTimeString('Y-m-d H:i:s');
+            $msg .= PHP_EOL . '  expiredAt = ' . $expiredAt->toDateTimeString('Y-m-d H:i:s');
+
+            if ($now->lte($expiredAt)) {
+                $result = $user;
+            }
+        }
+
+        $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+        $msg .= PHP_EOL . str_repeat('-', 80);
+        // \Think\Log::write($msg, 'DEBUG');
+
+        return $result;
     }
 }

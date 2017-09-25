@@ -117,6 +117,13 @@ return [
     'AUTHOR'                 => '作者',
     'CONFIRM_TO_DELETE_POST' => '您确认要删除这篇文章吗？',
 
+    // 重置密码邮件
+    'RESET_DEAR_USER'       => '尊敬的{$full_name}，',
+    'RESET_OPEN_DESC'       => '您要求重置密码。请点击下面的链接来重置您的密码。',
+    'RESET_CLOSING_DESC'    => '请注意，此链接将在24小时后失效。',
+    'RESET_THANKS'          => '感谢使用<a href="http://thinkblog.azurewebsites.net/">ThinkBlog</a>！',
+    'RESET_TEAM'            => 'ThinkBlog团队',
+
     //--------------------------------------------------------------------------
     // 数据验证
 

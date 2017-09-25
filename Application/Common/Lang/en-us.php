@@ -117,6 +117,13 @@ return [
     'AUTHOR'                 => 'Author',
     'CONFIRM_TO_DELETE_POST' => 'Are you sure you wan to delete this post?',
 
+    // Reset Password Email
+    'RESET_DEAR_USER'       => 'Dear {$full_name},',
+    'RESET_OPEN_DESC'       => 'You have requested to reset your password.  Please click the following link to reset your password.',
+    'RESET_CLOSING_DESC'    => 'Note that the link will expire after 24 hours.',
+    'RESET_THANKS'          => 'Thanks for using <a href="http://thinkblog.azurewebsites.net/">ThinkBlog</a>!',
+    'RESET_TEAM'            => 'ThinkBlog Team',
+
     //--------------------------------------------------------------------------
     // Validation
 

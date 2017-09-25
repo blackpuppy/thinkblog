@@ -214,3 +214,42 @@ function recursiveUnset(&$data, $unwantedKeys) {
     //     . PHP_EOL . str_repeat('-', 80);
     // \Think\Log::write($msg, 'DEBUG');
 }
+
+/**
+ * 发送邮件。
+ * @param array  $to             给定数组
+ * @param string $subject        邮件标题
+ * @param string $body           邮件内容
+ * @return bool 当前用户是否已经登录。
+ */
+function sendMail($to, $subject, $body)
+{
+    $encryptionType = C('SMTP_ENCRYPTION_TYPE');
+    $host     = C('SMTP_HOST');
+    $port     = C('SMTP_PORT');
+    $username = C('SMTP_USERNAME');
+    $password = C('SMTP_PASSWORD');
+    $fromAddr = C('FROM_ADDRESS');
+    $fromName = C('FROM_NAME');
+
+    $transport = (new Swift_SmtpTransport($host, $port, $encryptionType))
+        ->setUsername($username)
+        ->setPassword($password);
+    $mailer = new Swift_Mailer($transport);
+    $message = (new Swift_Message($subject))
+        ->setFrom([$fromAddr => $fromName])
+        ->setTo($to)
+        ->setBody($body, 'text/html');
+
+    $result = $mailer->send($message);
+
+    $msg = 'sendMail():'
+        . PHP_EOL . '  $to = ' . print_r($to, true)
+        . PHP_EOL . '  $subject = ' . $subject
+        . PHP_EOL . '  $body = ' . $body
+        . PHP_EOL . '  $result = ' . $result;
+    $msg .= PHP_EOL . str_repeat('-', 80);
+    \Think\Log::write($msg, 'DEBUG');
+
+    return $result;
+}

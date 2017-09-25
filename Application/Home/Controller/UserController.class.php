@@ -239,7 +239,7 @@ class UserController extends Controller
 
                 // $msg .= PHP_EOL . '  POST data = ' . print_r($input, true);
 
-                $user = $User->where(['name' => $input['name']])->find();
+                $user = $User->relation(true)->where(['name' => $input['name']])->find();
                 if (!$user) {
                     $msg .= PHP_EOL . '  user not found';
 
@@ -252,7 +252,7 @@ class UserController extends Controller
                     $this->display();
                 }
 
-                // $msg .= PHP_EOL . '  user = ' . print_r($user, true);
+                $msg .= PHP_EOL . '  user = ' . print_r($user, true);
 
                 $input['user_id'] = $user['id'];
                 $input['token'] =
@@ -281,7 +281,8 @@ class UserController extends Controller
                 } else {
                     $PasswordReset->created_by = $user['id'];
 
-                    $msg .= PHP_EOL . '  $PasswordReset data = ' . print_r($PasswordReset->data(), true);
+                    $passwordReset = $PasswordReset->data();
+                    $msg .= PHP_EOL . '  $passwordReset = ' . print_r($passwordReset, true);
 
                     $result = $PasswordReset->add();
 
@@ -289,6 +290,8 @@ class UserController extends Controller
                     $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
 
                     if ($result !== false) {
+                        $this->sendResetPasswordEmail($passwordReset, $user);
+
                         $this->success(L('FORGET_PASSWORD_SUCCESS'), U('/posts'), 3);
                     } else {
                         $msg .= PHP_EOL . str_repeat('-', 80);
@@ -305,5 +308,21 @@ class UserController extends Controller
                 \Think\Log::write($msg, 'DEBUG');
             }
         }
+    }
+
+    protected function sendResetPasswordEmail($passwordReset, $user)
+    {
+        $to = [$passwordReset['email'] => $passwordReset['name']];
+        $subject = 'Forget Password';
+
+        $data = [
+            'passwordReset' => $passwordReset,
+            'user' => $user,
+        ];
+        $this->assign($data);
+        layout(false);
+        $body = $this->fetch('Email:forget_password');
+
+        return sendMail($to, $subject, $body);
     }
 }

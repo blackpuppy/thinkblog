@@ -79,6 +79,8 @@
                     value="{$Think.lang.SUBMIT}" disabled
                 >
                 <a href="{:U('/login')}" class="btn btn-default">{$Think.lang.LOGIN}</a>
+                <input type="hidden" id="id" name="id" value="{$passwordReset['id']}">
+                <input type="hidden" id="user_id" name="user_id" value="{$passwordReset['user_id']}">
             </div>
         </div>
     </form>

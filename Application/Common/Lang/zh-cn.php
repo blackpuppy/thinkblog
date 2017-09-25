@@ -169,6 +169,8 @@ return [
     'FORGET_PASSWORD_SUCCESS'   => '重置密码请求提交成功！请在24小时内查看邮件，并重置密码。',
     'FORGET_PASSWORD_FAILURE'   => '重置密码请求提交失败！请检查用户名和电子邮件。',
     'RESET_TOKEN_INVALID'       => '重置密码令牌非法！',
+    'RESET_PASSWORD_SUCCESS'    => '重置密码成功！',
+    'RESET_PASSWORD_FAILURE'    => '重置密码失败！',
     'USER_NOT_FOUND'            => '用户不存在！',
     'DELETE_USER_SUCCESS'       => '用户删除成功！',
     'DELETE_USER_FAILURE'       => '用户删除失败！',

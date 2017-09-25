@@ -341,14 +341,18 @@ class UserController extends Controller
 
         $this->assign('title', L('RESET_PASSWORD'));
 
+        $PasswordReset = D('PasswordReset');
+
         if (IS_GET) {
             $token = I('get.token');
 
             $msg .= PHP_EOL . '  $token = ' . $token;
 
-            $PasswordReset = D('PasswordReset');
-
-            $reset = $PasswordReset->where(['token' => $token])->find();
+            $where = [
+                'token' => $token,
+                'reset_at' => ['EXP', 'IS NULL'],
+            ];
+            $reset = $PasswordReset->where($where)->find();
 
             $msg .= PHP_EOL . '  $reset = ' . print_r($reset, true);
 
@@ -393,7 +397,7 @@ class UserController extends Controller
 
                 $msg .= PHP_EOL . '  POST data = ' . print_r($input, true);
 
-                $user = $User->relation(true)->where(['name' => $input['name']])->find();
+                $user = $User->find($input['user_id']);
                 if (!$user) {
                     $msg .= PHP_EOL . '  user not found';
 
@@ -408,21 +412,18 @@ class UserController extends Controller
 
                 $msg .= PHP_EOL . '  user = ' . print_r($user, true);
 
-                $input['user_id'] = $user['id'];
-                $input['token'] =
-                    bin2hex(openssl_random_pseudo_bytes(32));
-                $expiredAt = new Carbon(C('RESET_TOKEN_TIMEOUT', null, '1 day'));
-                $input['token_expired_at'] =
-                    $expiredAt->toDateTimeString('Y-m-d H:i:s');
-                $input['created_by'] = $user['id'];
+                $data = [
+                    'id' => $input['user_id'],
+                    'name' => $user['name'],
+                    'password' => $input['password'],
+                    'confirm_password' => $input['confirm_password'],
+                ];
 
-                $msg .= PHP_EOL . '  $input = ' . print_r($input, true);
+                $user = $User->create($data, BaseModel::RESET_PASSWORD);
 
-                $reset = $PasswordReset->create($input);
+                $msg .= PHP_EOL . '  user = ' . print_r($user, true);
 
-                $msg .= PHP_EOL . '  $reset = ' . print_r($reset, true);
-
-                if (!$reset) {
+                if (!$user) {
                     $msg .= PHP_EOL . '  validation error: ' . $User->getError();
 
                     $data = [
@@ -433,25 +434,42 @@ class UserController extends Controller
 
                     $this->display();
                 } else {
-                    $PasswordReset->created_by = $user['id'];
+                    try {
+                        $User->startTrans();
 
-                    $passwordReset = $PasswordReset->data();
-                    $msg .= PHP_EOL . '  $passwordReset = ' . print_r($passwordReset, true);
+                        $User->updated_by = $input['user_id'];
+                        $userResult = $User->field(['password,updated_at,updated_by'])->save();
 
-                    $result = $PasswordReset->add();
+                        $data = [
+                            'id' => $input['id'],
+                            'reset_at' => Carbon::now()->toDateTimeString('Y-m-d H:i:s'),
+                            'updated_at' => Carbon::now()->toDateTimeString('Y-m-d H:i:s'),
+                            'updated_by' => $input['user_id'],
+                        ];
+                        $resetResult = $PasswordReset->data($data)
+                            ->field('reset_at,updated_at,updated_by')
+                            ->save();
 
-                    // $msg .= PHP_EOL . '  $sql = ' . $sql;
-                    $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
+                        $msg .= PHP_EOL . '  $userResult = ' . print_r($userResult, true)
+                            . PHP_EOL . '  $resetResult = ' . print_r($resetResult, true);
+
+                        $result = $userResult !== false && $resetResult !== false;
+                        if ($result) {
+                            $User->commit();
+                        } else {
+                            $User->rollback();
+                        }
+                    } catch (Exception $e) {
+                        $User->rollback();
+                    }
 
                     if ($result !== false) {
-                        $this->sendResetPasswordEmail($passwordReset, $user);
-
-                        $this->success(L('FORGET_PASSWORD_SUCCESS'), U('/posts'), 3);
+                        $this->success(L('RESET_PASSWORD_SUCCESS'), U('/posts'), 3);
                     } else {
                         $msg .= PHP_EOL . str_repeat('-', 80);
                         \Think\Log::write($msg, 'DEBUG');
 
-                        $this->error(L('FORGET_PASSWORD_FAILURE'), U('/forget_password'), 5);
+                        $this->error(L('RESET_PASSWORD_FAILURE'), U('/login'), 5);
                     }
                 }
             } catch (Exception $e) {

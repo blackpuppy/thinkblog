@@ -53,6 +53,9 @@ class CreatePasswordResetTable extends AbstractMigration
         ])->addColumn('token_expired_at', 'datetime', [
             'null' => false,
             'comment' => '重置密码令牌过期时间',
+        ])->addColumn('reset_at', 'datetime', [
+            'null' => true,
+            'comment' => '重置密码时间',
         ])->addColumn('created_by', 'integer', [
             'null' => false,
             'limit' => MysqlAdapter::INT_REGULAR,

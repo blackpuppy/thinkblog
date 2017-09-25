@@ -62,6 +62,8 @@ return [
         'logout'          => 'Home/User/logout',
         'recaptcha'       => 'Home/User/recaptcha',
         'check_recaptcha' => 'Home/User/checkRecaptcha',
+        'forget_password' => 'Home/User/forget_password',
+        'reset_password'  => 'Home/User/reset_password',
 
         'profile/edit'    => 'Home/Profile/edit',
         'profile'         => 'Home/Profile/show',

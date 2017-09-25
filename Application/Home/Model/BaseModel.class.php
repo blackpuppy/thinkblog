@@ -8,7 +8,8 @@ use Think\Model\AdvModel;
  */
 abstract class BaseModel extends AdvModel
 {
-    const MODEL_LOGIN = 4;   // 用于自动验证，用户登录时
+    const MODEL_LOGIN     = 4;  // 用于自动验证，用户登录时
+    // const FORGET_PASSWORD = 5;  // 用于自动验证，忘记密码时
 
     /**
      * 包含敏感信息的属性/字段，比如password。

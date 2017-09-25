@@ -93,6 +93,7 @@ return [
     'RECAPTCHA'         => 'reCAPTCHA',
     'REMEMBER_ME'       => 'Remember Me',
     'FORGET_PASSWORD'   => 'Forget Password',
+    'RESET_PASSWORD'    => 'Reset Password',
 
     // Profile
     'VIEW_PROFILE'      => 'View Profile',
@@ -134,12 +135,15 @@ return [
 
     // Validation - User
     'NAME_REQUIRED'             => 'User name is required!',
+    'NAME_NOT_EXISTS'           => 'The user name does not exist.',
     'NAME_DUPLICATE'            => 'The user name is already used!  Please change the user name.',
     'PASSWORD_REQUIRED'         => 'Password is required!',
     'PASSWORD_LENGTH'           => 'Password must be 5-72 characters long!',
     'CONFIRM_PASSWORD_DISMATCH' => 'Confirm password does not match!',
     'EMAIL_INVALID'             => 'Invalid email!',
     'EMAIL_DUPLICATE'           => 'The email is already used!  Please change the email.',
+    'EMAIL_REQUIRED'            => 'Email is required!',
+    'EMAIL_NOT_EXISTS'          => 'The email does not exist.',
 
     // Validation - Post
     'TITLE_REQUIRED'            => 'Title is required!',
@@ -151,13 +155,15 @@ return [
     // Controller
 
     // User
-    'SIGNUP_USER_SUCCESS'   => 'User saved successfully!',
-    'SIGNUP_USER_FAILURE'   => 'User failed to save!',
-    'LOGIN_USER_SUCCESS'    => 'User logged in successfully!',
-    'LOGIN_USER_FAILURE'    => 'Incorrect user name or password!',
-    'USER_NOT_FOUND'        => 'User not found!',
-    'DELETE_USER_SUCCESS'   => 'User deleted successfully!',
-    'DELETE_USER_FAILURE'   => 'User failed to delete!',
+    'SIGNUP_USER_SUCCESS'       => 'User saved successfully!',
+    'SIGNUP_USER_FAILURE'       => 'User failed to save!',
+    'LOGIN_USER_SUCCESS'        => 'User logged in successfully!',
+    'LOGIN_USER_FAILURE'        => 'Incorrect user name or password!',
+    'FORGET_PASSWORD_SUCCESS'   => 'Reset password request is submitted successfully! Please check the email sent to you, and reset password within 24 hours.',
+    'FORGET_PASSWORD_FAILURE'   => 'Reset password request submission failed.  Please check your user name and email.',
+    'USER_NOT_FOUND'            => 'User not found!',
+    'DELETE_USER_SUCCESS'       => 'User deleted successfully!',
+    'DELETE_USER_FAILURE'       => 'User failed to delete!',
 
     // 个人资料
     'SAVE_PROFILE_SUCCESS'  => 'User profile saved successfully!',

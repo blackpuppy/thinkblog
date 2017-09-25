@@ -77,7 +77,7 @@ class CreatePasswordResetTable extends AbstractMigration
             'comment' => '更新时间',
         ])->addIndex(['user_id'], [
             'name' => 'idx_user_id',
-            'unique' => true,
+            'unique' => false,
         ])->addForeignKey('user_id', $userTableName, 'id', [
             'delete'=> 'RESTRICT',
             'update'=> 'CASCADE',

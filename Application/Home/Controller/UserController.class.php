@@ -237,7 +237,7 @@ class UserController extends Controller
 
                 $input = I('post.');
 
-                $msg .= PHP_EOL . '  POST data = ' . print_r($input, true);
+                // $msg .= PHP_EOL . '  POST data = ' . print_r($input, true);
 
                 $user = $User->where(['name' => $input['name']])->find();
                 if (!$user) {
@@ -252,7 +252,7 @@ class UserController extends Controller
                     $this->display();
                 }
 
-                $msg .= PHP_EOL . '  user = ' . print_r($user, true);
+                // $msg .= PHP_EOL . '  user = ' . print_r($user, true);
 
                 $input['user_id'] = $user['id'];
                 $input['token'] =
@@ -279,24 +279,21 @@ class UserController extends Controller
 
                     $this->display();
                 } else {
-                    // $PasswordReset->user_id = $user['id'];
-                    // $PasswordReset->token =
-                    //     bin2hex(openssl_random_pseudo_bytes(32));
-                    // $PasswordReset->token_expired_at =
-                    //     strtotime(C('RESET_TOKEN_TIMEOUT', null, '1 day'));
                     $PasswordReset->created_by = $user['id'];
 
                     $msg .= PHP_EOL . '  $PasswordReset data = ' . print_r($PasswordReset->data(), true);
 
                     $result = $PasswordReset->add();
 
+                    // $msg .= PHP_EOL . '  $sql = ' . $sql;
                     $msg .= PHP_EOL . '  $result = ' . print_r($result, true);
-                    $msg .= PHP_EOL . str_repeat('-', 80);
-                    \Think\Log::write($msg, 'DEBUG');
 
                     if ($result !== false) {
                         $this->success(L('FORGET_PASSWORD_SUCCESS'), U('/posts'), 3);
                     } else {
+                        $msg .= PHP_EOL . str_repeat('-', 80);
+                        \Think\Log::write($msg, 'DEBUG');
+
                         $this->error(L('FORGET_PASSWORD_FAILURE'), U('/forget_password'), 5);
                     }
                 }

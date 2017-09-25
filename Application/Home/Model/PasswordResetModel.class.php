@@ -15,14 +15,14 @@ class PasswordResetModel extends BaseModel
             '{%EMAIL_INVALID}', self::EXISTS_VALIDATE, 'regex'],
     ];
 
-    // protected $_link = [
-    //     'User' => [
-    //         'mapping_type'  => self::BELONGS_TO,
-    //         'class_name'    => 'User',
-    //         'foreign_key'   => 'user_id',
-    //         'mapping_name'  => 'user',
-    //     ],
-    // ];
+    protected $_link = [
+        'User' => [
+            'mapping_type'  => self::BELONGS_TO,
+            'class_name'    => 'User',
+            'foreign_key'   => 'user_id',
+            'mapping_name'  => 'user',
+        ],
+    ];
 
     /**
      * 包含敏感信息的属性/字段。

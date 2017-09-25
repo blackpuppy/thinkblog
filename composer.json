@@ -22,6 +22,7 @@
         "nesbot/carbon": "^1.22",
         "robmorgan/phinx": "^0.8.1",
         "snowair/think-dotenv": "dev-master",
+        "swiftmailer/swiftmailer": "^5.4",
         "topthink/thinkphp": "^3.2"
     },
     "require-dev": {

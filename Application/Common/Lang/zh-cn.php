@@ -78,7 +78,7 @@ return [
     'SOURCE_DESC'               => '演示程序的<a href="https://github.com/blackpuppy/thinkblog">源代码</a>可以自由获取。',
     'WELCOME_FEEDBACK'          => '欢迎任何 <a href="https://github.com/blackpuppy/thinkblog/issues/new">反馈和建议</a>！',
 
-    // 登录
+    // 用户
     'SIGN_UP'           => '注册新用户',
     'SIGNUP'            => '注册',
     'LOGIN'             => '登录',
@@ -93,6 +93,7 @@ return [
     'RECAPTCHA'         => '验证码',
     'REMEMBER_ME'       => '记住我',
     'FORGET_PASSWORD'   => '忘记密码',
+    'RESET_PASSWORD'    => '重置密码',
 
     // 个人资料
     'VIEW_PROFILE'      => '查看个人资料',
@@ -116,6 +117,13 @@ return [
     'AUTHOR'                 => '作者',
     'CONFIRM_TO_DELETE_POST' => '您确认要删除这篇文章吗？',
 
+    // 重置密码邮件
+    'RESET_DEAR_USER'       => '尊敬的{$full_name}，',
+    'RESET_OPEN_DESC'       => '您要求重置密码。请点击下面的链接来重置您的密码。',
+    'RESET_CLOSING_DESC'    => '请注意，此链接将在24小时后失效。',
+    'RESET_THANKS'          => '感谢使用<a href="http://thinkblog.azurewebsites.net/">ThinkBlog</a>！',
+    'RESET_TEAM'            => 'ThinkBlog团队',
+
     //--------------------------------------------------------------------------
     // 数据验证
 
@@ -134,12 +142,15 @@ return [
 
     // 数据验证 - 用户
     'NAME_REQUIRED'             => '用户名必须填写！',
+    'NAME_NOT_EXISTS'           => '该用户名不存在！',
     'NAME_DUPLICATE'            => '该用户名已被占用！请选择其他的用户名。',
     'PASSWORD_REQUIRED'         => '密码必须填写！',
     'PASSWORD_LENGTH'           => '密码至少5个字符，最多72个字符！',
     'CONFIRM_PASSWORD_DISMATCH' => '确认密码比匹配！',
     'EMAIL_INVALID'             => '不合法的电子邮箱地址！',
     'EMAIL_DUPLICATE'           => '该电子邮箱地址已被占用！请选择其他的电子邮箱。',
+    'EMAIL_REQUIRED'            => '电子邮箱地址必须填写！',
+    'EMAIL_NOT_EXISTS'          => '电子邮箱地址不存在！',
 
     // 数据验证 - 文章
     'TITLE_REQUIRED'            => '标题必须填写！',
@@ -151,13 +162,18 @@ return [
     // 控制器
 
     // 用户
-    'SIGNUP_USER_SUCCESS'   => '用户注册成功！',
-    'SIGNUP_USER_FAILURE'   => '用户注册失败！',
-    'LOGIN_USER_SUCCESS'    => '用户登录成功！',
-    'LOGIN_USER_FAILURE'    => '登录失败！用户名或者密码不正确。',
-    'USER_NOT_FOUND'        => '用户不存在！',
-    'DELETE_USER_SUCCESS'   => '用户删除成功！',
-    'DELETE_USER_FAILURE'   => '用户删除失败！',
+    'SIGNUP_USER_SUCCESS'       => '用户注册成功！',
+    'SIGNUP_USER_FAILURE'       => '用户注册失败！',
+    'LOGIN_USER_SUCCESS'        => '用户登录成功！',
+    'LOGIN_USER_FAILURE'        => '登录失败！用户名或者密码不正确。',
+    'FORGET_PASSWORD_SUCCESS'   => '重置密码请求提交成功！请在24小时内查看邮件，并重置密码。',
+    'FORGET_PASSWORD_FAILURE'   => '重置密码请求提交失败！请检查用户名和电子邮件。',
+    'RESET_TOKEN_INVALID'       => '重置密码令牌非法！',
+    'RESET_PASSWORD_SUCCESS'    => '重置密码成功！',
+    'RESET_PASSWORD_FAILURE'    => '重置密码失败！',
+    'USER_NOT_FOUND'            => '用户不存在！',
+    'DELETE_USER_SUCCESS'       => '用户删除成功！',
+    'DELETE_USER_FAILURE'       => '用户删除失败！',
 
     // 个人资料
     'SAVE_PROFILE_SUCCESS'  => '个人资料保存成功！',

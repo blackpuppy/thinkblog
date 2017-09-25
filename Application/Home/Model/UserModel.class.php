@@ -30,6 +30,10 @@ class UserModel extends BaseModel
         ['name',     'require', '{%NAME_REQUIRED}',     self::MUST_VALIDATE, '',       self::MODEL_LOGIN],
         ['password', 'require', '{%PASSWORD_REQUIRED}', self::MUST_VALIDATE, '',       self::MODEL_LOGIN],
         ['password', '5,72',    '{%PASSWORD_LENGTH}',   self::MUST_VALIDATE, 'length', self::MODEL_LOGIN],
+
+        // 重置密码时
+        ['password', 'require', '{%PASSWORD_REQUIRED}', self::VALUE_VALIDATE,  '',       self::RESET_PASSWORD],
+        ['password', '5,72',    '{%PASSWORD_LENGTH}',   self::VALUE_VALIDATE,  'length', self::RESET_PASSWORD],
     ];
 
     protected $_filter = [
@@ -74,6 +78,16 @@ class UserModel extends BaseModel
         'password',
         'confirm_password',
     ];
+
+    public function __construct($name = '', $tablePrefix = '', $connection = '')
+    {
+        parent::__construct($name, $tablePrefix, $connection);
+
+        $this->_auto = [
+            ['updated_by', 'getCurrentUserId',  self::RESET_PASSWORD, 'function'],
+            ['updated_at', 'getNow',            self::RESET_PASSWORD, 'function'],
+        ];
+    }
 
     /**
      * 尝试用给定的用户名和密码登录系统。

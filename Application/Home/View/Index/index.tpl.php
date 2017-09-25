@@ -51,7 +51,7 @@
                     <label for="function_recaptcha">{$Think.lang.FUNCTION_RECAPTCHA}</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="function_forget_password" name="function_forget_password" disabled>
+                    <input type="checkbox" id="function_forget_password" name="function_forget_password" checked disabled>
                     <label for="function_forget_password">{$Think.lang.FUNCTION_FORGET_PASSWORD}</label>
                 </li>
             </ul>

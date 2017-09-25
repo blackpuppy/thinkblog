@@ -91,8 +91,7 @@ class PostModel extends BaseModel
         $queryParams = $this->buildQueryParams($parameters);
         extract($queryParams);
 
-        return $this->relation(true)
-            ->where($where)
+        return $this->where($where)
             ->count();
     }
 

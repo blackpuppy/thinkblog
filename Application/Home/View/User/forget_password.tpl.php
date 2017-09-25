@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>{$Think.lang.LOGIN}</h1>
+    <h1>{$Think.lang.FORGET_PASSWORD}</h1>
 
     <if condition="!empty($validationError)">
     <div class="alert alert-danger">
@@ -17,18 +17,18 @@
             <div class="col-md-3">
                 <input type="text" class="form-control" id="name" name="name"
                     placeholder="{$Think.lang.USER_NAME}"
-                    value="{:isset($user['name']) ? $user['name'] : ''}"
+                    value="{:isset($passwordReset['name']) ? $passwordReset['name'] : ''}"
                     autofocus="true">
             </div>
         </div>
 
         <div class="form-group">
-            <label for="password" class="control-label col-sm-2">
-                {$Think.lang.PASSWORD}{$Think.lang.COLON}
+            <label for="email" class="control-label col-sm-2">
+                {$Think.lang.EMAIL}{$Think.lang.COLON}
             </label>
-            <div class="col-md-3">
-                <input type="password" class="form-control" id="password" name="password"
-                    placeholder="{$Think.lang.PASSWORD}">
+            <div class="col-md-6">
+                <input type="email" class="form-control" id="email" name="email"
+                    placeholder="{$Think.lang.EMAIL}" value="{$passwordReset['email']}">
             </div>
         </div>
 
@@ -53,18 +53,11 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-4">
-                <input type="checkbox" name="remember" id="remember">
-                <label for="remember">{$Think.lang.REMEMBER_ME}</label>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-4">
                 <input type="submit" class="btn btn-success"
-                    value="{$Think.lang.LOGIN}" disabled
+                    value="{$Think.lang.RESET_PASSWORD}" disabled
                 >
+                <a href="{:U('/login')}" class="btn btn-default">{$Think.lang.LOGIN}</a>
                 <a href="{:U('/signup')}" class="btn btn-default">{$Think.lang.SIGN_UP}</a>
-                <a href="{:U('/forget_password')}" class="btn btn-default">{$Think.lang.FORGET_PASSWORD}</a>
             </div>
         </div>
     </form>

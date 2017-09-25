@@ -12,7 +12,7 @@
         <p>{:L('RESET_DEAR_USER', ['full_name' => getUserFullName($user)])}</p>
 
         <p>{$Think.lang.RESET_OPEN_DESC}</p>
-        <p><a href="{:U('/reset_password', null, true, true)}">{:U('/reset_password', null, true, true)}</a></p>
+        <p><a href="{:U('/reset_password', ['token' => $passwordReset['token']], true, true)}">{:U('/reset_password', ['token' => $passwordReset['token']], true, true)}</a></p>
         <p>{$Think.lang.RESET_CLOSING_DESC}</p>
 
         <p>{$Think.lang.RESET_THANKS}</p>

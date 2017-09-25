@@ -168,6 +168,7 @@ return [
     'LOGIN_USER_FAILURE'        => 'Incorrect user name or password!',
     'FORGET_PASSWORD_SUCCESS'   => 'Reset password request is submitted successfully! Please check the email sent to you, and reset password within 24 hours.',
     'FORGET_PASSWORD_FAILURE'   => 'Reset password request submission failed.  Please check your user name and email.',
+    'RESET_TOKEN_INVALID'       => 'Reset Password token is invalid!',
     'USER_NOT_FOUND'            => 'User not found!',
     'DELETE_USER_SUCCESS'       => 'User deleted successfully!',
     'DELETE_USER_FAILURE'       => 'User failed to delete!',

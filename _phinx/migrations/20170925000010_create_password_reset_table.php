@@ -16,8 +16,8 @@ class CreatePasswordResetTable extends AbstractMigration
             'id' => false,
             'primary_key' => ['id'],
             'engine' => 'InnoDB',
-            'encoding' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'encoding' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
             'comment' => '重置密码'
         ])->addColumn('id', 'integer', [
             'null' => false,
@@ -35,20 +35,20 @@ class CreatePasswordResetTable extends AbstractMigration
         ])->addColumn('name', 'string', [
             'null' => false,
             'limit' => 63,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '用户名',
         ])->addColumn('email', 'string', [
             'null' => false,
             'limit' => 255,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '电子邮箱地址',
         ])->addColumn('token', 'string', [
             'null' => false,
             'limit' => 127,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '重置密码令牌',
         ])->addColumn('token_expired_at', 'datetime', [
             'null' => false,

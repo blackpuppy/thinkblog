@@ -16,8 +16,8 @@ class CreateProfileTable extends AbstractMigration
             'id' => false,
             'primary_key' => ['id'],
             'engine' => 'InnoDB',
-            'encoding' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'encoding' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
             'comment' => '用户资料'
         ])->addColumn('id', 'integer', [
             'null' => false,
@@ -35,38 +35,38 @@ class CreateProfileTable extends AbstractMigration
         ])->addColumn('first_name', 'string', [
             'null' => true,
             'limit' => 255,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '名',
         ])->addColumn('last_name', 'string', [
             'null' => true,
             'limit' => 255,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '姓',
         ])->addColumn('phone', 'string', [
             'null' => true,
             'limit' => 127,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '电话号码',
         ])->addColumn('address', 'string', [
             'null' => true,
             'limit' => 255,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '地址',
         ])->addColumn('postal_code', 'string', [
             'null' => true,
             'limit' => 16,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '邮政编码',
         ])->addColumn('gender_key', 'string', [
             'null' => true,
             'limit' => 32,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '性别'
         ])->addColumn('created_by', 'integer', [
             'null' => false,

@@ -15,8 +15,8 @@ class CreateUserTable extends AbstractMigration
             'id' => false,
             'primary_key' => ['id'],
             'engine' => 'InnoDB',
-            'encoding' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'encoding' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
             'comment' => '用户'
         ])->addColumn('id', 'integer', [
             'null' => false,
@@ -28,26 +28,26 @@ class CreateUserTable extends AbstractMigration
         ])->addColumn('name', 'string', [
             'null' => false,
             'limit' => 63,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '用户名',
         ])->addColumn('password', 'string', [
             'null' => true,
             'limit' => 255,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '经过加密的密码',
         ])->addColumn('email', 'string', [
             'null' => true,
             'limit' => 255,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '电子邮箱地址',
         ])->addColumn('remember_token', 'string', [
             'null' => true,
             'limit' => 127,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '记住我令牌',
         ])->addColumn('remember_expired_at', 'datetime', [
             'null' => true,

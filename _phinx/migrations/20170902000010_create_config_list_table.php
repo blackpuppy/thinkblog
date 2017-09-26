@@ -14,8 +14,8 @@ class CreateConfigListTable extends AbstractMigration
             'id' => false,
             'primary_key' => ['id'],
             'engine' => 'InnoDB',
-            'encoding' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'encoding' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
             'comment' => '配置常量'
         ])->addColumn('id', 'integer', [
             'null' => false,
@@ -27,26 +27,26 @@ class CreateConfigListTable extends AbstractMigration
         ])->addColumn('list_name', 'string', [
             'null' => false,
             'limit' => 64,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '配置常量列表名称',
         ])->addColumn('list_key', 'string', [
             'null' => false,
             'limit' => 32,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '配置常量的键',
         ])->addColumn('list_value', 'string', [
             'null' => false,
             'limit' => 64,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '配置常量的值',
         ])->addColumn('list_value_desc', 'string', [
             'null' => false,
             'limit' => 255,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '配置常量的值的描述',
         ])->addColumn('display_order', 'integer', [
             'null' => false,
@@ -57,14 +57,14 @@ class CreateConfigListTable extends AbstractMigration
         ])->addColumn('parent_list_name', 'string', [
             'null' => true,
             'limit' => 64,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '配置常量的父节点的列表名称',
         ])->addColumn('parent_list_key', 'string', [
             'null' => true,
             'limit' => 32,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '配置常量的父节点的键',
         ])->addColumn('created_by', 'integer', [
             'null' => false,

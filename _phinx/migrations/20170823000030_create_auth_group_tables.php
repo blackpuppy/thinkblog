@@ -12,8 +12,8 @@ class CreateAuthGroupTables extends AbstractMigration
             'id' => false,
             'primary_key' => ['id'],
             'engine' => 'InnoDB',
-            'encoding' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'encoding' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
             'comment' => '用户组表',
         ])->addColumn('id', 'integer', [
             'null' => false,
@@ -26,8 +26,8 @@ class CreateAuthGroupTables extends AbstractMigration
             'null' => false,
             'default' => '',
             'limit' => 100,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '用户组中文名称',
         ])->addColumn('status', 'boolean', [
             'null' => false,
@@ -39,8 +39,8 @@ class CreateAuthGroupTables extends AbstractMigration
             'null' => false,
             'default' => '',
             'limit' => 80,
-            'collation' => 'utf8_unicode_ci',
-            'encoding' => 'utf8',
+            'collation' => 'utf8mb4_unicode_ci',
+            'encoding' => 'utf8mb4',
             'comment' => '用户组拥有的规则id， 多个规则用","隔开',
         ])->addColumn('created_by', 'integer', [
             'null' => false,

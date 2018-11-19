@@ -30,3 +30,4 @@ services:
             - "33064:3306"
         volumes:
             - ./_docker/mysql-conf.d:/etc/mysql/conf.d
+            - ./_docker/create_test_db.sql:/docker-entrypoint-initdb.d/create_test_db.sql

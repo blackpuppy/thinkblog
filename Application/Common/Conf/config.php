@@ -34,16 +34,17 @@ return [
     'LANG_LIST'        => getenv('LANG_LIST'),                  // 允许切换的语言列表 用逗号分隔
     'VAR_LANGUAGE'     => getenv('VAR_LANGUAGE'),               // 默认语言切换变量
 
-    'DB_TYPE'     => getenv('DB_TYPE'),       // 数据库类型
-    'DB_HOST'     => $dbHost,                 // 服务器地址
-    'DB_NAME'     => getenv('DB_NAME'),       // 数据库名
-    'DB_USER'     => $dbUser,                 // 用户名
-    'DB_PWD'      => $dbPwd,                  // 密码
-    'DB_PORT'     => getenv('DB_PORT'),       // 端口
-    'DB_PREFIX'   => getenv('DB_PREFIX'),     // 数据库表前缀
-    'DB_CHARSET'  => getenv('DB_CHARSET'),    // 字符集
-    'DB_DEBUG'    => getenv('DB_DEBUG'),      // 数据库调试模式 开启后可以记录SQL日志
-    'DB_ID_QUOTE' => getenv('DB_ID_QUOTE'),   // 数据库标识符引号，MySQL为`，PostgreSQL为"
+    'DB_TYPE'      => getenv('DB_TYPE'),        // 数据库类型
+    'DB_HOST'      => $dbHost,                  // 服务器地址
+    'DB_NAME'      => getenv('DB_NAME'),        // 数据库名
+    'DB_USER'      => $dbUser,                  // 用户名
+    'DB_PWD'       => $dbPwd,                   // 密码
+    'DB_PORT'      => getenv('DB_PORT'),        // 端口
+    'DB_PREFIX'    => getenv('DB_PREFIX'),      // 数据库表前缀
+    'DB_CHARSET'   => getenv('DB_CHARSET'),     // 字符集
+    'DB_DEBUG'     => getenv('DB_DEBUG'),       // 数据库调试模式 开启后可以记录SQL日志
+    'DB_ID_QUOTE'  => getenv('DB_ID_QUOTE'),    // 数据库标识符引号，MySQL为`，PostgreSQL为"
+    'TEST_DB_NAME' => getenv('TEST_DB_NAME'),   // 测试数据库名
 
     // URL设置
     'URL_ROUTER_ON' => (bool) getenv('URL_MODEL'),  //开启路由

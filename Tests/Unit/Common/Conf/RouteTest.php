@@ -18,8 +18,8 @@ class RouteTest extends BaseTest
     {
         $webrootUrl = getenv('UNIT_TEST_WEBROOT_URL');
 
-        // 在PhpunitHelper之前先定义THINK_VERSION
-        define('THINK_VERSION', '3.2.3');
+        // 无法获取框架定义的THINK_VERSION，只好在PhpunitHelper之前先定义THINK_VERSION
+        define('THINK_VERSION', '3.2.5');
 
         // 下面四行代码模拟出一个应用实例, 每一行都很关键, 需正确设置参数
         self::$app = new PhpunitHelper(APP_PATH, THINK_PATH);
@@ -85,6 +85,9 @@ class RouteTest extends BaseTest
             foreach (C('URL_ROUTE_RULES') as $rule => $route) {
                 $this->_testRoute($rule, $route);
             }
+
+            // $this->_testRoute('profile/edit', 'Home/Profile/edit');
+            // $this->_testRoute('api/profile', 'Api/Profile/show');
         } finally {
             $this->msg .= PHP_EOL . str_repeat('-', 80);
             $this->logger->debug($this->msg);

@@ -27,6 +27,7 @@
     },
     "require-dev": {
         "odan/phinx-migrations-generator": "^2.1",
-        "heroku/heroku-buildpack-php": "*"
+        "heroku/heroku-buildpack-php": "*",
+        "snowair/think-phpunit": "dev-master"
     }
 }

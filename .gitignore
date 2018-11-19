@@ -43,3 +43,6 @@ webroot/Public/css/*.css
 webroot/Public/js/*.js
 webroot/Public/fonts/
 webroot/Public/template/
+
+# unit test logging
+Tests/Logs

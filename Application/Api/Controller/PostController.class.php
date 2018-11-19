@@ -23,7 +23,28 @@ class PostController extends BaseController
      */
     public function index()
     {
-        $msg = PHP_EOL . 'Api\Controller\PostApiController::index():';
+        $msg = PHP_EOL . 'Api\Controller\PostController::index():';
+
+        // $msg .= PHP_EOL . '路径常量:'
+        //     . PHP_EOL . '  MODULE_PATH = ' . MODULE_PATH
+        //     . PHP_EOL . '  CONTROLLER_PATH = ' . CONTROLLER_PATH
+        //     . PHP_EOL . '系统常量:'
+        //     . PHP_EOL . '  __APP__ = ' . __APP__
+        //     . PHP_EOL . '  __MODULE__ = ' . __MODULE__
+        //     . PHP_EOL . '  __CONTROLLER__ = ' . __CONTROLLER__
+        //     . PHP_EOL . '  __ACTION__ = ' . __ACTION__
+        //     . PHP_EOL . '  __SELF__ = ' . __SELF__
+        //     . PHP_EOL . '  __INFO__ = ' . __INFO__
+        //     . PHP_EOL . '  MODULE_NAME = ' . MODULE_NAME
+        //     . PHP_EOL . '  CONTROLLER_NAME = ' . CONTROLLER_NAME
+        //     . PHP_EOL . '  ACTION_NAME = ' . ACTION_NAME
+        //     . PHP_EOL . '  REQUEST_METHOD = ' . REQUEST_METHOD
+        //     . PHP_EOL . '配置:'
+        //     . PHP_EOL . '  C(URL_ROUTER_ON) = ' . C('URL_ROUTER_ON')
+        //     . PHP_EOL . '  C(URL_MODEL) = ' . C('URL_MODEL')
+        //     . PHP_EOL . '  C(URL_HTML_SUFFIX) = ' . C('URL_HTML_SUFFIX');
+        // $msg .= PHP_EOL . str_repeat('-', 80);
+        // trace($msg, '调试', 'DEBUG', true);
 
         try {
             $filter = I('filter');
@@ -61,7 +82,7 @@ class PostController extends BaseController
             return;
         }
 
-        $msg = PHP_EOL . 'Api\Controller\PostApiController::create():';
+        $msg = PHP_EOL . 'Api\Controller\PostController::create():';
 
         try {
             $input = $this->getPostInput();
@@ -133,7 +154,7 @@ class PostController extends BaseController
             return;
         }
 
-        $msg = PHP_EOL . 'Api\Controller\PostApiController::show():'
+        $msg = PHP_EOL . 'Api\Controller\PostController::show():'
             . PHP_EOL . '  $id = ' . $id;
 
         $Post = D('Home/Post');

@@ -34,12 +34,22 @@ abstract class BaseModel extends AdvModel
 
     /**
      * 清除敏感信息。
-     * @param array $data 要清除敏感信息的模型数据
+     *
+     * @param array $data         要清除敏感信息的模型数据
+     * @param array $unwantedKeys 要清除的键
+     *
      * @return void
+     *
+     * @author 朱明 <mingzhu.z+gitlab@gmail.com>
      */
-    public function protect(&$data)
+    public function protect(&$data, $unwantedKeys = null)
     {
-        recursiveUnset($data, $this->_sensitive);
+        if (is_null($unwantedKeys)) {
+            $unwantedKeys = $this->_sensitive;
+        } elseif (!is_array($unwantedKeys)) {
+            $unwantedKeys = [$unwantedKeys];
+        }
+        recursiveUnset($data, $unwantedKeys);
 
         // $msg = PHP_EOL . 'BaseModel::protect(): $data = ' . print_r($data, true)
         //     . PHP_EOL . str_repeat('-', 80);

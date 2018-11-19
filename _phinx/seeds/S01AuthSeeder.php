@@ -89,9 +89,9 @@ class S01AuthSeeder extends AbstractSeed
                 'type'      => 1,
                 'status'    => 1,
                 'condition' => '',
+            ], [
 
             // 可以公开访问的API
-            // ], [
             //     'name'      => 'Api/Post/index',
             //     'title'     => '文章列表API',
             //     'type'      => 1,
@@ -103,9 +103,9 @@ class S01AuthSeeder extends AbstractSeed
             //     'type'      => 1,
             //     'status'    => 1,
             //     'condition' => '',
+            // ], [
 
             // 需要通过用户验证的API
-            ], [
                 'name'      => 'Api/Profile/show',
                 'title'     => '读取个人资料API',
                 'type'      => 1,
@@ -135,7 +135,6 @@ class S01AuthSeeder extends AbstractSeed
                 'type'      => 1,
                 'status'    => 1,
                 'condition' => '',
-
             ]
         ];
 

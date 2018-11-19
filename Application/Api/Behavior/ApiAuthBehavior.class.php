@@ -86,15 +86,13 @@ class ApiAuthBehavior extends AuthBehavior
             } else {
                 $msg .= PHP_EOL . '  public user:';
 
-                if (!$isPublicUrl) {
-                    $msg .= PHP_EOL . '  not authorized';
-                    $msg .= PHP_EOL . str_repeat('-', 80);
-                    \Think\Log::write($msg, 'DEBUG');
-                    // trace($msg, '调试', 'DEBUG', true);
+                $msg .= PHP_EOL . '  not authorized';
+                $msg .= PHP_EOL . str_repeat('-', 80);
+                \Think\Log::write($msg, 'DEBUG');
+                // trace($msg, '调试', 'DEBUG', true);
 
-                    $this->sendJsonResponse(401, L('UNAUTHORIZED'));
-                    exit;
-                }
+                $this->sendJsonResponse(401, L('UNAUTHORIZED'));
+                exit;
             }
         }
 

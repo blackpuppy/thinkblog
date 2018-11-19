@@ -4,41 +4,41 @@ return [
     // UI
 
     // Common
-    'EXCLAMATION_MARK'          => '!',
-    'COLON'                     => ':',
-    'VERION'                    => 'Version',
-    'NO_DATA_FOUND'             => 'No data found',
-    'SERIAL_NO'                 => 'S/N',
-    'ACTION'                    => 'Action',
-    'CHANGE'                    => 'Change',
-    'DELETE'                    => 'Delete',
-    'CONFIRM_TITLE'             => 'Confirmation',
-    'CONFIRM_TO_DELETE'         => 'Are you sure you wan to delete this {$model}?',
-    'SUBMIT'                    => 'Submit',
-    'SAVE'                      => 'Save',
-    'CANCEL'                    => 'Cancel',
-    'RECAPTCHA'                 => 'reCAPTCHA',
-    'RECAPTCHA_INPUT'           => 'Type what you see',
-    'SELECT_ONE'                => 'Select One',
-    'MALE'                      => 'Male',
-    'FEMALE'                    => 'Female',
-    'YES'                       => 'Yes',
-    'NO'                        => 'No',
+    'EXCLAMATION_MARK'  => '!',
+    'COLON'             => ':',
+    'VERION'            => 'Version',
+    'NO_DATA_FOUND'     => 'No data found',
+    'SERIAL_NO'         => 'S/N',
+    'ACTION'            => 'Action',
+    'CHANGE'            => 'Change',
+    'DELETE'            => 'Delete',
+    'CONFIRM_TITLE'     => 'Confirmation',
+    'CONFIRM_TO_DELETE' => 'Are you sure you wan to delete this {$model}?',
+    'SUBMIT'            => 'Submit',
+    'SAVE'              => 'Save',
+    'CANCEL'            => 'Cancel',
+    'RECAPTCHA'         => 'reCAPTCHA',
+    'RECAPTCHA_INPUT'   => 'Type what you see',
+    'SELECT_ONE'        => 'Select One',
+    'MALE'              => 'Male',
+    'FEMALE'            => 'Female',
+    'YES'               => 'Yes',
+    'NO'                => 'No',
 
     // Application
-    'APPLICATION_NAME'          => 'ThinkPHP Blog',
-    'APPLICATION_SHORT_DESC'    => 'ThinkPHP Development Demo Application',
+    'APPLICATION_NAME'       => 'ThinkPHP Blog',
+    'APPLICATION_SHORT_DESC' => 'ThinkPHP Development Demo Application',
 
     // Menu
-    'MENU_POSTS'        => 'Posts',
-    'MENU_ANGULARJS'    => 'AngularJS Demo',
-    'MENU_PROFILE'      => 'User Profile',
-    'SWITCH_LANGUAGE'   => 'Language',
-    'CHINESE'           => 'Chinese',
-    'ENGLISH'           => 'English',
+    'MENU_POSTS'      => 'Posts',
+    'MENU_ANGULARJS'  => 'AngularJS Demo',
+    'MENU_PROFILE'    => 'User Profile',
+    'SWITCH_LANGUAGE' => 'Language',
+    'CHINESE'         => 'Chinese',
+    'ENGLISH'         => 'English',
 
     // Footer
-    'FOOTER_MESSAGE'    => 'Welcome to {$appName}. Developed using <b>ThinkPHP</b> Version V{$thinkphpVersion}! Open <a href="https://github.com/blackpuppy/thinkblog">source code</a>. Any <a href="https://github.com/blackpuppy/thinkblog/issues/new">feedback or suggestions</a> are welcome!',
+    'FOOTER_MESSAGE' => 'Welcome to {$appName}. Developed using <b>ThinkPHP</b> Version V{$thinkphpVersion}! Open <a href="https://github.com/blackpuppy/thinkblog">source code</a>. Any <a href="https://github.com/blackpuppy/thinkblog/issues/new">feedback or suggestions</a> are welcome!',
 
     // Home page
     'TECH_DESC'                 => 'Demonstrates the following techniques:',
@@ -74,34 +74,37 @@ return [
     'ANGULARJS_1_AUTH'          => 'Authentication/Authorization',
     'USING_HTTPS'               => 'Using HTTPS',
     'UNIT_TESTING'              => 'Unit Testing',
+    'UNIT_TESTING_ROUTE'        => 'Unit Testing Route',
+    'UNIT_TESTING_CONTROLLER'   => 'Unit Testing Controller',
+    'UNIT_TESTING_MODEL'        => 'Unit Testing Model',
     'MULTI_LANGUAGES_IN_DATA'   => 'Internationalization/Localization (I18n/L10n) in data',
     'SOURCE_DESC'               => 'You can access the <a href="https://github.com/blackpuppy/thinkblog">source code</a> of this demo.',
     'WELCOME_FEEDBACK'          => 'Any <a href="https://github.com/blackpuppy/thinkblog/issues/new">feedback or suggestions</a> are welcome!',
 
     // User
-    'SIGN_UP'           => 'Sign Up',
-    'SIGNUP'            => 'Sign Up',
-    'LOGIN'             => 'Log In',
-    'LOGOUT'            => 'Log Out',
-    'USER_NAME'         => 'User Name',
-    'PASSWORD'          => 'Password',
-    'CONFIRM_PASSWORD'  => 'Confirm Password',
-    'EMAIL'             => 'Email',
-    'FULL_NAME'         => 'Full Name',
-    'FIRST_NAME'        => 'First Name',
-    'LAST_NAME'         => 'Last Name',
-    'RECAPTCHA'         => 'reCAPTCHA',
-    'REMEMBER_ME'       => 'Remember Me',
-    'FORGET_PASSWORD'   => 'Forget Password',
-    'RESET_PASSWORD'    => 'Reset Password',
+    'SIGN_UP'          => 'Sign Up',
+    'SIGNUP'           => 'Sign Up',
+    'LOGIN'            => 'Log In',
+    'LOGOUT'           => 'Log Out',
+    'USER_NAME'        => 'User Name',
+    'PASSWORD'         => 'Password',
+    'CONFIRM_PASSWORD' => 'Confirm Password',
+    'EMAIL'            => 'Email',
+    'FULL_NAME'        => 'Full Name',
+    'FIRST_NAME'       => 'First Name',
+    'LAST_NAME'        => 'Last Name',
+    'RECAPTCHA'        => 'reCAPTCHA',
+    'REMEMBER_ME'      => 'Remember Me',
+    'FORGET_PASSWORD'  => 'Forget Password',
+    'RESET_PASSWORD'   => 'Reset Password',
 
     // Profile
-    'VIEW_PROFILE'      => 'View Profile',
-    'EDIT_PROFILE'      => 'Edit Profile',
-    'PHONE'             => 'Phone',
-    'ADDRESS'           => 'Address',
-    'POSTAL_CODE'       => 'Postal Code',
-    'GENDER'            => 'Gender',
+    'VIEW_PROFILE' => 'View Profile',
+    'EDIT_PROFILE' => 'Edit Profile',
+    'PHONE'        => 'Phone',
+    'ADDRESS'      => 'Address',
+    'POSTAL_CODE'  => 'Postal Code',
+    'GENDER'       => 'Gender',
 
     // Post
     'POST'                   => 'Post',
@@ -118,11 +121,11 @@ return [
     'CONFIRM_TO_DELETE_POST' => 'Are you sure you wan to delete this post?',
 
     // Reset Password Email
-    'RESET_DEAR_USER'       => 'Dear {$full_name},',
-    'RESET_OPEN_DESC'       => 'You have requested to reset your password.  Please click the following link to reset your password.',
-    'RESET_CLOSING_DESC'    => 'Note that the link will expire after 24 hours.',
-    'RESET_THANKS'          => 'Thanks for using <a href="http://thinkblog.azurewebsites.net/">ThinkBlog</a>!',
-    'RESET_TEAM'            => 'ThinkBlog Team',
+    'RESET_DEAR_USER'    => 'Dear {$full_name},',
+    'RESET_OPEN_DESC'    => 'You have requested to reset your password.  Please click the following link to reset your password.',
+    'RESET_CLOSING_DESC' => 'Note that the link will expire after 24 hours.',
+    'RESET_THANKS'       => 'Thanks for using <a href="http://thinkblog.azurewebsites.net/">ThinkBlog</a>!',
+    'RESET_TEAM'         => 'ThinkBlog Team',
 
     //--------------------------------------------------------------------------
     // Validation
@@ -131,14 +134,14 @@ return [
     // 'REQUIRED'                  => '{$field}必须填写！',
 
     // Validation - User Profile
-    'FIRST_NAME_REQUIRED'       => 'First name is required!',
-    'FIRST_NAME_LENGTH'         => 'First name must be 1-255 characters long!',
-    'LAST_NAME_REQUIRED'        => 'Last name is required!',
-    'LAST_NAME_LENGTH'          => 'Last name must be 0-255 characters long!',
-    'ADDERSS_REQUIRED'          => 'Address is required!',
-    'POSTAL_CODE_REQUIRED'      => 'Postal code is required!',
-    'INVALID_POSTAL_CODE'       => 'Invalid postal code!',
-    'INVALID_GENDER'            => 'Invalid gender!',
+    'FIRST_NAME_REQUIRED'  => 'First name is required!',
+    'FIRST_NAME_LENGTH'    => 'First name must be 1-255 characters long!',
+    'LAST_NAME_REQUIRED'   => 'Last name is required!',
+    'LAST_NAME_LENGTH'     => 'Last name must be 0-255 characters long!',
+    'ADDERSS_REQUIRED'     => 'Address is required!',
+    'POSTAL_CODE_REQUIRED' => 'Postal code is required!',
+    'INVALID_POSTAL_CODE'  => 'Invalid postal code!',
+    'INVALID_GENDER'       => 'Invalid gender!',
 
     // Validation - User
     'NAME_REQUIRED'             => 'User name is required!',
@@ -153,44 +156,44 @@ return [
     'EMAIL_NOT_EXISTS'          => 'The email does not exist.',
 
     // Validation - Post
-    'TITLE_REQUIRED'            => 'Title is required!',
-    'TITLE_TOO_LONG'            => 'Title cannot be longer than 255 characters!',
-    'CONTENT_REQUIRED'          => 'Content is required!',
-    'NOT_AUTHOR'                => 'You are not authorized to modify this post!',
+    'TITLE_REQUIRED'   => 'Title is required!',
+    'TITLE_TOO_LONG'   => 'Title cannot be longer than 255 characters!',
+    'CONTENT_REQUIRED' => 'Content is required!',
+    'NOT_AUTHOR'       => 'You are not authorized to modify this post!',
 
     //--------------------------------------------------------------------------
     // Controller
 
     // User
-    'SIGNUP_USER_SUCCESS'       => 'User saved successfully!',
-    'SIGNUP_USER_FAILURE'       => 'User failed to save!',
-    'LOGIN_USER_SUCCESS'        => 'User logged in successfully!',
-    'LOGIN_USER_FAILURE'        => 'Incorrect user name or password!',
-    'FORGET_PASSWORD_SUCCESS'   => 'Reset password request is submitted successfully! Please check the email sent to you, and reset password within 24 hours.',
-    'FORGET_PASSWORD_FAILURE'   => 'Reset password request submission failed.  Please check your user name and email.',
-    'RESET_TOKEN_INVALID'       => 'Reset Password token is invalid!',
-    'RESET_PASSWORD_SUCCESS'    => 'Password is reset successfully!',
-    'RESET_PASSWORD_FAILURE'    => 'Password reset failed.',
-    'USER_NOT_FOUND'            => 'User not found!',
-    'DELETE_USER_SUCCESS'       => 'User deleted successfully!',
-    'DELETE_USER_FAILURE'       => 'User failed to delete!',
+    'SIGNUP_USER_SUCCESS'     => 'User saved successfully!',
+    'SIGNUP_USER_FAILURE'     => 'User failed to save!',
+    'LOGIN_USER_SUCCESS'      => 'User logged in successfully!',
+    'LOGIN_USER_FAILURE'      => 'Incorrect user name or password!',
+    'FORGET_PASSWORD_SUCCESS' => 'Reset password request is submitted successfully! Please check the email sent to you, and reset password within 24 hours.',
+    'FORGET_PASSWORD_FAILURE' => 'Reset password request submission failed.  Please check your user name and email.',
+    'RESET_TOKEN_INVALID'     => 'Reset Password token is invalid!',
+    'RESET_PASSWORD_SUCCESS'  => 'Password is reset successfully!',
+    'RESET_PASSWORD_FAILURE'  => 'Password reset failed.',
+    'USER_NOT_FOUND'          => 'User not found!',
+    'DELETE_USER_SUCCESS'     => 'User deleted successfully!',
+    'DELETE_USER_FAILURE'     => 'User failed to delete!',
 
     // 个人资料
-    'SAVE_PROFILE_SUCCESS'  => 'User profile saved successfully!',
-    'SAVE_PROFILE_FAILURE'  => 'User profile failed to save!',
+    'SAVE_PROFILE_SUCCESS' => 'User profile saved successfully!',
+    'SAVE_PROFILE_FAILURE' => 'User profile failed to save!',
 
     // Post
-    'SAVE_POST_SUCCESS'     => 'Post saved successfully!',
-    'SAVE_POST_FAILURE'     => 'Post failed to save!',
-    'POST_NOT_FOUND'        => 'Post not found!',
-    'DELETE_POST_SUCCESS'   => 'Post deleted successfully!',
-    'DELETE_POST_FAILURE'   => 'Post failed to delete!',
+    'SAVE_POST_SUCCESS'   => 'Post saved successfully!',
+    'SAVE_POST_FAILURE'   => 'Post failed to save!',
+    'POST_NOT_FOUND'      => 'Post not found!',
+    'DELETE_POST_SUCCESS' => 'Post deleted successfully!',
+    'DELETE_POST_FAILURE' => 'Post failed to delete!',
 
     //--------------------------------------------------------------------------
     // HTTP Codes
 
-    'BAD_REQUEST'           => 'Bad Request!',          // 400
-    'UNAUTHORIZED'          => 'Unauthorized!',         // 401
-    'EXPIRED_TOKEN'         => 'Expired Token!',        // 401
-    'METHOD_NOT_ALLOWED'    => 'Method Not Allowed!',   // 405
+    'BAD_REQUEST'        => 'Bad Request!',          // 400
+    'UNAUTHORIZED'       => 'Unauthorized!',         // 401
+    'EXPIRED_TOKEN'      => 'Expired Token!',        // 401
+    'METHOD_NOT_ALLOWED' => 'Method Not Allowed!',   // 405
 ];

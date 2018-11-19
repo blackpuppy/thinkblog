@@ -139,8 +139,22 @@
             <label for="using_https">{$Think.lang.USING_HTTPS}</label>
         </li>
         <li>
-            <input type="checkbox" id="using_https" name="using_https" disabled>
-            <label for="using_https">{$Think.lang.UNIT_TESTING}</label>
+            <input type="checkbox" id="unit_testing" name="unit_testing" disabled>
+            <label for="unit_testing">{$Think.lang.UNIT_TESTING}</label>
+            <ul>
+                <li>
+                    <input type="checkbox" id="unit_testing_route" name="unit_testing_route" checked disabled>
+                    <label for="unit_testing_route">{$Think.lang.UNIT_TESTING_ROUTE}</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="unit_testing_controller" name="unit_testing_controller" disabled>
+                    <label for="unit_testing_controller">{$Think.lang.UNIT_TESTING_CONTROLLER}</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="unit_testing_model" name="unit_testing_model" disabled>
+                    <label for="unit_testing_model">{$Think.lang.UNIT_TESTING_MODEL}</label>
+                </li>
+            </ul>
         </li>
         <li>
             <input type="checkbox" id="using_https" name="using_https" disabled>

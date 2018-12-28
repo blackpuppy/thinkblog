@@ -22,12 +22,13 @@ services:
             - "DB_PORT=3306"
             - "DB_HOST=database"
     database:
-        image: mysql:latest
+        image: mysql:5.7
+        # command: --default-authentication-plugin=mysql_native_password
         environment:
             - "MYSQL_ROOT_PASSWORD=P@55w0rd"
             - "MYSQL_DATABASE=thinkblog"
         ports:
             - "33064:3306"
         volumes:
-            - ./_docker/mysql-conf.d:/etc/mysql/conf.d
+            - ./_docker/mysql-conf.d/mysqld.cnf:/etc/mysql/conf.d/mysqld.cnf
             - ./_docker/create_test_db.sql:/docker-entrypoint-initdb.d/create_test_db.sql

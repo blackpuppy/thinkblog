@@ -9,11 +9,18 @@ RUN apt-get update && apt-get install -y \
         libmcrypt-dev \
         libpng-dev \
         mysql-client \
+        unzip \
+        wget \
+        zip \
     && docker-php-ext-install -j$(nproc) intl mbstring mcrypt pdo_mysql \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd \
     && pecl install runkit \
     && docker-php-ext-enable runkit \
     && rm -r /var/lib/apt/lists/*
+
+COPY ./_docker/install-composer.sh /install-composer.sh
+RUN chmod +x /install-composer.sh \
+    && /install-composer.sh
 
 WORKDIR /var/www/html

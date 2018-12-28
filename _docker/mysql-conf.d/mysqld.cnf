@@ -2,3 +2,6 @@
 character_set_server=utf8mb4
 collation_server=utf8mb4_unicode_ci
 default-time-zone='+08:00'
+
+;set native password plugin for MySQL 8
+;default_authentication_plugin=mysql_native_password

@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit\Common\Conf;
 
 use Tests\BaseTest;
@@ -27,7 +28,7 @@ class RouteTest extends BaseTest
         // self::$app->setMVC($webrootUrl, 'Home', 'Index');
         self::$app->setMVC($webrootUrl, 'NoModule', 'NoController');
 
-        self::$app->setTestConfig([
+        $testConfig = [
             'DB_TYPE'    => getenv('DB_TYPE'),    // 数据库类型
             'DB_HOST'    => getenv('DB_HOST'),    // 服务器地址
             'DB_NAME'    => getenv('TEST_DB_NAME'),    // 测试数据库名
@@ -36,12 +37,20 @@ class RouteTest extends BaseTest
             'DB_PORT'    => getenv('DB_PORT'),    // 端口
             'DB_PREFIX'  => getenv('DB_PREFIX'),  // 数据库表前缀
             'DB_CHARSET' => getenv('DB_CHARSET'), // 字符集
-        ]); // 一定要设置一个测试用的数据库,避免测试过程破坏生产数据
+        ];
+
+        // echo '$testConfig = ' . print_r($testConfig, true);
+
+        self::$app->setTestConfig($testConfig); // 一定要设置一个测试用的数据库,避免测试过程破坏生产数据
+
         self::$app->start();
     }
 
     /**
      * 测试路由
+     *
+     * 运行测试:
+     * $ vendor/bin/phpunit ./Tests/Unit/Common/Conf/RouteTest.php
      */
     public function testRoutes()
     {

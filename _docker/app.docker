@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
         libicu-dev \
         libjpeg-dev \
         libmcrypt-dev \
-        libpng12-dev \
+        libpng-dev \
         mysql-client \
     && docker-php-ext-install -j$(nproc) intl mbstring mcrypt pdo_mysql \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \

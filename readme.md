@@ -82,9 +82,18 @@ $ docker exec -ti thinkblog_app_1 vendor/bin/phinx seed:run -c _phinx/phinx.php
 
 安装 Node.js 依赖：
 
+Mac/Linux 或者 Windows PowerShell:
+
 ```
-$ docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node yarn
+$ docker run -it --rm -v "${PWD}":/usr/src/app -w /usr/src/app node yarn
 ```
+
+Windows 命令行:
+
+```
+$ docker run -it --rm -v "%cd%":/usr/src/app -w /usr/src/app node yarn
+```
+
 
 构建前端资源：
 

@@ -85,20 +85,20 @@ $ docker exec -ti thinkblog_app_1 vendor/bin/phinx seed:run -c _phinx/phinx.php
 Mac/Linux 或者 Windows PowerShell:
 
 ```
-$ docker run -it --rm -v "${PWD}":/usr/src/app -w /usr/src/app node yarn
+$ docker run -it --rm -v "${PWD}":/usr/src/app -w /usr/src/app node:8 yarn
 ```
 
 Windows 命令行:
 
 ```
-$ docker run -it --rm -v "%cd%":/usr/src/app -w /usr/src/app node yarn
+$ docker run -it --rm -v "%cd%":/usr/src/app -w /usr/src/app node:8 yarn
 ```
 
 
 构建前端资源：
 
 ```
-$ docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node yarn dev
+$ docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:8 yarn dev
 ```
 
 然后你就可以在浏览器中查看网站 http://localhost:8084/。

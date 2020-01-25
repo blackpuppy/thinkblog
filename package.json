@@ -2,9 +2,6 @@
   "name": "thinkblog",
   "version": "1.0.0",
   "description": "ThinkPHP Blog",
-  "engines": {
-    "node": "^8.4.0"
-  },
   "main": "index.js",
   "repository": "git@github.com:blackpuppy/thinkblog.git",
   "author": "Zhu Ming <mingzhu.z+github@gmail.com>",
@@ -17,7 +14,7 @@
     "heroku-postbuild": "yarn dev"
   },
   "devDependencies": {
-    "angular": "^1.6.6",
+    "angular": "^1.7.9",
     "angular-animate": "^1.6.6",
     "angular-bootstrap-confirm": "^2.5.1",
     "angular-cookies": "^1.6.6",
@@ -29,11 +26,11 @@
     "angular-translate": "^2.15.2",
     "angular-ui-bootstrap": "^2.5.0",
     "angular-ui-router": "^1.0.3",
-    "bootstrap-confirmation2": "^2.4.0",
+    "bootstrap-confirmation2": "^4.1.0",
     "bootstrap-sass": "^3.3.7",
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
-    "cross-env": "^5.0.5",
+    "cross-env": "^6.0.3",
     "jquery": "^3.2.1",
     "laravel-mix": "^1.4.2",
     "node-sass": "^4.5.3"

@@ -57,25 +57,25 @@
 
 安装了 Docker 之后，用 Composer 安装 PHP 包：
 
-```
+```bash
 $ docker run --rm --interactive --tty --volume $PWD:/app composer install
 ```
 
 从 .env.example 拷贝创建 .env，并根据你的当前环境进行设置。在 Mac 或者 Linux 下可用如下命令：
 
-```
+```bash
 $ cp .env.example .env
 ```
 
 运行如下命令构建 Docker 映像，并在后台启动容器：
 
-```
+```bash
 $ docker-compose up -d
 ```
 
 运行数据库迁移和预置数据：
 
-```
+```bash
 $ docker exec -ti thinkblog_app_1 vendor/bin/phinx migrate -c _phinx/phinx.php
 $ docker exec -ti thinkblog_app_1 vendor/bin/phinx seed:run -c _phinx/phinx.php
 ```
@@ -84,21 +84,21 @@ $ docker exec -ti thinkblog_app_1 vendor/bin/phinx seed:run -c _phinx/phinx.php
 
 Mac/Linux 或者 Windows PowerShell:
 
-```
-$ docker run -it --rm -v "${PWD}":/usr/src/app -w /usr/src/app node:8 yarn
+```bash
+$ docker run -it --rm -v "${PWD}":/usr/src/app -w /usr/src/app node:12 yarn
 ```
 
 Windows 命令行:
 
-```
-$ docker run -it --rm -v "%cd%":/usr/src/app -w /usr/src/app node:8 yarn
+```cmd
+C:\>docker run -it --rm -v "%cd%":/usr/src/app -w /usr/src/app node:12 yarn
 ```
 
 
 构建前端资源：
 
-```
-$ docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:8 yarn dev
+```bash
+$ docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:12 yarn dev
 ```
 
 然后你就可以在浏览器中查看网站 http://localhost:8084/。

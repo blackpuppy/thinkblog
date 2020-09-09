@@ -103,6 +103,12 @@ $ docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:12 yarn dev
 
 然后你就可以在浏览器中查看网站 http://localhost:8084/。
 
+最后，可以运行如下命令关闭容器：
+
+```bash
+$ docker-compose down
+```
+
 ## 在线演示
 
 在线的演示程序已经下线。期待再次上线的，请等待通知。

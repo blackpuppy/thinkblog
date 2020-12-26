@@ -1,6 +1,7 @@
 server {
-    listen 80;
-    server_name www.thinkblog.docker;
+    listen      ${NGINX_PORT};
+    server_name ${NGINX_HOST};
+
     index index.php;
     root /var/www/html/webroot;
 

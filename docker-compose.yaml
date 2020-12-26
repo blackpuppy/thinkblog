@@ -10,6 +10,9 @@ services:
             - "8084:80"
         links:
             - app
+        environment:
+            - NGINX_HOST=thinkblog.docker www.thinkblog.docker
+            - NGINX_PORT=80
     app:
         build:
             context: ./

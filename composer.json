@@ -14,7 +14,7 @@
         "ext-gd": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "firebase/php-jwt": "^5.0",
+        "firebase/php-jwt": "^6.0",
         "fzaninotto/faker": "^1.7",
         "nesbot/carbon": "^1.22",
         "robmorgan/phinx": "^0.8.1",
